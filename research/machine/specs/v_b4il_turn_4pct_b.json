@@ -1,0 +1,7 @@
+{
+ "id": "v_b4il_turn_4pct_b",
+ "question": "On any 4% up-day (four_pct), with turnover-decile cut points shifted ~20% higher (explicit edges 0/0.59/0.78/0.97/1.0), does the bottom bucket still underperform the top bucket in both eras, confirming the quartile result isn't sensitive to exact cut placement?",
+ "plain": "Re-testing the turnover finding with the bucket boundaries moved to different cut points, to make sure the liquid-beats-illiquid pattern isn't an artifact of the original quartile edges.",
+ "cohort": {"trigger": "four_pct"},
+ "condition": {"type": "feature", "name": "turn_decile", "buckets": [0, 0.59, 0.78, 0.97, 1.0]}
+}

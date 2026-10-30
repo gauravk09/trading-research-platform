@@ -1,0 +1,7 @@
+{
+  "id": "b3rs_ep_sectorrs",
+  "question": "Do episodic pivots (extreme-volume gap events) in stronger sectors (higher sector_rs) produce better stop-based R than ones in weak sectors? Expect higher=better.",
+  "plain": "Momentum traders say a stock's sector strength matters as much as the stock itself -- this tests whether episodic-pivot gaps work better when their sector is already strong.",
+  "cohort": {"trigger": "ep", "filters": []},
+  "condition": {"type": "feature", "name": "sector_rs", "buckets": "quartiles"}
+}

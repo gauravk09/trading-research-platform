@@ -1,0 +1,9 @@
+{
+  "id": "mr_kell_ema_crossback_strong_tapegate",
+  "plain": "Iteration: kell EMA crossback dip-buy, strong structure, gated to healthy tape (net4>=40) to cut the -54% drawdown.",
+  "source": "csv",
+  "csv": "kell_ema_crossback_events.csv",
+  "filters": [["ti65", ">=", 1.0], ["dist_50dma", ">=", 0], ["pct_52wh", ">=", -15], ["market:net4", ">=", 40]],
+  "horizon": 10,
+  "risk": 0.0075
+}

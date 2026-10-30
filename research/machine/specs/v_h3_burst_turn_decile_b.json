@@ -1,0 +1,6 @@
+{
+  "id": "v_h3_burst_turn_decile_b",
+  "question": "Perturbation of h3_burst_turn_decile: with quintile buckets instead of quartiles, does the POSITIVE liquidity effect (higher turn_decile -> better stop-R) keep the same sign in both era A and era B? Expect positive effect to persist, likely larger at the sharper extremes.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quintiles"}
+}

@@ -1,0 +1,6 @@
+{
+  "id": "b2n_goodtape_turn",
+  "question": "Inside good tape (market:net4 >= 134, h4 top-quintile edge): does liquidity still matter for bursts? Expect POSITIVE turn_decile top-minus-bottom effect (liquid best, per h3/v_h4); era-A has only ~456 good-tape bursts so INSUFFICIENT is the likely honest verdict - era-B buckets are the payload.",
+  "cohort": {"trigger": "burst", "filters": [["market:net4", ">=", 134]]},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quartiles"}
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b3mv_vcp_tightness",
+  "question": "Inside a Minervini-style leader-near-high cohort (burst + rs>=80 + pct_52wh<=15), does volatility-contraction tightness add further edge, with tighter (lower tightness) expected to beat looser, though house prior says tightness rarely grades bursts?",
+  "plain": "Minervini's VCP idea says the tightest, quietest bases before a breakout produce the best leaders -- this checks if that still holds once you already have a strong, near-high leader.",
+  "cohort": {"trigger": "burst", "filters": [["rs", ">=", 80], ["pct_52wh", "<=", 15]]},
+  "condition": {"type": "feature", "name": "tightness", "buckets": "quartiles"}
+}

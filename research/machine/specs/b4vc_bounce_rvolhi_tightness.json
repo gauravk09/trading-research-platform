@@ -1,0 +1,7 @@
+{
+  "id": "b4vc_bounce_rvolhi_tightness",
+  "question": "Stacking BOUNCE + rvol50>=2 (high volume already present), does tightness further sharpen the effect? Expect LOW tightness (high volume + narrow range = classic VSA absorption) = best stop-R.",
+  "plain": "Tests the full VSA absorption signature (volume spike plus narrow range) on already high-volume bounce setups.",
+  "cohort": {"trigger": "bounce", "filters": [["rvol50", ">=", 2]]},
+  "condition": {"type": "feature", "name": "tightness", "buckets": "quartiles"}
+}

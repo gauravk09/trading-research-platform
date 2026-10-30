@@ -1,0 +1,211 @@
+{
+ "id": "b3rs_fourpct_sectorrs",
+ "question": "Do 4% up days in stronger sectors (higher sector_rs) produce better stop-based R than ones in weak sectors? Expect higher=better.",
+ "plain": "Same sector-strength-matters idea applied to any ordinary 4% up day.",
+ "spec": {
+  "id": "b3rs_fourpct_sectorrs",
+  "question": "Do 4% up days in stronger sectors (higher sector_rs) produce better stop-based R than ones in weak sectors? Expect higher=better.",
+  "plain": "Same sector-strength-matters idea applied to any ordinary 4% up day.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "sector_rs",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 64592,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.01123595517128706,
+    0.3932584226131439
+   ],
+   "A": {
+    "n": 4250,
+    "avg_stop_r": -0.071,
+    "med_ret_o5": -1.32,
+    "win5_pct": 40.6,
+    "avg_stop_r_20": -0.181
+   },
+   "B": {
+    "n": 6267,
+    "avg_stop_r": -0.025,
+    "med_ret_o5": -0.84,
+    "win5_pct": 44.6,
+    "avg_stop_r_20": 0.001
+   },
+   "COVID": {
+    "n": 5950,
+    "avg_stop_r": -0.048,
+    "med_ret_o5": -1.11,
+    "win5_pct": 42.0,
+    "avg_stop_r_20": 0.05
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.39772728085517883,
+    0.5909090638160706
+   ],
+   "A": {
+    "n": 4218,
+    "avg_stop_r": -0.035,
+    "med_ret_o5": -0.75,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": -0.122
+   },
+   "B": {
+    "n": 6548,
+    "avg_stop_r": 0.021,
+    "med_ret_o5": -0.46,
+    "win5_pct": 46.9,
+    "avg_stop_r_20": 0.08
+   },
+   "COVID": {
+    "n": 5243,
+    "avg_stop_r": -0.066,
+    "med_ret_o5": -1.14,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": 0.026
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.5919540524482727,
+    0.7640449404716492
+   ],
+   "A": {
+    "n": 4413,
+    "avg_stop_r": -0.018,
+    "med_ret_o5": -0.86,
+    "win5_pct": 43.7,
+    "avg_stop_r_20": -0.075
+   },
+   "B": {
+    "n": 7132,
+    "avg_stop_r": 0.057,
+    "med_ret_o5": -0.36,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": 0.19
+   },
+   "COVID": {
+    "n": 4874,
+    "avg_stop_r": -0.019,
+    "med_ret_o5": -0.92,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": 0.163
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.7701149582862854,
+    1.0
+   ],
+   "A": {
+    "n": 4207,
+    "avg_stop_r": -0.011,
+    "med_ret_o5": -0.71,
+    "win5_pct": 45.1,
+    "avg_stop_r_20": -0.015
+   },
+   "B": {
+    "n": 6791,
+    "avg_stop_r": 0.014,
+    "med_ret_o5": -0.38,
+    "win5_pct": 47.3,
+    "avg_stop_r_20": 0.099
+   },
+   "COVID": {
+    "n": 4699,
+    "avg_stop_r": 0.052,
+    "med_ret_o5": -0.7,
+    "win5_pct": 45.3,
+    "avg_stop_r_20": 0.248
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.059,
+  "COVID": 0.1,
+  "B": 0.039
+ },
+ "extreme_bucket_n": {
+  "A": [
+   4250,
+   4207
+  ],
+  "B": [
+   6267,
+   6791
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.074,
+   "n": 6696,
+   "n_ext": [
+    1458,
+    1629
+   ]
+  },
+  "B24": {
+   "effect": 0.028,
+   "n": 20042,
+   "n_ext": [
+    4809,
+    5162
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.166,
+  "COVID": 0.198,
+  "B": 0.099
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": 0.143,
+  "COVID": 0.18,
+  "B": 0.157
+ },
+ "effect_R_trail_w5": {
+  "A": 0.128,
+  "COVID": 0.155,
+  "B": 0.12
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": 0.126,
+  "COVID": 0.129,
+  "B": 0.115
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.116,
+  "COVID": 0.114,
+  "B": 0.088
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": 0.082,
+  "COVID": 0.114,
+  "B": 0.048
+ },
+ "effect_R_close_w5": {
+  "A": 0.069,
+  "COVID": 0.114,
+  "B": 0.054
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "FAIL"
+}

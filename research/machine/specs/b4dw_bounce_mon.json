@@ -1,0 +1,7 @@
+{
+  "id": "b4dw_bounce_mon",
+  "question": "Does an oversold bounce setup (3rd down day) triggered into a Monday produce better stop-based R than one into Tue-Fri? Indian studies show a positive Monday effect (reversed vs the US); mean-reversion/bounce trades should benefit most if the effect is real, but expect it to be weak/decayed post-sample.",
+  "plain": "Tests whether Monday helps oversold bounce trades more, per Indian day-of-week studies showing a reversed (positive) Monday effect vs the US.",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "calendar", "name": "dow", "buckets": [-1, 0, 4]}
+}

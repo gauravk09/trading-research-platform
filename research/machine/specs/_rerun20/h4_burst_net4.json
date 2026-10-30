@@ -1,0 +1,1 @@
+{"id": "h4_burst_net4", "question": "Net-4% kill-switch: bursts triggered when market net4 is LOW should do worse - expect higher net4 buckets better, i.e. positive top-minus-bottom effect", "cohort": {"trigger": "burst"}, "condition": {"type": "market", "name": "net4", "buckets": "quintiles"}}

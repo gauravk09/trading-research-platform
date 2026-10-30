@@ -1,0 +1,20 @@
+{
+ "id": "v_lcbounce_bounce_low21_mcap300",
+ "question": "Red-team perturbation (2026-08-06 batch): mcap_rank<=300 instead of 150",
+ "cohort": {
+  "trigger": "bounce",
+  "side": "long",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    300
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "bounce_low21",
+  "buckets": "quartiles"
+ }
+}

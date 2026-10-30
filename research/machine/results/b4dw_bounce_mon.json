@@ -1,0 +1,160 @@
+{
+ "id": "b4dw_bounce_mon",
+ "question": "Does an oversold bounce setup (3rd down day) triggered into a Monday produce better stop-based R than one into Tue-Fri? Indian studies show a positive Monday effect (reversed vs the US); mean-reversion/bounce trades should benefit most if the effect is real, but expect it to be weak/decayed post-sample.",
+ "plain": "Tests whether Monday helps oversold bounce trades more, per Indian day-of-week studies showing a reversed (positive) Monday effect vs the US.",
+ "spec": {
+  "id": "b4dw_bounce_mon",
+  "question": "Does an oversold bounce setup (3rd down day) triggered into a Monday produce better stop-based R than one into Tue-Fri? Indian studies show a positive Monday effect (reversed vs the US); mean-reversion/bounce trades should benefit most if the effect is real, but expect it to be weak/decayed post-sample.",
+  "plain": "Tests whether Monday helps oversold bounce trades more, per Indian day-of-week studies showing a reversed (positive) Monday effect vs the US.",
+  "cohort": {
+   "trigger": "bounce"
+  },
+  "condition": {
+   "type": "calendar",
+   "name": "dow",
+   "buckets": [
+    -1,
+    0,
+    4
+   ]
+  }
+ },
+ "side": "long",
+ "n": 134668,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    0.0
+   ],
+   "A": {
+    "n": 7258,
+    "avg_stop_r": -0.003,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.5,
+    "avg_stop_r_20": -0.044
+   },
+   "B": {
+    "n": 15606,
+    "avg_stop_r": 0.217,
+    "med_ret_o5": -0.26,
+    "win5_pct": 47.4,
+    "avg_stop_r_20": 0.124
+   },
+   "COVID": {
+    "n": 8315,
+    "avg_stop_r": 0.282,
+    "med_ret_o5": -0.06,
+    "win5_pct": 49.2,
+    "avg_stop_r_20": 0.634
+   }
+  },
+  "1": {
+   "cond_range": [
+    1.0,
+    4.0
+   ],
+   "A": {
+    "n": 27702,
+    "avg_stop_r": -0.054,
+    "med_ret_o5": -0.5,
+    "win5_pct": 44.7,
+    "avg_stop_r_20": -0.008
+   },
+   "B": {
+    "n": 48887,
+    "avg_stop_r": 0.166,
+    "med_ret_o5": -0.27,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": 0.17
+   },
+   "COVID": {
+    "n": 26900,
+    "avg_stop_r": 0.12,
+    "med_ret_o5": -0.27,
+    "win5_pct": 47.5,
+    "avg_stop_r_20": 0.404
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.051,
+  "COVID": -0.162,
+  "B": -0.051
+ },
+ "extreme_bucket_n": {
+  "A": [
+   7258,
+   27702
+  ],
+  "B": [
+   15606,
+   48887
+  ]
+ },
+ "null_beat_pct": 64.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.105,
+   "n": 14854,
+   "n_ext": [
+    3152,
+    11702
+   ]
+  },
+  "B24": {
+   "effect": -0.106,
+   "n": 49639,
+   "n_ext": [
+    12454,
+    37185
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.035,
+  "COVID": -0.229,
+  "B": 0.047
+ },
+ "null_beat_pct_20": 18.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.044,
+  "COVID": -0.214,
+  "B": -0.001
+ },
+ "effect_R_trail_w5": {
+  "A": -0.012,
+  "COVID": -0.194,
+  "B": -0.068
+ },
+ "null_beat_pct_trail": 42.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.04,
+  "COVID": -0.126,
+  "B": -0.007
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.01,
+  "COVID": -0.136,
+  "B": -0.061
+ },
+ "null_beat_pct_trail_be": 30.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.031,
+  "COVID": -0.115,
+  "B": -0.143
+ },
+ "effect_R_close_w5": {
+  "A": -0.01,
+  "COVID": -0.133,
+  "B": -0.092
+ },
+ "null_beat_pct_close": 80.5,
+ "verdict_close": "FAIL"
+}

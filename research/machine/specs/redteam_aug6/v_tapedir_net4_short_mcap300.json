@@ -1,0 +1,20 @@
+{
+ "id": "v_tapedir_net4_short_mcap300",
+ "question": "Red-team perturbation (2026-08-06 batch): mcap_rank<=300",
+ "cohort": {
+  "trigger": "four_pct_down",
+  "side": "short",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    300
+   ]
+  ]
+ },
+ "condition": {
+  "type": "market",
+  "name": "net4",
+  "buckets": "quartiles"
+ }
+}

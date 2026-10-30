@@ -1,0 +1,13 @@
+{
+  "id": "v_b4vc_bounce_rvol50_a",
+  "question": "Perturbation of b4vc_bounce_rvol50: same BOUNCE cohort and rvol50 condition but quintiles instead of quartiles. Expect the same monotonic HIGHER rvol50 = better stop-R gradient to survive finer bucketing.",
+  "plain": "Robustness check: does the volume-spike-on-down-days bounce edge hold up with 5 buckets instead of 4?",
+  "cohort": {
+    "trigger": "bounce"
+  },
+  "condition": {
+    "type": "feature",
+    "name": "rvol50",
+    "buckets": "quintiles"
+  }
+}

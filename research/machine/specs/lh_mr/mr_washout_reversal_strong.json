@@ -1,0 +1,9 @@
+{
+  "id": "mr_washout_reversal_strong",
+  "plain": "Multi-day washout reversal buy, restricted to structurally strong large caps (uptrend intact, near highs).",
+  "source": "csv",
+  "csv": "washout_reversal_events.csv",
+  "filters": [["ti65", ">=", 1.0], ["dist_50dma", ">=", 0], ["pct_52wh", ">=", -15]],
+  "horizon": 10,
+  "risk": 0.0075
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b7mb_burst_ma1020",
+  "question": "Muninn article benchmark: breakouts taken while the Nifty 10-DMA is above its 20-DMA (higher ma1020 ratio) should do better -- expect higher ratio = better",
+  "plain": "The article's only rule that survived out-of-sample data was 'index 10-day average above the 20-day'; this checks whether that simple Nifty trend gate grades our tight-base breakouts.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "market", "name": "ma1020_nifty50", "buckets": "quintiles"}
+}

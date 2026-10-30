@@ -1,0 +1,12 @@
+{
+  "id": "v_b2t_fp_nearlow_net4_b",
+  "question": "Perturbation B of b2t_fp_nearlow_net4: loosen bounce_low21 edge ~20% (<= 21.8 instead of 18.16), keep turn_decile >= 0.5, and change bucketing from quintiles to quartiles. Expected: positive effect persists in eras A and B, top net4 quartile best.",
+  "cohort": {
+    "trigger": "four_pct",
+    "filters": [
+      ["bounce_low21", "<=", 21.8],
+      ["turn_decile", ">=", 0.5]
+    ]
+  },
+  "condition": {"type": "market", "name": "net4", "buckets": "quartiles"}
+}

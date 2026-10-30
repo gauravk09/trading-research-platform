@@ -1,0 +1,9 @@
+{
+  "id": "rg_burst_net4_ratio10_combo",
+  "plain": "Large-cap breakout (burst) long, only taken when BOTH net4>=50 AND the up/down volume ratio (ratio10) confirms broad participation (>=1)",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["market:net4", ">=", 50], ["market:ratio10", ">=", 1]],
+  "horizon": 20,
+  "risk": 0.0075
+}

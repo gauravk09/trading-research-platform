@@ -1,0 +1,13 @@
+{
+ "id": "v_b4se_expiry_burst_b",
+ "question": "Perturbation of b4se_expiry_burst: narrow expiry window to just 0-1 days to expiry (from 0-2) vs 2-7 mid vs 8-40 far. Expected: same direction as original if real - the tightest near-expiry bucket keeps a higher avg_stop_r than the far bucket in both era A and B.",
+ "plain": "Retesting the burst-trigger expiry-week effect with a tighter 0-1-day expiry window to check the effect isn't just an artifact of the original 0-2 day cut.",
+ "cohort": {
+  "trigger": "burst"
+ },
+ "condition": {
+  "type": "calendar",
+  "name": "expiry_dist",
+  "buckets": [-1, 1, 7, 40]
+ }
+}

@@ -1,0 +1,6 @@
+{
+  "id": "b2e_liq_burst_success",
+  "question": "Batch-1 WEAK burst_success (+0.058/+0.066, null 99.5) re-tested on the confirmed liquid half (filter turn_decile >= 0.5): expect positive top-minus-bottom quartile effect (high prior burst success still better) to persist or sharpen; if it was a liquidity proxy it vanishes.",
+  "cohort": {"trigger": "burst", "filters": [["turn_decile", ">=", 0.5]]},
+  "condition": {"type": "feature", "name": "burst_success", "buckets": "quartiles"}
+}

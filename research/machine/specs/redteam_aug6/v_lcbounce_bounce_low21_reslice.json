@@ -1,0 +1,20 @@
+{
+ "id": "v_lcbounce_bounce_low21_reslice",
+ "question": "Red-team perturbation (2026-08-06 batch): re-sliced to quintiles",
+ "cohort": {
+  "trigger": "bounce",
+  "side": "long",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    150
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "bounce_low21",
+  "buckets": "quintiles"
+ }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "lclowvol_4pct_tightness",
+  "question": "Among large-cap (top200, broadened after INSUFFICIENT at top150) four_pct days, does tighter pre-signal price action (higher tightness score) beat looser action on long stop-R? Expect POSITIVE top-minus-bottom effect (tighter/quieter base = better).",
+  "plain": "For big-cap stocks that just popped 4%+, do the ones coming out of a tight, quiet base make better longs than the ones coming out of a sloppy, wide-ranging base?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 200]]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "tightness",
+    "buckets": "quartiles"
+  }
+}

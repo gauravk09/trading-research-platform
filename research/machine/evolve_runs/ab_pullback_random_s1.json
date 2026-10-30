@@ -1,0 +1,389 @@
+{
+ "args": {
+  "trigger": "pullback",
+  "operator": "random",
+  "seed": 1,
+  "budget": 240,
+  "bridge_dir": null,
+  "placebo": false
+ },
+ "curve": [
+  {
+   "spent": 6,
+   "best": 0.6404
+  },
+  {
+   "spent": 12,
+   "best": 0.6452
+  },
+  {
+   "spent": 18,
+   "best": 0.6452
+  },
+  {
+   "spent": 24,
+   "best": 0.796
+  },
+  {
+   "spent": 30,
+   "best": 0.796
+  },
+  {
+   "spent": 36,
+   "best": 0.8229
+  },
+  {
+   "spent": 42,
+   "best": 0.8498
+  },
+  {
+   "spent": 48,
+   "best": 0.9676
+  },
+  {
+   "spent": 54,
+   "best": 0.9676
+  },
+  {
+   "spent": 60,
+   "best": 0.9676
+  },
+  {
+   "spent": 66,
+   "best": 0.9676
+  },
+  {
+   "spent": 72,
+   "best": 0.9676
+  },
+  {
+   "spent": 78,
+   "best": 0.9676
+  },
+  {
+   "spent": 84,
+   "best": 0.9676
+  },
+  {
+   "spent": 90,
+   "best": 0.9676
+  },
+  {
+   "spent": 96,
+   "best": 0.9676
+  },
+  {
+   "spent": 102,
+   "best": 0.9676
+  },
+  {
+   "spent": 108,
+   "best": 0.9676
+  },
+  {
+   "spent": 114,
+   "best": 0.9676
+  },
+  {
+   "spent": 120,
+   "best": 0.9676
+  },
+  {
+   "spent": 126,
+   "best": 0.9676
+  },
+  {
+   "spent": 132,
+   "best": 0.9676
+  },
+  {
+   "spent": 138,
+   "best": 0.9676
+  },
+  {
+   "spent": 144,
+   "best": 0.9676
+  },
+  {
+   "spent": 150,
+   "best": 0.9676
+  },
+  {
+   "spent": 156,
+   "best": 0.9676
+  },
+  {
+   "spent": 162,
+   "best": 0.9676
+  },
+  {
+   "spent": 168,
+   "best": 0.9676
+  },
+  {
+   "spent": 174,
+   "best": 0.9676
+  },
+  {
+   "spent": 180,
+   "best": 0.9676
+  },
+  {
+   "spent": 186,
+   "best": 0.9676
+  },
+  {
+   "spent": 192,
+   "best": 0.9676
+  },
+  {
+   "spent": 198,
+   "best": 0.9676
+  },
+  {
+   "spent": 204,
+   "best": 0.9676
+  },
+  {
+   "spent": 210,
+   "best": 0.9676
+  },
+  {
+   "spent": 216,
+   "best": 0.9676
+  },
+  {
+   "spent": 222,
+   "best": 0.9676
+  },
+  {
+   "spent": 228,
+   "best": 0.9676
+  },
+  {
+   "spent": 234,
+   "best": 0.9676
+  },
+  {
+   "spent": 240,
+   "best": 0.9676
+  }
+ ],
+ "dups": 98,
+ "invalid": 0,
+ "final_best": 0.9675597837797931,
+ "top": [
+  {
+   "structure": [
+    [
+     "pocket_pivot",
+     "<="
+    ],
+    [
+     "market:score",
+     "<="
+    ]
+   ],
+   "score": 0.9676,
+   "fold_eff": [
+    0.3,
+    0.613,
+    0.448,
+    0.286
+   ],
+   "n": 513
+  },
+  {
+   "structure": [
+    [
+     "turn_decile",
+     "<="
+    ],
+    [
+     "trend_age",
+     ">="
+    ]
+   ],
+   "score": 0.867,
+   "fold_eff": [
+    0.523,
+    0.513,
+    0.392,
+    0.362
+   ],
+   "n": 399
+  },
+  {
+   "structure": [
+    [
+     "pocket_pivot",
+     "<="
+    ],
+    [
+     "ret_252",
+     "<="
+    ]
+   ],
+   "score": 0.8662,
+   "fold_eff": [
+    0.388,
+    0.41,
+    0.42,
+    0.226
+   ],
+   "n": 580
+  },
+  {
+   "structure": [
+    [
+     "turn_decile",
+     "<="
+    ],
+    [
+     "pocket_pivot",
+     "<="
+    ],
+    [
+     "trend_age",
+     ">="
+    ]
+   ],
+   "score": 0.8498,
+   "fold_eff": [
+    0.731,
+    0.495,
+    0.839,
+    0.372
+   ],
+   "n": 383
+  },
+  {
+   "structure": [
+    [
+     "pocket_pivot",
+     "<="
+    ]
+   ],
+   "score": 0.8229,
+   "fold_eff": [
+    0.195,
+    0.307,
+    0.314,
+    0.221
+   ],
+   "n": 646
+  },
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "pocket_pivot",
+     "<="
+    ]
+   ],
+   "score": 0.8176,
+   "fold_eff": [
+    0.3,
+    0.613,
+    0.448,
+    0.286
+   ],
+   "n": 513
+  },
+  {
+   "structure": [
+    [
+     "pocket_pivot",
+     "<="
+    ],
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "market:ratio10",
+     ">="
+    ]
+   ],
+   "score": 0.8139,
+   "fold_eff": [
+    0.363,
+    0.538,
+    0.52,
+    0.244
+   ],
+   "n": 463
+  },
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ]
+   ],
+   "score": 0.796,
+   "fold_eff": [
+    0.167,
+    0.566,
+    0.209,
+    0.194
+   ],
+   "n": 606
+  },
+  {
+   "structure": [
+    [
+     "ret_252",
+     "<="
+    ],
+    [
+     "burst_success",
+     "<="
+    ],
+    [
+     "pocket_pivot",
+     "<="
+    ]
+   ],
+   "score": 0.7876,
+   "fold_eff": [
+    0.563,
+    0.447,
+    0.536,
+    0.261
+   ],
+   "n": 518
+  },
+  {
+   "structure": [
+    [
+     "turn_decile",
+     "<="
+    ],
+    [
+     "sector_rs",
+     "<="
+    ],
+    [
+     "trend_age",
+     ">="
+    ]
+   ],
+   "score": 0.7859,
+   "fold_eff": [
+    0.772,
+    0.428,
+    0.599,
+    0.504
+   ],
+   "n": 342
+  }
+ ]
+}

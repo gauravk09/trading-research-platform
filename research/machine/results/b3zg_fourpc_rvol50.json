@@ -1,0 +1,211 @@
+{
+ "id": "b3zg_fourpc_rvol50",
+ "question": "Zanger: on a 4% up day, does a bigger volume spike (rvol50) grade better follow-through? House prior says volume-confirmation is neutral-to-harmful on NSE -- expect flat/negative.",
+ "plain": "Dan Zanger says a breakout only counts if volume explodes; we test whether NSE 4%-up days with the biggest volume spikes actually perform better afterward.",
+ "spec": {
+  "id": "b3zg_fourpc_rvol50",
+  "question": "Zanger: on a 4% up day, does a bigger volume spike (rvol50) grade better follow-through? House prior says volume-confirmation is neutral-to-harmful on NSE -- expect flat/negative.",
+  "plain": "Dan Zanger says a breakout only counts if volume explodes; we test whether NSE 4%-up days with the biggest volume spikes actually perform better afterward.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "rvol50",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 81503,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.012564740143716335,
+    1.2166023254394531
+   ],
+   "A": {
+    "n": 4081,
+    "avg_stop_r": 0.019,
+    "med_ret_o5": -0.68,
+    "win5_pct": 45.5,
+    "avg_stop_r_20": -0.113
+   },
+   "B": {
+    "n": 9662,
+    "avg_stop_r": 0.112,
+    "med_ret_o5": -0.16,
+    "win5_pct": 48.9,
+    "avg_stop_r_20": 0.169
+   },
+   "COVID": {
+    "n": 6633,
+    "avg_stop_r": 0.001,
+    "med_ret_o5": -0.92,
+    "win5_pct": 43.6,
+    "avg_stop_r_20": 0.141
+   }
+  },
+  "1": {
+   "cond_range": [
+    1.2166603803634644,
+    2.1676437854766846
+   ],
+   "A": {
+    "n": 4734,
+    "avg_stop_r": -0.023,
+    "med_ret_o5": -0.91,
+    "win5_pct": 43.4,
+    "avg_stop_r_20": -0.11
+   },
+   "B": {
+    "n": 9172,
+    "avg_stop_r": 0.006,
+    "med_ret_o5": -0.41,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": 0.078
+   },
+   "COVID": {
+    "n": 6470,
+    "avg_stop_r": 0.005,
+    "med_ret_o5": -0.82,
+    "win5_pct": 44.2,
+    "avg_stop_r_20": 0.162
+   }
+  },
+  "2": {
+   "cond_range": [
+    2.167813539505005,
+    4.233666896820068
+   ],
+   "A": {
+    "n": 4517,
+    "avg_stop_r": -0.073,
+    "med_ret_o5": -1.17,
+    "win5_pct": 41.7,
+    "avg_stop_r_20": -0.124
+   },
+   "B": {
+    "n": 9323,
+    "avg_stop_r": -0.044,
+    "med_ret_o5": -0.83,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": 0.02
+   },
+   "COVID": {
+    "n": 6535,
+    "avg_stop_r": -0.046,
+    "med_ret_o5": -1.09,
+    "win5_pct": 42.6,
+    "avg_stop_r_20": 0.058
+   }
+  },
+  "3": {
+   "cond_range": [
+    4.233684539794922,
+    45.86168670654297
+   ],
+   "A": {
+    "n": 4128,
+    "avg_stop_r": -0.13,
+    "med_ret_o5": -1.37,
+    "win5_pct": 39.9,
+    "avg_stop_r_20": -0.208
+   },
+   "B": {
+    "n": 10266,
+    "avg_stop_r": -0.11,
+    "med_ret_o5": -1.32,
+    "win5_pct": 40.8,
+    "avg_stop_r_20": -0.082
+   },
+   "COVID": {
+    "n": 5982,
+    "avg_stop_r": -0.143,
+    "med_ret_o5": -1.67,
+    "win5_pct": 39.4,
+    "avg_stop_r_20": -0.064
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.149,
+  "COVID": -0.144,
+  "B": -0.223
+ },
+ "extreme_bucket_n": {
+  "A": [
+   4081,
+   4128
+  ],
+  "B": [
+   9662,
+   10266
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.015,
+   "n": 9080,
+   "n_ext": [
+    1568,
+    2950
+   ]
+  },
+  "B24": {
+   "effect": -0.29,
+   "n": 29343,
+   "n_ext": [
+    8094,
+    7316
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "PASS",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.095,
+  "COVID": -0.205,
+  "B": -0.251
+ },
+ "null_beat_pct_20": 99.0,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": -0.045,
+  "COVID": -0.188,
+  "B": -0.121
+ },
+ "effect_R_trail_w5": {
+  "A": -0.048,
+  "COVID": -0.132,
+  "B": -0.066
+ },
+ "null_beat_pct_trail": 76.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.068,
+  "COVID": -0.149,
+  "B": -0.188
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.072,
+  "COVID": -0.121,
+  "B": -0.129
+ },
+ "null_beat_pct_trail_be": 99.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.106,
+  "COVID": -0.095,
+  "B": -0.241
+ },
+ "effect_R_close_w5": {
+  "A": -0.109,
+  "COVID": -0.096,
+  "B": -0.22
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "PASS"
+}

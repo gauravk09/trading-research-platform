@@ -1,0 +1,531 @@
+{
+ "args": {
+  "trigger": "burst",
+  "mode": "seeded",
+  "seeds": "specs/ga_seeds/burst.json",
+  "genome": "gradient",
+  "side": "long",
+  "pop": 56,
+  "gens": 30,
+  "seed": 1,
+  "finalists": 4,
+  "placebo": false,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 1.458196874015795,
+   "median": 0.05784945048702833,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 4,
+   "best": 1.458196874015795,
+   "median": 0.030109941490142844,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 5,
+   "best": 1.458196874015795,
+   "median": 0.5654823212196687,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 6,
+   "best": 1.458196874015795,
+   "median": 0.5895851978496536,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 7,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 8,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 9,
+   "best": 1.458196874015795,
+   "median": 0.3763762996835963,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 10,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 11,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 12,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 13,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 14,
+   "best": 1.458196874015795,
+   "median": 0.11108460917947927,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 15,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 16,
+   "best": 1.458196874015795,
+   "median": 0.2771046738040635,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 17,
+   "best": 1.458196874015795,
+   "median": 0.5289629749349345,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 18,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 19,
+   "best": 1.458196874015795,
+   "median": 0.6378703084957817,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 20,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 21,
+   "best": 1.458196874015795,
+   "median": 0.5389830126433617,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 22,
+   "best": 1.458196874015795,
+   "median": 0.4018129012508154,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 23,
+   "best": 1.458196874015795,
+   "median": 0.06527588406726109,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 24,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 25,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 26,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 27,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 28,
+   "best": 1.458196874015795,
+   "median": 0.05554230458973963,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 29,
+   "best": 1.458196874015795,
+   "median": 0.7346064856681165,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 30,
+   "best": 1.458196874015795,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  }
+ ],
+ "unevaluable_seeds": [
+  {
+   "id": "d1_deliv_veto",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "d2_deliv_regime",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.2
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ]
+   ]
+  },
+  {
+   "id": "c3_R5_system",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.5
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.7
+    ]
+   ]
+  }
+ ],
+ "finalists": [
+  {
+   "id": "ga_burst_s1_seeded_f1c6cc",
+   "train_score": 1.458196874015795,
+   "verdict": "PASS",
+   "effect_R": {
+    "A": 0.209,
+    "COVID": 0.161,
+    "B": 0.154
+   },
+   "null_beat_pct": 100.0,
+   "n": 23467,
+   "spec": {
+    "id": "ga_burst_s1_seeded_f1c6cc",
+    "question": "GA-evolved (burst): filters [none]; condition turn_decile (quartiles). Train CV folds +0.29/+0.19/+0.16/+0.20R \u2014 expect more of it = better. Era B untouched until this run.",
+    "cohort": {
+     "trigger": "burst",
+     "filters": []
+    },
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "id": "ga_burst_s1_seeded_7f19d4",
+   "train_score": 0.4754345358932924,
+   "verdict": "WEAK",
+   "effect_R": {
+    "A": 0.058,
+    "COVID": 0.039,
+    "B": 0.066
+   },
+   "null_beat_pct": 99.5,
+   "n": 22901,
+   "spec": {
+    "id": "ga_burst_s1_seeded_7f19d4",
+    "question": "GA-evolved (burst): filters [none]; condition burst_success (quartiles). Train CV folds +0.20/+0.11/+0.04/+0.01R \u2014 expect more of it = better. Era B untouched until this run.",
+    "cohort": {
+     "trigger": "burst",
+     "filters": []
+    },
+    "condition": {
+     "type": "feature",
+     "name": "burst_success",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "id": "ga_burst_s1_seeded_58d6b5",
+   "train_score": 0.13055176813452218,
+   "verdict": "FAIL",
+   "effect_R": {
+    "A": -0.002,
+    "COVID": -0.156,
+    "B": -0.043
+   },
+   "null_beat_pct": 99.0,
+   "n": 23467,
+   "spec": {
+    "id": "ga_burst_s1_seeded_58d6b5",
+    "question": "GA-evolved (burst): filters [none]; condition volc5_50 (quartiles). Train CV folds +0.05/-0.01/+0.01/+0.21R \u2014 expect more of it = better. Era B untouched until this run.",
+    "cohort": {
+     "trigger": "burst",
+     "filters": []
+    },
+    "condition": {
+     "type": "feature",
+     "name": "volc5_50",
+     "buckets": "quartiles"
+    }
+   }
+  }
+ ]
+}

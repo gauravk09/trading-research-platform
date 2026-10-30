@@ -1,0 +1,6 @@
+{
+  "id": "b2e_liq_eff_ratio",
+  "question": "Batch-1 WEAK eff_ratio (+0.19/+0.04, null 100) re-tested on the confirmed liquid half (filter turn_decile >= 0.5): expect positive top-minus-bottom quartile effect (linear 60d movers beat choppy) to persist, with era B the fragile side (was only +0.045 on the full cohort).",
+  "cohort": {"trigger": "burst", "filters": [["turn_decile", ">=", 0.5]]},
+  "condition": {"type": "feature", "name": "eff_ratio", "buckets": "quartiles"}
+}

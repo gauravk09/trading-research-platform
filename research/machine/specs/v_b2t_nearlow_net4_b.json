@@ -1,0 +1,6 @@
+{
+  "id": "v_b2t_nearlow_net4_b",
+  "question": "Perturbation B of b2t_nearlow_net4: loosen bounce_low21 edge ~20% (<= 21.8 vs 18.16), keep liquid-half turn_decile >= 0.5, and switch bucketing quintiles->quartiles to test top-bucket-edge sensitivity - expect same POSITIVE top-minus-bottom effect in eras A and B, top net4 bucket positive in absolute era-B stop-R",
+  "cohort": {"trigger": "four_pct", "filters": [["bounce_low21", "<=", 21.8], ["turn_decile", ">=", 0.5]]},
+  "condition": {"type": "market", "name": "net4", "buckets": "quartiles"}
+}

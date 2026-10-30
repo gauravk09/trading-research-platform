@@ -1,0 +1,7 @@
+{
+  "id": "b3rs_burst_rs",
+  "question": "Does composite RS rank (rs) grade burst (tight-base breakout) quality, with higher rs producing better stop-based R? Expect higher=better.",
+  "plain": "IBD-style relative strength rating is the factor most momentum traders (TraderLion speakers, William O'Neil disciples) call king -- this tests whether stocks with a higher RS rank make better tight-base breakouts.",
+  "cohort": {"trigger": "burst", "filters": []},
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

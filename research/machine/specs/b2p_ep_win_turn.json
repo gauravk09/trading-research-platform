@@ -1,0 +1,6 @@
+{
+  "id": "b2p_ep_win_turn",
+  "question": "Stack: EPs with ret_252 >= 0 (pre-registered loser-avoidance edge from h2_ep_ret252) conditioned on turn_decile quartiles. Expect POSITIVE top-minus-bottom (more liquid better), mirroring the burst-side turn_decile PASS (+0.21/+0.15); house liquid-half convention is turn_decile >= 0.5.",
+  "cohort": {"trigger": "ep", "filters": [["ret_252", ">=", 0]]},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quartiles"}
+}

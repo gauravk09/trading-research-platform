@@ -1,0 +1,6 @@
+{
+  "id": "c003_control_burst_adr",
+  "question": "MECHANICAL CONTROL: burst stop-R must depend on the stock's own volatility (ADR) within any given day - the null test must be able to reach >=95% on a strong stock-level effect",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "adr20", "buckets": "quartiles"}
+}

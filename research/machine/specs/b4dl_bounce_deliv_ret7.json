@@ -1,0 +1,7 @@
+{
+  "id": "b4dl_bounce_deliv_ret7",
+  "question": "Among bounce (3rd down-day) events filtered to delivery-backed selling (deliv_x20>=1), does the subsequent 7-day return (ret7) grade well, i.e. does delivery-backed capitulation bounce better than the general bounce cohort? Expect higher ret7 for delivery-confirmed capitulation.",
+  "plain": "Tests whether a 3-day-down oversold bounce works better when the selloff itself was delivery-backed (real selling/capitulation, not just churn).",
+  "cohort": {"trigger": "bounce", "filters": [["deliv_x20", ">=", 1]]},
+  "condition": {"type": "feature", "name": "ret7", "buckets": "quartiles"}
+}

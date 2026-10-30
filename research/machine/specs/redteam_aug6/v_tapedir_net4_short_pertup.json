@@ -1,0 +1,20 @@
+{
+ "id": "v_tapedir_net4_short_pertup",
+ "question": "Red-team perturbation (2026-08-06 batch): net4 quartile edges -> quintiles",
+ "cohort": {
+  "trigger": "four_pct_down",
+  "side": "short",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    150
+   ]
+  ]
+ },
+ "condition": {
+  "type": "market",
+  "name": "net4",
+  "buckets": "quintiles"
+ }
+}

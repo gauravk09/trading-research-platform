@@ -1,0 +1,7 @@
+{
+  "id": "b3rg_four_pct_net25q",
+  "question": "Expect four_pct 4%-up-day triggers to work better when quarterly winners-minus-losers breadth (net25q) is strongly positive vs strongly negative, since a 4% up day fired into a broadly bullish market should hold up better",
+  "plain": "TraderLion's 'trade with the market' idea: does a stock's 4% up day work better when most stocks have been winning over the past quarter?",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "market", "name": "net25q", "buckets": "quartiles"}
+}

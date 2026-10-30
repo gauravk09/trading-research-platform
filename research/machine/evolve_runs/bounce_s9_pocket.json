@@ -1,0 +1,115 @@
+{
+ "args": {
+  "trigger": "bounce",
+  "mode": "pocket",
+  "side": "long",
+  "pop": 8,
+  "gens": 3,
+  "seed": 9,
+  "finalists": 2,
+  "placebo": false,
+  "dry": true
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 1.2735144798109688,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "market:score",
+      "<=",
+      1.0
+     ]
+    ]
+   }
+  },
+  {
+   "gen": 2,
+   "best": 1.2735144798109688,
+   "median": 0.16279169161848991,
+   "best_ind": {
+    "filters": [
+     [
+      "market:score",
+      "<=",
+      1.0
+     ]
+    ]
+   }
+  },
+  {
+   "gen": 3,
+   "best": 1.3538659144824798,
+   "median": 0.5221146975228019,
+   "best_ind": {
+    "filters": [
+     [
+      "market:score",
+      "<=",
+      1.0
+     ],
+     [
+      "market:ratio10",
+      "<=",
+      1.05
+     ]
+    ]
+   }
+  }
+ ],
+ "finalists": [
+  {
+   "verdict": "PASS",
+   "filters": [
+    [
+     "market:score",
+     "<=",
+     1.0
+    ],
+    [
+     "market:ratio10",
+     "<=",
+     1.05
+    ]
+   ],
+   "train_z": 1.3538659144824798,
+   "era_A": {
+    "mean_r": 0.109,
+    "n": 8657,
+    "t": 1.2
+   },
+   "era_B": {
+    "mean_r": 0.524,
+    "n": 13374,
+    "t": 2.2,
+    "trades_per_year": 3344
+   },
+   "null_vs_naked_pct": 100.0
+  },
+  {
+   "verdict": "WEAK",
+   "filters": [
+    [
+     "market:score",
+     "<=",
+     1.0
+    ]
+   ],
+   "train_z": 1.2735144798109688,
+   "era_A": {
+    "mean_r": 0.063,
+    "n": 19233,
+    "t": 1.0
+   },
+   "era_B": {
+    "mean_r": 0.364,
+    "n": 32096,
+    "t": 2.8,
+    "trades_per_year": 8024
+   },
+   "null_vs_naked_pct": 100.0
+  }
+ ]
+}

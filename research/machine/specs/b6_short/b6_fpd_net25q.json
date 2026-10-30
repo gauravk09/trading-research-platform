@@ -1,0 +1,11 @@
+{
+  "id": "b6_fpd_net25q",
+  "question": "Large-cap four_pct_down shorts bucketed by market net25q (25-day quarterly-style breadth momentum): expect POSITIVE top-minus-bottom effect - short breakdowns work better when the broader tape's medium-term breadth (net25q) is STRONG, extending the confirmed net4/ratio10 lone-loser edge to a slower breadth measure.",
+  "plain": "Does the confirmed 'short the lone loser in a strong tape' edge also show up when we measure market strength with a slower, 25-day breadth gauge instead of the daily net4 count?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "market", "name": "net25q", "buckets": "quartiles"}
+}

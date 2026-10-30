@@ -1,0 +1,6 @@
+{
+  "id": "h5_burst_dist50",
+  "question": "Does extension above the 50dma hurt bursts? Expected: negative top-minus-bottom (most-extended quartile worst), echoing the four_pct lower-is-better inversion; burst prior says null",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "dist_50dma", "buckets": "quartiles"}
+}

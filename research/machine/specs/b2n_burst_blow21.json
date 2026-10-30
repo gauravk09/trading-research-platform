@@ -1,0 +1,6 @@
+{
+  "id": "b2n_burst_blow21",
+  "question": "Baseline for the trio: does position-in-range (bounce_low21) matter on the FULL burst cohort? Expect NEGATIVE top-minus-bottom effect (most-extended-above-21d-low quartile worst, per h6_four_pct_blow21 top-quintile drag >= 25.89 and the b2n_trio_blow21 direction); bursts cluster near highs so quartile edges will sit lower than the four_pct study's - cond_range reported honestly.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quartiles"}
+}

@@ -1,0 +1,128 @@
+{
+ "id": "qm_consol_days",
+ "question": "Does base length before the breakout select winners on the faithful flag cohort, as it does on the trail ruler for bursts (CONFIRMED +0.26R)? Expect positive.",
+ "plain": null,
+ "spec": {
+  "id": "qm_consol_days",
+  "question": "Does base length before the breakout select winners on the faithful flag cohort, as it does on the trail ruler for bursts (CONFIRMED +0.26R)? Expect positive.",
+  "cohort": {
+   "trigger": "qm_flag"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "consol_days",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 10982,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    335.0
+   ],
+   "A": {
+    "n": 2215,
+    "avg_stop_r": -0.103,
+    "med_ret_o5": -1.0,
+    "win5_pct": 41.9,
+    "avg_stop_r_20": -0.091
+   },
+   "B": {
+    "n": 4852,
+    "avg_stop_r": -0.095,
+    "med_ret_o5": -1.17,
+    "win5_pct": 42.2,
+    "avg_stop_r_20": 0.008
+   },
+   "COVID": {
+    "n": 3915,
+    "avg_stop_r": -0.056,
+    "med_ret_o5": -1.36,
+    "win5_pct": 42.5,
+    "avg_stop_r_20": 0.02
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "extreme_bucket_n": {
+  "A": [
+   2215,
+   2215
+  ],
+  "B": [
+   4852,
+   4852
+  ]
+ },
+ "null_beat_pct": 0.0,
+ "modern_split": {
+  "B23": {
+   "effect": NaN,
+   "n": 1726,
+   "n_ext": [
+    1726,
+    1726
+   ]
+  },
+  "B24": {
+   "effect": NaN,
+   "n": 3126,
+   "n_ext": [
+    3126,
+    3126
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_20": 0.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail": 0.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_be_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail_be": 0.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_close_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_close": 0.0,
+ "verdict_close": "FAIL"
+}

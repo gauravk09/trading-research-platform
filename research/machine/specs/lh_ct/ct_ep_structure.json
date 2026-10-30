@@ -1,0 +1,9 @@
+{
+  "id": "ct_ep_structure",
+  "plain": "Episodic Pivot large caps, require strong prior trend structure (ti65>=1.5) plus tape gate",
+  "source": "trigger",
+  "trigger": "ep",
+  "filters": [["ti65", ">=", 1.5], ["market:net4", ">=", 40]],
+  "horizon": 20,
+  "risk": 0.0075
+}

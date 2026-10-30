@@ -1,0 +1,6 @@
+{
+  "id": "v_b2t_nearlow_net4_a",
+  "question": "Perturbation A of b2t_nearlow_net4: tighten both cohort edges ~20% (bounce_low21 <= 14.5 vs 18.16, turn_decile >= 0.6 vs 0.5), net4 quintiles unchanged - expect same POSITIVE top-minus-bottom effect in eras A and B, top net4 bucket positive in absolute era-B stop-R",
+  "cohort": {"trigger": "four_pct", "filters": [["bounce_low21", "<=", 14.5], ["turn_decile", ">=", 0.6]]},
+  "condition": {"type": "market", "name": "net4", "buckets": "quintiles"}
+}

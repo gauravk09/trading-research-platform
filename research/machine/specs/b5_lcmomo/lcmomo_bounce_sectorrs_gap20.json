@@ -1,0 +1,7 @@
+{
+  "id": "lcmomo_bounce_sectorrs_gap20",
+  "question": "Same as lcmomo_bounce_sectorrs (top-150 large-cap bounce, sector_rs quartiles, long) but with min_gap:20 to check the raw effect isn't just overlapping-event inflation.",
+  "plain": "Re-running the large-cap bounce / sector-strength test but only counting one event per stock every 20 trading days, to make sure the result wasn't just the same stock's bounce counted many times over.",
+  "cohort": {"trigger": "bounce", "side": "long", "filters": [["mcap_rank", "<=", 150]], "min_gap": 20},
+  "condition": {"type": "feature", "name": "sector_rs", "buckets": "quartiles"}
+}

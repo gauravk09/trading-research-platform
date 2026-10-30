@@ -1,0 +1,209 @@
+{
+ "id": "h3_burst_turn_decile",
+ "question": "Does size/liquidity (turn_decile) change burst outcomes? Expect NEGATIVE effect: smaller/less-liquid stocks should out-earn large liquid ones on stop-R.",
+ "plain": null,
+ "spec": {
+  "id": "h3_burst_turn_decile",
+  "question": "Does size/liquidity (turn_decile) change burst outcomes? Expect NEGATIVE effect: smaller/less-liquid stocks should out-earn large liquid ones on stop-R.",
+  "cohort": {
+   "trigger": "burst"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "turn_decile",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 23467,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.1745309829711914,
+    0.5049813389778137
+   ],
+   "A": {
+    "n": 696,
+    "avg_stop_r": -0.229,
+    "med_ret_o5": -1.97,
+    "win5_pct": 33.8,
+    "avg_stop_r_20": -0.327
+   },
+   "B": {
+    "n": 3545,
+    "avg_stop_r": -0.136,
+    "med_ret_o5": -1.55,
+    "win5_pct": 39.0,
+    "avg_stop_r_20": -0.109
+   },
+   "COVID": {
+    "n": 1626,
+    "avg_stop_r": -0.09,
+    "med_ret_o5": -1.64,
+    "win5_pct": 39.1,
+    "avg_stop_r_20": 0.095
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5049875378608704,
+    0.6723484992980957
+   ],
+   "A": {
+    "n": 1483,
+    "avg_stop_r": -0.075,
+    "med_ret_o5": -1.41,
+    "win5_pct": 39.4,
+    "avg_stop_r_20": -0.052
+   },
+   "B": {
+    "n": 2591,
+    "avg_stop_r": -0.073,
+    "med_ret_o5": -1.16,
+    "win5_pct": 41.8,
+    "avg_stop_r_20": -0.067
+   },
+   "COVID": {
+    "n": 1793,
+    "avg_stop_r": -0.066,
+    "med_ret_o5": -1.45,
+    "win5_pct": 39.6,
+    "avg_stop_r_20": 0.112
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.6723617911338806,
+    0.8251663446426392
+   ],
+   "A": {
+    "n": 1526,
+    "avg_stop_r": -0.011,
+    "med_ret_o5": -0.75,
+    "win5_pct": 44.4,
+    "avg_stop_r_20": -0.042
+   },
+   "B": {
+    "n": 2628,
+    "avg_stop_r": -0.069,
+    "med_ret_o5": -0.87,
+    "win5_pct": 43.3,
+    "avg_stop_r_20": -0.032
+   },
+   "COVID": {
+    "n": 1712,
+    "avg_stop_r": 0.04,
+    "med_ret_o5": -1.15,
+    "win5_pct": 42.8,
+    "avg_stop_r_20": 0.137
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.8251705169677734,
+    1.0
+   ],
+   "A": {
+    "n": 1624,
+    "avg_stop_r": -0.02,
+    "med_ret_o5": -0.31,
+    "win5_pct": 46.6,
+    "avg_stop_r_20": -0.026
+   },
+   "B": {
+    "n": 2579,
+    "avg_stop_r": 0.019,
+    "med_ret_o5": -0.43,
+    "win5_pct": 46.3,
+    "avg_stop_r_20": 0.116
+   },
+   "COVID": {
+    "n": 1664,
+    "avg_stop_r": 0.072,
+    "med_ret_o5": -0.19,
+    "win5_pct": 48.3,
+    "avg_stop_r_20": 0.17
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.209,
+  "COVID": 0.161,
+  "B": 0.154
+ },
+ "extreme_bucket_n": {
+  "A": [
+   696,
+   1624
+  ],
+  "B": [
+   3545,
+   2579
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.159,
+   "n": 3673,
+   "n_ext": [
+    1140,
+    756
+   ]
+  },
+  "B24": {
+   "effect": 0.159,
+   "n": 7670,
+   "n_ext": [
+    2405,
+    1823
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "PASS",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.301,
+  "COVID": 0.075,
+  "B": 0.225
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": 0.19,
+  "COVID": 0.074,
+  "B": 0.243
+ },
+ "effect_R_trail_w5": {
+  "A": 0.206,
+  "COVID": 0.119,
+  "B": 0.232
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": 0.175,
+  "COVID": 0.084,
+  "B": 0.202
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.193,
+  "COVID": 0.107,
+  "B": 0.186
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": 0.204,
+  "COVID": 0.055,
+  "B": 0.075
+ },
+ "effect_R_close_w5": {
+  "A": 0.205,
+  "COVID": 0.073,
+  "B": 0.08
+ },
+ "null_beat_pct_close": 97.0,
+ "verdict_close": "WEAK"
+}

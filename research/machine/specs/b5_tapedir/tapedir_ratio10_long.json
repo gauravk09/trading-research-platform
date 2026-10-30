@@ -1,0 +1,7 @@
+{
+  "id": "tapedir_ratio10_long",
+  "question": "Long four_pct large-caps gated by market ratio10 (quartiles): expect POSITIVE top-minus-bottom effect - a strong 10-day advance/decline ratio makes the long breakout hold up better.",
+  "plain": "Buying a large-cap 4%-up-day breakout: does it work better when the 10-day advance/decline ratio is strongly positive?",
+  "cohort": {"trigger": "four_pct", "side": "long", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "market", "name": "ratio10", "buckets": "quartiles"}
+}

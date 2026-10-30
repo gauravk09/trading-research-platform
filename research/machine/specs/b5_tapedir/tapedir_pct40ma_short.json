@@ -1,0 +1,7 @@
+{
+  "id": "tapedir_pct40ma_short",
+  "question": "Short four_pct_down large-caps gated by % of stocks above 40dma (quartiles): expect NEGATIVE top-minus-bottom effect - weak participation (low pct40ma) makes the short breakdown work better, so the bottom bucket should beat the top bucket.",
+  "plain": "Shorting a large-cap 4%-down-day breakdown: does it work better when few stocks are above their 40-day average (weak market)?",
+  "cohort": {"trigger": "four_pct_down", "side": "short", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "market", "name": "pct40ma", "buckets": "quartiles"}
+}

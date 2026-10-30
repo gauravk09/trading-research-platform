@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>four_pct GA — results review</title>
+<style>
+  :root {
+    --bg: #161719;
+    --bg-raise: #1f2124;
+    --bg-card: linear-gradient(180deg, #202226 0%, #1a1c1f 100%);
+    --border: rgba(255, 255, 255, 0.07);
+    --border-strong: rgba(255, 255, 255, 0.13);
+    --text: #f2f3f4;
+    --text-dim: #9a9da3;
+    --text-faint: #62656b;
+    --accent: #2f8bff;
+    --accent-soft: rgba(47, 139, 255, 0.15);
+    --up: #2ee6a8;
+    --up-soft: rgba(46, 230, 168, 0.12);
+    --down: #ff5d73;
+    --down-soft: rgba(255, 93, 115, 0.12);
+    --warn: #ffc14d;
+    --warn-soft: rgba(255, 193, 77, 0.12);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 0 0 1px var(--border), 0 1px 2px rgba(0,0,0,.30), 0 2px 8px rgba(0,0,0,.22);
+    --font-display: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+    --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; min-width: 0; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 96px; }
+
+  /* ---- masthead ---- */
+  .mast { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 32px; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--text-faint); margin-bottom: 14px;
+  }
+  h1 {
+    font-family: var(--font-display); font-size: clamp(28px, 4.4vw, 42px);
+    line-height: 1.14; margin: 0 0 16px; letter-spacing: -0.02em; font-weight: 600;
+  }
+  .standfirst { font-size: 17px; color: var(--text-dim); max-width: 68ch; margin: 0; }
+  .meta {
+    display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint);
+  }
+
+  /* ---- verdict ---- */
+  .verdict {
+    background: var(--bg-card); border: 1px solid var(--border-strong);
+    border-left: 3px solid var(--down); border-radius: var(--radius);
+    padding: 24px 28px; margin-bottom: 40px; box-shadow: var(--shadow);
+  }
+  .verdict h2 {
+    font-family: var(--font-display); font-size: 13px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--down); margin: 0 0 12px; font-weight: 600;
+  }
+  .verdict p { margin: 0 0 12px; font-size: 16.5px; }
+  .verdict p:last-child { margin-bottom: 0; }
+  .verdict strong { color: var(--text); font-weight: 600; }
+
+  /* ---- sections ---- */
+  section { margin-bottom: 44px; }
+  .act-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; flex-wrap: wrap; }
+  .act-num {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+  }
+  h2.act {
+    font-family: var(--font-display); font-size: 24px; margin: 0;
+    letter-spacing: -0.01em; font-weight: 600;
+  }
+  .act-date { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint); }
+  .lede { color: var(--text-dim); max-width: 72ch; margin: 0 0 22px; }
+
+  /* ---- cards / grid ---- */
+  .grid { display: grid; gap: 16px; margin-bottom: 22px; }
+  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow);
+  }
+  .card h3 {
+    font-family: var(--font-display); font-size: 13px; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--text-dim); margin: 0 0 16px; font-weight: 600;
+  }
+
+  .stat { font-family: var(--font-display); font-size: 34px; line-height: 1; letter-spacing: -0.02em; }
+  .stat.up { color: var(--up); } .stat.down { color: var(--down); } .stat.warn { color: var(--warn); }
+  .stat-sub { font-size: 13px; color: var(--text-faint); margin-top: 8px; }
+
+  /* ---- tables ---- */
+  .tscroll { overflow-x: auto; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 560px; }
+  thead th {
+    background: var(--bg-raise); text-align: right; padding: 11px 14px;
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--text-faint); font-weight: 500;
+    border-bottom: 1px solid var(--border-strong); white-space: nowrap;
+  }
+  thead th:first-child, tbody td:first-child { text-align: left; }
+  tbody td { padding: 11px 14px; text-align: right; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: rgba(255,255,255,.02); }
+  .mono { font-family: var(--font-mono); font-size: 12.5px; }
+  .num-up { color: var(--up); } .num-down { color: var(--down); } .num-dim { color: var(--text-faint); }
+
+  .pill {
+    display: inline-block; font-family: var(--font-mono); font-size: 10.5px;
+    letter-spacing: .06em; padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+  }
+  .pill.fail { background: var(--down-soft); color: var(--down); }
+  .pill.pass { background: var(--up-soft); color: var(--up); }
+  .pill.warn { background: var(--warn-soft); color: var(--warn); }
+
+  figure { margin: 0 0 8px; }
+  figcaption { font-size: 12.5px; color: var(--text-faint); margin-top: 12px; line-height: 1.5; }
+  svg { display: block; width: 100%; height: auto; }
+
+  .note {
+    background: var(--warn-soft); border-left: 3px solid var(--warn);
+    border-radius: var(--radius-sm); padding: 16px 20px; margin: 22px 0;
+    font-size: 14px; color: var(--text-dim);
+  }
+  .note strong { color: var(--warn); font-weight: 600; }
+
+  ul.clean { margin: 0; padding-left: 20px; color: var(--text-dim); }
+  ul.clean li { margin-bottom: 10px; }
+  ul.clean li:last-child { margin-bottom: 0; }
+  ul.clean strong { color: var(--text); font-weight: 600; }
+
+  code {
+    font-family: var(--font-mono); font-size: 12.5px;
+    background: var(--bg-raise); padding: 2px 6px; border-radius: 5px; color: var(--text);
+  }
+
+  /* ---- question block ---- */
+  .ask {
+    background: var(--bg-card); border: 1px solid var(--border-strong);
+    border-left: 3px solid var(--accent); border-radius: var(--radius);
+    padding: 24px 28px; box-shadow: var(--shadow);
+  }
+  .ask h3 { font-family: var(--font-display); font-size: 16px; margin: 0 0 6px; font-weight: 600; color: var(--text); text-transform: none; letter-spacing: 0; }
+  .ask p.hint { color: var(--text-faint); font-size: 13px; margin: 0 0 18px; }
+  .opt { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 10px; cursor: pointer; transition: border-color .15s, background .15s; }
+  .opt:hover { border-color: var(--border-strong); background: rgba(255,255,255,.02); }
+  .opt input { margin-top: 4px; accent-color: var(--accent); flex-shrink: 0; }
+  .opt-body { flex: 1; min-width: 0; }
+  .opt-title { font-weight: 600; font-size: 14.5px; }
+  .opt-desc { font-size: 13px; color: var(--text-faint); margin-top: 3px; }
+  .ask textarea {
+    width: 100%; background: var(--bg-raise); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); color: var(--text); font-family: var(--font-ui);
+    font-size: 14px; padding: 12px 14px; margin-top: 6px; resize: vertical; min-height: 68px;
+  }
+  .ask textarea:focus { outline: none; border-color: var(--accent); }
+  .ask button {
+    margin-top: 16px; background: var(--accent); color: #fff; border: none;
+    border-radius: var(--radius-sm); padding: 11px 22px; font-family: var(--font-ui);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+  }
+  .ask button:hover { filter: brightness(1.1); }
+  .ask .ack { margin-top: 12px; font-size: 13px; color: var(--up); min-height: 18px; }
+
+  footer {
+    margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint); line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="mast">
+    <div class="eyebrow">Research Factory · Machine · four_pct</div>
+    <h1>The GA found a real signal on four_pct.<br />You still can't trade it.</h1>
+    <p class="standfirst">
+      Two genetic searches, one portfolio judge, and three separate bars — the machine's own
+      holdout, a shuffled-label placebo floor, and the post-audit bookrunner. The trigger passed
+      one, tied one, and lost the last. This is the closing review for the four_pct long.
+    </p>
+    <div class="meta">
+      <span>runs · 2026-08-06 → 2026-08-11</span>
+      <span>trigger · four_pct (long)</span>
+      <span>holdout budget · SPENT</span>
+      <span>source · LEDGER rows 46–47</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <h2>Verdict — factor-only, budget spent</h2>
+    <p>
+      In plain terms: a 4%-up-day on its own <strong>loses money</strong>. The search engine did
+      find genuine skill at picking <em>which</em> 4% days are less bad — worth about
+      <strong>+0.19R per trade</strong> against a matched random control, which is a real effect,
+      not noise. But when that pick is run as an actual book — real position limits, real costs —
+      it still loses <strong>−11.9% CAGR</strong>, and it loses <em>worse</em> than the random
+      control at −9.8%.
+    </p>
+    <p>
+      The reason is mechanical, not statistical. A 4%-day cohort means tight stops and high
+      frequency. Cost in R terms is <code>2 × cost ÷ stop_pct</code>, so tight stops multiply the
+      cost, and the 10-slot book saturates (56% of signals skipped). The pocket's tighter stops
+      shrink the rupee win while paying the same rupee cost — so it trails a control that takes
+      wider, lazier trades.
+    </p>
+    <p>
+      <strong>Selection skill is real. Tradeable edge is not.</strong> The long side of four_pct is
+      closed; the edge on this trigger lives on the short sibling.
+    </p>
+  </div>
+
+  <!-- ============ ACT 1 ============ -->
+  <section>
+    <div class="act-head">
+      <span class="act-num">ACT 1</span>
+      <h2 class="act">The gradient search clears its own bar</h2>
+      <span class="act-date">2026-08-06 · genome: gradient</span>
+    </div>
+    <p class="lede">
+      Seeded GA, population 56, 30 generations. The engine evolves filter thresholds directly and
+      scores on cross-validated era A, then gets exactly one look at the untouched era B holdout.
+      Its champion passed — and beat every shuffled-label placebo run.
+    </p>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Champion score vs placebo ceiling</h3>
+        <figure>
+          <svg viewBox="0 0 460 200" role="img" aria-label="Gradient run scored 2.12 against a placebo ceiling of 1.60">
+            <line x1="70" y1="170" x2="440" y2="170" stroke="rgba(255,255,255,.13)" stroke-width="1"/>
+            <!-- placebo bars -->
+            <rect x="70" y="30"  width="153" height="22" rx="4" fill="rgba(255,255,255,.10)"/>
+            <rect x="70" y="66"  width="228" height="22" rx="4" fill="rgba(255,255,255,.10)"/>
+            <rect x="70" y="102" width="135" height="22" rx="4" fill="rgba(255,255,255,.10)"/>
+            <rect x="70" y="138" width="302" height="22" rx="4" fill="#2ee6a8"/>
+            <text x="62" y="46"  text-anchor="end" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="11">shuf s1</text>
+            <text x="62" y="82"  text-anchor="end" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="11">shuf s2</text>
+            <text x="62" y="118" text-anchor="end" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="11">shuf s3</text>
+            <text x="62" y="154" text-anchor="end" fill="#2ee6a8" font-family="ui-monospace,Menlo,monospace" font-size="11" font-weight="600">REAL</text>
+            <text x="231" y="46"  fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="11">1.07</text>
+            <text x="306" y="82"  fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="11">1.60</text>
+            <text x="213" y="118" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="11">0.95</text>
+            <text x="380" y="154" fill="#2ee6a8" font-family="ui-monospace,Menlo,monospace" font-size="12" font-weight="600">2.12</text>
+            <line x1="298" y1="24" x2="298" y2="168" stroke="#ffc14d" stroke-width="1" stroke-dasharray="3 3"/>
+            <text x="302" y="188" fill="#ffc14d" font-family="ui-monospace,Menlo,monospace" font-size="10">placebo ceiling 1.60</text>
+          </svg>
+          <figcaption>
+            Train score. The real search beat the best of three shuffled-label runs by 1.33×.
+            That is the bar the placebo floor exists to set.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="card">
+        <h3>Champion — era effect</h3>
+        <div class="tscroll" style="border:none">
+          <table style="min-width:0">
+            <tbody>
+              <tr><td style="text-align:left">Era A (train)</td><td class="mono num-up">+0.191R</td></tr>
+              <tr><td style="text-align:left">COVID</td><td class="mono num-up">+0.285R</td></tr>
+              <tr><td style="text-align:left">Era B (holdout)</td><td class="mono num-up">+0.131R</td></tr>
+              <tr><td style="text-align:left">Beats null subsets</td><td class="mono num-up">100.0%</td></tr>
+              <tr><td style="text-align:left">n events</td><td class="mono num-dim">36,899</td></tr>
+              <tr><td style="text-align:left">Machine verdict</td><td><span class="pill pass">PASS</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:13px;color:var(--text-faint);margin:16px 0 0">
+          <code>four_pct + market:pct40ma ≥ 15.9 + rs ≥ 66.7</code>, conditioned on the top
+          <code>turn_decile</code> quartile. Holds positive out of sample. 11/11 red-team PASS
+          <em>as a factor</em>.
+        </p>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Read this one carefully.</strong> Era B <em>positive</em> and null-beat 100% is a
+      genuine pass of the machine's bar. Everything that goes wrong later goes wrong at the
+      <em>portfolio</em> layer, not here. The gradient champion is the board's only machine-PASS —
+      which is exactly why it was the one sent to the bookrunner in Act 3.
+    </div>
+  </section>
+
+  <!-- ============ ACT 2 ============ -->
+  <section>
+    <div class="act-head">
+      <span class="act-num">ACT 2</span>
+      <h2 class="act">The fitted-pocket search ties the noise floor</h2>
+      <span class="act-date">2026-08-11 · genome: pocket <code>--fit</code></span>
+    </div>
+    <p class="lede">
+      New mode, adopted from the FunSearch principle: the GA proposes only <em>structure</em>
+      (<code>[series, op]</code>, no thresholds); the framework grid-fits the numbers per CV fold on
+      train-only quantiles and scores on the held-out fold. More search flexibility means a higher
+      null bar — so the placebo floor was re-measured for this mode before the real run.
+    </p>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Real run vs re-measured floor</h3>
+        <figure>
+          <svg viewBox="0 0 460 200" role="img" aria-label="Fitted run scored 0.52 against a placebo floor of 0.51">
+            <line x1="70" y1="170" x2="440" y2="170" stroke="rgba(255,255,255,.13)" stroke-width="1"/>
+            <rect x="70" y="30"  width="2"   height="22" rx="1" fill="rgba(255,255,255,.18)"/>
+            <rect x="70" y="66"  width="357" height="22" rx="4" fill="rgba(255,255,255,.10)"/>
+            <rect x="70" y="102" width="2"   height="22" rx="1" fill="rgba(255,255,255,.18)"/>
+            <rect x="70" y="138" width="364" height="22" rx="4" fill="#ff5d73"/>
+            <text x="62" y="46"  text-anchor="end" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="11">shuf s1</text>
+            <text x="62" y="82"  text-anchor="end" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="11">shuf s2</text>
+            <text x="62" y="118" text-anchor="end" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="11">shuf s3</text>
+            <text x="62" y="154" text-anchor="end" fill="#ff5d73" font-family="ui-monospace,Menlo,monospace" font-size="11" font-weight="600">REAL</text>
+            <text x="80"  y="46"  fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="11">0.00</text>
+            <text x="435" y="82"  text-anchor="end" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="11">0.51</text>
+            <text x="80"  y="118" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="11">0.00</text>
+            <text x="435" y="154" text-anchor="end" fill="#fff" font-family="ui-monospace,Menlo,monospace" font-size="12" font-weight="600">0.52</text>
+            <line x1="427" y1="24" x2="427" y2="168" stroke="#ffc14d" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
+          <figcaption>
+            Cross-validated z. The real search landed <strong>0.01 above</strong> the best shuffled
+            run — indistinguishable from noise.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="card">
+        <h3>Era A → Era B, all four finalists</h3>
+        <figure>
+          <svg viewBox="0 0 460 200" role="img" aria-label="All four finalists collapse from positive era A to negative era B">
+            <line x1="70" y1="20" x2="70" y2="175" stroke="rgba(255,255,255,.13)"/>
+            <line x1="390" y1="20" x2="390" y2="175" stroke="rgba(255,255,255,.13)"/>
+            <line x1="70" y1="132" x2="390" y2="132" stroke="rgba(255,255,255,.22)" stroke-dasharray="4 4"/>
+            <text x="396" y="136" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="10">0R</text>
+            <!-- single scale, both axes: 0R at y=132, 400px per 1R -->
+            <!-- A +0.204,+0.205,+0.151,+0.151 -> y 50,50,72,72 ; B -0.007,-0.043,-0.060,-0.041 -> y 135,149,156,148 -->
+            <g stroke="#ff5d73" stroke-width="2" fill="none" opacity=".85">
+              <path d="M70,50 L390,135"/>
+              <path d="M70,50 L390,149"/>
+              <path d="M70,72 L390,156"/>
+              <path d="M70,72 L390,148"/>
+            </g>
+            <g fill="#ff5d73">
+              <circle cx="70" cy="50" r="4"/><circle cx="70" cy="72" r="4"/>
+              <circle cx="390" cy="135" r="4"/><circle cx="390" cy="149" r="4"/>
+              <circle cx="390" cy="156" r="4"/><circle cx="390" cy="148" r="4"/>
+            </g>
+            <text x="70" y="192" text-anchor="middle" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="11">ERA A (fit)</text>
+            <text x="390" y="192" text-anchor="middle" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="11">ERA B (holdout)</text>
+            <text x="60" y="54" text-anchor="end" fill="#2ee6a8" font-family="ui-monospace,Menlo,monospace" font-size="10">+0.20R</text>
+            <text x="60" y="76" text-anchor="end" fill="#2ee6a8" font-family="ui-monospace,Menlo,monospace" font-size="10">+0.15R</text>
+          </svg>
+          <figcaption>
+            Every finalist is positive in the fitted era and at-or-below zero out of sample.
+            Four for four.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="tscroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Structure (thresholds grid-fit)</th>
+            <th>CV z</th>
+            <th>Era A</th><th>t</th>
+            <th>Era B</th><th>t</th>
+            <th>n&nbsp;B</th><th>tr/yr</th>
+            <th>vs null</th><th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">ret21 ≤ −4.50, rs ≤ 18.8</td>
+            <td class="mono">0.520</td>
+            <td class="mono num-up">+0.204</td><td class="mono num-dim">2.9</td>
+            <td class="mono num-down">−0.007</td><td class="mono num-dim">−0.1</td>
+            <td class="mono num-dim">1,314</td><td class="mono num-dim">328</td>
+            <td class="mono num-dim">99.5%</td><td><span class="pill fail">FAIL</span></td>
+          </tr>
+          <tr>
+            <td class="mono">rs ≤ 18.8, consol_days ≤ 0</td>
+            <td class="mono">0.335</td>
+            <td class="mono num-up">+0.205</td><td class="mono num-dim">3.0</td>
+            <td class="mono num-down">−0.043</td><td class="mono num-dim">−0.7</td>
+            <td class="mono num-dim">1,358</td><td class="mono num-dim">340</td>
+            <td class="mono num-dim">100.0%</td><td><span class="pill fail">FAIL</span></td>
+          </tr>
+          <tr>
+            <td class="mono">ret21 ≤ −16.33</td>
+            <td class="mono">0.311</td>
+            <td class="mono num-up">+0.151</td><td class="mono num-dim">1.7</td>
+            <td class="mono num-down">−0.060</td><td class="mono num-dim">−0.7</td>
+            <td class="mono num-dim">1,097</td><td class="mono num-dim">274</td>
+            <td class="mono num-dim">88.0%</td><td><span class="pill fail">FAIL</span></td>
+          </tr>
+          <tr>
+            <td class="mono">rs ≤ 18.8</td>
+            <td class="mono">0.272</td>
+            <td class="mono num-up">+0.151</td><td class="mono num-dim">2.4</td>
+            <td class="mono num-down">−0.041</td><td class="mono num-dim">−0.8</td>
+            <td class="mono num-dim">1,577</td><td class="mono num-dim">394</td>
+            <td class="mono num-dim">100.0%</td><td><span class="pill fail">FAIL</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="lede" style="margin-top:20px">
+      Note what the engine converged on: <code>ret21 ≤ −4.5</code>, <code>rs ≤ 18.8</code> — low
+      21-day return, bottom-decile relative strength. It is selecting <strong>oversold laggards</strong>.
+      These pockets are <em>less bad</em> than the naked trigger (hence beating 88–100% of null
+      subsets) but still absolutely negative. Less-bad-than-a-loss is not an edge.
+    </p>
+
+    <div class="note">
+      <strong>The floor here is flattered, not earned.</strong> Two of the three shuffled searches
+      could not score above 0.00 — because naked four_pct era-A expectancy is <em>already negative</em>.
+      The placebo floor is partially shielded by the trigger's own bleed, so 0.51 likely understates
+      the true null bar. Record it; don't celebrate it. Even against this soft floor, the real run
+      only managed a tie.
+    </div>
+  </section>
+
+  <!-- ============ ACT 3 ============ -->
+  <section>
+    <div class="act-head">
+      <span class="act-num">ACT 3</span>
+      <h2 class="act">The bookrunner kills the survivor</h2>
+      <span class="act-date">2026-08-11 · ga_pocket_book.py</span>
+    </div>
+    <p class="lede">
+      Act 1's champion — the board's only machine-PASS — finally faced a portfolio judge:
+      capital-mode <code>seed_spread</code> (20 tie-break orders), a <code>same_date_control</code>
+      taking random names on the same entry clock with the same stop and hold, and 0.15%/side costs.
+      This is the gap the Aug-07 harness audit predicted: no GA champion had ever faced beta
+      subtraction or costs.
+    </p>
+
+    <div class="grid grid-2" style="grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))">
+      <div class="card">
+        <h3>Per-trade selection</h3>
+        <div class="stat up">+0.19R</div>
+        <div class="stat-sub">net −0.063R vs control −0.249R.<br />The skill is real.</div>
+      </div>
+      <div class="card">
+        <h3>Book CAGR, full period</h3>
+        <div class="stat down">−11.9%</div>
+        <div class="stat-sub">p10 −13.4 · p90 −10.2<br />control −9.8%. Worse than random.</div>
+      </div>
+      <div class="card">
+        <h3>Seeds positive</h3>
+        <div class="stat down">0%</div>
+        <div class="stat-sub">Across every window.<br />9,015 trades.</div>
+      </div>
+      <div class="card">
+        <h3>Signals skipped</h3>
+        <div class="stat warn">39–65%</div>
+        <div class="stat-sub">10-slot book saturates.<br />Every point estimate BANNED.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Champion vs same-date control — CAGR by window</h3>
+      <figure>
+        <svg viewBox="0 0 620 230" role="img" aria-label="Champion CAGR trails the control in all four windows">
+          <line x1="86" y1="24" x2="86" y2="186" stroke="rgba(255,255,255,.13)"/>
+          <text x="78" y="30" text-anchor="end" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="10">0%</text>
+          <text x="78" y="190" text-anchor="end" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="10">−20%</text>
+          <line x1="86" y1="24" x2="600" y2="24" stroke="rgba(255,255,255,.22)" stroke-dasharray="4 4"/>
+
+          <!-- scale: 8.1px per 1% ; full -11.9/-9.8 ; A -14.7/-10.4 ; exCOVID -12.3/-9.0 ; B -18.4/-11.6 -->
+          <g>
+            <rect x="100" y="24" width="34" height="96"  rx="3" fill="#ff5d73"/>
+            <rect x="140" y="24" width="34" height="79"  rx="3" fill="rgba(255,255,255,.16)"/>
+            <text x="137" y="206" text-anchor="middle" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="10.5">full period</text>
+            <text x="117" y="134" text-anchor="middle" fill="#ff5d73" font-family="ui-monospace,Menlo,monospace" font-size="10">−11.9</text>
+            <text x="157" y="117" text-anchor="middle" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="10">−9.8</text>
+          </g>
+          <g>
+            <rect x="230" y="24" width="34" height="119" rx="3" fill="#ff5d73"/>
+            <rect x="270" y="24" width="34" height="84"  rx="3" fill="rgba(255,255,255,.16)"/>
+            <text x="267" y="206" text-anchor="middle" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="10.5">era A</text>
+            <text x="247" y="157" text-anchor="middle" fill="#ff5d73" font-family="ui-monospace,Menlo,monospace" font-size="10">−14.7</text>
+            <text x="287" y="122" text-anchor="middle" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="10">−10.4</text>
+          </g>
+          <g>
+            <rect x="360" y="24" width="34" height="100" rx="3" fill="#ff5d73"/>
+            <rect x="400" y="24" width="34" height="73"  rx="3" fill="rgba(255,255,255,.16)"/>
+            <text x="397" y="206" text-anchor="middle" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="10.5">ex-COVID</text>
+            <text x="377" y="138" text-anchor="middle" fill="#ff5d73" font-family="ui-monospace,Menlo,monospace" font-size="10">−12.3</text>
+            <text x="417" y="111" text-anchor="middle" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="10">−9.0</text>
+          </g>
+          <g>
+            <rect x="490" y="24" width="34" height="149" rx="3" fill="#ff5d73"/>
+            <rect x="530" y="24" width="34" height="94"  rx="3" fill="rgba(255,255,255,.16)"/>
+            <text x="527" y="206" text-anchor="middle" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="10.5">era B</text>
+            <text x="507" y="187" text-anchor="middle" fill="#ff5d73" font-family="ui-monospace,Menlo,monospace" font-size="10">−18.4</text>
+            <text x="547" y="132" text-anchor="middle" fill="#62656b" font-family="ui-monospace,Menlo,monospace" font-size="10">−11.6</text>
+          </g>
+
+          <rect x="100" y="216" width="10" height="10" rx="2" fill="#ff5d73"/>
+          <text x="116" y="225" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="10.5">GA champion</text>
+          <rect x="220" y="216" width="10" height="10" rx="2" fill="rgba(255,255,255,.16)"/>
+          <text x="236" y="225" fill="#9a9da3" font-family="ui-monospace,Menlo,monospace" font-size="10.5">same-date random control</text>
+        </svg>
+        <figcaption>
+          Longer bars are worse — every value is negative. The champion trails the random control in
+          all four windows, and the gap is widest in era B, the holdout it was supposed to have earned.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="note">
+      <strong>House rule, now enforceable:</strong> a machine PASS is a <em>factor finding</em> until
+      <code>ga_pocket_book.py</code> says PROMOTABLE. The two judges are connected. This is the first
+      champion to make the trip, and it did not survive.
+    </div>
+  </section>
+
+  <!-- ============ CAVEATS ============ -->
+  <section>
+    <div class="act-head">
+      <span class="act-num">CAVEATS</span>
+      <h2 class="act">What would change this reading</h2>
+    </div>
+    <ul class="clean">
+      <li>
+        <strong>The placebo floor is soft.</strong> 0.51 was set with two of three shuffles stuck at
+        0.00 because the naked trigger bleeds. A trigger with positive baseline expectancy would
+        produce a higher, more honest floor — so the Act-2 tie is, if anything, generous to the real run.
+      </li>
+      <li>
+        <strong>The Act-1 log predates the committed engine.</strong> <code>four_pct_s1_seeded.json</code>
+        (Aug 06) diverges from a HEAD replay after generation 1. HEAD-replay is the valid reference;
+        the stored log is a record, not a reproducible artifact.
+      </li>
+      <li>
+        <strong>Mild full-sample look-ahead in Act 3.</strong> The condition bucket is <code>qcut</code>
+        over the full cohort exactly as certified. A live rule would need a fixed threshold — irrelevant
+        here because the verdict is negative anyway, but it would matter if the sign flipped.
+      </li>
+      <li>
+        <strong>Three seeds never evaluated.</strong> <code>d1_deliv_veto</code>,
+        <code>d2_deliv_regime</code>, <code>c3_R5_system</code> all reference
+        <code>deliv_x20</code> and were unevaluable. The delivery family is untested on this trigger.
+      </li>
+      <li>
+        <strong>Only the long side is closed.</strong> Everything here is <code>side: long</code>.
+        The four_pct-down / short sibling is where the edge was previously found, and none of this
+        touches it.
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ ASK ============ -->
+  <section>
+    <div class="ask" data-lavish-question="next-step">
+      <h3>Where should this go next?</h3>
+      <p class="hint">Pick one, add a note if you want, then queue it — it comes back to me as a prompt.</p>
+
+      <label class="opt"><input type="radio" name="next" value="close-it" />
+        <span class="opt-body">
+          <span class="opt-title">Close it out</span>
+          <span class="opt-desc">Write the FACTOR-ONLY verdict into ROADMAP's rejected section so four_pct-long can't be re-proposed without new evidence.</span>
+        </span></label>
+
+      <label class="opt"><input type="radio" name="next" value="delivery" />
+        <span class="opt-body">
+          <span class="opt-title">Fix the three unevaluable seeds</span>
+          <span class="opt-desc">Wire <code>deliv_x20</code> into the feature store so the delivery family finally gets a run.</span>
+        </span></label>
+
+      <label class="opt"><input type="radio" name="next" value="short-side" />
+        <span class="opt-body">
+          <span class="opt-title">Point the fitted-pocket GA at the short</span>
+          <span class="opt-desc">four_pct-down has its own untouched holdout budget, and it's where the edge lives.</span>
+        </span></label>
+
+      <label class="opt"><input type="radio" name="next" value="bridge-all" />
+        <span class="opt-body">
+          <span class="opt-title">Run every prior champion through the bridge</span>
+          <span class="opt-desc">If the only machine-PASS died at the portfolio layer, older PASS verdicts deserve the same test.</span>
+        </span></label>
+
+      <textarea placeholder="Optional note…"></textarea>
+      <button type="button" id="queueBtn">Queue answer</button>
+      <div class="ack" id="ack"></div>
+    </div>
+  </section>
+
+  <footer>
+    Sources — research/machine/evolve_runs/four_pct_s1_seeded.json ·
+    four_pct_s1_seeded_fit.json · four_pct_s{1,2,3}_seeded_fit_placebo.json ·
+    four_pct_s{1,2,3}_seeded_placebo.json · research/factory/LEDGER.md rows 46–47 ·
+    src/backtest/studies/ga_pocket_book.py<br />
+    Every figure on this page is read from those run logs. No value is estimated or interpolated.
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('queueBtn').addEventListener('click', function () {
+    var picked = document.querySelector('input[name="next"]:checked');
+    var note = document.querySelector('.ask textarea').value.trim();
+    var ack = document.getElementById('ack');
+
+    if (!picked) { ack.textContent = 'Pick an option first.'; return; }
+
+    var labels = {
+      'close-it': 'Close it out — write the FACTOR-ONLY four_pct-long verdict into ROADMAP rejected.',
+      'delivery': 'Fix the three unevaluable seeds — wire deliv_x20 into the feature store and re-run.',
+      'short-side': 'Point the fitted-pocket GA at four_pct-down (short side).',
+      'bridge-all': 'Run every prior machine-PASS champion through ga_pocket_book.py.'
+    };
+
+    var msg = 'four_pct GA review — next step: ' + labels[picked.value];
+    if (note) msg += '\n\nNote: ' + note;
+
+    if (window.lavish && typeof window.lavish.queuePrompt === 'function') {
+      window.lavish.queuePrompt(msg, { queueKey: 'next-step' });
+      ack.textContent = 'Queued. Hit Send to Agent when ready.';
+    } else {
+      ack.textContent = 'Not running under Lavish — copy this: ' + msg;
+    }
+  });
+</script>
+</body>
+</html>

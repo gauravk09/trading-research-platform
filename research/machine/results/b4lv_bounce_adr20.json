@@ -1,0 +1,211 @@
+{
+ "id": "b4lv_bounce_adr20",
+ "question": "On the BOUNCE (3-down-day oversold) cohort, do LOWER adr20 (calmer) stocks give a better/less-negative stop-R than HIGH adr20 stocks? Expect top-minus-bottom effect to be NEGATIVE (low vol wins).",
+ "plain": "Low-volatility anomaly (Pandey; MAS 2022): calmer stocks earn better risk-adjusted returns in India, tested here on oversold-bounce trades using daily range (adr20).",
+ "spec": {
+  "id": "b4lv_bounce_adr20",
+  "question": "On the BOUNCE (3-down-day oversold) cohort, do LOWER adr20 (calmer) stocks give a better/less-negative stop-R than HIGH adr20 stocks? Expect top-minus-bottom effect to be NEGATIVE (low vol wins).",
+  "plain": "Low-volatility anomaly (Pandey; MAS 2022): calmer stocks earn better risk-adjusted returns in India, tested here on oversold-bounce trades using daily range (adr20).",
+  "cohort": {
+   "trigger": "bounce",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "adr20",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 134995,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.4786413908004761,
+    3.044124126434326
+   ],
+   "A": {
+    "n": 9498,
+    "avg_stop_r": -0.038,
+    "med_ret_o5": -0.25,
+    "win5_pct": 46.4,
+    "avg_stop_r_20": 0.017
+   },
+   "B": {
+    "n": 17952,
+    "avg_stop_r": 0.132,
+    "med_ret_o5": -0.28,
+    "win5_pct": 46.3,
+    "avg_stop_r_20": 0.088
+   },
+   "COVID": {
+    "n": 6299,
+    "avg_stop_r": 0.34,
+    "med_ret_o5": -0.28,
+    "win5_pct": 46.5,
+    "avg_stop_r_20": 0.545
+   }
+  },
+  "1": {
+   "cond_range": [
+    3.044133186340332,
+    3.8648581504821777
+   ],
+   "A": {
+    "n": 9206,
+    "avg_stop_r": -0.035,
+    "med_ret_o5": -0.38,
+    "win5_pct": 45.4,
+    "avg_stop_r_20": -0.021
+   },
+   "B": {
+    "n": 16737,
+    "avg_stop_r": 0.16,
+    "med_ret_o5": -0.34,
+    "win5_pct": 46.5,
+    "avg_stop_r_20": 0.207
+   },
+   "COVID": {
+    "n": 7806,
+    "avg_stop_r": 0.101,
+    "med_ret_o5": -0.17,
+    "win5_pct": 48.4,
+    "avg_stop_r_20": 0.338
+   }
+  },
+  "2": {
+   "cond_range": [
+    3.8649487495422363,
+    4.899564743041992
+   ],
+   "A": {
+    "n": 8413,
+    "avg_stop_r": -0.071,
+    "med_ret_o5": -0.4,
+    "win5_pct": 46.3,
+    "avg_stop_r_20": 0.021
+   },
+   "B": {
+    "n": 15955,
+    "avg_stop_r": 0.143,
+    "med_ret_o5": -0.26,
+    "win5_pct": 47.5,
+    "avg_stop_r_20": 0.112
+   },
+   "COVID": {
+    "n": 9380,
+    "avg_stop_r": 0.211,
+    "med_ret_o5": -0.09,
+    "win5_pct": 49.1,
+    "avg_stop_r_20": 0.613
+   }
+  },
+  "3": {
+   "cond_range": [
+    4.899569511413574,
+    53.57602310180664
+   ],
+   "A": {
+    "n": 7856,
+    "avg_stop_r": -0.027,
+    "med_ret_o5": -0.73,
+    "win5_pct": 44.5,
+    "avg_stop_r_20": -0.085
+   },
+   "B": {
+    "n": 14030,
+    "avg_stop_r": 0.297,
+    "med_ret_o5": -0.09,
+    "win5_pct": 49.4,
+    "avg_stop_r_20": 0.262
+   },
+   "COVID": {
+    "n": 11863,
+    "avg_stop_r": 0.075,
+    "med_ret_o5": -0.31,
+    "win5_pct": 47.8,
+    "avg_stop_r_20": 0.362
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.012,
+  "COVID": -0.265,
+  "B": 0.165
+ },
+ "extreme_bucket_n": {
+  "A": [
+   9498,
+   7856
+  ],
+  "B": [
+   17952,
+   14030
+  ]
+ },
+ "null_beat_pct": 9.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.066,
+   "n": 14874,
+   "n_ext": [
+    5185,
+    2300
+   ]
+  },
+  "B24": {
+   "effect": 0.238,
+   "n": 49800,
+   "n_ext": [
+    12767,
+    11730
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.102,
+  "COVID": -0.183,
+  "B": 0.174
+ },
+ "null_beat_pct_20": 13.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.15,
+  "COVID": 0.096,
+  "B": -0.001
+ },
+ "effect_R_trail_w5": {
+  "A": -0.044,
+  "COVID": 0.08,
+  "B": 0.052
+ },
+ "null_beat_pct_trail": 9.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.116,
+  "COVID": 0.021,
+  "B": 0.048
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.026,
+  "COVID": 0.052,
+  "B": 0.063
+ },
+ "null_beat_pct_trail_be": 14.000000000000002,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.1,
+  "COVID": 0.133,
+  "B": 0.315
+ },
+ "effect_R_close_w5": {
+  "A": -0.11,
+  "COVID": -0.101,
+  "B": -0.005
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "PASS"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "tapedir_net4_long",
+  "question": "Long four_pct large-caps gated by tape breadth (market net4, quartiles): expect POSITIVE top-minus-bottom effect - green tape (high net4) makes the long breakout hold up better than red tape.",
+  "plain": "Buying a large-cap 4%-up-day breakout: does it work better when the overall market breadth (net4) is strongly positive that day?",
+  "cohort": {"trigger": "four_pct", "side": "long", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "market", "name": "net4", "buckets": "quartiles"}
+}

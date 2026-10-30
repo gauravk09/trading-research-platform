@@ -1,0 +1,11 @@
+{
+  "id": "fadeshort_burst_pct52wh",
+  "question": "On burst days in top-200 large caps, does sitting right at the 52-week high (top pct_52wh quartile) make the short fade work better than being well off the high?",
+  "plain": "When a large-cap burst happens right at a fresh 52-week high, does shorting those work better than shorting bursts that are further below their highs?",
+  "cohort": {
+    "trigger": "burst",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 200]]
+  },
+  "condition": {"type": "feature", "name": "pct_52wh", "buckets": "quartiles"}
+}

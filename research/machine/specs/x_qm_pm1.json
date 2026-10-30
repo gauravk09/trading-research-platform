@@ -1,0 +1,1 @@
+{"id":"x_qm_pm1","question":"SYSTEM CHECK on the NEW qm_flag cohort: a random per-DATE trait must FAIL under the stricter date-block permutation","cohort":{"trigger":"qm_flag"},"condition":{"type":"placebo_market","name":"qmpm1","buckets":"quartiles"}}

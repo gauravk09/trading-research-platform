@@ -1,0 +1,9 @@
+{
+  "id": "rg_burst_net4_100",
+  "plain": "Large-cap breakout (burst) long, only taken when market net4 tape is strong (>=100) - tighter gate than the 50 version",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["market:net4", ">=", 100]],
+  "horizon": 20,
+  "risk": 0.0075
+}

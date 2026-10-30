@@ -1,0 +1,7 @@
+{
+  "id": "b4vc_bounce_tightness",
+  "question": "On BOUNCE setups, does a narrow trading range (tightness) signal VSA-style absorption near lows and predict a better bounce? Expect LOW tightness = better stop-R.",
+  "plain": "Tests the VSA idea that a narrow price range near lows (absorption) predicts a better mean-reversion bounce than a wide, volatile range.",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "feature", "name": "tightness", "buckets": "quartiles"}
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b4se_month_4pct",
+  "question": "Expected: NULL/FAIL — Indian seasonality literature finds no robust 'Sell in May'/month-of-year effect, so 4%-breakout-day outcomes should NOT differ meaningfully by calendar month (Jan-Apr vs May-Sep vs Oct-Dec).",
+  "plain": "Testing whether the month of the year (e.g. 'Sell in May') changes outcomes after a 4% up day — Indian research says this seasonal effect doesn't hold, so we expect no real difference.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "calendar", "name": "month", "buckets": [0, 4, 9, 12]}
+}

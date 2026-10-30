@@ -1,0 +1,7 @@
+{
+  "id": "caldeliv_deliv_fourpct_long",
+  "question": "Among top-150 large-cap four_pct longs, does a delivery-% spike vs own 20d mean (deliv_x20, real buying vs intraday churn) select winners? Expect POSITIVE top-minus-bottom effect, but data starts 2020-10 so era A is expected INSUFFICIENT - report modern-era (era B) read regardless.",
+  "plain": "Buying a large-cap 4%-up-day breakout: does a spike in delivery volume (real buying, not intraday churn) mean the breakout holds up better? Delivery data only exists from late 2020.",
+  "cohort": {"trigger": "four_pct", "side": "long", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "feature", "name": "deliv_x20", "buckets": "quartiles"}
+}

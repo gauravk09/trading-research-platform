@@ -1,0 +1,194 @@
+{
+ "id": "b3dl_deliv_four_pct",
+ "question": "Does a delivery-% spike (deliv_x20, delivery vs own 20d avg) grade plain 4% up days? Expect higher deliv_x20 = better stop-R (institutional conviction behind the move, not just intraday churn).",
+ "plain": "Indian brokers report what fraction of a day's shares actually get delivered (held) vs just traded intraday; this checks whether 4% up-days with unusually high delivery (real buying, not noise) work out better than 4% days with low delivery.",
+ "spec": {
+  "id": "b3dl_deliv_four_pct",
+  "question": "Does a delivery-% spike (deliv_x20, delivery vs own 20d avg) grade plain 4% up days? Expect higher deliv_x20 = better stop-R (institutional conviction behind the move, not just intraday churn).",
+  "plain": "Indian brokers report what fraction of a day's shares actually get delivered (held) vs just traded intraday; this checks whether 4% up-days with unusually high delivery (real buying, not noise) work out better than 4% days with low delivery.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "deliv_x20",
+   "buckets": "quintiles"
+  }
+ },
+ "side": "long",
+ "n": 53537,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.01929665356874466,
+    0.5756106972694397
+   ],
+   "B": {
+    "n": 7670,
+    "avg_stop_r": -0.143,
+    "med_ret_o5": -1.39,
+    "win5_pct": 40.0,
+    "avg_stop_r_20": -0.172
+   },
+   "COVID": {
+    "n": 3038,
+    "avg_stop_r": -0.174,
+    "med_ret_o5": -1.58,
+    "win5_pct": 39.0,
+    "avg_stop_r_20": -0.123
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5756163001060486,
+    0.7510878443717957
+   ],
+   "B": {
+    "n": 6669,
+    "avg_stop_r": -0.049,
+    "med_ret_o5": -0.77,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": -0.016
+   },
+   "COVID": {
+    "n": 4038,
+    "avg_stop_r": -0.097,
+    "med_ret_o5": -1.39,
+    "win5_pct": 39.7,
+    "avg_stop_r_20": -0.01
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.7510915398597717,
+    0.886426568031311
+   ],
+   "B": {
+    "n": 6900,
+    "avg_stop_r": -0.026,
+    "med_ret_o5": -0.77,
+    "win5_pct": 44.9,
+    "avg_stop_r_20": 0.016
+   },
+   "COVID": {
+    "n": 3807,
+    "avg_stop_r": -0.064,
+    "med_ret_o5": -1.11,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": -0.019
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.8864602446556091,
+    1.033939003944397
+   ],
+   "B": {
+    "n": 7260,
+    "avg_stop_r": 0.054,
+    "med_ret_o5": -0.29,
+    "win5_pct": 47.9,
+    "avg_stop_r_20": 0.138
+   },
+   "COVID": {
+    "n": 3447,
+    "avg_stop_r": -0.018,
+    "med_ret_o5": -0.77,
+    "win5_pct": 44.7,
+    "avg_stop_r_20": 0.105
+   }
+  },
+  "4": {
+   "cond_range": [
+    1.0339633226394653,
+    4.406486511230469
+   ],
+   "B": {
+    "n": 7172,
+    "avg_stop_r": 0.145,
+    "med_ret_o5": -0.06,
+    "win5_pct": 49.6,
+    "avg_stop_r_20": 0.28
+   },
+   "COVID": {
+    "n": 3536,
+    "avg_stop_r": 0.048,
+    "med_ret_o5": -0.47,
+    "win5_pct": 46.9,
+    "avg_stop_r_20": 0.267
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": 0.222,
+  "B": 0.288
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   7670,
+   7172
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.147,
+   "n": 8401,
+   "n_ext": [
+    1688,
+    1525
+   ]
+  },
+  "B24": {
+   "effect": 0.327,
+   "n": 27270,
+   "n_ext": [
+    5982,
+    5647
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "PASS (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": 0.39,
+  "B": 0.452
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "PASS (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": 0.345,
+  "B": 0.329
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": 0.271,
+  "B": 0.252
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "PASS (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": 0.298,
+  "B": 0.314
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": 0.244,
+  "B": 0.244
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "PASS (modern)",
+ "verdict_close": "N/A (look-ahead)",
+ "close_flaw": "deliv_x20 is published after the close"
+}

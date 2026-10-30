@@ -1,0 +1,7 @@
+{
+  "id": "b3mo_ret63_ep",
+  "question": "On ep (extreme-volume episodic pivot), do stocks with stronger 3-month prior returns (ret_63) grade higher? (expect higher=better, momentum continuation into the pivot)",
+  "plain": "Momentum idea: does an episodic-pivot stock that was already trending up over the last 3 months perform better afterward than one that wasn't?",
+  "cohort": {"trigger": "ep", "filters": []},
+  "condition": {"type": "derived", "name": "ret_63", "buckets": "quartiles"}
+}

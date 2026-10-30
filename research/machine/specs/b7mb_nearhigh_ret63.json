@@ -1,0 +1,7 @@
+{
+  "id": "b7mb_nearhigh_ret63",
+  "question": "Twitter dashboard's winning filter (within 10% of 52wk high + 3-month momentum > 30%): among 4%-days already within 10% of the 52-week high, does bigger 3-month momentum grade better -- expect higher ret_63 = better",
+  "plain": "A shared backtest dashboard claims 'within 10 percent of the 52-week high plus a 30 percent 3-month run' is the best swing entry filter; both legs failed alone on our data, so this tests the combination -- momentum ranked inside the near-high subset.",
+  "cohort": {"trigger": "four_pct", "filters": [["pct_52wh", ">=", -10]]},
+  "condition": {"type": "derived", "name": "ret_63", "buckets": "quartiles"}
+}

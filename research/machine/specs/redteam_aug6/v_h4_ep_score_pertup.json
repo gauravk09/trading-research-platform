@@ -1,0 +1,17 @@
+{
+ "id": "v_h4_ep_score_pertup",
+ "question": "Red-team perturbation (2026-08-06 batch): breadth-score edges -1.5/1.5 -> -0.5/2.5",
+ "cohort": {
+  "trigger": "ep"
+ },
+ "condition": {
+  "type": "market",
+  "name": "score",
+  "buckets": [
+   -5.5,
+   -0.5,
+   2.5,
+   5.5
+  ]
+ }
+}

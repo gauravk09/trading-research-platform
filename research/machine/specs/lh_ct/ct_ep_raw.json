@@ -1,0 +1,9 @@
+{
+  "id": "ct_ep_raw",
+  "plain": "Episodic Pivot on large caps, no gate (baseline, expect huge DD)",
+  "source": "trigger",
+  "trigger": "ep",
+  "filters": [],
+  "horizon": 20,
+  "risk": 0.0075
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b4se_month_bounce",
+  "question": "Expected: NULL/FAIL — same month-of-year non-effect applied to the bounce (oversold mean-reversion) cohort: Jan-May vs Jun-Oct vs Nov-Dec should show no consistent difference in bounce outcomes.",
+  "plain": "Testing whether the calendar month changes how oversold bounce setups perform — expecting no real seasonal effect, consistent with Indian research finding no robust 'Sell in May' pattern.",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "calendar", "name": "month", "buckets": [0, 5, 10, 12]}
+}

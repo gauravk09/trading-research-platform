@@ -1,0 +1,9 @@
+{
+  "id": "b2t_trio_blow21",
+  "question": "FULL TRIO headline: four_pct, liquid half (turn_decile >= 0.5) AND strong tape (market net4 >= 134) conditioned on bounce_low21 quintiles - expect NEGATIVE top-minus-bottom, hunting for a near-low cell that is POSITIVE in absolute era-B avg stop-R",
+  "cohort": {
+    "trigger": "four_pct",
+    "filters": [["turn_decile", ">=", 0.5], ["market:net4", ">=", 134]]
+  },
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quintiles"}
+}

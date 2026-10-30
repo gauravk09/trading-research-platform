@@ -1,0 +1,11 @@
+{
+  "id": "fadeshort_fourpct_rvol50",
+  "question": "On four_pct days in top-150 large caps, does climax relative volume (rvol50) predict a better short fade in the highest-rvol quartile vs the lowest?",
+  "plain": "When a large-cap 4% pop comes with unusually heavy volume (a possible blow-off climax), does shorting those pops work better than shorting quiet-volume 4% pops?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "rvol50", "buckets": "quartiles"}
+}

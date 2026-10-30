@@ -1,0 +1,13 @@
+{
+ "id": "v_b4se_expiry_burst_a",
+ "question": "Perturbation of b4se_expiry_burst: widen expiry-week window to 0-3 days (from 0-2) and shift mid-band to 4-9 (from 3-7). Expected: same direction as original if real - near-expiry bucket avg_stop_r stays higher than far-from-expiry bucket in both era A and B.",
+ "plain": "Retesting the burst-trigger expiry-week effect with a slightly wider expiry window to see if the result survives a small edge shift.",
+ "cohort": {
+  "trigger": "burst"
+ },
+ "condition": {
+  "type": "calendar",
+  "name": "expiry_dist",
+  "buckets": [-1, 3, 9, 40]
+ }
+}

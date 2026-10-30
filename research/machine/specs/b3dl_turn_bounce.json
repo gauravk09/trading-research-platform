@@ -1,0 +1,7 @@
+{
+  "id": "b3dl_turn_bounce",
+  "question": "Does avoiding illiquid names (turn_decile) help washout bounces, the way it helped bursts? Expect higher turn_decile (more liquid/larger) = better stop-R.",
+  "plain": "This checks whether 3-down-day dip bounces work better in bigger, more liquid stocks versus small illiquid ones, the same liquidity edge that already showed up for breakout setups.",
+  "cohort": {"trigger": "bounce", "filters": []},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quintiles"}
+}

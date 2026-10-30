@@ -1,0 +1,6 @@
+{
+  "id": "b2t_fp_extended_net4",
+  "question": "Rescue check: on extended four_pct days (bounce_low21 >= 25.89, the batch-1 drag cohort), does a strong tape (market net4 quintiles) rescue the entry? Expected: NO — even the top net4 quintile stays negative in era-B absolute avg stop-R.",
+  "cohort": {"trigger": "four_pct", "filters": [["bounce_low21", ">=", 25.89]]},
+  "condition": {"type": "market", "name": "net4", "buckets": "quintiles"}
+}

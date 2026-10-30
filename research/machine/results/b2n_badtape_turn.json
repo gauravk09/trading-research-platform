@@ -1,0 +1,216 @@
+{
+ "id": "b2n_badtape_turn",
+ "question": "Inside bad tape (market:net4 <= 44, h4 bottom-quintile edge): does liquidity soften burst damage? Expect POSITIVE turn_decile top-minus-bottom effect (illiquid worst) but ALL buckets still negative avg stop-R in era B - nothing worth taking, liquidity only softens the bleed.",
+ "plain": null,
+ "spec": {
+  "id": "b2n_badtape_turn",
+  "question": "Inside bad tape (market:net4 <= 44, h4 bottom-quintile edge): does liquidity soften burst damage? Expect POSITIVE turn_decile top-minus-bottom effect (illiquid worst) but ALL buckets still negative avg stop-R in era B - nothing worth taking, liquidity only softens the bleed.",
+  "cohort": {
+   "trigger": "burst",
+   "filters": [
+    [
+     "market:net4",
+     "<=",
+     44
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "turn_decile",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 4702,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.18192487955093384,
+    0.537836492061615
+   ],
+   "A": {
+    "n": 292,
+    "avg_stop_r": -0.356,
+    "med_ret_o5": -2.36,
+    "win5_pct": 31.8,
+    "avg_stop_r_20": -0.309
+   },
+   "B": {
+    "n": 632,
+    "avg_stop_r": -0.186,
+    "med_ret_o5": -1.84,
+    "win5_pct": 36.6,
+    "avg_stop_r_20": -0.14
+   },
+   "COVID": {
+    "n": 252,
+    "avg_stop_r": -0.42,
+    "med_ret_o5": -3.5,
+    "win5_pct": 30.2,
+    "avg_stop_r_20": -0.197
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5383347272872925,
+    0.693617045879364
+   ],
+   "A": {
+    "n": 485,
+    "avg_stop_r": -0.186,
+    "med_ret_o5": -1.8,
+    "win5_pct": 35.7,
+    "avg_stop_r_20": -0.151
+   },
+   "B": {
+    "n": 452,
+    "avg_stop_r": -0.268,
+    "med_ret_o5": -1.86,
+    "win5_pct": 35.0,
+    "avg_stop_r_20": -0.421
+   },
+   "COVID": {
+    "n": 238,
+    "avg_stop_r": 0.22,
+    "med_ret_o5": -2.16,
+    "win5_pct": 36.1,
+    "avg_stop_r_20": -0.103
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.6936522722244263,
+    0.8396533131599426
+   ],
+   "A": {
+    "n": 469,
+    "avg_stop_r": -0.111,
+    "med_ret_o5": -1.11,
+    "win5_pct": 41.6,
+    "avg_stop_r_20": -0.093
+   },
+   "B": {
+    "n": 471,
+    "avg_stop_r": -0.114,
+    "med_ret_o5": -0.98,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": -0.175
+   },
+   "COVID": {
+    "n": 235,
+    "avg_stop_r": -0.203,
+    "med_ret_o5": -2.41,
+    "win5_pct": 37.0,
+    "avg_stop_r_20": -0.03
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.8396761417388916,
+    1.0
+   ],
+   "A": {
+    "n": 517,
+    "avg_stop_r": -0.054,
+    "med_ret_o5": -0.45,
+    "win5_pct": 45.8,
+    "avg_stop_r_20": -0.099
+   },
+   "B": {
+    "n": 440,
+    "avg_stop_r": -0.051,
+    "med_ret_o5": -0.6,
+    "win5_pct": 43.4,
+    "avg_stop_r_20": -0.013
+   },
+   "COVID": {
+    "n": 219,
+    "avg_stop_r": 0.093,
+    "med_ret_o5": 0.08,
+    "win5_pct": 50.7,
+    "avg_stop_r_20": 0.192
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.302,
+  "COVID": 0.513,
+  "B": 0.136
+ },
+ "extreme_bucket_n": {
+  "A": [
+   292,
+   517
+  ],
+  "B": [
+   632,
+   440
+  ]
+ },
+ "null_beat_pct": 98.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.145,
+   "n": 437,
+   "n_ext": [
+    148,
+    75
+   ]
+  },
+  "B24": {
+   "effect": 0.151,
+   "n": 1558,
+   "n_ext": [
+    484,
+    365
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "PASS",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.21,
+  "COVID": 0.39,
+  "B": 0.127
+ },
+ "null_beat_pct_20": 98.0,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": 0.206,
+  "COVID": 0.407,
+  "B": 0.147
+ },
+ "effect_R_trail_w5": {
+  "A": 0.216,
+  "COVID": 0.368,
+  "B": 0.136
+ },
+ "null_beat_pct_trail": 98.5,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": 0.174,
+  "COVID": 0.286,
+  "B": 0.098
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.181,
+  "COVID": 0.265,
+  "B": 0.113
+ },
+ "null_beat_pct_trail_be": 90.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.309,
+  "COVID": 0.441,
+  "B": 0.087
+ },
+ "effect_R_close_w5": {
+  "A": 0.305,
+  "COVID": 0.441,
+  "B": 0.116
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "PASS"
+}

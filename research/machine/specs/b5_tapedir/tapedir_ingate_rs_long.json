@@ -1,0 +1,7 @@
+{
+  "id": "tapedir_ingate_rs_long",
+  "question": "Inside an already-green tape (market net4 >= 134, top quartile), does relative strength still separate winners among four_pct large-cap longs? Expect POSITIVE rs top-minus-bottom effect - tape gate alone doesn't make stock quality redundant.",
+  "plain": "Once you've confirmed the tape is green, does picking the strongest relative-strength large-caps for the long breakout still add extra edge?",
+  "cohort": {"trigger": "four_pct", "side": "long", "filters": [["mcap_rank", "<=", 200], ["market:net4", ">=", 134]]},
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

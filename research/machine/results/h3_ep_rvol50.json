@@ -1,0 +1,209 @@
+{
+ "id": "h3_ep_rvol50",
+ "question": "Within EPs (already extreme volume), does even higher relative volume (rvol50) help? House prior: volume confirmation is neutral-to-harmful on NSE, so expect FLAT-to-NEGATIVE effect.",
+ "plain": null,
+ "spec": {
+  "id": "h3_ep_rvol50",
+  "question": "Within EPs (already extreme volume), does even higher relative volume (rvol50) help? House prior: volume confirmation is neutral-to-harmful on NSE, so expect FLAT-to-NEGATIVE effect.",
+  "cohort": {
+   "trigger": "ep"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "rvol50",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 5106,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.16824257373809814,
+    2.1024093627929688
+   ],
+   "A": {
+    "n": 292,
+    "avg_stop_r": -0.127,
+    "med_ret_o5": -0.74,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": -0.082
+   },
+   "B": {
+    "n": 443,
+    "avg_stop_r": 0.128,
+    "med_ret_o5": 0.54,
+    "win5_pct": 52.6,
+    "avg_stop_r_20": 0.426
+   },
+   "COVID": {
+    "n": 542,
+    "avg_stop_r": 0.2,
+    "med_ret_o5": 0.15,
+    "win5_pct": 51.1,
+    "avg_stop_r_20": 0.418
+   }
+  },
+  "1": {
+   "cond_range": [
+    2.102518320083618,
+    3.860210657119751
+   ],
+   "A": {
+    "n": 270,
+    "avg_stop_r": -0.012,
+    "med_ret_o5": -0.47,
+    "win5_pct": 46.7,
+    "avg_stop_r_20": -0.061
+   },
+   "B": {
+    "n": 586,
+    "avg_stop_r": -0.009,
+    "med_ret_o5": -0.5,
+    "win5_pct": 46.6,
+    "avg_stop_r_20": 0.101
+   },
+   "COVID": {
+    "n": 420,
+    "avg_stop_r": 0.167,
+    "med_ret_o5": 0.31,
+    "win5_pct": 52.1,
+    "avg_stop_r_20": 0.295
+   }
+  },
+  "2": {
+   "cond_range": [
+    3.8628313541412354,
+    7.619858264923096
+   ],
+   "A": {
+    "n": 180,
+    "avg_stop_r": -0.165,
+    "med_ret_o5": -0.58,
+    "win5_pct": 43.3,
+    "avg_stop_r_20": -0.333
+   },
+   "B": {
+    "n": 701,
+    "avg_stop_r": -0.061,
+    "med_ret_o5": -0.87,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": 0.124
+   },
+   "COVID": {
+    "n": 395,
+    "avg_stop_r": 0.113,
+    "med_ret_o5": 0.24,
+    "win5_pct": 52.2,
+    "avg_stop_r_20": 0.263
+   }
+  },
+  "3": {
+   "cond_range": [
+    7.624599933624268,
+    48.484554290771484
+   ],
+   "A": {
+    "n": 105,
+    "avg_stop_r": 0.137,
+    "med_ret_o5": 1.11,
+    "win5_pct": 57.1,
+    "avg_stop_r_20": 0.268
+   },
+   "B": {
+    "n": 939,
+    "avg_stop_r": -0.119,
+    "med_ret_o5": -1.41,
+    "win5_pct": 40.8,
+    "avg_stop_r_20": -0.085
+   },
+   "COVID": {
+    "n": 233,
+    "avg_stop_r": -0.178,
+    "med_ret_o5": -1.27,
+    "win5_pct": 41.2,
+    "avg_stop_r_20": -0.249
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.263,
+  "COVID": -0.378,
+  "B": -0.247
+ },
+ "extreme_bucket_n": {
+  "A": [
+   292,
+   105
+  ],
+  "B": [
+   443,
+   939
+  ]
+ },
+ "null_beat_pct": 62.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.007,
+   "n": 659,
+   "n_ext": [
+    91,
+    178
+   ]
+  },
+  "B24": {
+   "effect": -0.31,
+   "n": 2010,
+   "n_ext": [
+    352,
+    761
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.349,
+  "COVID": -0.666,
+  "B": -0.511
+ },
+ "null_beat_pct_20": 92.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": 0.149,
+  "COVID": -0.516,
+  "B": -0.59
+ },
+ "effect_R_trail_w5": {
+  "A": 0.171,
+  "COVID": -0.517,
+  "B": -0.351
+ },
+ "null_beat_pct_trail": 94.0,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 0.263,
+  "COVID": -0.323,
+  "B": -0.439
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.27,
+  "COVID": -0.339,
+  "B": -0.31
+ },
+ "null_beat_pct_trail_be": 77.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.243,
+  "COVID": -0.219,
+  "B": -0.255
+ },
+ "effect_R_close_w5": {
+  "A": 0.235,
+  "COVID": -0.231,
+  "B": -0.257
+ },
+ "null_beat_pct_close": 70.0,
+ "verdict_close": "INSUFFICIENT"
+}

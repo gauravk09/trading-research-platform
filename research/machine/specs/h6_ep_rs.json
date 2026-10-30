@@ -1,0 +1,6 @@
+{
+  "id": "h6_ep_rs",
+  "question": "Does cross-sectional RS matter for episodic pivots - house prior says EPs favor neglected/deeper-off-high stocks, so expect LOWER rs quintiles to have higher stop-R",
+  "cohort": {"trigger": "ep"},
+  "condition": {"type": "feature", "name": "rs", "buckets": "quintiles"}
+}

@@ -1,0 +1,222 @@
+{
+ "id": "v_b2b_bounce_ti65_pct40ma_b",
+ "question": "Perturbation B: shift ti65 cohort edge ~20% up (1.11 -> 1.33) and shift pct40ma bucket edges ~20% up ([0, 24, 48, 72, 100]); expect LOW pct40ma buckets to keep BETTER stop-R (negative top-minus-bottom effect) in eras A and B if the leader-washout pocket is real.",
+ "plain": null,
+ "spec": {
+  "id": "v_b2b_bounce_ti65_pct40ma_b",
+  "question": "Perturbation B: shift ti65 cohort edge ~20% up (1.11 -> 1.33) and shift pct40ma bucket edges ~20% up ([0, 24, 48, 72, 100]); expect LOW pct40ma buckets to keep BETTER stop-R (negative top-minus-bottom effect) in eras A and B if the leader-washout pocket is real.",
+  "cohort": {
+   "trigger": "bounce",
+   "filters": [
+    [
+     "ti65",
+     ">=",
+     1.33
+    ]
+   ]
+  },
+  "condition": {
+   "type": "market",
+   "name": "pct40ma",
+   "buckets": [
+    0,
+    24,
+    48,
+    72,
+    100
+   ]
+  }
+ },
+ "side": "long",
+ "n": 2264,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    5.6,
+    24.0
+   ],
+   "A": {
+    "n": 15,
+    "avg_stop_r": -0.402,
+    "med_ret_o5": 0.3,
+    "win5_pct": 53.3,
+    "avg_stop_r_20": -0.682
+   },
+   "B": {
+    "n": 31,
+    "avg_stop_r": 0.481,
+    "med_ret_o5": 1.11,
+    "win5_pct": 51.6,
+    "avg_stop_r_20": 0.302
+   },
+   "COVID": {
+    "n": 30,
+    "avg_stop_r": 0.445,
+    "med_ret_o5": 4.1,
+    "win5_pct": 60.0,
+    "avg_stop_r_20": -0.543
+   }
+  },
+  "1": {
+   "cond_range": [
+    24.8,
+    48.0
+   ],
+   "A": {
+    "n": 75,
+    "avg_stop_r": 0.6,
+    "med_ret_o5": -0.64,
+    "win5_pct": 46.7,
+    "avg_stop_r_20": 0.688
+   },
+   "B": {
+    "n": 162,
+    "avg_stop_r": 0.13,
+    "med_ret_o5": 0.39,
+    "win5_pct": 52.5,
+    "avg_stop_r_20": 0.576
+   },
+   "COVID": {
+    "n": 172,
+    "avg_stop_r": 0.731,
+    "med_ret_o5": 0.51,
+    "win5_pct": 53.5,
+    "avg_stop_r_20": 0.492
+   }
+  },
+  "2": {
+   "cond_range": [
+    48.1,
+    71.9
+   ],
+   "A": {
+    "n": 215,
+    "avg_stop_r": -0.27,
+    "med_ret_o5": -1.41,
+    "win5_pct": 41.9,
+    "avg_stop_r_20": -0.509
+   },
+   "B": {
+    "n": 386,
+    "avg_stop_r": 0.464,
+    "med_ret_o5": 0.61,
+    "win5_pct": 56.0,
+    "avg_stop_r_20": 0.636
+   },
+   "COVID": {
+    "n": 320,
+    "avg_stop_r": -0.317,
+    "med_ret_o5": -1.54,
+    "win5_pct": 38.4,
+    "avg_stop_r_20": -0.456
+   }
+  },
+  "3": {
+   "cond_range": [
+    72.1,
+    96.3
+   ],
+   "A": {
+    "n": 102,
+    "avg_stop_r": 0.717,
+    "med_ret_o5": -0.55,
+    "win5_pct": 45.1,
+    "avg_stop_r_20": 1.982
+   },
+   "B": {
+    "n": 226,
+    "avg_stop_r": -0.058,
+    "med_ret_o5": -0.56,
+    "win5_pct": 47.8,
+    "avg_stop_r_20": 0.149
+   },
+   "COVID": {
+    "n": 530,
+    "avg_stop_r": 0.32,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.8,
+    "avg_stop_r_20": 1.126
+   }
+  }
+ },
+ "effect_R": {
+  "A": 1.119,
+  "COVID": -0.125,
+  "B": -0.538
+ },
+ "extreme_bucket_n": {
+  "A": [
+   15,
+   102
+  ],
+  "B": [
+   31,
+   226
+  ]
+ },
+ "null_beat_pct": 2.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.594,
+   "n": 257,
+   "n_ext": [
+    6,
+    94
+   ]
+  },
+  "B24": {
+   "effect": -0.555,
+   "n": 548,
+   "n_ext": [
+    25,
+    132
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": 2.664,
+  "COVID": 1.669,
+  "B": -0.154
+ },
+ "null_beat_pct_20": 81.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": 2.031,
+  "COVID": 0.868,
+  "B": -0.214
+ },
+ "effect_R_trail_w5": {
+  "A": 0.312,
+  "COVID": -0.003,
+  "B": -0.057
+ },
+ "null_beat_pct_trail": 81.5,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 1.577,
+  "COVID": 0.693,
+  "B": -0.36
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.238,
+  "COVID": -0.065,
+  "B": -0.098
+ },
+ "null_beat_pct_trail_be": 68.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.572,
+  "COVID": -0.834,
+  "B": -1.444
+ },
+ "effect_R_close_w5": {
+  "A": -0.154,
+  "COVID": -0.49,
+  "B": -0.479
+ },
+ "null_beat_pct_close": 94.5,
+ "verdict_close": "INSUFFICIENT"
+}

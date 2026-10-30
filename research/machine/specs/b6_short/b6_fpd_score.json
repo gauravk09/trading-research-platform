@@ -1,0 +1,11 @@
+{
+  "id": "b6_fpd_score",
+  "question": "Large-cap four_pct_down shorts bucketed by market composite score: expect POSITIVE top-minus-bottom effect - the short breakdown works better when the overall regime score is STRONG (bull regime), same direction as the net4/ratio10 tape-divergence edge, testing whether the effect is a general 'good regime' phenomenon rather than specific to net4.",
+  "plain": "Does the lone-loser short edge hold when we gate on the single overall market regime score instead of a specific breadth count?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "market", "name": "score", "buckets": "quartiles"}
+}

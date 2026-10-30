@@ -1,0 +1,7 @@
+{
+  "id": "b4rv_ret21",
+  "question": "On bounce, does a deeper 1-month drawdown (more negative ret21) produce a better subsequent stop-based R than a milder one? Expect the most-negative ret21 bucket to have the best avg_stop_r, mirroring the ret7 effect but at a longer horizon.",
+  "plain": "Tests whether stocks down the most over the prior month bounce better than stocks down only slightly (1-month oversold depth).",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "feature", "name": "ret21", "buckets": "quartiles"}
+}

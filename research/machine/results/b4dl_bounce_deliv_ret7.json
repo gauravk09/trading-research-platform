@@ -1,0 +1,180 @@
+{
+ "id": "b4dl_bounce_deliv_ret7",
+ "question": "Among bounce (3rd down-day) events filtered to delivery-backed selling (deliv_x20>=1), does the subsequent 7-day return (ret7) grade well, i.e. does delivery-backed capitulation bounce better than the general bounce cohort? Expect higher ret7 for delivery-confirmed capitulation.",
+ "plain": "Tests whether a 3-day-down oversold bounce works better when the selloff itself was delivery-backed (real selling/capitulation, not just churn).",
+ "spec": {
+  "id": "b4dl_bounce_deliv_ret7",
+  "question": "Among bounce (3rd down-day) events filtered to delivery-backed selling (deliv_x20>=1), does the subsequent 7-day return (ret7) grade well, i.e. does delivery-backed capitulation bounce better than the general bounce cohort? Expect higher ret7 for delivery-confirmed capitulation.",
+  "plain": "Tests whether a 3-day-down oversold bounce works better when the selloff itself was delivery-backed (real selling/capitulation, not just churn).",
+  "cohort": {
+   "trigger": "bounce",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "ret7",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 53019,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -55.69527053833008,
+    -5.705780029296875
+   ],
+   "B": {
+    "n": 9056,
+    "avg_stop_r": 0.273,
+    "med_ret_o5": 0.31,
+    "win5_pct": 52.7,
+    "avg_stop_r_20": 0.445
+   },
+   "COVID": {
+    "n": 4199,
+    "avg_stop_r": 0.263,
+    "med_ret_o5": 0.57,
+    "win5_pct": 54.4,
+    "avg_stop_r_20": 0.431
+   }
+  },
+  "1": {
+   "cond_range": [
+    -5.70528507232666,
+    -2.6722371578216553
+   ],
+   "B": {
+    "n": 9538,
+    "avg_stop_r": 0.208,
+    "med_ret_o5": -0.42,
+    "win5_pct": 45.9,
+    "avg_stop_r_20": 0.057
+   },
+   "COVID": {
+    "n": 3717,
+    "avg_stop_r": 0.258,
+    "med_ret_o5": -0.16,
+    "win5_pct": 48.4,
+    "avg_stop_r_20": 0.626
+   }
+  },
+  "2": {
+   "cond_range": [
+    -2.672147750854492,
+    0.08765459060668945
+   ],
+   "B": {
+    "n": 9491,
+    "avg_stop_r": 0.019,
+    "med_ret_o5": -0.51,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": 0.02
+   },
+   "COVID": {
+    "n": 3763,
+    "avg_stop_r": 0.226,
+    "med_ret_o5": -0.42,
+    "win5_pct": 45.5,
+    "avg_stop_r_20": 0.399
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.08779764175415039,
+    51.85185623168945
+   ],
+   "B": {
+    "n": 8940,
+    "avg_stop_r": 0.144,
+    "med_ret_o5": -0.39,
+    "win5_pct": 46.1,
+    "avg_stop_r_20": 0.269
+   },
+   "COVID": {
+    "n": 4315,
+    "avg_stop_r": 0.448,
+    "med_ret_o5": -0.23,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": 0.916
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": 0.185,
+  "B": -0.129
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   9056,
+   8940
+  ]
+ },
+ "null_beat_pct": 2.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.104,
+   "n": 8709,
+   "n_ext": [
+    1469,
+    2339
+   ]
+  },
+  "B24": {
+   "effect": -0.17,
+   "n": 28316,
+   "n_ext": [
+    7587,
+    6601
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "FAIL (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": 0.485,
+  "B": -0.176
+ },
+ "null_beat_pct_20": 6.0,
+ "verdict_20": "FAIL (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": 0.542,
+  "B": -0.066
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": -0.144,
+  "B": -0.167
+ },
+ "null_beat_pct_trail": 83.5,
+ "verdict_trail": "FAIL (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": 0.481,
+  "B": -0.151
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": -0.108,
+  "B": -0.156
+ },
+ "null_beat_pct_trail_be": 40.5,
+ "verdict_trail_be": "FAIL (modern)",
+ "verdict_close": "N/A (look-ahead)",
+ "close_flaw": "cohort selected on deliv_x20, which is published after the close"
+}

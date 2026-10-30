@@ -1,0 +1,7 @@
+{
+  "id": "b3ry_pct_52wl",
+  "question": "O'Neil/Ryan caution that late-stage bases (far above the 52-week low) fail more -- expect HIGHER pct_52wl to show WORSE (or flat) stop-R than a stock closer to its 52-week low on burst events",
+  "plain": "O'Neil and Ryan warn that a stock already way above its 52-week low is more likely in a late, tired stage of its move. This checks if breakouts from stocks far above their yearly low do worse than ones closer to it.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "pct_52wl", "buckets": "quartiles"}
+}

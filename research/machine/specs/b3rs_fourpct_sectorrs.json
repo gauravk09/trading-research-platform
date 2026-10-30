@@ -1,0 +1,7 @@
+{
+  "id": "b3rs_fourpct_sectorrs",
+  "question": "Do 4% up days in stronger sectors (higher sector_rs) produce better stop-based R than ones in weak sectors? Expect higher=better.",
+  "plain": "Same sector-strength-matters idea applied to any ordinary 4% up day.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "sector_rs", "buckets": "quartiles"}
+}

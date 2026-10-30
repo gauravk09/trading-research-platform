@@ -1,0 +1,191 @@
+{
+ "id": "fadeshort_burst_pct52wh",
+ "question": "On burst days in top-200 large caps, does sitting right at the 52-week high (top pct_52wh quartile) make the short fade work better than being well off the high?",
+ "plain": "When a large-cap burst happens right at a fresh 52-week high, does shorting those work better than shorting bursts that are further below their highs?",
+ "spec": {
+  "id": "fadeshort_burst_pct52wh",
+  "question": "On burst days in top-200 large caps, does sitting right at the 52-week high (top pct_52wh quartile) make the short fade work better than being well off the high?",
+  "plain": "When a large-cap burst happens right at a fresh 52-week high, does shorting those work better than shorting bursts that are further below their highs?",
+  "cohort": {
+   "trigger": "burst",
+   "side": "short",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     200
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "pct_52wh",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "short",
+ "n": 2241,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -79.71695709228516,
+    -16.97061538696289
+   ],
+   "A": {
+    "n": 76,
+    "avg_stop_r": -0.837,
+    "med_ret_o5": 0.66,
+    "win5_pct": 52.6,
+    "avg_stop_r_20": -0.944
+   },
+   "B": {
+    "n": 235,
+    "avg_stop_r": 0.322,
+    "med_ret_o5": -0.48,
+    "win5_pct": 44.7,
+    "avg_stop_r_20": 0.401
+   },
+   "COVID": {
+    "n": 250,
+    "avg_stop_r": -0.212,
+    "med_ret_o5": 0.09,
+    "win5_pct": 51.2,
+    "avg_stop_r_20": -0.351
+   }
+  },
+  "1": {
+   "cond_range": [
+    -16.962263107299805,
+    -6.414980411529541
+   ],
+   "A": {
+    "n": 61,
+    "avg_stop_r": 0.168,
+    "med_ret_o5": -0.76,
+    "win5_pct": 45.9,
+    "avg_stop_r_20": -0.252
+   },
+   "B": {
+    "n": 262,
+    "avg_stop_r": 0.022,
+    "med_ret_o5": -0.31,
+    "win5_pct": 45.8,
+    "avg_stop_r_20": -0.104
+   },
+   "COVID": {
+    "n": 237,
+    "avg_stop_r": -0.18,
+    "med_ret_o5": -0.21,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": -0.425
+   }
+  },
+  "2": {
+   "cond_range": [
+    -6.384085178375244,
+    0.0
+   ],
+   "A": {
+    "n": 126,
+    "avg_stop_r": 0.931,
+    "med_ret_o5": -1.07,
+    "win5_pct": 34.9,
+    "avg_stop_r_20": 0.669
+   },
+   "B": {
+    "n": 530,
+    "avg_stop_r": 0.171,
+    "med_ret_o5": -0.13,
+    "win5_pct": 49.2,
+    "avg_stop_r_20": -0.321
+   },
+   "COVID": {
+    "n": 464,
+    "avg_stop_r": 0.066,
+    "med_ret_o5": -0.15,
+    "win5_pct": 48.1,
+    "avg_stop_r_20": 0.009
+   }
+  }
+ },
+ "effect_R": {
+  "A": 1.768,
+  "COVID": 0.278,
+  "B": -0.151
+ },
+ "extreme_bucket_n": {
+  "A": [
+   76,
+   126
+  ],
+  "B": [
+   235,
+   530
+  ]
+ },
+ "null_beat_pct": 83.0,
+ "modern_split": {
+  "B23": {
+   "effect": -1.137,
+   "n": 298,
+   "n_ext": [
+    48,
+    188
+   ]
+  },
+  "B24": {
+   "effect": 0.235,
+   "n": 729,
+   "n_ext": [
+    187,
+    342
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": 1.613,
+  "COVID": 0.361,
+  "B": -0.722
+ },
+ "null_beat_pct_20": 22.0,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": 0.597,
+  "COVID": 0.105,
+  "B": -0.124
+ },
+ "effect_R_trail_w5": {
+  "A": 0.414,
+  "COVID": 0.135,
+  "B": -0.162
+ },
+ "null_beat_pct_trail": 84.0,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 0.575,
+  "COVID": 0.052,
+  "B": -0.08
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.392,
+  "COVID": 0.097,
+  "B": -0.121
+ },
+ "null_beat_pct_trail_be": 73.5,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.424,
+  "COVID": 0.107,
+  "B": -0.042
+ },
+ "effect_R_close_w5": {
+  "A": 0.424,
+  "COVID": 0.141,
+  "B": -0.056
+ },
+ "null_beat_pct_close": 91.5,
+ "verdict_close": "INSUFFICIENT"
+}

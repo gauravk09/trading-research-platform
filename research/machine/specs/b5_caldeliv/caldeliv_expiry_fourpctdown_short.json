@@ -1,0 +1,7 @@
+{
+  "id": "caldeliv_expiry_fourpctdown_short",
+  "question": "Among top-150 large-cap four_pct_down shorts, does calendar distance to monthly expiry (expiry_dist) change breakdown follow-through? Expect symmetric to the long case: expiry-week (0-2 days) weaker/choppier than mid-cycle.",
+  "plain": "Shorting a large-cap 4%-down-day breakdown: does it matter whether you're right next to monthly F&O expiry versus mid-cycle?",
+  "cohort": {"trigger": "four_pct_down", "side": "short", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "calendar", "name": "expiry_dist", "buckets": [-1, 2, 7, 40]}
+}

@@ -1,0 +1,236 @@
+{
+ "id": "h6_burst_sector_rs",
+ "question": "Do 4% breakouts from tight bases work better in strong sectors - expect HIGHER sector_rs quintiles to have higher stop-R",
+ "plain": null,
+ "spec": {
+  "id": "h6_burst_sector_rs",
+  "question": "Do 4% breakouts from tight bases work better in strong sectors - expect HIGHER sector_rs quintiles to have higher stop-R",
+  "cohort": {
+   "trigger": "burst"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "sector_rs",
+   "buckets": "quintiles"
+  }
+ },
+ "side": "long",
+ "n": 19110,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.01123595517128706,
+    0.34090909361839294
+   ],
+   "A": {
+    "n": 941,
+    "avg_stop_r": -0.098,
+    "med_ret_o5": -1.31,
+    "win5_pct": 39.6,
+    "avg_stop_r_20": -0.174
+   },
+   "B": {
+    "n": 1515,
+    "avg_stop_r": -0.085,
+    "med_ret_o5": -1.26,
+    "win5_pct": 41.1,
+    "avg_stop_r_20": -0.098
+   },
+   "COVID": {
+    "n": 1379,
+    "avg_stop_r": -0.053,
+    "med_ret_o5": -1.14,
+    "win5_pct": 40.9,
+    "avg_stop_r_20": 0.053
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.3426966369152069,
+    0.5113636255264282
+   ],
+   "A": {
+    "n": 1011,
+    "avg_stop_r": -0.105,
+    "med_ret_o5": -0.99,
+    "win5_pct": 41.0,
+    "avg_stop_r_20": -0.209
+   },
+   "B": {
+    "n": 1632,
+    "avg_stop_r": -0.019,
+    "med_ret_o5": -1.06,
+    "win5_pct": 42.8,
+    "avg_stop_r_20": 0.066
+   },
+   "COVID": {
+    "n": 1195,
+    "avg_stop_r": -0.092,
+    "med_ret_o5": -1.21,
+    "win5_pct": 40.8,
+    "avg_stop_r_20": -0.01
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.516853928565979,
+    0.6590909361839294
+   ],
+   "A": {
+    "n": 986,
+    "avg_stop_r": -0.013,
+    "med_ret_o5": -0.69,
+    "win5_pct": 43.7,
+    "avg_stop_r_20": -0.0
+   },
+   "B": {
+    "n": 1848,
+    "avg_stop_r": -0.026,
+    "med_ret_o5": -0.63,
+    "win5_pct": 44.9,
+    "avg_stop_r_20": 0.062
+   },
+   "COVID": {
+    "n": 1146,
+    "avg_stop_r": 0.003,
+    "med_ret_o5": -0.77,
+    "win5_pct": 43.7,
+    "avg_stop_r_20": 0.12
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.6629213690757751,
+    0.7865168452262878
+   ],
+   "A": {
+    "n": 962,
+    "avg_stop_r": -0.017,
+    "med_ret_o5": -0.83,
+    "win5_pct": 43.8,
+    "avg_stop_r_20": 0.033
+   },
+   "B": {
+    "n": 1799,
+    "avg_stop_r": -0.029,
+    "med_ret_o5": -0.73,
+    "win5_pct": 43.7,
+    "avg_stop_r_20": 0.031
+   },
+   "COVID": {
+    "n": 946,
+    "avg_stop_r": 0.075,
+    "med_ret_o5": -0.84,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": 0.311
+   }
+  },
+  "4": {
+   "cond_range": [
+    0.7931034564971924,
+    1.0
+   ],
+   "A": {
+    "n": 953,
+    "avg_stop_r": -0.023,
+    "med_ret_o5": -0.63,
+    "win5_pct": 44.6,
+    "avg_stop_r_20": 0.066
+   },
+   "B": {
+    "n": 1768,
+    "avg_stop_r": -0.083,
+    "med_ret_o5": -0.81,
+    "win5_pct": 43.2,
+    "avg_stop_r_20": 0.024
+   },
+   "COVID": {
+    "n": 1029,
+    "avg_stop_r": 0.14,
+    "med_ret_o5": -0.85,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": 0.348
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.075,
+  "COVID": 0.193,
+  "B": 0.002
+ },
+ "extreme_bucket_n": {
+  "A": [
+   941,
+   953
+  ],
+  "B": [
+   1515,
+   1768
+  ]
+ },
+ "null_beat_pct": 94.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.103,
+   "n": 2844,
+   "n_ext": [
+    475,
+    530
+   ]
+  },
+  "B24": {
+   "effect": -0.039,
+   "n": 5718,
+   "n_ext": [
+    1040,
+    1238
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.241,
+  "COVID": 0.294,
+  "B": 0.122
+ },
+ "null_beat_pct_20": 98.5,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": 0.241,
+  "COVID": 0.345,
+  "B": 0.134
+ },
+ "effect_R_trail_w5": {
+  "A": 0.222,
+  "COVID": 0.287,
+  "B": 0.091
+ },
+ "null_beat_pct_trail": 99.5,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": 0.183,
+  "COVID": 0.263,
+  "B": 0.103
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.174,
+  "COVID": 0.222,
+  "B": 0.07
+ },
+ "null_beat_pct_trail_be": 98.5,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": 0.055,
+  "COVID": 0.08,
+  "B": 0.005
+ },
+ "effect_R_close_w5": {
+  "A": 0.055,
+  "COVID": 0.088,
+  "B": 0.01
+ },
+ "null_beat_pct_close": 81.0,
+ "verdict_close": "FAIL"
+}

@@ -1,0 +1,377 @@
+{
+ "args": {
+  "trigger": "pullback",
+  "operator": "llm",
+  "seed": 3,
+  "budget": 240,
+  "bridge_dir": "/private/tmp/claude-501/-Users-gaurav-Tading-Setup/83841fab-0006-48b6-98c1-1b7e034e39a3/scratchpad/bridge_s3",
+  "placebo": false
+ },
+ "curve": [
+  {
+   "spent": 6,
+   "best": 0.4647
+  },
+  {
+   "spent": 12,
+   "best": 0.5894
+  },
+  {
+   "spent": 18,
+   "best": 0.5894
+  },
+  {
+   "spent": 24,
+   "best": 0.796
+  },
+  {
+   "spent": 30,
+   "best": 0.796
+  },
+  {
+   "spent": 36,
+   "best": 0.939
+  },
+  {
+   "spent": 42,
+   "best": 0.939
+  },
+  {
+   "spent": 48,
+   "best": 0.939
+  },
+  {
+   "spent": 54,
+   "best": 0.939
+  },
+  {
+   "spent": 60,
+   "best": 0.939
+  },
+  {
+   "spent": 66,
+   "best": 0.939
+  },
+  {
+   "spent": 72,
+   "best": 0.939
+  },
+  {
+   "spent": 78,
+   "best": 0.939
+  },
+  {
+   "spent": 84,
+   "best": 0.939
+  },
+  {
+   "spent": 90,
+   "best": 0.939
+  },
+  {
+   "spent": 96,
+   "best": 0.939
+  },
+  {
+   "spent": 102,
+   "best": 0.939
+  },
+  {
+   "spent": 108,
+   "best": 0.939
+  },
+  {
+   "spent": 114,
+   "best": 0.939
+  },
+  {
+   "spent": 120,
+   "best": 0.939
+  },
+  {
+   "spent": 126,
+   "best": 0.939
+  },
+  {
+   "spent": 132,
+   "best": 0.939
+  },
+  {
+   "spent": 138,
+   "best": 0.939
+  },
+  {
+   "spent": 144,
+   "best": 0.939
+  },
+  {
+   "spent": 150,
+   "best": 0.939
+  },
+  {
+   "spent": 156,
+   "best": 0.939
+  },
+  {
+   "spent": 162,
+   "best": 0.939
+  },
+  {
+   "spent": 168,
+   "best": 0.939
+  },
+  {
+   "spent": 174,
+   "best": 0.939
+  },
+  {
+   "spent": 180,
+   "best": 0.939
+  },
+  {
+   "spent": 186,
+   "best": 0.939
+  },
+  {
+   "spent": 192,
+   "best": 0.939
+  },
+  {
+   "spent": 198,
+   "best": 0.939
+  },
+  {
+   "spent": 204,
+   "best": 0.939
+  },
+  {
+   "spent": 210,
+   "best": 0.939
+  },
+  {
+   "spent": 216,
+   "best": 0.939
+  },
+  {
+   "spent": 222,
+   "best": 0.939
+  },
+  {
+   "spent": 228,
+   "best": 0.939
+  },
+  {
+   "spent": 234,
+   "best": 0.939
+  },
+  {
+   "spent": 240,
+   "best": 0.939
+  }
+ ],
+ "dups": 86,
+ "invalid": 7,
+ "final_best": 0.9390395881442231,
+ "top": [
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "ret_63",
+     ">="
+    ]
+   ],
+   "score": 0.939,
+   "fold_eff": [
+    0.661,
+    0.533,
+    0.447,
+    0.285
+   ],
+   "n": 480
+  },
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "ret_63",
+     ">="
+    ],
+    [
+     "pocket_pivot",
+     "<="
+    ]
+   ],
+   "score": 0.8401,
+   "fold_eff": [
+    0.76,
+    0.651,
+    0.77,
+    0.464
+   ],
+   "n": 407
+  },
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ]
+   ],
+   "score": 0.796,
+   "fold_eff": [
+    0.167,
+    0.566,
+    0.209,
+    0.194
+   ],
+   "n": 606
+  },
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "ret_63",
+     ">="
+    ],
+    [
+     "pocket_pivot",
+     ">="
+    ]
+   ],
+   "score": 0.789,
+   "fold_eff": [
+    0.661,
+    0.533,
+    0.447,
+    0.285
+   ],
+   "n": 480
+  },
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "ret_126",
+     ">="
+    ]
+   ],
+   "score": 0.7724,
+   "fold_eff": [
+    0.259,
+    0.625,
+    0.216,
+    0.233
+   ],
+   "n": 545
+  },
+  {
+   "structure": [
+    [
+     "sector_rs",
+     "<="
+    ],
+    [
+     "pocket_pivot",
+     "<="
+    ]
+   ],
+   "score": 0.7558,
+   "fold_eff": [
+    0.301,
+    0.249,
+    0.607,
+    0.252
+   ],
+   "n": 542
+  },
+  {
+   "structure": [
+    [
+     "ret_63",
+     ">="
+    ]
+   ],
+   "score": 0.7129,
+   "fold_eff": [
+    0.523,
+    0.247,
+    0.219,
+    0.234
+   ],
+   "n": 604
+  },
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "ret30",
+     ">="
+    ]
+   ],
+   "score": 0.7093,
+   "fold_eff": [
+    0.181,
+    0.602,
+    0.268,
+    0.199
+   ],
+   "n": 576
+  },
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "market:net4",
+     "<="
+    ]
+   ],
+   "score": 0.6405,
+   "fold_eff": [
+    0.253,
+    0.685,
+    0.109,
+    0.296
+   ],
+   "n": 544
+  },
+  {
+   "structure": [
+    [
+     "market:score",
+     "<="
+    ],
+    [
+     "volc5_50",
+     "<="
+    ]
+   ],
+   "score": 0.6398,
+   "fold_eff": [
+    0.269,
+    0.671,
+    0.147,
+    0.278
+   ],
+   "n": 428
+  }
+ ]
+}

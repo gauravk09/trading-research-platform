@@ -1,0 +1,7 @@
+{
+  "id": "b3qm_burst_ret63",
+  "question": "On burst events, a stronger 3-month prior run (ret_63) grades better -- expect higher ret_63 = better",
+  "plain": "Does a strong 3-month price run before a breakout (not just the last month) predict a better breakout trade?",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "derived", "name": "ret_63", "buckets": "quartiles"}
+}

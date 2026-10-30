@@ -1,0 +1,20 @@
+{
+ "id": "v_b2t_ext_net4_rescue_gap60",
+ "question": "Red-team perturbation (2026-08-06 batch): min_gap 60",
+ "cohort": {
+  "trigger": "four_pct",
+  "filters": [
+   [
+    "bounce_low21",
+    ">=",
+    25.89
+   ]
+  ],
+  "min_gap": 60
+ },
+ "condition": {
+  "type": "market",
+  "name": "net4",
+  "buckets": "quintiles"
+ }
+}

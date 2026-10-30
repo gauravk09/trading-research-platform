@@ -1,0 +1,11 @@
+{
+  "id": "lcbounce_ti65",
+  "question": "On large-cap bounce setups, does the broad-market TI65 health level change the payoff of a long mean-reversion bounce? Expect a stronger market (higher ti65) to produce a better avg_stop_r than a weak-market (low ti65) bounce.",
+  "plain": "Tests whether large-cap dip-buys work better when the overall market is healthy vs when the market itself is weak.",
+  "cohort": {
+    "trigger": "bounce",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "ti65", "buckets": "quartiles"}
+}

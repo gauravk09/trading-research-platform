@@ -1,0 +1,7 @@
+{
+  "id": "b3mo_ret252_bounce",
+  "question": "On bounce (3rd down close), does 1-year prior return (ret_252) grade the bounce, i.e. do prior-year leaders (higher ret_252) bounce better than laggards? (expect higher=better, 'leader washout' idea)",
+  "plain": "Leader washout idea: after a 3-day pullback, does a stock that was already a big 1-year winner bounce better than a stock that wasn't?",
+  "cohort": {"trigger": "bounce", "filters": []},
+  "condition": {"type": "derived", "name": "ret_252", "buckets": "quartiles"}
+}

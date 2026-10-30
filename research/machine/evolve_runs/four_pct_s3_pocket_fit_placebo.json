@@ -1,0 +1,175 @@
+{
+ "args": {
+  "trigger": "four_pct",
+  "mode": "pocket",
+  "seeds": null,
+  "genome": "gradient",
+  "side": "long",
+  "pop": 24,
+  "gens": 15,
+  "seed": 3,
+  "finalists": 4,
+  "fit": true,
+  "placebo": true,
+  "dry": false,
+  "no_archive": false,
+  "no_ledger": false,
+  "no_certify": true,
+  "ruler": "stop_r",
+  "train_end": 2020
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 2,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 3,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 4,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 5,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 6,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 7,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 8,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 9,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 10,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 11,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 12,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 13,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 14,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 15,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  }
+ ],
+ "unevaluable_seeds": [],
+ "finalists": []
+}

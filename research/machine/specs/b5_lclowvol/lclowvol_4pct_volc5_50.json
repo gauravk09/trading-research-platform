@@ -1,0 +1,15 @@
+{
+  "id": "lclowvol_4pct_volc5_50",
+  "question": "Among large-cap (top150) four_pct days, does a smaller 5v50 volume-change spike (volc5_50) beat a bigger spike on long stop-R? Expect NEGATIVE top-minus-bottom effect (calmer recent volume ramp = better).",
+  "plain": "For big-cap stocks that just popped 4%+, do the ones without a huge volume ramp-up make better longs than the ones with a huge volume spike?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "volc5_50",
+    "buckets": "quartiles"
+  }
+}

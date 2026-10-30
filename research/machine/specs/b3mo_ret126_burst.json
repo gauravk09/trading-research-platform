@@ -1,0 +1,7 @@
+{
+  "id": "b3mo_ret126_burst",
+  "question": "On burst (4% breakout from tight base), does 6-month prior return (ret_126) grade the outcome, i.e. higher=better? (house prior: 1-2yr return did not grade bursts, testing shorter window)",
+  "plain": "Momentum idea: among breakout stocks, do the ones that already ran up over the last 6 months keep outperforming after the breakout?",
+  "cohort": {"trigger": "burst", "filters": []},
+  "condition": {"type": "derived", "name": "ret_126", "buckets": "quartiles"}
+}

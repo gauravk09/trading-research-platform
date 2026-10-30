@@ -1,0 +1,496 @@
+{
+ "args": {
+  "trigger": "bounce",
+  "mode": "gradient",
+  "side": "long",
+  "pop": 24,
+  "gens": 30,
+  "seed": 2,
+  "finalists": 4,
+  "placebo": true,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.2787347829766669,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 1.0292300402171184,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 1.0292300402171184,
+   "median": 0.052174663715301384,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 4,
+   "best": 1.0292300402171184,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 5,
+   "best": 1.0292300402171184,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 6,
+   "best": 1.0292300402171184,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 7,
+   "best": 1.0292300402171184,
+   "median": 0.17280994544110828,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 8,
+   "best": 1.0292300402171184,
+   "median": 0.0077829701745625035,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 9,
+   "best": 1.0292300402171184,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 10,
+   "best": 1.0292300402171184,
+   "median": 0.4659788979183589,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 11,
+   "best": 1.0292300402171184,
+   "median": 0.5258129908652112,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 12,
+   "best": 1.0292300402171184,
+   "median": 0.272297227418132,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 13,
+   "best": 1.0292300402171184,
+   "median": 0.7473922385007029,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 14,
+   "best": 1.0292300402171184,
+   "median": 0.6600763305567938,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 15,
+   "best": 1.0292300402171184,
+   "median": 0.6600763305567938,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 16,
+   "best": 1.0354045008118928,
+   "median": 0.31542469162122855,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 17,
+   "best": 1.0354045008118928,
+   "median": 0.8283925630555269,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 18,
+   "best": 1.0354045008118928,
+   "median": 0.7534940441096559,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 19,
+   "best": 1.0354045008118928,
+   "median": 0.7711204134602,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 20,
+   "best": 1.0354045008118928,
+   "median": 0.7847584802327948,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 21,
+   "best": 1.0354045008118928,
+   "median": 1.0292300402171184,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 22,
+   "best": 1.0354045008118928,
+   "median": 0.8681634639916911,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 23,
+   "best": 1.0354045008118928,
+   "median": 0.9439514180406332,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 24,
+   "best": 1.0354045008118928,
+   "median": 0.876440598588101,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 25,
+   "best": 1.0354045008118928,
+   "median": 0.9573172705145055,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 26,
+   "best": 1.0354045008118928,
+   "median": 1.0292300402171184,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 27,
+   "best": 1.0354045008118928,
+   "median": 1.0292300402171184,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 28,
+   "best": 1.0354045008118928,
+   "median": 1.0292300402171184,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 29,
+   "best": 1.0354045008118928,
+   "median": 0.8246187063061663,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 30,
+   "best": 1.0354045008118928,
+   "median": 0.7172476607802626,
+   "best_ind": {
+    "filters": [
+     [
+      "market:ratio10",
+      ">=",
+      1.99
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "rs",
+     "buckets": "quartiles"
+    }
+   }
+  }
+ ],
+ "finalists": []
+}

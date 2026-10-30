@@ -1,0 +1,6 @@
+{
+  "id": "b2p_ep_net4",
+  "question": "Baseline: do EPs care about market net4 at all? House prior (EPs work better in weak tapes; h4_ep_score FAILed at -0.01/-0.06) pre-states NEGATIVE top-minus-bottom (low-net4 quartile better); the burst-side net4 PASS argues the opposite. No cohort filters; net4 quartiles.",
+  "cohort": {"trigger": "ep"},
+  "condition": {"type": "market", "name": "net4", "buckets": "quartiles"}
+}

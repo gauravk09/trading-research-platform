@@ -1,0 +1,21 @@
+{
+ "id": "v_tapedir_net4_short_gap60",
+ "question": "Red-team perturbation (2026-08-06 batch): min_gap 60",
+ "cohort": {
+  "trigger": "four_pct_down",
+  "side": "short",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    150
+   ]
+  ],
+  "min_gap": 60
+ },
+ "condition": {
+  "type": "market",
+  "name": "net4",
+  "buckets": "quartiles"
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b4tm_dom_bounce",
+  "question": "On bounce (oversold mean-reversion) triggers, is the first-3-days-of-month bucket the best stop-R bucket vs mid/last (turn-of-month effect strongest for reversal buys), with end-of-month NOT elevated?",
+  "plain": "Testing whether oversold dip-buys work better right at the start of the month, per the turn-of-month effect (RFB 2023, IJMEC).",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "calendar", "name": "dom", "buckets": [0, 3, 24, 31]}
+}

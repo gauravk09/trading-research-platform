@@ -1,0 +1,128 @@
+{
+ "args": {
+  "trigger": "burst",
+  "pop": 8,
+  "gens": 3,
+  "seed": 1,
+  "finalists": 2,
+  "placebo": false,
+  "dry": true
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 1.669108758675913,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "adr20",
+      ">=",
+      2.6289
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "net4",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 2.3432078940470373,
+   "median": 1.2310136692112672,
+   "best_ind": {
+    "filters": [
+     [
+      "trend_age",
+      ">=",
+      214.0
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_252",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 2.3432078940470373,
+   "median": 1.4814482473586104,
+   "best_ind": {
+    "filters": [
+     [
+      "trend_age",
+      ">=",
+      214.0
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_252",
+     "buckets": "quartiles"
+    }
+   }
+  }
+ ],
+ "finalists": [
+  {
+   "id": "ga_burst_s1_8eade1",
+   "train_score": 2.3432078940470373,
+   "verdict": "INSUFFICIENT",
+   "effect_R": {
+    "A": 0.22,
+    "COVID": 0.063,
+    "B": -0.1
+   },
+   "null_beat_pct": 14.499999999999998,
+   "n": 3125,
+   "spec": {
+    "id": "ga_burst_s1_8eade1",
+    "question": "GA-evolved (burst): filters [trend_age >= 214.0]; condition ret_252 (quartiles). Train halves +0.32/+0.37R \u2014 expect more of it = better. Era B untouched until this run.",
+    "cohort": {
+     "trigger": "burst",
+     "filters": [
+      [
+       "trend_age",
+       ">=",
+       214.0
+      ]
+     ]
+    },
+    "condition": {
+     "type": "derived",
+     "name": "ret_252",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "id": "ga_burst_s1_b4e675",
+   "train_score": 1.9945328544849477,
+   "verdict": "PASS",
+   "effect_R": {
+    "A": 0.375,
+    "COVID": 0.25,
+    "B": 0.198
+   },
+   "null_beat_pct": 100.0,
+   "n": 23467,
+   "spec": {
+    "id": "ga_burst_s1_b4e675",
+    "question": "GA-evolved (burst): filters [none]; condition market:net4 (quintiles). Train halves +0.09/+0.23R \u2014 expect more of it = better. Era B untouched until this run.",
+    "cohort": {
+     "trigger": "burst",
+     "filters": []
+    },
+    "condition": {
+     "type": "market",
+     "name": "net4",
+     "buckets": "quintiles"
+    }
+   }
+  }
+ ]
+}

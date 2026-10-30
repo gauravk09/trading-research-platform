@@ -1,0 +1,11 @@
+{
+  "id": "rsrel_long_gated_rs",
+  "question": "Gated to large-cap 4% up days already in the top sector-RS quartile (sector_rs>=0.75), does the stock's own RS rank still grade the long trade? Expect higher=better (positive effect).",
+  "plain": "If we only trade breakouts in already-hot sectors, does picking the strongest stock within that sector still add edge, or is sector strength doing all the work?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 200], ["sector_rs", ">=", 0.75]]
+  },
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

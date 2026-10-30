@@ -1,0 +1,7 @@
+{
+  "id": "b4rv_pct52wl",
+  "question": "On bounce, does proximity to the 52-week low (lower pct_52wl = near max capitulation) produce a better or worse stop-based R than stocks well above their 52w low? Pre-call: expect WORSE (falling-knife risk dominates) rather than better, since 52w-low proximity signals structural weakness, not just short-term oversold.",
+  "plain": "Tests whether stocks near their 52-week low bounce better (max capitulation) or worse (falling knife) than stocks further above their yearly low.",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "feature", "name": "pct_52wl", "buckets": "quartiles"}
+}

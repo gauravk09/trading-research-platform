@@ -1,0 +1,9 @@
+{
+  "id": "qv_4pct_calm_composite",
+  "plain": "Four-pct pop large caps, full calm/orderly composite: low ADR, tight base, linear trend, low volume ramp, 20-bar hold",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["adr20", "<=", 4.5], ["tightness", ">=", 0.6], ["eff_ratio", ">=", 0.15], ["volc5_50", "<=", 1.5]],
+  "horizon": 20,
+  "risk": 0.0075
+}

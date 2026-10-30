@@ -1,0 +1,1 @@
+{"id":"x_check_expiry","question":"engine check: expiry-distance runs on bursts","plain":"Engine check: does distance to monthly expiry grade breakouts?","cohort":{"trigger":"burst"},"condition":{"type":"calendar","name":"expiry_dist","buckets":"quartiles"}}

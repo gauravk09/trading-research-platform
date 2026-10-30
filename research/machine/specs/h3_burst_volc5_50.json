@@ -1,0 +1,6 @@
+{
+  "id": "h3_burst_volc5_50",
+  "question": "Does 5d-vs-50d volume posture (volc5_50) matter for bursts? Expect NEGATIVE effect: dry-up (<1) before the burst should beat a pre-existing volume crescendo; house prior says volume filters are neutral-to-harmful.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "volc5_50", "buckets": "quartiles"}
+}

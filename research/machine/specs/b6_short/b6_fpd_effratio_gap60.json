@@ -1,0 +1,22 @@
+{
+  "id": "b6_fpd_effratio_gap60",
+  "question": "Large-cap four_pct_down shorts bucketed by eff_ratio (trend efficiency of the prior move): expect POSITIVE top-minus-bottom effect - breakdowns in stocks with a smooth, efficient prior uptrend (high eff_ratio, real trend now failing) fall harder than breakdowns in stocks with a choppy/inefficient prior move (already noisy, no clean trend to break).",
+  "plain": "Does a breakdown hurt more when it interrupts a smooth, orderly prior uptrend versus a choppy, directionless one?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        150
+      ]
+    ],
+    "min_gap": 60
+  },
+  "condition": {
+    "type": "feature",
+    "name": "eff_ratio",
+    "buckets": "quartiles"
+  }
+}

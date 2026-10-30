@@ -1,0 +1,1 @@
+{"id":"x_qm_ps_adr","question":"SYSTEM CHECK on the NEW qm_flag cohort: real adr20 values shuffled across events (same distribution, link destroyed) must FAIL","cohort":{"trigger":"qm_flag"},"condition":{"type":"placebo_shuffled","name":"adr20","salt":"qm1","buckets":"quartiles"}}

@@ -1,0 +1,188 @@
+{
+ "id": "b4se_month_4pct",
+ "question": "Expected: NULL/FAIL \u2014 Indian seasonality literature finds no robust 'Sell in May'/month-of-year effect, so 4%-breakout-day outcomes should NOT differ meaningfully by calendar month (Jan-Apr vs May-Sep vs Oct-Dec).",
+ "plain": "Testing whether the month of the year (e.g. 'Sell in May') changes outcomes after a 4% up day \u2014 Indian research says this seasonal effect doesn't hold, so we expect no real difference.",
+ "spec": {
+  "id": "b4se_month_4pct",
+  "question": "Expected: NULL/FAIL \u2014 Indian seasonality literature finds no robust 'Sell in May'/month-of-year effect, so 4%-breakout-day outcomes should NOT differ meaningfully by calendar month (Jan-Apr vs May-Sep vs Oct-Dec).",
+  "plain": "Testing whether the month of the year (e.g. 'Sell in May') changes outcomes after a 4% up day \u2014 Indian research says this seasonal effect doesn't hold, so we expect no real difference.",
+  "cohort": {
+   "trigger": "four_pct"
+  },
+  "condition": {
+   "type": "calendar",
+   "name": "month",
+   "buckets": [
+    0,
+    4,
+    9,
+    12
+   ]
+  }
+ },
+ "side": "long",
+ "n": 83452,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    1.0,
+    4.0
+   ],
+   "A": {
+    "n": 5989,
+    "avg_stop_r": -0.028,
+    "med_ret_o5": -0.87,
+    "win5_pct": 43.6,
+    "avg_stop_r_20": -0.02
+   },
+   "B": {
+    "n": 14154,
+    "avg_stop_r": -0.058,
+    "med_ret_o5": -0.81,
+    "win5_pct": 44.8,
+    "avg_stop_r_20": -0.059
+   },
+   "COVID": {
+    "n": 7919,
+    "avg_stop_r": -0.05,
+    "med_ret_o5": -1.32,
+    "win5_pct": 42.6,
+    "avg_stop_r_20": -0.039
+   }
+  },
+  "1": {
+   "cond_range": [
+    5.0,
+    9.0
+   ],
+   "A": {
+    "n": 8665,
+    "avg_stop_r": -0.105,
+    "med_ret_o5": -1.22,
+    "win5_pct": 40.8,
+    "avg_stop_r_20": -0.18
+   },
+   "B": {
+    "n": 16899,
+    "avg_stop_r": 0.041,
+    "med_ret_o5": -0.58,
+    "win5_pct": 45.9,
+    "avg_stop_r_20": 0.194
+   },
+   "COVID": {
+    "n": 11614,
+    "avg_stop_r": -0.02,
+    "med_ret_o5": -1.07,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": 0.197
+   }
+  },
+  "2": {
+   "cond_range": [
+    10.0,
+    12.0
+   ],
+   "A": {
+    "n": 4681,
+    "avg_stop_r": 0.052,
+    "med_ret_o5": -0.53,
+    "win5_pct": 46.1,
+    "avg_stop_r_20": -0.14
+   },
+   "B": {
+    "n": 7419,
+    "avg_stop_r": -0.035,
+    "med_ret_o5": -0.81,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": -0.097
+   },
+   "COVID": {
+    "n": 6112,
+    "avg_stop_r": -0.081,
+    "med_ret_o5": -1.08,
+    "win5_pct": 42.1,
+    "avg_stop_r_20": -0.004
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.08,
+  "COVID": -0.032,
+  "B": 0.023
+ },
+ "extreme_bucket_n": {
+  "A": [
+   5989,
+   4681
+  ],
+  "B": [
+   14154,
+   7419
+  ]
+ },
+ "null_beat_pct": 28.000000000000004,
+ "modern_split": {
+  "B23": {
+   "effect": 0.14,
+   "n": 9099,
+   "n_ext": [
+    2242,
+    2594
+   ]
+  },
+  "B24": {
+   "effect": -0.024,
+   "n": 29373,
+   "n_ext": [
+    11912,
+    4825
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.121,
+  "COVID": 0.035,
+  "B": -0.038
+ },
+ "null_beat_pct_20": 26.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.22,
+  "COVID": 0.076,
+  "B": -0.038
+ },
+ "effect_R_trail_w5": {
+  "A": -0.185,
+  "COVID": 0.082,
+  "B": -0.007
+ },
+ "null_beat_pct_trail": 41.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.175,
+  "COVID": 0.047,
+  "B": -0.018
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.141,
+  "COVID": 0.061,
+  "B": 0.005
+ },
+ "null_beat_pct_trail_be": 39.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.102,
+  "COVID": 0.028,
+  "B": 0.066
+ },
+ "effect_R_close_w5": {
+  "A": 0.084,
+  "COVID": 0.042,
+  "B": 0.058
+ },
+ "null_beat_pct_close": 78.5,
+ "verdict_close": "FAIL"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "da_burst_deliv_turn",
+  "plain": "Burst setup with both delivery spike AND high turnover decile (liquid + real accumulation together), 20d horizon",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["deliv_x20", ">=", 1.3], ["turn_decile", ">=", 0.7]],
+  "horizon": 20,
+  "risk": 0.0075
+}

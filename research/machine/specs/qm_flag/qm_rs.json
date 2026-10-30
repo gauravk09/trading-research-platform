@@ -1,0 +1,12 @@
+{
+ "id": "qm_rs",
+ "question": "Does relative strength select winners once the trigger is a faithful flag breakout, where it FAILed on the generic burst? Expect positive if trigger fidelity was the problem.",
+ "cohort": {
+  "trigger": "qm_flag"
+ },
+ "condition": {
+  "type": "feature",
+  "name": "rs",
+  "buckets": "quartiles"
+ }
+}

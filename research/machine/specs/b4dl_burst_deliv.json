@@ -1,0 +1,7 @@
+{
+  "id": "b4dl_burst_deliv",
+  "question": "On burst (tight-base 4% breakout) events, does higher delivery% (deliv_x20) grade better forward outcome? Expect higher delivery = better (genuine accumulation behind the breakout).",
+  "plain": "Tests whether tight-base breakouts with high delivery percentage (real ownership change, not day-trading churn) outperform low-delivery breakouts.",
+  "cohort": {"trigger": "burst", "filters": []},
+  "condition": {"type": "feature", "name": "deliv_x20", "buckets": "quartiles"}
+}

@@ -1,0 +1,238 @@
+{
+ "id": "b3dl_turn_ep",
+ "question": "Does turn_decile (liquidity/size rank) grade episodic pivots, or are EPs already all large/liquid names so size adds nothing? Expect little-to-no effect since EP triggers require extreme volume already.",
+ "plain": "Episodic pivots are extreme-volume gap events; this checks whether bigger, more liquid stocks among them do better than smaller/thinner ones, or whether size stops mattering once a stock already has that much volume.",
+ "spec": {
+  "id": "b3dl_turn_ep",
+  "question": "Does turn_decile (liquidity/size rank) grade episodic pivots, or are EPs already all large/liquid names so size adds nothing? Expect little-to-no effect since EP triggers require extreme volume already.",
+  "plain": "Episodic pivots are extreme-volume gap events; this checks whether bigger, more liquid stocks among them do better than smaller/thinner ones, or whether size stops mattering once a stock already has that much volume.",
+  "cohort": {
+   "trigger": "ep",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "turn_decile",
+   "buckets": "quintiles"
+  }
+ },
+ "side": "long",
+ "n": 5169,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.38114285469055176,
+    0.821490466594696
+   ],
+   "A": {
+    "n": 55,
+    "avg_stop_r": -0.079,
+    "med_ret_o5": -1.76,
+    "win5_pct": 45.5,
+    "avg_stop_r_20": -0.13
+   },
+   "B": {
+    "n": 730,
+    "avg_stop_r": -0.144,
+    "med_ret_o5": -1.25,
+    "win5_pct": 40.8,
+    "avg_stop_r_20": -0.116
+   },
+   "COVID": {
+    "n": 249,
+    "avg_stop_r": -0.039,
+    "med_ret_o5": -1.35,
+    "win5_pct": 45.0,
+    "avg_stop_r_20": 0.028
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.8215174078941345,
+    0.8931917548179626
+   ],
+   "A": {
+    "n": 117,
+    "avg_stop_r": -0.091,
+    "med_ret_o5": -0.6,
+    "win5_pct": 44.4,
+    "avg_stop_r_20": -0.294
+   },
+   "B": {
+    "n": 631,
+    "avg_stop_r": -0.036,
+    "med_ret_o5": -0.73,
+    "win5_pct": 45.0,
+    "avg_stop_r_20": 0.095
+   },
+   "COVID": {
+    "n": 286,
+    "avg_stop_r": 0.071,
+    "med_ret_o5": -0.13,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": 0.222
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.8932486772537231,
+    0.9410724639892578
+   ],
+   "A": {
+    "n": 200,
+    "avg_stop_r": -0.002,
+    "med_ret_o5": -0.1,
+    "win5_pct": 49.0,
+    "avg_stop_r_20": 0.082
+   },
+   "B": {
+    "n": 516,
+    "avg_stop_r": 0.001,
+    "med_ret_o5": -0.54,
+    "win5_pct": 47.9,
+    "avg_stop_r_20": 0.219
+   },
+   "COVID": {
+    "n": 317,
+    "avg_stop_r": 0.181,
+    "med_ret_o5": 0.54,
+    "win5_pct": 53.3,
+    "avg_stop_r_20": 0.276
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.9411167502403259,
+    0.9743416905403137
+   ],
+   "A": {
+    "n": 246,
+    "avg_stop_r": 0.109,
+    "med_ret_o5": 0.58,
+    "win5_pct": 53.7,
+    "avg_stop_r_20": 0.015
+   },
+   "B": {
+    "n": 433,
+    "avg_stop_r": 0.008,
+    "med_ret_o5": -0.43,
+    "win5_pct": 47.3,
+    "avg_stop_r_20": 0.22
+   },
+   "COVID": {
+    "n": 355,
+    "avg_stop_r": 0.157,
+    "med_ret_o5": 0.87,
+    "win5_pct": 54.4,
+    "avg_stop_r_20": 0.355
+   }
+  },
+  "4": {
+   "cond_range": [
+    0.9743824601173401,
+    1.0
+   ],
+   "A": {
+    "n": 290,
+    "avg_stop_r": -0.224,
+    "med_ret_o5": -1.19,
+    "win5_pct": 42.1,
+    "avg_stop_r_20": -0.177
+   },
+   "B": {
+    "n": 360,
+    "avg_stop_r": 0.056,
+    "med_ret_o5": -0.38,
+    "win5_pct": 47.8,
+    "avg_stop_r_20": 0.192
+   },
+   "COVID": {
+    "n": 384,
+    "avg_stop_r": 0.148,
+    "med_ret_o5": -0.37,
+    "win5_pct": 49.0,
+    "avg_stop_r_20": 0.29
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.145,
+  "COVID": 0.187,
+  "B": 0.2
+ },
+ "extreme_bucket_n": {
+  "A": [
+   55,
+   290
+  ],
+  "B": [
+   730,
+   360
+  ]
+ },
+ "null_beat_pct": 62.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.203,
+   "n": 659,
+   "n_ext": [
+    173,
+    90
+   ]
+  },
+  "B24": {
+   "effect": 0.197,
+   "n": 2011,
+   "n_ext": [
+    557,
+    270
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.047,
+  "COVID": 0.263,
+  "B": 0.308
+ },
+ "null_beat_pct_20": 52.0,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": 0.079,
+  "COVID": 0.216,
+  "B": 0.281
+ },
+ "effect_R_trail_w5": {
+  "A": 0.108,
+  "COVID": 0.27,
+  "B": 0.245
+ },
+ "null_beat_pct_trail": 67.0,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 0.03,
+  "COVID": 0.192,
+  "B": 0.32
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.046,
+  "COVID": 0.241,
+  "B": 0.279
+ },
+ "null_beat_pct_trail_be": 72.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": -0.264,
+  "COVID": 0.075,
+  "B": 0.214
+ },
+ "effect_R_close_w5": {
+  "A": -0.252,
+  "COVID": 0.105,
+  "B": 0.195
+ },
+ "null_beat_pct_close": 52.5,
+ "verdict_close": "INSUFFICIENT"
+}

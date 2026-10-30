@@ -1,0 +1,7 @@
+{
+  "id": "b4lv_bounce_adr20",
+  "question": "On the BOUNCE (3-down-day oversold) cohort, do LOWER adr20 (calmer) stocks give a better/less-negative stop-R than HIGH adr20 stocks? Expect top-minus-bottom effect to be NEGATIVE (low vol wins).",
+  "plain": "Low-volatility anomaly (Pandey; MAS 2022): calmer stocks earn better risk-adjusted returns in India, tested here on oversold-bounce trades using daily range (adr20).",
+  "cohort": {"trigger": "bounce", "filters": []},
+  "condition": {"type": "feature", "name": "adr20", "buckets": "quartiles"}
+}

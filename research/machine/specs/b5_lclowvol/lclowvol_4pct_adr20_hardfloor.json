@@ -1,0 +1,15 @@
+{
+  "id": "lclowvol_4pct_adr20_hardfloor",
+  "question": "Among mega-cap (top150 AND mcap>=30k cr) four_pct days, does LOWER adr20 beat higher adr20 on long stop-R? Expect NEGATIVE top-minus-bottom effect, and cleaner/stronger than the unrestricted top150 version since low-vol anomaly should be sharpest at the very largest caps.",
+  "plain": "Restricting to only the biggest, most liquid stocks (>=30k cr market cap), do the calm ones still beat the wild ones after a 4%+ pop?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150], ["mcap_cr", ">=", 30000]]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "adr20",
+    "buckets": "quartiles"
+  }
+}

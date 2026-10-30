@@ -1,0 +1,194 @@
+{
+ "id": "b3dl_deliv_bounce",
+ "question": "Does delivery-% conviction (deliv_x20) improve 3rd-down-day washout bounces? Expect higher deliv_x20 = better stop-R (real accumulation into the dip, not panic churn).",
+ "plain": "For stocks down three days in a row, this checks whether the dip days with unusually high delivery (real buyers stepping in, not just day-traders) bounce better than dip days with low delivery.",
+ "spec": {
+  "id": "b3dl_deliv_bounce",
+  "question": "Does delivery-% conviction (deliv_x20) improve 3rd-down-day washout bounces? Expect higher deliv_x20 = better stop-R (real accumulation into the dip, not panic churn).",
+  "plain": "For stocks down three days in a row, this checks whether the dip days with unusually high delivery (real buyers stepping in, not just day-traders) bounce better than dip days with low delivery.",
+  "cohort": {
+   "trigger": "bounce",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "deliv_x20",
+   "buckets": "quintiles"
+  }
+ },
+ "side": "long",
+ "n": 87082,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0275876522064209,
+    0.8978648781776428
+   ],
+   "B": {
+    "n": 12124,
+    "avg_stop_r": 0.061,
+    "med_ret_o5": -0.3,
+    "win5_pct": 46.8,
+    "avg_stop_r_20": -0.004
+   },
+   "COVID": {
+    "n": 5293,
+    "avg_stop_r": 0.193,
+    "med_ret_o5": -0.2,
+    "win5_pct": 48.5,
+    "avg_stop_r_20": 0.566
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.8978664875030518,
+    1.0041450262069702
+   ],
+   "B": {
+    "n": 12584,
+    "avg_stop_r": 0.256,
+    "med_ret_o5": -0.16,
+    "win5_pct": 48.3,
+    "avg_stop_r_20": 0.156
+   },
+   "COVID": {
+    "n": 4832,
+    "avg_stop_r": 0.029,
+    "med_ret_o5": -0.23,
+    "win5_pct": 48.0,
+    "avg_stop_r_20": 0.183
+   }
+  },
+  "2": {
+   "cond_range": [
+    1.0041521787643433,
+    1.0939007997512817
+   ],
+   "B": {
+    "n": 12594,
+    "avg_stop_r": 0.108,
+    "med_ret_o5": -0.24,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": 0.115
+   },
+   "COVID": {
+    "n": 4822,
+    "avg_stop_r": 0.328,
+    "med_ret_o5": -0.11,
+    "win5_pct": 48.9,
+    "avg_stop_r_20": 0.567
+   }
+  },
+  "3": {
+   "cond_range": [
+    1.093912959098816,
+    1.207464337348938
+   ],
+   "B": {
+    "n": 12387,
+    "avg_stop_r": 0.274,
+    "med_ret_o5": -0.31,
+    "win5_pct": 46.9,
+    "avg_stop_r_20": 0.324
+   },
+   "COVID": {
+    "n": 5029,
+    "avg_stop_r": 0.272,
+    "med_ret_o5": -0.26,
+    "win5_pct": 47.8,
+    "avg_stop_r_20": 0.643
+   }
+  },
+  "4": {
+   "cond_range": [
+    1.207473874092102,
+    4.026390552520752
+   ],
+   "B": {
+    "n": 11488,
+    "avg_stop_r": 0.09,
+    "med_ret_o5": -0.33,
+    "win5_pct": 46.7,
+    "avg_stop_r_20": 0.141
+   },
+   "COVID": {
+    "n": 5929,
+    "avg_stop_r": 0.333,
+    "med_ret_o5": 0.07,
+    "win5_pct": 50.5,
+    "avg_stop_r_20": 0.631
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": 0.14,
+  "B": 0.03
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   12124,
+   11488
+  ]
+ },
+ "null_beat_pct": 66.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.154,
+   "n": 13914,
+   "n_ext": [
+    2690,
+    2874
+   ]
+  },
+  "B24": {
+   "effect": -0.022,
+   "n": 47263,
+   "n_ext": [
+    9434,
+    8614
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "FAIL (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": 0.066,
+  "B": 0.145
+ },
+ "null_beat_pct_20": 65.0,
+ "verdict_20": "FAIL (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": 0.073,
+  "B": 0.051
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": -0.015,
+  "B": -0.065
+ },
+ "null_beat_pct_trail": 67.5,
+ "verdict_trail": "FAIL (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": 0.0,
+  "B": 0.014
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": -0.029,
+  "B": -0.067
+ },
+ "null_beat_pct_trail_be": 24.5,
+ "verdict_trail_be": "FAIL (modern)",
+ "verdict_close": "N/A (look-ahead)",
+ "close_flaw": "deliv_x20 is published after the close"
+}

@@ -1,0 +1,717 @@
+{
+ "args": {
+  "trigger": "burst",
+  "mode": "seeded",
+  "seeds": "specs/ga_seeds/burst.json",
+  "genome": "gradient",
+  "side": "long",
+  "pop": 56,
+  "gens": 30,
+  "seed": 3,
+  "finalists": 4,
+  "placebo": true,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.6050629583790417,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "turn_decile",
+      ">=",
+      0.7
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "turn_decile",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 0.6586359005968371,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 0.6586359005968371,
+   "median": 0.0730631637833456,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 4,
+   "best": 0.6586359005968371,
+   "median": 0.053310701119505394,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 5,
+   "best": 0.7642981696052303,
+   "median": 0.11858521039455047,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<=",
+      79.8492
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 6,
+   "best": 0.9176798833319978,
+   "median": 0.4164555128228572,
+   "best_ind": {
+    "filters": [
+     [
+      "dist_50dma",
+      "<=",
+      12.5812
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 7,
+   "best": 0.9176798833319978,
+   "median": 0.6586359005968371,
+   "best_ind": {
+    "filters": [
+     [
+      "dist_50dma",
+      "<=",
+      12.5812
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 8,
+   "best": 0.9176798833319978,
+   "median": 0.6586359005968371,
+   "best_ind": {
+    "filters": [
+     [
+      "dist_50dma",
+      "<=",
+      12.5812
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 9,
+   "best": 0.9176798833319978,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "dist_50dma",
+      "<=",
+      12.5812
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 10,
+   "best": 0.9176798833319978,
+   "median": 0.5224528051189956,
+   "best_ind": {
+    "filters": [
+     [
+      "dist_50dma",
+      "<=",
+      12.5812
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 11,
+   "best": 0.9593864276103989,
+   "median": 0.516542404942436,
+   "best_ind": {
+    "filters": [
+     [
+      "dist_50dma",
+      "<=",
+      12.5812
+     ],
+     [
+      "market:pct40ma",
+      "<=",
+      73.7
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 12,
+   "best": 0.9593864276103989,
+   "median": 0.516542404942436,
+   "best_ind": {
+    "filters": [
+     [
+      "dist_50dma",
+      "<=",
+      12.5812
+     ],
+     [
+      "market:pct40ma",
+      "<=",
+      73.7
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 13,
+   "best": 0.9593864276103989,
+   "median": 0.6586359005968371,
+   "best_ind": {
+    "filters": [
+     [
+      "dist_50dma",
+      "<=",
+      12.5812
+     ],
+     [
+      "market:pct40ma",
+      "<=",
+      73.7
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 14,
+   "best": 0.9593864276103989,
+   "median": 0.6586359005968371,
+   "best_ind": {
+    "filters": [
+     [
+      "dist_50dma",
+      "<=",
+      12.5812
+     ],
+     [
+      "market:pct40ma",
+      "<=",
+      73.7
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 15,
+   "best": 1.1617015792753054,
+   "median": 0.7315215695634736,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      73.7
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 16,
+   "best": 1.1617015792753054,
+   "median": 0.6586359005968371,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      73.7
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 17,
+   "best": 1.1617015792753054,
+   "median": 0.7315215695634736,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      73.7
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 18,
+   "best": 1.2956716308356528,
+   "median": 0.7315215695634736,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 19,
+   "best": 1.2956716308356528,
+   "median": 0.9176798833319978,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 20,
+   "best": 1.2956716308356528,
+   "median": 0.7315215695634736,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 21,
+   "best": 1.2956716308356528,
+   "median": 0.8630935091005537,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 22,
+   "best": 1.2956716308356528,
+   "median": 0.7973075393320137,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 23,
+   "best": 1.2956716308356528,
+   "median": 0.7315215695634736,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 24,
+   "best": 1.2956716308356528,
+   "median": 0.7315215695634736,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 25,
+   "best": 1.2956716308356528,
+   "median": 0.8630935091005537,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 26,
+   "best": 1.2956716308356528,
+   "median": 0.3888427662534079,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 27,
+   "best": 1.2956716308356528,
+   "median": 0.8630935091005537,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 28,
+   "best": 1.2956716308356528,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 29,
+   "best": 1.2956716308356528,
+   "median": 0.8862212307758167,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 30,
+   "best": 1.2956716308356528,
+   "median": 0.8630935091005537,
+   "best_ind": {
+    "filters": [
+     [
+      "market:pct40ma",
+      "<=",
+      60.5
+     ],
+     [
+      "dist_50dma",
+      "<=",
+      18.2874
+     ]
+    ],
+    "condition": {
+     "type": "derived",
+     "name": "ret_126",
+     "buckets": "quartiles"
+    }
+   }
+  }
+ ],
+ "unevaluable_seeds": [
+  {
+   "id": "d1_deliv_veto",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "d2_deliv_regime",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.2
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ]
+   ]
+  },
+  {
+   "id": "c3_R5_system",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.5
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.7
+    ]
+   ]
+  }
+ ],
+ "finalists": []
+}

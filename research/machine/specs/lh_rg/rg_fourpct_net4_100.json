@@ -1,0 +1,9 @@
+{
+  "id": "rg_fourpct_net4_100",
+  "plain": "Large-cap 4%-up-day momentum long, only taken when market net4 tape is strong (>=100)",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["market:net4", ">=", 100]],
+  "horizon": 20,
+  "risk": 0.0075
+}

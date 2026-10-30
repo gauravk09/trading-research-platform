@@ -1,0 +1,21 @@
+{
+  "id": "p5_effratio_burst_top500",
+  "question": "[top-500 by point-in-time market cap] Does chart linearity (efficiency ratio) select breakout winners inside a point-in-time top-quality universe -- expect smoother prior trend = better",
+  "plain": "How smooth/straight the prior trend was, as a breakout filter, restricted to bigger companies. Universe: top-500 by point-in-time market cap.",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        500
+      ]
+    ]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "eff_ratio",
+    "buckets": "quartiles"
+  }
+}

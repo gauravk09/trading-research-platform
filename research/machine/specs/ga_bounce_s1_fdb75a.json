@@ -1,0 +1,24 @@
+{
+ "id": "ga_bounce_s1_fdb75a",
+ "question": "GA-evolved (bounce): filters [ret7 >= -5.5362, adr20 >= 2.4226]; condition market:net25q (quintiles). Train halves -1.04/-0.71R \u2014 expect more of it = worse. Era B untouched until this run.",
+ "cohort": {
+  "trigger": "bounce",
+  "filters": [
+   [
+    "ret7",
+    ">=",
+    -5.5362
+   ],
+   [
+    "adr20",
+    ">=",
+    2.4226
+   ]
+  ]
+ },
+ "condition": {
+  "type": "market",
+  "name": "net25q",
+  "buckets": "quintiles"
+ }
+}

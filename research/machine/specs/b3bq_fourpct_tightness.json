@@ -1,0 +1,7 @@
+{
+  "id": "b3bq_fourpct_tightness",
+  "question": "On plain 4% up days, does pre-move range tightness (tightness = 5d range pct-rank, LOW=tight) grade the day? Expect LOW tightness (tighter range before the move) = better stop-R, per Darvas-box/VCP logic that tight coiling precedes the best expansions.",
+  "plain": "Darvas box idea: a stock that was trading in a very tight, narrow range right before a 4% up day should have a better follow-through than one that was already choppy and wide-ranging.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "tightness", "buckets": "quartiles"}
+}

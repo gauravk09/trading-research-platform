@@ -1,0 +1,6 @@
+{
+  "id": "b2n_trio_blow21",
+  "question": "Burst trio: liquid half (turn_decile >= 0.5, house convention) + good tape (market:net4 >= 134, h4 top-quintile edge) - does position-in-range transfer to tight-base breakouts? Expect NEGATIVE bounce_low21 top-minus-bottom effect (most-extended-above-21d-low quartile worst, per h6/v_h6_a); bursts cluster near highs so cond_range must be reported honestly.",
+  "cohort": {"trigger": "burst", "filters": [["turn_decile", ">=", 0.5], ["market:net4", ">=", 134]]},
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quartiles"}
+}

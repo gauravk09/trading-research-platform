@@ -1,0 +1,7 @@
+{
+ "id": "v_b4il_turn_4pct_a",
+ "question": "On any 4% up-day (four_pct), does turnover-decile with quintile buckets still show liquid > illiquid (as in the quartile PASS), i.e. does finer-grained bucketing preserve the monotone gradient rather than being a quartile artifact?",
+ "plain": "Re-testing the turnover-vs-4%-day-return finding with 5 buckets instead of 4, to see if the liquid-stocks-do-better pattern holds up at finer resolution.",
+ "cohort": {"trigger": "four_pct"},
+ "condition": {"type": "feature", "name": "turn_decile", "buckets": "quintiles"}
+}

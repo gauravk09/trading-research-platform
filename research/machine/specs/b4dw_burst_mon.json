@@ -1,0 +1,7 @@
+{
+  "id": "b4dw_burst_mon",
+  "question": "Does a tight-base 4% breakout (burst) triggered on Monday produce better stop-based R than Tue-Fri? Same reversed-Monday-effect hypothesis as the other cohorts, tested here on the higher-quality burst trigger; expect WEAK given the small burst n and documented decay of calendar effects.",
+  "plain": "Tests whether Monday helps tight-base breakout (burst) triggers, per Indian day-of-week studies showing a reversed (positive) Monday effect vs the US.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "calendar", "name": "dow", "buckets": [-1, 0, 4]}
+}

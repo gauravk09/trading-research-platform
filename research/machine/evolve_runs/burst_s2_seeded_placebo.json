@@ -1,0 +1,819 @@
+{
+ "args": {
+  "trigger": "burst",
+  "mode": "seeded",
+  "seeds": "specs/ga_seeds/burst.json",
+  "genome": "gradient",
+  "side": "long",
+  "pop": 56,
+  "gens": 30,
+  "seed": 2,
+  "finalists": 4,
+  "placebo": true,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.7541155640772628,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rvol50",
+      "<=",
+      2.6
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 0.7584704832962501,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 0.9124660519015576,
+   "median": 0.26053371966080163,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 4,
+   "best": 1.0457128738757586,
+   "median": 0.3603839580805541,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 5,
+   "best": 1.0457128738757586,
+   "median": 0.34610507125842044,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 6,
+   "best": 1.0457128738757586,
+   "median": 0.7584704832962501,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 7,
+   "best": 1.0457128738757586,
+   "median": 0.7584704832962501,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 8,
+   "best": 1.0457128738757586,
+   "median": 0.7222910730425616,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 9,
+   "best": 1.0457128738757586,
+   "median": 0.904089462888658,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 10,
+   "best": 1.0457128738757586,
+   "median": 0.3850115774101758,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 11,
+   "best": 1.2921635573673615,
+   "median": 0.5649519335566324,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 12,
+   "best": 1.2921635573673615,
+   "median": 0.42031999858911673,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 13,
+   "best": 1.333294526427944,
+   "median": 0.7258541580815911,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 14,
+   "best": 1.333294526427944,
+   "median": 0.841669681169383,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 15,
+   "best": 1.333294526427944,
+   "median": 0.996106509147164,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 16,
+   "best": 1.333294526427944,
+   "median": 1.0462968008766933,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 17,
+   "best": 1.333294526427944,
+   "median": 1.1421635573673616,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 18,
+   "best": 1.333294526427944,
+   "median": 1.2921635573673615,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 19,
+   "best": 1.333294526427944,
+   "median": 1.2921635573673615,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 20,
+   "best": 1.333294526427944,
+   "median": 1.2921635573673615,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 21,
+   "best": 1.333294526427944,
+   "median": 0.8636355106717227,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 22,
+   "best": 1.333294526427944,
+   "median": 1.1421635573673616,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 23,
+   "best": 1.333294526427944,
+   "median": 1.094522142622495,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 24,
+   "best": 1.333294526427944,
+   "median": 0.8636355106717227,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 25,
+   "best": 1.333294526427944,
+   "median": 1.094522142622495,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 26,
+   "best": 1.333294526427944,
+   "median": 1.0468807278776282,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 27,
+   "best": 1.333294526427944,
+   "median": 0.6803902934658173,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 28,
+   "best": 1.333294526427944,
+   "median": 0.6803902934658173,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 29,
+   "best": 1.333294526427944,
+   "median": 1.2921635573673615,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 30,
+   "best": 1.333294526427944,
+   "median": 1.1695221426224949,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      ">=",
+      1.6677
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -36.12
+     ],
+     [
+      "pocket_pivot",
+      ">=",
+      1.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quintiles"
+    }
+   }
+  }
+ ],
+ "unevaluable_seeds": [
+  {
+   "id": "d1_deliv_veto",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "d2_deliv_regime",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.2
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ]
+   ]
+  },
+  {
+   "id": "c3_R5_system",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.5
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.7
+    ]
+   ]
+  }
+ ],
+ "finalists": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "mr_fourpctdown_strong_dip",
+  "plain": "Buy a sharp -4% down day (falling knife) only in stocks that are structurally strong: above 50dma, near highs, positive trend.",
+  "source": "trigger",
+  "trigger": "four_pct_down",
+  "filters": [["ti65", ">=", 1.0], ["dist_50dma", ">=", 0], ["pct_52wh", ">=", -15]],
+  "horizon": 5,
+  "risk": 0.0075
+}

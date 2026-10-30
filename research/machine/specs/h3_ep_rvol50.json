@@ -1,0 +1,6 @@
+{
+  "id": "h3_ep_rvol50",
+  "question": "Within EPs (already extreme volume), does even higher relative volume (rvol50) help? House prior: volume confirmation is neutral-to-harmful on NSE, so expect FLAT-to-NEGATIVE effect.",
+  "cohort": {"trigger": "ep"},
+  "condition": {"type": "feature", "name": "rvol50", "buckets": "quartiles"}
+}

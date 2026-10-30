@@ -1,0 +1,6 @@
+{
+  "id": "h1_burst_burst_success",
+  "question": "On burst triggers, does a stock's prior burst_success track record predict follow-through? Expected: modest positive effect (high prior success = better stop-R), tempered by house prior that stock-level features rarely grade bursts.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "burst_success", "buckets": "quartiles"}
+}

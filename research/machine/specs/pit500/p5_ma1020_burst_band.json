@@ -1,0 +1,26 @@
+{
+  "id": "p5_ma1020_burst_band",
+  "question": "[point-in-time market-cap rank 151-500 (mid band, excludes mega-caps)] Does the Nifty 10-DMA-over-20-DMA gate, noise on the full universe, select breakouts once the cohort is a point-in-time quality universe -- expect higher ratio = better if the full-universe failure was micro-cap dilution",
+  "plain": "The world's favourite index trend filter (10-day average above the 20-day), re-tested on breakouts in bigger, more liquid companies only. Universe: point-in-time market-cap rank 151-500 (mid band, excludes mega-caps).",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        500
+      ],
+      [
+        "mcap_rank",
+        ">=",
+        151
+      ]
+    ]
+  },
+  "condition": {
+    "type": "market",
+    "name": "ma1020_nifty50",
+    "buckets": "quintiles"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b7mb_fourpct_ma1020",
+  "question": "Muninn article benchmark on the broad 4%-day cohort: higher Nifty 10/20-DMA ratio should mean better outcomes -- expect higher ratio = better",
+  "plain": "Same index 10-day-vs-20-day trend gate, tested on every ordinary 4% up-day instead of just tight-base breakouts, for a much larger sample.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "market", "name": "ma1020_nifty50", "buckets": "quintiles"}
+}

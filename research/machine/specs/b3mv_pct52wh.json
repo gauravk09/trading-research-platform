@@ -1,0 +1,7 @@
+{
+  "id": "b3mv_pct52wh",
+  "question": "In the burst cohort, does distance below the 52-week high (pct_52wh) grade outcomes, with buying closer to the high (smaller pct_52wh) expected to beat buying far below it?",
+  "plain": "Mark Minervini says to buy breakouts from stocks near their 52-week high, not ones deep below it -- this checks if that matters.",
+  "cohort": {"trigger": "burst", "filters": []},
+  "condition": {"type": "feature", "name": "pct_52wh", "buckets": "quartiles"}
+}

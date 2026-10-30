@@ -1,0 +1,7 @@
+{
+  "id": "b3rs_fourpct_rs",
+  "question": "Does composite RS rank (rs) grade any 4% up day, with higher rs producing better stop-based R? Expect higher=better.",
+  "plain": "Same relative-strength-is-king idea, applied to any ordinary 4% up day instead of just tight-base breakouts.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

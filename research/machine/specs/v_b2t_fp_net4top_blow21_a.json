@@ -1,0 +1,6 @@
+{
+  "id": "v_b2t_fp_net4top_blow21_a",
+  "question": "Perturbation of b2t_fp_net4top_blow21: loosen the strong-tape filter net4 134 -> 107 (-20%). Expect bounce_low21 quintile effect to stay NEGATIVE (extended top quintile worst) in both era A and era B.",
+  "cohort": {"trigger": "four_pct", "filters": [["market:net4", ">=", 107]]},
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quintiles"}
+}

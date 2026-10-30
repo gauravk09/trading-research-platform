@@ -1,0 +1,7 @@
+{
+  "id": "caldeliv_expiry_bounce_long",
+  "question": "Among top-150 large-cap bounce longs, does calendar distance to monthly expiry (expiry_dist) change bounce follow-through? No strong house prior; testing whether expiry-week (0-2 days) whipsaw hurts a mean-reversion bounce more than a momentum breakout.",
+  "plain": "Buying a large-cap oversold bounce: does it matter whether you're right next to monthly F&O expiry versus mid-cycle?",
+  "cohort": {"trigger": "bounce", "side": "long", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "calendar", "name": "expiry_dist", "buckets": [-1, 2, 7, 40]}
+}

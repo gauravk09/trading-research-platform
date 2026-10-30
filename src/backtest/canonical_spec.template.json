@@ -1,0 +1,18 @@
+{
+  "id": "example_s4",
+  "stage": "S4",
+  "strategy": "example_strategy",
+  "family": "example_family",
+  "module": "src.backtest.studies.example",
+  "spec_path": "research/factory/example/SPEC.md",
+  "dataset_paths": ["data/processed/close_matrix.parquet"],
+  "parameters": {
+    "costs": "0.15%/side",
+    "entry_clock": "D+1 open",
+    "eras": "2015-19,2020-22,2023-26",
+    "control_type": "same-date matched random",
+    "survivorship": "<how delisted/suspended names are handled, e.g. 'survivors-only cache (0 delisted symbols); index-anchored control'>"
+  },
+  "success_bars": {"same_date_lift": "> 0", "era_a_and_b": "profitable"},
+  "artifact_paths": []
+}

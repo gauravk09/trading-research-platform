@@ -1,0 +1,6 @@
+{
+ "id": "v_b2b_bounce_ti65_pct40ma_b",
+ "question": "Perturbation B: shift ti65 cohort edge ~20% up (1.11 -> 1.33) and shift pct40ma bucket edges ~20% up ([0, 24, 48, 72, 100]); expect LOW pct40ma buckets to keep BETTER stop-R (negative top-minus-bottom effect) in eras A and B if the leader-washout pocket is real.",
+ "cohort": {"trigger": "bounce", "filters": [["ti65", ">=", 1.33]]},
+ "condition": {"type": "market", "name": "pct40ma", "buckets": [0, 24, 48, 72, 100]}
+}

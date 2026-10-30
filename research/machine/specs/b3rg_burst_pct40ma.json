@@ -1,0 +1,7 @@
+{
+  "id": "b3rg_burst_pct40ma",
+  "question": "Expect burst (4% breakout from tight base) triggers to work better when a larger % of the whole market is above its 40-day moving average, since breakouts should have more follow-through when market-wide trend participation is high",
+  "plain": "Does a stock's tight-base breakout work better when a bigger share of the whole market is trending above its 40-day average?",
+  "cohort": {"trigger": "burst", "filters": []},
+  "condition": {"type": "market", "name": "pct40ma", "buckets": "quartiles"}
+}

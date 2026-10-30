@@ -1,0 +1,6 @@
+{
+  "id": "h2_ep_ret252",
+  "question": "Do episodic pivots on big prior 1-year gainers outperform EPs on laggards? Expected direction: folklore says top ret_252 quartile beats bottom (positive effect); house prior found EPs indifferent to stock character, so a PASS either way is new information.",
+  "cohort": {"trigger": "ep"},
+  "condition": {"type": "derived", "name": "ret_252", "buckets": "quartiles"}
+}

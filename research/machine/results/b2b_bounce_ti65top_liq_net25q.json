@@ -1,0 +1,214 @@
+{
+ "id": "b2b_bounce_ti65top_liq_net25q",
+ "question": "Same double-stacked cohort (ti65 >= 1.11 leaders, turn_decile >= 0.5 liquid half) conditioned on market net25q quartiles: washout belief says leader dip-buys earn best when the quarterly tape is WEAK; expect NEGATIVE top-minus-bottom effect (low net25q quartile best).",
+ "plain": null,
+ "spec": {
+  "id": "b2b_bounce_ti65top_liq_net25q",
+  "question": "Same double-stacked cohort (ti65 >= 1.11 leaders, turn_decile >= 0.5 liquid half) conditioned on market net25q quartiles: washout belief says leader dip-buys earn best when the quarterly tape is WEAK; expect NEGATIVE top-minus-bottom effect (low net25q quartile best).",
+  "cohort": {
+   "trigger": "bounce",
+   "filters": [
+    [
+     "ti65",
+     ">=",
+     1.11
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.5
+    ]
+   ]
+  },
+  "condition": {
+   "type": "market",
+   "name": "net25q",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 19436,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -986.0,
+    133.0
+   ],
+   "A": {
+    "n": 1959,
+    "avg_stop_r": 0.151,
+    "med_ret_o5": -0.34,
+    "win5_pct": 46.2,
+    "avg_stop_r_20": -0.04
+   },
+   "B": {
+    "n": 1901,
+    "avg_stop_r": 0.361,
+    "med_ret_o5": 0.34,
+    "win5_pct": 52.2,
+    "avg_stop_r_20": 0.531
+   },
+   "COVID": {
+    "n": 1012,
+    "avg_stop_r": 0.191,
+    "med_ret_o5": -0.21,
+    "win5_pct": 48.9,
+    "avg_stop_r_20": 0.234
+   }
+  },
+  "1": {
+   "cond_range": [
+    134.0,
+    296.0
+   ],
+   "A": {
+    "n": 1850,
+    "avg_stop_r": 0.098,
+    "med_ret_o5": -0.29,
+    "win5_pct": 47.0,
+    "avg_stop_r_20": 0.388
+   },
+   "B": {
+    "n": 1308,
+    "avg_stop_r": 0.295,
+    "med_ret_o5": -0.38,
+    "win5_pct": 47.4,
+    "avg_stop_r_20": 0.248
+   },
+   "COVID": {
+    "n": 1706,
+    "avg_stop_r": 0.279,
+    "med_ret_o5": 0.37,
+    "win5_pct": 52.3,
+    "avg_stop_r_20": 0.536
+   }
+  },
+  "2": {
+   "cond_range": [
+    297.0,
+    507.0
+   ],
+   "A": {
+    "n": 395,
+    "avg_stop_r": -0.085,
+    "med_ret_o5": -0.7,
+    "win5_pct": 43.3,
+    "avg_stop_r_20": 0.121
+   },
+   "B": {
+    "n": 2763,
+    "avg_stop_r": 0.189,
+    "med_ret_o5": 0.23,
+    "win5_pct": 52.3,
+    "avg_stop_r_20": 0.305
+   },
+   "COVID": {
+    "n": 1683,
+    "avg_stop_r": 0.386,
+    "med_ret_o5": 0.13,
+    "win5_pct": 50.7,
+    "avg_stop_r_20": 0.898
+   }
+  },
+  "3": {
+   "cond_range": [
+    508.0,
+    990.0
+   ],
+   "B": {
+    "n": 2241,
+    "avg_stop_r": 0.416,
+    "med_ret_o5": 0.36,
+    "win5_pct": 52.7,
+    "avg_stop_r_20": 0.2
+   },
+   "COVID": {
+    "n": 2618,
+    "avg_stop_r": 0.014,
+    "med_ret_o5": -0.16,
+    "win5_pct": 48.2,
+    "avg_stop_r_20": 0.528
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.237,
+  "COVID": -0.176,
+  "B": 0.056
+ },
+ "extreme_bucket_n": {
+  "A": [
+   1959,
+   0
+  ],
+  "B": [
+   1901,
+   2241
+  ]
+ },
+ "null_beat_pct": 17.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.628,
+   "n": 2421,
+   "n_ext": [
+    328,
+    610
+   ]
+  },
+  "B24": {
+   "effect": -0.167,
+   "n": 5792,
+   "n_ext": [
+    1573,
+    1631
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.161,
+  "COVID": 0.294,
+  "B": -0.331
+ },
+ "null_beat_pct_20": 33.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": -0.31,
+  "COVID": 0.111,
+  "B": -0.122
+ },
+ "effect_R_trail_w5": {
+  "A": -0.071,
+  "COVID": -0.051,
+  "B": 0.024
+ },
+ "null_beat_pct_trail": 13.5,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": -0.161,
+  "COVID": 0.082,
+  "B": -0.166
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.002,
+  "COVID": -0.062,
+  "B": 0.022
+ },
+ "null_beat_pct_trail_be": 2.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.018,
+  "COVID": -0.27,
+  "B": 0.162
+ },
+ "effect_R_close_w5": {
+  "A": -0.002,
+  "COVID": -0.114,
+  "B": 0.142
+ },
+ "null_beat_pct_close": 49.0,
+ "verdict_close": "INSUFFICIENT"
+}

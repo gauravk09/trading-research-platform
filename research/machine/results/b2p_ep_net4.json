@@ -1,0 +1,209 @@
+{
+ "id": "b2p_ep_net4",
+ "question": "Baseline: do EPs care about market net4 at all? House prior (EPs work better in weak tapes; h4_ep_score FAILed at -0.01/-0.06) pre-states NEGATIVE top-minus-bottom (low-net4 quartile better); the burst-side net4 PASS argues the opposite. No cohort filters; net4 quartiles.",
+ "plain": null,
+ "spec": {
+  "id": "b2p_ep_net4",
+  "question": "Baseline: do EPs care about market net4 at all? House prior (EPs work better in weak tapes; h4_ep_score FAILed at -0.01/-0.06) pre-states NEGATIVE top-minus-bottom (low-net4 quartile better); the burst-side net4 PASS argues the opposite. No cohort filters; net4 quartiles.",
+  "cohort": {
+   "trigger": "ep"
+  },
+  "condition": {
+   "type": "market",
+   "name": "net4",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 5169,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -910.0,
+    53.0
+   ],
+   "A": {
+    "n": 405,
+    "avg_stop_r": -0.071,
+    "med_ret_o5": -0.34,
+    "win5_pct": 48.1,
+    "avg_stop_r_20": 0.024
+   },
+   "B": {
+    "n": 619,
+    "avg_stop_r": -0.102,
+    "med_ret_o5": -1.23,
+    "win5_pct": 41.4,
+    "avg_stop_r_20": -0.152
+   },
+   "COVID": {
+    "n": 292,
+    "avg_stop_r": 0.034,
+    "med_ret_o5": -1.25,
+    "win5_pct": 44.9,
+    "avg_stop_r_20": 0.293
+   }
+  },
+  "1": {
+   "cond_range": [
+    54.0,
+    91.0
+   ],
+   "A": {
+    "n": 229,
+    "avg_stop_r": -0.049,
+    "med_ret_o5": -0.55,
+    "win5_pct": 46.7,
+    "avg_stop_r_20": -0.178
+   },
+   "B": {
+    "n": 722,
+    "avg_stop_r": -0.032,
+    "med_ret_o5": -0.7,
+    "win5_pct": 44.6,
+    "avg_stop_r_20": 0.204
+   },
+   "COVID": {
+    "n": 342,
+    "avg_stop_r": 0.073,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.7,
+    "avg_stop_r_20": 0.309
+   }
+  },
+  "2": {
+   "cond_range": [
+    92.0,
+    133.0
+   ],
+   "A": {
+    "n": 147,
+    "avg_stop_r": -0.028,
+    "med_ret_o5": -0.39,
+    "win5_pct": 48.3,
+    "avg_stop_r_20": -0.081
+   },
+   "B": {
+    "n": 683,
+    "avg_stop_r": -0.064,
+    "med_ret_o5": -1.07,
+    "win5_pct": 43.6,
+    "avg_stop_r_20": 0.002
+   },
+   "COVID": {
+    "n": 455,
+    "avg_stop_r": 0.072,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.5,
+    "avg_stop_r_20": 0.205
+   }
+  },
+  "3": {
+   "cond_range": [
+    134.0,
+    888.0
+   ],
+   "A": {
+    "n": 127,
+    "avg_stop_r": -0.076,
+    "med_ret_o5": -1.0,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": -0.25
+   },
+   "B": {
+    "n": 646,
+    "avg_stop_r": 0.041,
+    "med_ret_o5": 0.12,
+    "win5_pct": 51.1,
+    "avg_stop_r_20": 0.309
+   },
+   "COVID": {
+    "n": 502,
+    "avg_stop_r": 0.225,
+    "med_ret_o5": 0.7,
+    "win5_pct": 54.2,
+    "avg_stop_r_20": 0.22
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.005,
+  "COVID": 0.191,
+  "B": 0.144
+ },
+ "extreme_bucket_n": {
+  "A": [
+   405,
+   127
+  ],
+  "B": [
+   619,
+   646
+  ]
+ },
+ "null_beat_pct": 96.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.108,
+   "n": 659,
+   "n_ext": [
+    93,
+    63
+   ]
+  },
+  "B24": {
+   "effect": 0.195,
+   "n": 2011,
+   "n_ext": [
+    526,
+    583
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.274,
+  "COVID": -0.073,
+  "B": 0.461
+ },
+ "null_beat_pct_20": 94.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": -0.202,
+  "COVID": 0.119,
+  "B": 0.388
+ },
+ "effect_R_trail_w5": {
+  "A": -0.187,
+  "COVID": 0.114,
+  "B": 0.25
+ },
+ "null_beat_pct_trail": 97.5,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": -0.177,
+  "COVID": 0.083,
+  "B": 0.22
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.174,
+  "COVID": 0.063,
+  "B": 0.174
+ },
+ "null_beat_pct_trail_be": 89.5,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.099,
+  "COVID": 0.26,
+  "B": 0.137
+ },
+ "effect_R_close_w5": {
+  "A": 0.096,
+  "COVID": 0.303,
+  "B": 0.142
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "INSUFFICIENT"
+}

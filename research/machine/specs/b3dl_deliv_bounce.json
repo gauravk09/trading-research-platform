@@ -1,0 +1,7 @@
+{
+  "id": "b3dl_deliv_bounce",
+  "question": "Does delivery-% conviction (deliv_x20) improve 3rd-down-day washout bounces? Expect higher deliv_x20 = better stop-R (real accumulation into the dip, not panic churn).",
+  "plain": "For stocks down three days in a row, this checks whether the dip days with unusually high delivery (real buyers stepping in, not just day-traders) bounce better than dip days with low delivery.",
+  "cohort": {"trigger": "bounce", "filters": []},
+  "condition": {"type": "feature", "name": "deliv_x20", "buckets": "quintiles"}
+}

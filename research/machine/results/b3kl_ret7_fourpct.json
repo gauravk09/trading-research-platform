@@ -1,0 +1,210 @@
+{
+ "id": "b3kl_ret7_fourpct",
+ "question": "Oliver Kell's exhaustion-extension idea applied to the very short term: on four_pct days, expect higher trailing 1-week return (ret7, more overextended in the last week) to be WORSE (lower avg stop-R) than a lower/flatter ret7 \u2014 a short-term fade risk.",
+ "plain": "Oliver Kell warns that a stock already up a lot in just the past week is more likely to be exhausted; this checks if 4%-up days following a big 1-week run do worse than ones without that run-up.",
+ "spec": {
+  "id": "b3kl_ret7_fourpct",
+  "question": "Oliver Kell's exhaustion-extension idea applied to the very short term: on four_pct days, expect higher trailing 1-week return (ret7, more overextended in the last week) to be WORSE (lower avg stop-R) than a lower/flatter ret7 \u2014 a short-term fade risk.",
+  "plain": "Oliver Kell warns that a stock already up a lot in just the past week is more likely to be exhausted; this checks if 4%-up days following a big 1-week run do worse than ones without that run-up.",
+  "cohort": {
+   "trigger": "four_pct"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "ret7",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 83452,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -65.60716247558594,
+    0.6818532943725586
+   ],
+   "A": {
+    "n": 4872,
+    "avg_stop_r": 0.024,
+    "med_ret_o5": -0.67,
+    "win5_pct": 45.4,
+    "avg_stop_r_20": -0.106
+   },
+   "B": {
+    "n": 9472,
+    "avg_stop_r": 0.04,
+    "med_ret_o5": -0.43,
+    "win5_pct": 47.1,
+    "avg_stop_r_20": 0.058
+   },
+   "COVID": {
+    "n": 6519,
+    "avg_stop_r": -0.054,
+    "med_ret_o5": -1.12,
+    "win5_pct": 42.5,
+    "avg_stop_r_20": 0.081
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.6820559501647949,
+    5.076503753662109
+   ],
+   "A": {
+    "n": 4768,
+    "avg_stop_r": -0.031,
+    "med_ret_o5": -0.94,
+    "win5_pct": 42.8,
+    "avg_stop_r_20": -0.092
+   },
+   "B": {
+    "n": 10148,
+    "avg_stop_r": 0.02,
+    "med_ret_o5": -0.61,
+    "win5_pct": 45.6,
+    "avg_stop_r_20": 0.081
+   },
+   "COVID": {
+    "n": 5947,
+    "avg_stop_r": 0.015,
+    "med_ret_o5": -0.87,
+    "win5_pct": 43.8,
+    "avg_stop_r_20": 0.129
+   }
+  },
+  "2": {
+   "cond_range": [
+    5.0765275955200195,
+    9.46969985961914
+   ],
+   "A": {
+    "n": 4877,
+    "avg_stop_r": -0.059,
+    "med_ret_o5": -0.94,
+    "win5_pct": 42.8,
+    "avg_stop_r_20": -0.114
+   },
+   "B": {
+    "n": 9749,
+    "avg_stop_r": -0.004,
+    "med_ret_o5": -0.72,
+    "win5_pct": 44.9,
+    "avg_stop_r_20": 0.071
+   },
+   "COVID": {
+    "n": 6237,
+    "avg_stop_r": -0.014,
+    "med_ret_o5": -1.08,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": 0.128
+   }
+  },
+  "3": {
+   "cond_range": [
+    9.4700927734375,
+    1099.4185791015625
+   ],
+   "A": {
+    "n": 4818,
+    "avg_stop_r": -0.106,
+    "med_ret_o5": -1.34,
+    "win5_pct": 40.7,
+    "avg_stop_r_20": -0.167
+   },
+   "B": {
+    "n": 9103,
+    "avg_stop_r": -0.101,
+    "med_ret_o5": -1.15,
+    "win5_pct": 43.1,
+    "avg_stop_r_20": -0.042
+   },
+   "COVID": {
+    "n": 6942,
+    "avg_stop_r": -0.112,
+    "med_ret_o5": -1.41,
+    "win5_pct": 41.5,
+    "avg_stop_r_20": -0.02
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.13,
+  "COVID": -0.058,
+  "B": -0.141
+ },
+ "extreme_bucket_n": {
+  "A": [
+   4872,
+   4818
+  ],
+  "B": [
+   9472,
+   9103
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.018,
+   "n": 9099,
+   "n_ext": [
+    1527,
+    2454
+   ]
+  },
+  "B24": {
+   "effect": -0.18,
+   "n": 29373,
+   "n_ext": [
+    7945,
+    6649
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "PASS",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.061,
+  "COVID": -0.102,
+  "B": -0.1
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "WEAK",
+ "effect_R_trail": {
+  "A": -0.045,
+  "COVID": -0.048,
+  "B": -0.024
+ },
+ "effect_R_trail_w5": {
+  "A": -0.046,
+  "COVID": -0.037,
+  "B": -0.007
+ },
+ "null_beat_pct_trail": 97.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.076,
+  "COVID": -0.053,
+  "B": -0.088
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.08,
+  "COVID": -0.042,
+  "B": -0.068
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.058,
+  "COVID": 0.038,
+  "B": -0.094
+ },
+ "effect_R_close_w5": {
+  "A": -0.064,
+  "COVID": 0.02,
+  "B": -0.084
+ },
+ "null_beat_pct_close": 99.5,
+ "verdict_close": "FAIL"
+}

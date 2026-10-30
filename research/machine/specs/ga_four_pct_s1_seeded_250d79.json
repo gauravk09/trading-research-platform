@@ -1,0 +1,24 @@
+{
+ "id": "ga_four_pct_s1_seeded_250d79",
+ "question": "GA-evolved (four_pct): filters [market:pct40ma >= 15.9, rs >= 66.7184]; condition turn_decile (quartiles). Train CV folds +0.22/+0.18/+0.22/+0.42R \u2014 expect more of it = better. Era B untouched until this run.",
+ "cohort": {
+  "trigger": "four_pct",
+  "filters": [
+   [
+    "market:pct40ma",
+    ">=",
+    15.9
+   ],
+   [
+    "rs",
+    ">=",
+    66.7184
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "turn_decile",
+  "buckets": "quartiles"
+ }
+}

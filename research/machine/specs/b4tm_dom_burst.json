@@ -1,0 +1,7 @@
+{
+  "id": "b4tm_dom_burst",
+  "question": "On burst (tight-base breakout) triggers, is the first-3-days-of-month bucket best (turn-of-month effect extends to breakouts), with no elevation at month-end?",
+  "plain": "Testing whether tight-base breakouts perform better when they fire at the very start of the month, per the turn-of-month effect (RFB 2023, IJMEC).",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "calendar", "name": "dom", "buckets": [0, 3, 24, 31]}
+}

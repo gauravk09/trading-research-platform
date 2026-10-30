@@ -1,0 +1,26 @@
+{
+ "id": "v_lcbounce_bounce_low21_pertup",
+ "question": "Red-team perturbation (2026-08-06 batch): bounce_low21 edges x1.2",
+ "cohort": {
+  "trigger": "bounce",
+  "side": "long",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    150
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "bounce_low21",
+  "buckets": [
+   0,
+   1.71,
+   4.68,
+   9.87,
+   1000
+  ]
+ }
+}

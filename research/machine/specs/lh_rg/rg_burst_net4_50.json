@@ -1,0 +1,9 @@
+{
+  "id": "rg_burst_net4_50",
+  "plain": "Large-cap breakout (burst) long, only taken when market net4 tape is at least moderately healthy (>=50)",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["market:net4", ">=", 50]],
+  "horizon": 20,
+  "risk": 0.0075
+}

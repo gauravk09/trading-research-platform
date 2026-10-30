@@ -1,0 +1,7 @@
+{
+  "id": "b3dl_deliv_four_pct",
+  "question": "Does a delivery-% spike (deliv_x20, delivery vs own 20d avg) grade plain 4% up days? Expect higher deliv_x20 = better stop-R (institutional conviction behind the move, not just intraday churn).",
+  "plain": "Indian brokers report what fraction of a day's shares actually get delivered (held) vs just traded intraday; this checks whether 4% up-days with unusually high delivery (real buying, not noise) work out better than 4% days with low delivery.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "deliv_x20", "buckets": "quintiles"}
+}

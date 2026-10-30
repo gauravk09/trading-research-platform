@@ -1,0 +1,357 @@
+{
+ "args": {
+  "trigger": "bounce",
+  "pop": 24,
+  "gens": 10,
+  "seed": 1,
+  "finalists": 4,
+  "placebo": false,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 3.73510018642403,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 3.73510018642403,
+   "median": 0.6664194144438258,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 4.2639799298918035,
+   "median": 1.4974497823878057,
+   "best_ind": {
+    "filters": [
+     [
+      "adr20",
+      ">=",
+      2.4226
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 4,
+   "best": 4.2639799298918035,
+   "median": 3.026136988373512,
+   "best_ind": {
+    "filters": [
+     [
+      "adr20",
+      ">=",
+      2.4226
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 5,
+   "best": 4.2639799298918035,
+   "median": 3.4907395603277402,
+   "best_ind": {
+    "filters": [
+     [
+      "adr20",
+      ">=",
+      2.4226
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 6,
+   "best": 4.2639799298918035,
+   "median": 3.73510018642403,
+   "best_ind": {
+    "filters": [
+     [
+      "adr20",
+      ">=",
+      2.4226
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 7,
+   "best": 4.286378692453737,
+   "median": 3.9365725564343563,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      ">=",
+      -5.5362
+     ],
+     [
+      "adr20",
+      ">=",
+      2.4226
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 8,
+   "best": 4.286378692453737,
+   "median": 3.7190825157919853,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      ">=",
+      -5.5362
+     ],
+     [
+      "adr20",
+      ">=",
+      2.4226
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 9,
+   "best": 4.286378692453737,
+   "median": 3.73510018642403,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      ">=",
+      -5.5362
+     ],
+     [
+      "adr20",
+      ">=",
+      2.4226
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 10,
+   "best": 4.286378692453737,
+   "median": 2.4864542058786867,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      ">=",
+      -5.5362
+     ],
+     [
+      "adr20",
+      ">=",
+      2.4226
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  }
+ ],
+ "finalists": [
+  {
+   "id": "ga_bounce_s1_fdb75a",
+   "train_score": 4.286378692453737,
+   "verdict": "FAIL",
+   "effect_R": {
+    "A": 0.275,
+    "COVID": -0.153,
+    "B": 0.16
+   },
+   "null_beat_pct": 47.0,
+   "n": 88400,
+   "spec": {
+    "id": "ga_bounce_s1_fdb75a",
+    "question": "GA-evolved (bounce): filters [ret7 >= -5.5362, adr20 >= 2.4226]; condition market:net25q (quintiles). Train halves -1.04/-0.71R \u2014 expect more of it = worse. Era B untouched until this run.",
+    "cohort": {
+     "trigger": "bounce",
+     "filters": [
+      [
+       "ret7",
+       ">=",
+       -5.5362
+      ],
+      [
+       "adr20",
+       ">=",
+       2.4226
+      ]
+     ]
+    },
+    "condition": {
+     "type": "market",
+     "name": "net25q",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "id": "ga_bounce_s1_c9663c",
+   "train_score": 1.5329383322886598,
+   "verdict": "FAIL",
+   "effect_R": {
+    "A": -0.138,
+    "COVID": -0.091,
+    "B": -0.149
+   },
+   "null_beat_pct": 44.5,
+   "n": 73588,
+   "spec": {
+    "id": "ga_bounce_s1_c9663c",
+    "question": "GA-evolved (bounce): filters [ret7 >= -5.5362, adr20 >= 2.4226]; condition ret_504 (quintiles). Train halves +0.28/+0.09R \u2014 expect more of it = better. Era B untouched until this run.",
+    "cohort": {
+     "trigger": "bounce",
+     "filters": [
+      [
+       "ret7",
+       ">=",
+       -5.5362
+      ],
+      [
+       "adr20",
+       ">=",
+       2.4226
+      ]
+     ]
+    },
+    "condition": {
+     "type": "derived",
+     "name": "ret_504",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "id": "ga_bounce_s1_3f8ff7",
+   "train_score": 1.1347621907959007,
+   "verdict": "PASS",
+   "effect_R": {
+    "A": 0.139,
+    "COVID": 0.092,
+    "B": 0.175
+   },
+   "null_beat_pct": 98.0,
+   "n": 80430,
+   "spec": {
+    "id": "ga_bounce_s1_3f8ff7",
+    "question": "GA-evolved (bounce): filters [ret7 >= -5.5362, adr20 >= 2.4226, bounce_low21 >= 0.7501]; condition ti65 (quintiles). Train halves +0.16/+0.20R \u2014 expect more of it = better. Era B untouched until this run.",
+    "cohort": {
+     "trigger": "bounce",
+     "filters": [
+      [
+       "ret7",
+       ">=",
+       -5.5362
+      ],
+      [
+       "adr20",
+       ">=",
+       2.4226
+      ],
+      [
+       "bounce_low21",
+       ">=",
+       0.7501
+      ]
+     ]
+    },
+    "condition": {
+     "type": "feature",
+     "name": "ti65",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "id": "ga_bounce_s1_4f3ed1",
+   "train_score": 0.6948070236456413,
+   "verdict": "FAIL",
+   "effect_R": {
+    "A": 0.359,
+    "COVID": -0.241,
+    "B": 0.339
+   },
+   "null_beat_pct": 9.5,
+   "n": 90920,
+   "spec": {
+    "id": "ga_bounce_s1_4f3ed1",
+    "question": "GA-evolved (bounce): filters [adr20 >= 2.4226]; condition tightness (quintiles). Train halves +0.17/+0.50R \u2014 expect more of it = better. Era B untouched until this run.",
+    "cohort": {
+     "trigger": "bounce",
+     "filters": [
+      [
+       "adr20",
+       ">=",
+       2.4226
+      ]
+     ]
+    },
+    "condition": {
+     "type": "feature",
+     "name": "tightness",
+     "buckets": "quintiles"
+    }
+   }
+  }
+ ]
+}

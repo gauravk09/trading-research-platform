@@ -1,0 +1,29 @@
+{
+ "id": "ga_bounce_s1_3f8ff7",
+ "question": "GA-evolved (bounce): filters [ret7 >= -5.5362, adr20 >= 2.4226, bounce_low21 >= 0.7501]; condition ti65 (quintiles). Train halves +0.16/+0.20R \u2014 expect more of it = better. Era B untouched until this run.",
+ "cohort": {
+  "trigger": "bounce",
+  "filters": [
+   [
+    "ret7",
+    ">=",
+    -5.5362
+   ],
+   [
+    "adr20",
+    ">=",
+    2.4226
+   ],
+   [
+    "bounce_low21",
+    ">=",
+    0.7501
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "ti65",
+  "buckets": "quintiles"
+ }
+}

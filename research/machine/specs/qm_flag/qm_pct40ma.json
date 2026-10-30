@@ -1,0 +1,12 @@
+{
+ "id": "qm_pct40ma",
+ "question": "Does the share of stocks above their 40DMA (tape health) select winners on faithful flag breakouts, where it FAILed the red-team on bursts? Expect positive.",
+ "cohort": {
+  "trigger": "qm_flag"
+ },
+ "condition": {
+  "type": "market",
+  "name": "pct40ma",
+  "buckets": "quartiles"
+ }
+}

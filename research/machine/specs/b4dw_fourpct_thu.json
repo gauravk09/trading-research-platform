@@ -1,0 +1,7 @@
+{
+  "id": "b4dw_fourpct_thu",
+  "question": "Isolating Thursday (expiry day, historically) from the rest of the week on 4%-up-day triggers: some studies flag Thursday as the WORST day for Indian equity returns; expect Thursday to show the weakest stop-R vs Mon-Wed and Friday, though likely WEAK given decay/derivatives-calendar changes.",
+  "plain": "Tests whether Thursday (India's old weekly-expiry day) is uniquely bad for 4%-up-day triggers, per studies flagging Thursday as the worst day for Indian returns.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "calendar", "name": "dow", "buckets": [-1, 2, 3, 4]}
+}

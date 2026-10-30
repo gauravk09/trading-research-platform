@@ -1,0 +1,1 @@
+{"id":"x_pm2","question":"SYSTEM CHECK: random per-date market series #2 must FAIL under date-block permutation","cohort":{"trigger":"burst"},"condition":{"type":"placebo_market","name":"pm2","buckets":"quartiles"}}

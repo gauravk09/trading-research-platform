@@ -1,0 +1,7 @@
+{
+  "id": "b3qm_ep_adr20",
+  "question": "On EP (episodic pivot) events, higher adr20 (high volatility names) grades better stop-based R -- expect higher ADR = better",
+  "plain": "Qullamaggie loves high-volatility (high average daily range) stocks -- does that hold up specifically for extreme-volume episodic pivot events?",
+  "cohort": {"trigger": "ep"},
+  "condition": {"type": "feature", "name": "adr20", "buckets": "quartiles"}
+}

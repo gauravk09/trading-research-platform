@@ -1,0 +1,211 @@
+{
+ "id": "b3rg_four_pct_net25q",
+ "question": "Expect four_pct 4%-up-day triggers to work better when quarterly winners-minus-losers breadth (net25q) is strongly positive vs strongly negative, since a 4% up day fired into a broadly bullish market should hold up better",
+ "plain": "TraderLion's 'trade with the market' idea: does a stock's 4% up day work better when most stocks have been winning over the past quarter?",
+ "spec": {
+  "id": "b3rg_four_pct_net25q",
+  "question": "Expect four_pct 4%-up-day triggers to work better when quarterly winners-minus-losers breadth (net25q) is strongly positive vs strongly negative, since a 4% up day fired into a broadly bullish market should hold up better",
+  "plain": "TraderLion's 'trade with the market' idea: does a stock's 4% up day work better when most stocks have been winning over the past quarter?",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": []
+  },
+  "condition": {
+   "type": "market",
+   "name": "net25q",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 83452,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -1003.0,
+    16.0
+   ],
+   "A": {
+    "n": 7048,
+    "avg_stop_r": 0.009,
+    "med_ret_o5": -0.65,
+    "win5_pct": 45.4,
+    "avg_stop_r_20": -0.048
+   },
+   "B": {
+    "n": 10022,
+    "avg_stop_r": 0.087,
+    "med_ret_o5": -0.05,
+    "win5_pct": 49.6,
+    "avg_stop_r_20": 0.185
+   },
+   "COVID": {
+    "n": 3828,
+    "avg_stop_r": -0.011,
+    "med_ret_o5": -0.8,
+    "win5_pct": 44.9,
+    "avg_stop_r_20": 0.338
+   }
+  },
+  "1": {
+   "cond_range": [
+    17.0,
+    189.0
+   ],
+   "A": {
+    "n": 6177,
+    "avg_stop_r": -0.062,
+    "med_ret_o5": -1.09,
+    "win5_pct": 41.9,
+    "avg_stop_r_20": -0.157
+   },
+   "B": {
+    "n": 9650,
+    "avg_stop_r": -0.014,
+    "med_ret_o5": -0.66,
+    "win5_pct": 45.3,
+    "avg_stop_r_20": -0.008
+   },
+   "COVID": {
+    "n": 5066,
+    "avg_stop_r": 0.051,
+    "med_ret_o5": -0.65,
+    "win5_pct": 45.7,
+    "avg_stop_r_20": 0.03
+   }
+  },
+  "2": {
+   "cond_range": [
+    190.0,
+    404.0
+   ],
+   "A": {
+    "n": 5594,
+    "avg_stop_r": -0.076,
+    "med_ret_o5": -1.14,
+    "win5_pct": 41.7,
+    "avg_stop_r_20": -0.115
+   },
+   "B": {
+    "n": 6466,
+    "avg_stop_r": -0.067,
+    "med_ret_o5": -0.97,
+    "win5_pct": 42.8,
+    "avg_stop_r_20": 0.043
+   },
+   "COVID": {
+    "n": 8800,
+    "avg_stop_r": -0.079,
+    "med_ret_o5": -1.19,
+    "win5_pct": 41.8,
+    "avg_stop_r_20": -0.019
+   }
+  },
+  "3": {
+   "cond_range": [
+    407.0,
+    990.0
+   ],
+   "A": {
+    "n": 516,
+    "avg_stop_r": -0.181,
+    "med_ret_o5": -1.93,
+    "win5_pct": 34.5,
+    "avg_stop_r_20": -0.676
+   },
+   "B": {
+    "n": 12334,
+    "avg_stop_r": -0.056,
+    "med_ret_o5": -1.08,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": -0.032
+   },
+   "COVID": {
+    "n": 7951,
+    "avg_stop_r": -0.081,
+    "med_ret_o5": -1.57,
+    "win5_pct": 40.1,
+    "avg_stop_r_20": 0.085
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.19,
+  "COVID": -0.07,
+  "B": -0.143
+ },
+ "extreme_bucket_n": {
+  "A": [
+   7048,
+   516
+  ],
+  "B": [
+   10022,
+   12334
+  ]
+ },
+ "null_beat_pct": 94.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.076,
+   "n": 9099,
+   "n_ext": [
+    1417,
+    4486
+   ]
+  },
+  "B24": {
+   "effect": -0.177,
+   "n": 29373,
+   "n_ext": [
+    8605,
+    7848
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "WEAK",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.628,
+  "COVID": -0.252,
+  "B": -0.217
+ },
+ "null_beat_pct_20": 89.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.462,
+  "COVID": -0.327,
+  "B": -0.19
+ },
+ "effect_R_trail_w5": {
+  "A": -0.446,
+  "COVID": -0.296,
+  "B": -0.143
+ },
+ "null_beat_pct_trail": 88.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.325,
+  "COVID": -0.196,
+  "B": -0.2
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.314,
+  "COVID": -0.183,
+  "B": -0.16
+ },
+ "null_beat_pct_trail_be": 96.0,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": -0.073,
+  "COVID": 0.002,
+  "B": -0.033
+ },
+ "effect_R_close_w5": {
+  "A": -0.073,
+  "COVID": -0.005,
+  "B": -0.025
+ },
+ "null_beat_pct_close": 5.5,
+ "verdict_close": "FAIL"
+}

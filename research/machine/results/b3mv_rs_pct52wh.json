@@ -1,0 +1,163 @@
+{
+ "id": "b3mv_rs_pct52wh",
+ "question": "Once burst events already require high relative strength (rs>=80), does distance below the 52-week high (pct_52wh) still add anything, with closer-to-high expected to remain better?",
+ "plain": "Minervini's leader profile combines high relative strength AND being near the 52-week high -- this checks if the second leg still matters once you already require the first.",
+ "spec": {
+  "id": "b3mv_rs_pct52wh",
+  "question": "Once burst events already require high relative strength (rs>=80), does distance below the 52-week high (pct_52wh) still add anything, with closer-to-high expected to remain better?",
+  "plain": "Minervini's leader profile combines high relative strength AND being near the 52-week high -- this checks if the second leg still matters once you already require the first.",
+  "cohort": {
+   "trigger": "burst",
+   "filters": [
+    [
+     "rs",
+     ">=",
+     80
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "pct_52wh",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 3402,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -71.94876098632812,
+    -5.362900733947754
+   ],
+   "A": {
+    "n": 57,
+    "avg_stop_r": -0.053,
+    "med_ret_o5": -1.41,
+    "win5_pct": 42.1,
+    "avg_stop_r_20": 0.142
+   },
+   "B": {
+    "n": 597,
+    "avg_stop_r": -0.191,
+    "med_ret_o5": -1.05,
+    "win5_pct": 42.0,
+    "avg_stop_r_20": -0.235
+   },
+   "COVID": {
+    "n": 197,
+    "avg_stop_r": 0.514,
+    "med_ret_o5": -0.38,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": 0.127
+   }
+  },
+  "1": {
+   "cond_range": [
+    -5.362874984741211,
+    0.0
+   ],
+   "A": {
+    "n": 238,
+    "avg_stop_r": -0.125,
+    "med_ret_o5": -0.75,
+    "win5_pct": 40.8,
+    "avg_stop_r_20": 0.05
+   },
+   "B": {
+    "n": 1561,
+    "avg_stop_r": -0.032,
+    "med_ret_o5": -0.81,
+    "win5_pct": 44.2,
+    "avg_stop_r_20": 0.09
+   },
+   "COVID": {
+    "n": 752,
+    "avg_stop_r": 0.046,
+    "med_ret_o5": -0.77,
+    "win5_pct": 45.7,
+    "avg_stop_r_20": 0.291
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.072,
+  "COVID": -0.468,
+  "B": 0.158
+ },
+ "extreme_bucket_n": {
+  "A": [
+   57,
+   238
+  ],
+  "B": [
+   597,
+   1561
+  ]
+ },
+ "null_beat_pct": 0.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.179,
+   "n": 708,
+   "n_ext": [
+    99,
+    609
+   ]
+  },
+  "B24": {
+   "effect": 0.131,
+   "n": 1450,
+   "n_ext": [
+    498,
+    952
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.092,
+  "COVID": 0.164,
+  "B": 0.325
+ },
+ "null_beat_pct_20": 98.0,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": 0.148,
+  "COVID": -0.061,
+  "B": 0.449
+ },
+ "effect_R_trail_w5": {
+  "A": 0.083,
+  "COVID": -0.026,
+  "B": 0.364
+ },
+ "null_beat_pct_trail": 95.0,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 0.046,
+  "COVID": -0.189,
+  "B": 0.307
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.001,
+  "COVID": -0.135,
+  "B": 0.244
+ },
+ "null_beat_pct_trail_be": 77.5,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": -0.086,
+  "COVID": 0.142,
+  "B": 0.161
+ },
+ "effect_R_close_w5": {
+  "A": -0.094,
+  "COVID": 0.104,
+  "B": 0.172
+ },
+ "null_beat_pct_close": 80.0,
+ "verdict_close": "INSUFFICIENT"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "rsrel_short_sectorrs",
+  "question": "Among large-cap 4%-down days (short side), does sector strength (sector_rs) grade the short trade -- do names in already-weak sectors fall harder than names in strong sectors? Expect lower sector_rs=better short, i.e. top-minus-bottom effect negative.",
+  "plain": "Do breakdowns in already-weak sectors keep falling harder than breakdowns in strong sectors, or does the sector not matter once the stock itself is breaking down?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "sector_rs", "buckets": "quartiles"}
+}

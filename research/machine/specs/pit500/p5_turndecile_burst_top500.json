@@ -1,0 +1,21 @@
+{
+  "id": "p5_turndecile_burst_top500",
+  "question": "[top-500 by point-in-time market cap] SANITY ANCHOR: the certified turnover-decile effect must still grade breakouts inside a point-in-time top-quality universe -- expect more liquid = better",
+  "plain": "Sanity check: the already-proven liquidity effect, re-run on the restricted universe to prove the cell is not too thin to judge. Universe: top-500 by point-in-time market cap.",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        500
+      ]
+    ]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "turn_decile",
+    "buckets": "quartiles"
+  }
+}

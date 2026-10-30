@@ -1,0 +1,6 @@
+{
+  "id": "h5_burst_eff_ratio",
+  "question": "Do bursts from linear movers (high 60d eff_ratio) beat bursts from choppy stocks? Expected: positive top-minus-bottom if chart doctrine holds, but prior (stock_env_matrix: no feature grades bursts) says ~0/FAIL",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "eff_ratio", "buckets": "quartiles"}
+}

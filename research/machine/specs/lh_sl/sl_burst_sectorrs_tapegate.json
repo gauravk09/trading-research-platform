@@ -1,0 +1,9 @@
+{
+  "id": "sl_burst_sectorrs_tapegate",
+  "plain": "Buy volume bursts in leadership stocks (high sector_rs, high rs) only when the broad tape is healthy (market:pct40ma decent).",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["sector_rs", ">=", 0.75], ["rs", ">=", 0.75], ["market:pct40ma", ">=", 40]],
+  "horizon": 20,
+  "risk": 0.0075
+}

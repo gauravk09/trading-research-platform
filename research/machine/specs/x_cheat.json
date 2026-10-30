@@ -1,0 +1,1 @@
+{"id":"x_cheat","question":"SYSTEM CHECK (canary): the event's own future 5d return as condition must PASS with an enormous effect — proves plumbing detects blatant signal","cohort":{"trigger":"burst"},"condition":{"type":"cheat","name":"ret_o5","buckets":"quartiles"}}

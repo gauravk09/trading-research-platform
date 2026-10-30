@@ -1,0 +1,1 @@
+{"id":"x_check_ret63","question":"engine check: ret_63 3-month momentum runs on bursts","plain":"Engine check: does 3-month momentum grade breakouts?","cohort":{"trigger":"burst"},"condition":{"type":"derived","name":"ret_63","buckets":"quartiles"}}

@@ -1,0 +1,7 @@
+{
+  "id": "b3mv_rs_pct52wh",
+  "question": "Once burst events already require high relative strength (rs>=80), does distance below the 52-week high (pct_52wh) still add anything, with closer-to-high expected to remain better?",
+  "plain": "Minervini's leader profile combines high relative strength AND being near the 52-week high -- this checks if the second leg still matters once you already require the first.",
+  "cohort": {"trigger": "burst", "filters": [["rs", ">=", 80]]},
+  "condition": {"type": "feature", "name": "pct_52wh", "buckets": "quartiles"}
+}

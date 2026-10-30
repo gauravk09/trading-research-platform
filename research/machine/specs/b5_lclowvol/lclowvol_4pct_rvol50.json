@@ -1,0 +1,15 @@
+{
+  "id": "lclowvol_4pct_rvol50",
+  "question": "Among large-cap (top150) four_pct days, does LOWER rvol50 (quieter recent volume vs 50d avg) beat higher rvol50 on long stop-R? Expect NEGATIVE top-minus-bottom effect.",
+  "plain": "For big-cap stocks that just popped 4%+, do the ones with unremarkable (not hyper-elevated) recent volume make better longs than the volume-frenzy ones?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "rvol50",
+    "buckets": "quartiles"
+  }
+}

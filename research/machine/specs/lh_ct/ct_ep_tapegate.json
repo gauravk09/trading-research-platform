@@ -1,0 +1,9 @@
+{
+  "id": "ct_ep_tapegate",
+  "plain": "Episodic Pivot large caps, only take when market net4 tape is healthy (>=50)",
+  "source": "trigger",
+  "trigger": "ep",
+  "filters": [["market:net4", ">=", 50]],
+  "horizon": 20,
+  "risk": 0.0075
+}

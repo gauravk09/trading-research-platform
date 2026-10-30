@@ -1,0 +1,17 @@
+{
+ "id": "v_b4tm_dom_bounce_pertdn",
+ "question": "Red-team perturbation (2026-08-06 batch): dom edges 3->2, 24->25",
+ "cohort": {
+  "trigger": "bounce"
+ },
+ "condition": {
+  "type": "calendar",
+  "name": "dom",
+  "buckets": [
+   0,
+   2,
+   25,
+   31
+  ]
+ }
+}

@@ -1,0 +1,211 @@
+{
+ "id": "b3zg_fourpc_volc5_50",
+ "question": "Zanger: does a short-term volume surge (5d vs 50d volume, volc5_50) on a 4% day predict follow-through better than the flat rvol50 result? Expect flat/negative given the house prior.",
+ "plain": "Same volume-explosion idea from Dan Zanger, but measured as a short 5-day volume surge instead of a single-day spike, on NSE 4%-up days.",
+ "spec": {
+  "id": "b3zg_fourpc_volc5_50",
+  "question": "Zanger: does a short-term volume surge (5d vs 50d volume, volc5_50) on a 4% day predict follow-through better than the flat rvol50 result? Expect flat/negative given the house prior.",
+  "plain": "Same volume-explosion idea from Dan Zanger, but measured as a short 5-day volume surge instead of a single-day spike, on NSE 4%-up days.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "volc5_50",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 81503,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.013224913738667965,
+    0.7376985549926758
+   ],
+   "A": {
+    "n": 4156,
+    "avg_stop_r": -0.01,
+    "med_ret_o5": -0.99,
+    "win5_pct": 43.5,
+    "avg_stop_r_20": -0.131
+   },
+   "B": {
+    "n": 9436,
+    "avg_stop_r": 0.041,
+    "med_ret_o5": -0.66,
+    "win5_pct": 45.8,
+    "avg_stop_r_20": 0.055
+   },
+   "COVID": {
+    "n": 6784,
+    "avg_stop_r": -0.041,
+    "med_ret_o5": -1.26,
+    "win5_pct": 41.2,
+    "avg_stop_r_20": 0.109
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.7377021908760071,
+    1.0972765684127808
+   ],
+   "A": {
+    "n": 4468,
+    "avg_stop_r": -0.04,
+    "med_ret_o5": -1.02,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": -0.117
+   },
+   "B": {
+    "n": 9412,
+    "avg_stop_r": 0.016,
+    "med_ret_o5": -0.38,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": 0.084
+   },
+   "COVID": {
+    "n": 6496,
+    "avg_stop_r": -0.004,
+    "med_ret_o5": -0.82,
+    "win5_pct": 44.5,
+    "avg_stop_r_20": 0.15
+   }
+  },
+  "2": {
+   "cond_range": [
+    1.0972874164581299,
+    1.6921379566192627
+   ],
+   "A": {
+    "n": 4497,
+    "avg_stop_r": -0.065,
+    "med_ret_o5": -0.92,
+    "win5_pct": 42.6,
+    "avg_stop_r_20": -0.134
+   },
+   "B": {
+    "n": 9500,
+    "avg_stop_r": -0.002,
+    "med_ret_o5": -0.64,
+    "win5_pct": 45.8,
+    "avg_stop_r_20": 0.071
+   },
+   "COVID": {
+    "n": 6378,
+    "avg_stop_r": -0.017,
+    "med_ret_o5": -0.93,
+    "win5_pct": 43.8,
+    "avg_stop_r_20": 0.12
+   }
+  },
+  "3": {
+   "cond_range": [
+    1.6922491788864136,
+    9.34522819519043
+   ],
+   "A": {
+    "n": 4339,
+    "avg_stop_r": -0.089,
+    "med_ret_o5": -1.2,
+    "win5_pct": 41.5,
+    "avg_stop_r_20": -0.17
+   },
+   "B": {
+    "n": 10075,
+    "avg_stop_r": -0.091,
+    "med_ret_o5": -1.16,
+    "win5_pct": 42.2,
+    "avg_stop_r_20": -0.03
+   },
+   "COVID": {
+    "n": 5962,
+    "avg_stop_r": -0.117,
+    "med_ret_o5": -1.55,
+    "win5_pct": 40.3,
+    "avg_stop_r_20": -0.084
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.078,
+  "COVID": -0.077,
+  "B": -0.132
+ },
+ "extreme_bucket_n": {
+  "A": [
+   4156,
+   4339
+  ],
+  "B": [
+   9436,
+   10075
+  ]
+ },
+ "null_beat_pct": 94.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.056,
+   "n": 9080,
+   "n_ext": [
+    1885,
+    2864
+   ]
+  },
+  "B24": {
+   "effect": -0.192,
+   "n": 29343,
+   "n_ext": [
+    7551,
+    7211
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "WEAK",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.039,
+  "COVID": -0.193,
+  "B": -0.085
+ },
+ "null_beat_pct_20": 92.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.016,
+  "COVID": -0.144,
+  "B": 0.008
+ },
+ "effect_R_trail_w5": {
+  "A": 0.015,
+  "COVID": -0.11,
+  "B": 0.036
+ },
+ "null_beat_pct_trail": 19.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.027,
+  "COVID": -0.11,
+  "B": -0.06
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.031,
+  "COVID": -0.098,
+  "B": -0.028
+ },
+ "null_beat_pct_trail_be": 78.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.052,
+  "COVID": -0.031,
+  "B": -0.128
+ },
+ "effect_R_close_w5": {
+  "A": -0.054,
+  "COVID": -0.04,
+  "B": -0.116
+ },
+ "null_beat_pct_close": 69.5,
+ "verdict_close": "FAIL"
+}

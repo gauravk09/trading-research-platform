@@ -1,0 +1,22 @@
+{
+  "id": "b6_fpd_turndecile_gap60",
+  "question": "Large-cap four_pct_down shorts bucketed by turn_decile (own-stock turnover decile): expect POSITIVE top-minus-bottom effect - breakdowns on the heaviest-turnover names (real institutional selling/distribution) fall harder than breakdowns on thin-turnover names (illiquid noise).",
+  "plain": "When a large-cap breaks down 4%+, does it matter how much money is actually trading through it that day - do the heaviest-turnover breakdowns keep falling harder than the quiet ones?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        150
+      ]
+    ],
+    "min_gap": 60
+  },
+  "condition": {
+    "type": "feature",
+    "name": "turn_decile",
+    "buckets": "quartiles"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "b2b_bounce_ti65top_pct40ma",
+  "question": "Rescue test of washout belief: GIVEN leader trend (ti65 >= 1.11, top-quintile edge from c001_control_bounce_ti65), do bounces earn more when market pct40ma is LOW? Pre-registered edges [0,20,40,60,100]; expect NEGATIVE top-minus-bottom effect (low-pct40ma washout buckets best), i.e. the leader filter should flip the era-A positive that killed h4_bounce_pct40ma.",
+  "cohort": {
+    "trigger": "bounce",
+    "filters": [["ti65", ">=", 1.11]]
+  },
+  "condition": {
+    "type": "market",
+    "name": "pct40ma",
+    "buckets": [0, 20, 40, 60, 100]
+  }
+}

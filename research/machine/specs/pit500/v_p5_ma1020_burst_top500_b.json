@@ -1,0 +1,28 @@
+{
+  "id": "v_p5_ma1020_burst_top500_b",
+  "question": "Red-team of p5_ma1020_burst_top500 (edge perturbation: hand-cut ratio edges, universe nudged to top-400): index 10/20-DMA gate on top-500 PIT-mcap bursts graded PASS-INVERTED (higher ratio = worse); red-team: expect the NEGATIVE sign to survive in both eras",
+  "plain": "Robustness re-test of the top-500 index-trend result -- edge perturbation: hand-cut ratio edges, universe nudged to top-400.",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        400
+      ]
+    ]
+  },
+  "condition": {
+    "type": "market",
+    "name": "ma1020_nifty50",
+    "buckets": [
+      0.9,
+      0.995,
+      1.0,
+      1.005,
+      1.012,
+      1.1
+    ]
+  }
+}

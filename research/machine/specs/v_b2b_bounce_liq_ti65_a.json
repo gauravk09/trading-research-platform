@@ -1,0 +1,9 @@
+{
+  "id": "v_b2b_bounce_liq_ti65_a",
+  "question": "Perturbation of b2b_bounce_liq_ti65: liquidity edge shifted 0.5 -> 0.6 (tighter liquid subset), ti65 quintiles unchanged; expect POSITIVE top-minus-bottom ti65 effect on bounce stop-R in both era A and era B if the original PASS is robust.",
+  "cohort": {
+    "trigger": "bounce",
+    "filters": [["turn_decile", ">=", 0.6]]
+  },
+  "condition": {"type": "feature", "name": "ti65", "buckets": "quintiles"}
+}

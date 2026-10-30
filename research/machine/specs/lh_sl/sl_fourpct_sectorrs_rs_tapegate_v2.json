@@ -1,0 +1,9 @@
+{
+  "id": "sl_fourpct_sectorrs_rs_tapegate_v2",
+  "plain": "Iteration on the best config: tighten to stricter leadership (sector_rs/rs >=0.85) and a stricter tape gate (net4>=50) to cut drawdown further.",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["sector_rs", ">=", 0.85], ["rs", ">=", 0.85], ["market:net4", ">=", 50]],
+  "horizon": 20,
+  "risk": 0.0075
+}

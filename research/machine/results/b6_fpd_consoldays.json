@@ -1,0 +1,137 @@
+{
+ "id": "b6_fpd_consoldays",
+ "question": "Large-cap four_pct_down shorts bucketed by consol_days (length of prior consolidation): expect POSITIVE top-minus-bottom effect - a breakdown out of a LONG consolidation (distribution had more time to build, more supply overhead) falls harder than a breakdown out of a short/no consolidation (fresh, less overhead supply).",
+ "plain": "Does a breakdown fall further when it comes after a long sideways consolidation (more trapped buyers overhead) versus a short one?",
+ "spec": {
+  "id": "b6_fpd_consoldays",
+  "question": "Large-cap four_pct_down shorts bucketed by consol_days (length of prior consolidation): expect POSITIVE top-minus-bottom effect - a breakdown out of a LONG consolidation (distribution had more time to build, more supply overhead) falls harder than a breakdown out of a short/no consolidation (fresh, less overhead supply).",
+  "plain": "Does a breakdown fall further when it comes after a long sideways consolidation (more trapped buyers overhead) versus a short one?",
+  "cohort": {
+   "trigger": "four_pct_down",
+   "side": "short",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "consol_days",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "short",
+ "n": 5568,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    261.0
+   ],
+   "A": {
+    "n": 2001,
+    "avg_stop_r": -0.042,
+    "med_ret_o5": 0.42,
+    "win5_pct": 52.4,
+    "avg_stop_r_20": -0.116
+   },
+   "B": {
+    "n": 1569,
+    "avg_stop_r": -0.142,
+    "med_ret_o5": 0.74,
+    "win5_pct": 55.4,
+    "avg_stop_r_20": -0.263
+   },
+   "COVID": {
+    "n": 1998,
+    "avg_stop_r": -0.01,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.8,
+    "avg_stop_r_20": 0.034
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "extreme_bucket_n": {
+  "A": [
+   2001,
+   2001
+  ],
+  "B": [
+   1569,
+   1569
+  ]
+ },
+ "null_beat_pct": 0.0,
+ "modern_split": {
+  "B23": {
+   "effect": NaN,
+   "n": 300,
+   "n_ext": [
+    300,
+    300
+   ]
+  },
+  "B24": {
+   "effect": NaN,
+   "n": 1269,
+   "n_ext": [
+    1269,
+    1269
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_20": 0.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail": 0.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_be_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail_be": 0.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_close_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_close": 0.0,
+ "verdict_close": "FAIL"
+}

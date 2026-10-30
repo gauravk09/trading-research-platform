@@ -1,0 +1,7 @@
+{
+ "id": "v_b3zg_fourpc_rvol3_blow21_a",
+ "question": "Perturbation A: same stack (4% days, rvol50 filter softened 3->2.4, ~20% lower) bucketed by bounce_low21 quartiles; expect the same negative-monotonic gradient (near-low buckets less bad) to survive a looser volume-explosion cutoff.",
+ "plain": "We loosen the volume-explosion requirement a bit (rvol50 2.4x instead of 3x) and check if buying near the recent low still looks relatively better among 4%-up days.",
+ "cohort": {"trigger": "four_pct", "filters": [["rvol50", ">=", 2.4]]},
+ "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quartiles"}
+}

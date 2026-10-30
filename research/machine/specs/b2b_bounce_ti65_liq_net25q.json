@@ -1,0 +1,6 @@
+{
+  "id": "b2b_bounce_ti65_liq_net25q",
+  "question": "Same liquid leader-bounce cohort (ti65 >= 1.11 AND turn_decile >= 0.5): condition on market:net25q quartiles — expect LOWER net25q quartiles (washed-out monthly breadth) better in era B if the leader-washout rescue generalizes beyond pct40ma.",
+  "cohort": {"trigger": "bounce", "filters": [["ti65", ">=", 1.11], ["turn_decile", ">=", 0.5]]},
+  "condition": {"type": "market", "name": "net25q", "buckets": "quartiles"}
+}

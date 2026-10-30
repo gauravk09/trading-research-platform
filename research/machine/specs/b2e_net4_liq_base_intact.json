@@ -1,0 +1,6 @@
+{
+  "id": "b2e_net4_liq_base_intact",
+  "question": "Stack both confirmed filters (turn_decile >= 0.5 and market:net4 >= 134) on bursts and split consol_days at base-widened (=0) vs base-intact (>=2), edges [-0.5, 0.5, 10000] — chosen because consol_days was the only liquid-half retest that kept its era-B edge (+0.104, top cell +0.038): expect the intact-base bucket to be the more positive one; era-A cohort is only ~450 events so INSUFFICIENT is the likely verdict and the era-B cells are the deliverable.",
+  "cohort": {"trigger": "burst", "filters": [["turn_decile", ">=", 0.5], ["market:net4", ">=", 134]]},
+  "condition": {"type": "feature", "name": "consol_days", "buckets": [-0.5, 0.5, 10000]}
+}

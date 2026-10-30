@@ -1,0 +1,13 @@
+{
+ "id": "v_b3kl_dist50_fourpct_a",
+ "question": "Perturbation of b3kl_dist50_fourpct: same claim (more extended above 50DMA is WORSE on four_pct days) but using quintiles instead of quartiles, to check the gradient survives a finer cut.",
+ "plain": "Re-testing the overextension-above-50DMA idea with five buckets instead of four, to make sure the pattern is not just an artifact of how the four groups were split.",
+ "cohort": {
+  "trigger": "four_pct"
+ },
+ "condition": {
+  "type": "feature",
+  "name": "dist_50dma",
+  "buckets": "quintiles"
+ }
+}

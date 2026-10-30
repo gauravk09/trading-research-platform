@@ -1,0 +1,9 @@
+{
+  "id": "sl_burst_ret63_mom_tapegate",
+  "plain": "Buy volume bursts in stocks with strong 3-month prior momentum (ret_63), gated to a healthy tape (market:net4) to control drawdown.",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["ret_63", ">=", 10], ["market:net4", ">=", 40]],
+  "horizon": 20,
+  "risk": 0.0075
+}

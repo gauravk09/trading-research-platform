@@ -1,0 +1,9 @@
+{
+  "id": "qv_burst_tight_quiet",
+  "plain": "Momentum burst large caps, tight prior base (tightness>=0.7) + no volume frenzy (volc5_50<=1.2), 20-bar hold",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["tightness", ">=", 0.7], ["volc5_50", "<=", 1.2]],
+  "horizon": 20,
+  "risk": 0.0075
+}

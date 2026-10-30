@@ -1,0 +1,11 @@
+{
+  "id": "fadeshort_fourpct_trendage",
+  "question": "On four_pct days in top-150 large caps, does an older/more-extended trend (higher trend_age) make the short fade work better than a young, fresh trend?",
+  "plain": "When a large-cap 4% pop happens late in an already long-running uptrend, does shorting those late-stage pops work better than shorting pops in a fresh young trend?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "trend_age", "buckets": "quartiles"}
+}

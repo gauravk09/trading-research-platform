@@ -1,0 +1,12 @@
+{
+ "id": "qm_turn_decile",
+ "question": "Does liquidity (turnover decile) select winners on the faithful flag breakout as it does on bursts (PASS +0.15R)? Expect positive.",
+ "cohort": {
+  "trigger": "qm_flag"
+ },
+ "condition": {
+  "type": "feature",
+  "name": "turn_decile",
+  "buckets": "quartiles"
+ }
+}

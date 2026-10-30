@@ -1,0 +1,7 @@
+{
+  "id": "b4tm_dom_fourpct_small",
+  "question": "Among four_pct triggers restricted to smaller/less-liquid names (turn_decile<=0.5), is the turn-of-month first-3-days effect stronger than in the unrestricted universe (paper says TOM is stronger in smallcaps)?",
+  "plain": "Testing if the turn-of-month rally effect (RFB 2023, IJMEC) is bigger in smaller stocks, as the research paper claims.",
+  "cohort": {"trigger": "four_pct", "filters": [["turn_decile", "<=", 0.5]]},
+  "condition": {"type": "calendar", "name": "dom", "buckets": [0, 3, 24, 31]}
+}

@@ -1,0 +1,218 @@
+{
+ "id": "p5_rs_burst_top500",
+ "question": "[top-500 by point-in-time market cap] Does IBD-style relative strength select breakout winners inside a point-in-time top-quality universe -- expect top quartile to beat bottom",
+ "plain": "IBD-style relative strength ranking as a breakout filter, restricted to bigger companies. Universe: top-500 by point-in-time market cap.",
+ "spec": {
+  "id": "p5_rs_burst_top500",
+  "question": "[top-500 by point-in-time market cap] Does IBD-style relative strength select breakout winners inside a point-in-time top-quality universe -- expect top quartile to beat bottom",
+  "plain": "IBD-style relative strength ranking as a breakout filter, restricted to bigger companies. Universe: top-500 by point-in-time market cap.",
+  "cohort": {
+   "trigger": "burst",
+   "side": "long",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     500
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "rs",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 11875,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.7804182767868042,
+    47.687652587890625
+   ],
+   "A": {
+    "n": 811,
+    "avg_stop_r": -0.067,
+    "med_ret_o5": -1.0,
+    "win5_pct": 41.6,
+    "avg_stop_r_20": -0.174
+   },
+   "B": {
+    "n": 968,
+    "avg_stop_r": -0.01,
+    "med_ret_o5": -0.53,
+    "win5_pct": 45.6,
+    "avg_stop_r_20": -0.014
+   },
+   "COVID": {
+    "n": 1190,
+    "avg_stop_r": -0.063,
+    "med_ret_o5": -0.99,
+    "win5_pct": 42.6,
+    "avg_stop_r_20": 0.022
+   }
+  },
+  "1": {
+   "cond_range": [
+    47.689876556396484,
+    63.63160705566406
+   ],
+   "A": {
+    "n": 872,
+    "avg_stop_r": -0.032,
+    "med_ret_o5": -0.63,
+    "win5_pct": 43.8,
+    "avg_stop_r_20": -0.018
+   },
+   "B": {
+    "n": 1102,
+    "avg_stop_r": -0.054,
+    "med_ret_o5": -0.8,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": 0.066
+   },
+   "COVID": {
+    "n": 995,
+    "avg_stop_r": 0.021,
+    "med_ret_o5": -0.8,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": 0.136
+   }
+  },
+  "2": {
+   "cond_range": [
+    63.632755279541016,
+    77.36699676513672
+   ],
+   "A": {
+    "n": 1000,
+    "avg_stop_r": -0.111,
+    "med_ret_o5": -0.73,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": -0.082
+   },
+   "B": {
+    "n": 1138,
+    "avg_stop_r": -0.031,
+    "med_ret_o5": -0.45,
+    "win5_pct": 45.8,
+    "avg_stop_r_20": 0.089
+   },
+   "COVID": {
+    "n": 830,
+    "avg_stop_r": 0.039,
+    "med_ret_o5": -0.41,
+    "win5_pct": 46.7,
+    "avg_stop_r_20": 0.186
+   }
+  },
+  "3": {
+   "cond_range": [
+    77.36836242675781,
+    99.2459487915039
+   ],
+   "A": {
+    "n": 1119,
+    "avg_stop_r": -0.005,
+    "med_ret_o5": -0.53,
+    "win5_pct": 45.1,
+    "avg_stop_r_20": 0.02
+   },
+   "B": {
+    "n": 1189,
+    "avg_stop_r": 0.012,
+    "med_ret_o5": -0.42,
+    "win5_pct": 47.8,
+    "avg_stop_r_20": 0.099
+   },
+   "COVID": {
+    "n": 661,
+    "avg_stop_r": 0.191,
+    "med_ret_o5": -0.4,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": 0.245
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.062,
+  "COVID": 0.254,
+  "B": 0.021
+ },
+ "extreme_bucket_n": {
+  "A": [
+   811,
+   1119
+  ],
+  "B": [
+   968,
+   1189
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.016,
+   "n": 1454,
+   "n_ext": [
+    324,
+    348
+   ]
+  },
+  "B24": {
+   "effect": 0.042,
+   "n": 2943,
+   "n_ext": [
+    644,
+    841
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.194,
+  "COVID": 0.223,
+  "B": 0.113
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": 0.136,
+  "COVID": 0.311,
+  "B": 0.094
+ },
+ "effect_R_trail_w5": {
+  "A": 0.128,
+  "COVID": 0.237,
+  "B": 0.107
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": 0.091,
+  "COVID": 0.198,
+  "B": 0.101
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.086,
+  "COVID": 0.151,
+  "B": 0.123
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.032,
+  "COVID": 0.098,
+  "B": 0.063
+ },
+ "effect_R_close_w5": {
+  "A": 0.023,
+  "COVID": 0.102,
+  "B": 0.056
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "FAIL"
+}

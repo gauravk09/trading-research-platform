@@ -1,0 +1,1 @@
+{"id":"x_pb2","question":"SYSTEM CHECK: random per-symbol trait #2 must FAIL","cohort":{"trigger":"burst"},"condition":{"type":"placebo","name":"pb2","buckets":"quartiles"}}

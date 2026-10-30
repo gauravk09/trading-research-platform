@@ -1,0 +1,9 @@
+{
+  "id": "b2t_nearlow_net4",
+  "question": "Reverse stack: liquid (turn_decile >= 0.5) near/mid-low (bounce_low21 <= 18.16, h6 bottom-3-quintile edge) four_pct days conditioned on market net4 quintiles - expect POSITIVE top-minus-bottom (tape adds edge on top of good stock-state), top net4 bucket positive in absolute era-B stop-R",
+  "cohort": {
+    "trigger": "four_pct",
+    "filters": [["bounce_low21", "<=", 18.16], ["turn_decile", ">=", 0.5]]
+  },
+  "condition": {"type": "market", "name": "net4", "buckets": "quintiles"}
+}

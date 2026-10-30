@@ -1,0 +1,18 @@
+{
+ "id": "v_h4_ep_score_gap20",
+ "question": "Red-team perturbation (2026-08-06 batch): min_gap 20",
+ "cohort": {
+  "trigger": "ep",
+  "min_gap": 20
+ },
+ "condition": {
+  "type": "market",
+  "name": "score",
+  "buckets": [
+   -5.5,
+   -1.5,
+   1.5,
+   5.5
+  ]
+ }
+}

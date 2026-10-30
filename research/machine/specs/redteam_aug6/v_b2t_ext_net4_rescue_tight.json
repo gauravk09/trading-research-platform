@@ -1,0 +1,19 @@
+{
+ "id": "v_b2t_ext_net4_rescue_tight",
+ "question": "Red-team perturbation (2026-08-06 batch): extension filter bounce_low21>=31.07 (20% nudge)",
+ "cohort": {
+  "trigger": "four_pct",
+  "filters": [
+   [
+    "bounce_low21",
+    ">=",
+    31.07
+   ]
+  ]
+ },
+ "condition": {
+  "type": "market",
+  "name": "net4",
+  "buckets": "quintiles"
+ }
+}

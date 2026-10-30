@@ -1,0 +1,184 @@
+{
+ "id": "b3rg_four_pct_score",
+ "question": "Expect four_pct triggers to work better when the overall market breadth score is strongly positive vs strongly negative, since trading with the market should improve follow-through on 4% up days",
+ "plain": "Does a stock's 4% up day work better when the overall market breadth score (a -5 to +5 gauge) is strongly positive?",
+ "spec": {
+  "id": "b3rg_four_pct_score",
+  "question": "Expect four_pct triggers to work better when the overall market breadth score is strongly positive vs strongly negative, since trading with the market should improve follow-through on 4% up days",
+  "plain": "Does a stock's 4% up day work better when the overall market breadth score (a -5 to +5 gauge) is strongly positive?",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": []
+  },
+  "condition": {
+   "type": "market",
+   "name": "score",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 83452,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -5.0,
+    0.0
+   ],
+   "A": {
+    "n": 6968,
+    "avg_stop_r": -0.006,
+    "med_ret_o5": -0.69,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": -0.067
+   },
+   "B": {
+    "n": 12338,
+    "avg_stop_r": -0.03,
+    "med_ret_o5": -0.61,
+    "win5_pct": 46.2,
+    "avg_stop_r_20": -0.029
+   },
+   "COVID": {
+    "n": 7110,
+    "avg_stop_r": 0.018,
+    "med_ret_o5": -0.63,
+    "win5_pct": 45.6,
+    "avg_stop_r_20": 0.199
+   }
+  },
+  "1": {
+   "cond_range": [
+    1.0,
+    3.0
+   ],
+   "A": {
+    "n": 6276,
+    "avg_stop_r": -0.013,
+    "med_ret_o5": -0.82,
+    "win5_pct": 44.0,
+    "avg_stop_r_20": -0.061
+   },
+   "B": {
+    "n": 12060,
+    "avg_stop_r": 0.075,
+    "med_ret_o5": -0.33,
+    "win5_pct": 47.4,
+    "avg_stop_r_20": 0.153
+   },
+   "COVID": {
+    "n": 7481,
+    "avg_stop_r": -0.082,
+    "med_ret_o5": -1.32,
+    "win5_pct": 40.9,
+    "avg_stop_r_20": 0.121
+   }
+  },
+  "2": {
+   "cond_range": [
+    4.0,
+    5.0
+   ],
+   "A": {
+    "n": 6091,
+    "avg_stop_r": -0.116,
+    "med_ret_o5": -1.44,
+    "win5_pct": 39.3,
+    "avg_stop_r_20": -0.24
+   },
+   "B": {
+    "n": 14074,
+    "avg_stop_r": -0.065,
+    "med_ret_o5": -1.08,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": 0.015
+   },
+   "COVID": {
+    "n": 11054,
+    "avg_stop_r": -0.058,
+    "med_ret_o5": -1.3,
+    "win5_pct": 41.6,
+    "avg_stop_r_20": -0.033
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.111,
+  "COVID": -0.076,
+  "B": -0.035
+ },
+ "extreme_bucket_n": {
+  "A": [
+   6968,
+   6091
+  ],
+  "B": [
+   12338,
+   14074
+  ]
+ },
+ "null_beat_pct": 84.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.094,
+   "n": 9099,
+   "n_ext": [
+    1563,
+    5504
+   ]
+  },
+  "B24": {
+   "effect": -0.104,
+   "n": 29373,
+   "n_ext": [
+    10775,
+    8570
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.173,
+  "COVID": -0.232,
+  "B": 0.044
+ },
+ "null_beat_pct_20": 73.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.126,
+  "COVID": -0.209,
+  "B": 0.094
+ },
+ "effect_R_trail_w5": {
+  "A": -0.142,
+  "COVID": -0.18,
+  "B": 0.086
+ },
+ "null_beat_pct_trail": 44.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.109,
+  "COVID": -0.126,
+  "B": 0.011
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.119,
+  "COVID": -0.111,
+  "B": 0.01
+ },
+ "null_beat_pct_trail_be": 69.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.023,
+  "COVID": 0.019,
+  "B": 0.06
+ },
+ "effect_R_close_w5": {
+  "A": -0.024,
+  "COVID": 0.01,
+  "B": 0.056
+ },
+ "null_beat_pct_close": 61.5,
+ "verdict_close": "FAIL"
+}

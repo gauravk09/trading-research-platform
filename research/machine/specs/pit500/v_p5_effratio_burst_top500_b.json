@@ -1,0 +1,27 @@
+{
+  "id": "v_p5_effratio_burst_top500_b",
+  "question": "Red-team of p5_effratio_burst_top500 (edge perturbation: hand-cut edges, universe nudged to top-400): eff_ratio on top-500 PIT-mcap bursts graded PASS on the CLOSE ruler (full universe was FAIL); red-team: expect smoother prior trend = better to survive with same sign in both eras",
+  "plain": "Robustness re-test of the top-500 chart-linearity result -- edge perturbation: hand-cut edges, universe nudged to top-400.",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        400
+      ]
+    ]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "eff_ratio",
+    "buckets": [
+      0.0,
+      0.06,
+      0.13,
+      0.22,
+      1.0
+    ]
+  }
+}

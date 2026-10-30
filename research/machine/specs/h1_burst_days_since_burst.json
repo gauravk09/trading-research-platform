@@ -1,0 +1,6 @@
+{
+  "id": "h1_burst_days_since_burst",
+  "question": "On burst triggers, do rested bases (LONGER days_since_burst) outperform recently-burst stocks? Expected: positive effect (top quartile = longest rest beats bottom), per DEP house prior; watch for same-day degeneracy (all zeros).",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "days_since_burst", "buckets": "quartiles"}
+}

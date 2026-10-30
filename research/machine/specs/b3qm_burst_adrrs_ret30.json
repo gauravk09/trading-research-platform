@@ -1,0 +1,7 @@
+{
+  "id": "b3qm_burst_adrrs_ret30",
+  "question": "Among high-ADR (>=5) high-RS (>=80) burst breakouts, bigger size of the prior 1-month move (ret30) grades better -- expect higher ret30 = better, but watch for extension hurting at the top bucket",
+  "plain": "Qullamaggie wants a big prior move before the breakout -- among his classic high-volatility, high-relative-strength setups, does a bigger 1-month run-up before the breakout make the trade better?",
+  "cohort": {"trigger": "burst", "filters": [["adr20", ">=", 5], ["rs", ">=", 80]]},
+  "condition": {"type": "feature", "name": "ret30", "buckets": "quartiles"}
+}

@@ -1,0 +1,11 @@
+{
+  "id": "rsrel_long_rs",
+  "question": "Among large-cap 4% up days, does composite RS rank (rs) grade the long trade, with higher rs producing better stop-based R? Expect higher=better (positive effect).",
+  "plain": "On F&O-tradeable stocks, do the strongest-RS names keep outperforming after an ordinary 4% up day, or does that edge wash out once you restrict to large caps?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

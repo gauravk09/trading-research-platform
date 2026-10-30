@@ -1,0 +1,11 @@
+{
+  "id": "lcvcp_burst_consoldays",
+  "question": "Among large-cap volume bursts, does a longer standing tight base (consol_days) before the trigger improve forward returns? Expected: positive top-minus-bottom (long base beats no base)",
+  "plain": "Do large-cap volume bursts out of a long-standing tight base outperform bursts with no real base behind them?",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 200]]
+  },
+  "condition": {"type": "feature", "name": "consol_days", "buckets": [-0.5, 0.5, 5.5, 20.5, 10000]}
+}

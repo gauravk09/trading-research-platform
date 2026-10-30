@@ -1,0 +1,7 @@
+{
+  "id": "b4il_turn_bounce",
+  "question": "On oversold BOUNCE setups (3rd down close), does lower turnover (illiquid, per Asian Amihud/size premium studies) produce higher stop-R than higher turnover, or does our prior finding (illiquid=worse) hold outside burst?",
+  "plain": "Testing whether thinly-traded stocks bounce back better after 3 down days, as size/illiquidity-premium research (MAS 2022 Asian markets study) suggests, versus our earlier finding that illiquid stocks do worse.",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quartiles"}
+}

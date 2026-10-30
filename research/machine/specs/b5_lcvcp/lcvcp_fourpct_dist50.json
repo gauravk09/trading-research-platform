@@ -1,0 +1,11 @@
+{
+  "id": "lcvcp_fourpct_dist50",
+  "question": "Among large-cap 4%+ breakouts, does breaking out near (not far above) the 50dma produce better forward returns than breakouts already extended above it? Expected: negative top-minus-bottom (near-50dma quartile beats far-extended quartile)",
+  "plain": "Do large-cap breakouts that happen close to the 50-day average beat ones that are already stretched far above it?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "dist_50dma", "buckets": "quartiles"}
+}

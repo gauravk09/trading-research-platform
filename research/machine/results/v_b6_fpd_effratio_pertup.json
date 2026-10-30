@@ -1,0 +1,223 @@
+{
+ "id": "v_b6_fpd_effratio_pertup",
+ "question": "Red-team perturbation (2026-08-06 batch): eff_ratio edges x1.2",
+ "plain": null,
+ "spec": {
+  "id": "v_b6_fpd_effratio_pertup",
+  "question": "Red-team perturbation (2026-08-06 batch): eff_ratio edges x1.2",
+  "cohort": {
+   "trigger": "four_pct_down",
+   "side": "short",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "eff_ratio",
+   "buckets": [
+    0,
+    0.072,
+    0.151,
+    0.25,
+    1.0
+   ]
+  }
+ },
+ "side": "short",
+ "n": 5432,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.00011849875590996817,
+    0.07197815924882889
+   ],
+   "A": {
+    "n": 564,
+    "avg_stop_r": 0.043,
+    "med_ret_o5": -0.22,
+    "win5_pct": 47.9,
+    "avg_stop_r_20": 0.064
+   },
+   "B": {
+    "n": 452,
+    "avg_stop_r": -0.002,
+    "med_ret_o5": 0.04,
+    "win5_pct": 50.4,
+    "avg_stop_r_20": -0.051
+   },
+   "COVID": {
+    "n": 590,
+    "avg_stop_r": 0.05,
+    "med_ret_o5": -0.07,
+    "win5_pct": 49.3,
+    "avg_stop_r_20": 0.087
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.07203596085309982,
+    0.1509539633989334
+   ],
+   "A": {
+    "n": 544,
+    "avg_stop_r": -0.055,
+    "med_ret_o5": 0.61,
+    "win5_pct": 53.5,
+    "avg_stop_r_20": -0.173
+   },
+   "B": {
+    "n": 476,
+    "avg_stop_r": -0.211,
+    "med_ret_o5": 0.8,
+    "win5_pct": 56.7,
+    "avg_stop_r_20": -0.323
+   },
+   "COVID": {
+    "n": 554,
+    "avg_stop_r": 0.005,
+    "med_ret_o5": -0.04,
+    "win5_pct": 49.5,
+    "avg_stop_r_20": 0.132
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.15103374421596527,
+    0.2499554604291916
+   ],
+   "A": {
+    "n": 505,
+    "avg_stop_r": -0.068,
+    "med_ret_o5": 0.95,
+    "win5_pct": 55.2,
+    "avg_stop_r_20": -0.208
+   },
+   "B": {
+    "n": 397,
+    "avg_stop_r": -0.152,
+    "med_ret_o5": 0.89,
+    "win5_pct": 56.9,
+    "avg_stop_r_20": -0.291
+   },
+   "COVID": {
+    "n": 492,
+    "avg_stop_r": -0.018,
+    "med_ret_o5": 0.28,
+    "win5_pct": 51.0,
+    "avg_stop_r_20": 0.098
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.2502526342868805,
+    0.7540013194084167
+   ],
+   "A": {
+    "n": 254,
+    "avg_stop_r": -0.12,
+    "med_ret_o5": 0.81,
+    "win5_pct": 54.3,
+    "avg_stop_r_20": -0.189
+   },
+   "B": {
+    "n": 244,
+    "avg_stop_r": -0.25,
+    "med_ret_o5": 2.01,
+    "win5_pct": 59.8,
+    "avg_stop_r_20": -0.491
+   },
+   "COVID": {
+    "n": 360,
+    "avg_stop_r": -0.118,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.7,
+    "avg_stop_r_20": -0.29
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.163,
+  "COVID": -0.168,
+  "B": -0.247
+ },
+ "extreme_bucket_n": {
+  "A": [
+   564,
+   254
+  ],
+  "B": [
+   452,
+   244
+  ]
+ },
+ "null_beat_pct": 98.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.433,
+   "n": 300,
+   "n_ext": [
+    73,
+    65
+   ]
+  },
+  "B24": {
+   "effect": -0.232,
+   "n": 1269,
+   "n_ext": [
+    379,
+    179
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "PASS",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.253,
+  "COVID": -0.376,
+  "B": -0.44
+ },
+ "null_beat_pct_20": 99.0,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": -0.12,
+  "COVID": -0.29,
+  "B": -0.357
+ },
+ "effect_R_trail_w5": {
+  "A": -0.127,
+  "COVID": -0.232,
+  "B": -0.309
+ },
+ "null_beat_pct_trail": 99.5,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": -0.056,
+  "COVID": -0.236,
+  "B": -0.253
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.064,
+  "COVID": -0.196,
+  "B": -0.211
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.025,
+  "COVID": 0.095,
+  "B": -0.104
+ },
+ "effect_R_close_w5": {
+  "A": -0.04,
+  "COVID": 0.027,
+  "B": -0.138
+ },
+ "null_beat_pct_close": 0.5,
+ "verdict_close": "FAIL"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "v_b2b_bounce_ti65_liq_pct40ma_a",
+  "question": "Perturbed cohort filters (ti65 >= 1.33, turn_decile >= 0.6, both ~20% shifts from 1.11/0.5): expect LOW market:pct40ma buckets (edges [0,20,40,60,100]) still better in era B if original PASS is robust.",
+  "cohort": {
+    "trigger": "bounce",
+    "filters": [
+      ["ti65", ">=", 1.33],
+      ["turn_decile", ">=", 0.6]
+    ]
+  },
+  "condition": {
+    "type": "market",
+    "name": "pct40ma",
+    "buckets": [0, 20, 40, 60, 100]
+  }
+}

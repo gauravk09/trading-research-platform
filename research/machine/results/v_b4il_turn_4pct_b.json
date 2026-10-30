@@ -1,0 +1,216 @@
+{
+ "id": "v_b4il_turn_4pct_b",
+ "question": "On any 4% up-day (four_pct), with turnover-decile cut points shifted ~20% higher (explicit edges 0/0.59/0.78/0.97/1.0), does the bottom bucket still underperform the top bucket in both eras, confirming the quartile result isn't sensitive to exact cut placement?",
+ "plain": "Re-testing the turnover finding with the bucket boundaries moved to different cut points, to make sure the liquid-beats-illiquid pattern isn't an artifact of the original quartile edges.",
+ "spec": {
+  "id": "v_b4il_turn_4pct_b",
+  "question": "On any 4% up-day (four_pct), with turnover-decile cut points shifted ~20% higher (explicit edges 0/0.59/0.78/0.97/1.0), does the bottom bucket still underperform the top bucket in both eras, confirming the quartile result isn't sensitive to exact cut placement?",
+  "plain": "Re-testing the turnover finding with the bucket boundaries moved to different cut points, to make sure the liquid-beats-illiquid pattern isn't an artifact of the original quartile edges.",
+  "cohort": {
+   "trigger": "four_pct"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "turn_decile",
+   "buckets": [
+    0,
+    0.59,
+    0.78,
+    0.97,
+    1.0
+   ]
+  }
+ },
+ "side": "long",
+ "n": 83452,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.17207977175712585,
+    0.5899999737739563
+   ],
+   "A": {
+    "n": 5712,
+    "avg_stop_r": -0.115,
+    "med_ret_o5": -1.69,
+    "win5_pct": 38.6,
+    "avg_stop_r_20": -0.257
+   },
+   "B": {
+    "n": 17931,
+    "avg_stop_r": -0.044,
+    "med_ret_o5": -1.14,
+    "win5_pct": 42.6,
+    "avg_stop_r_20": -0.003
+   },
+   "COVID": {
+    "n": 10239,
+    "avg_stop_r": -0.126,
+    "med_ret_o5": -1.67,
+    "win5_pct": 39.3,
+    "avg_stop_r_20": -0.02
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5900059938430786,
+    0.7799999713897705
+   ],
+   "A": {
+    "n": 6923,
+    "avg_stop_r": -0.024,
+    "med_ret_o5": -0.98,
+    "win5_pct": 43.1,
+    "avg_stop_r_20": -0.077
+   },
+   "B": {
+    "n": 10364,
+    "avg_stop_r": 0.024,
+    "med_ret_o5": -0.43,
+    "win5_pct": 46.9,
+    "avg_stop_r_20": 0.094
+   },
+   "COVID": {
+    "n": 7686,
+    "avg_stop_r": -0.02,
+    "med_ret_o5": -1.2,
+    "win5_pct": 42.3,
+    "avg_stop_r_20": 0.104
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.7800111770629883,
+    0.9699812531471252
+   ],
+   "A": {
+    "n": 5919,
+    "avg_stop_r": 0.012,
+    "med_ret_o5": -0.42,
+    "win5_pct": 46.6,
+    "avg_stop_r_20": -0.037
+   },
+   "B": {
+    "n": 9063,
+    "avg_stop_r": 0.024,
+    "med_ret_o5": -0.26,
+    "win5_pct": 48.1,
+    "avg_stop_r_20": 0.082
+   },
+   "COVID": {
+    "n": 6799,
+    "avg_stop_r": 0.041,
+    "med_ret_o5": -0.38,
+    "win5_pct": 47.1,
+    "avg_stop_r_20": 0.174
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.9700000286102295,
+    1.0
+   ],
+   "A": {
+    "n": 781,
+    "avg_stop_r": -0.101,
+    "med_ret_o5": -0.56,
+    "win5_pct": 45.1,
+    "avg_stop_r_20": -0.124
+   },
+   "B": {
+    "n": 1114,
+    "avg_stop_r": -0.057,
+    "med_ret_o5": -0.35,
+    "win5_pct": 46.8,
+    "avg_stop_r_20": 0.018
+   },
+   "COVID": {
+    "n": 921,
+    "avg_stop_r": 0.04,
+    "med_ret_o5": -0.72,
+    "win5_pct": 45.4,
+    "avg_stop_r_20": 0.194
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.014,
+  "COVID": 0.166,
+  "B": -0.013
+ },
+ "extreme_bucket_n": {
+  "A": [
+   5712,
+   781
+  ],
+  "B": [
+   17931,
+   1114
+  ]
+ },
+ "null_beat_pct": 86.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.169,
+   "n": 9099,
+   "n_ext": [
+    4191,
+    237
+   ]
+  },
+  "B24": {
+   "effect": -0.063,
+   "n": 29373,
+   "n_ext": [
+    13740,
+    877
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.133,
+  "COVID": 0.215,
+  "B": 0.02
+ },
+ "null_beat_pct_20": 88.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.133,
+  "COVID": 0.166,
+  "B": 0.059
+ },
+ "effect_R_trail_w5": {
+  "A": 0.159,
+  "COVID": 0.206,
+  "B": 0.081
+ },
+ "null_beat_pct_trail": 88.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.079,
+  "COVID": 0.204,
+  "B": 0.048
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.104,
+  "COVID": 0.21,
+  "B": 0.063
+ },
+ "null_beat_pct_trail_be": 95.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.0,
+  "COVID": 0.027,
+  "B": -0.021
+ },
+ "effect_R_close_w5": {
+  "A": 0.024,
+  "COVID": 0.053,
+  "B": -0.003
+ },
+ "null_beat_pct_close": 38.0,
+ "verdict_close": "FAIL"
+}

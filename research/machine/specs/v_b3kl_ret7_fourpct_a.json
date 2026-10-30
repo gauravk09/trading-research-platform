@@ -1,0 +1,7 @@
+{
+  "id": "v_b3kl_ret7_fourpct_a",
+  "question": "Perturbation of b3kl (PASS): same four_pct/ret7 exhaustion idea but with quintiles instead of quartiles — expect the same monotonic decline (higher trailing ret7 = worse avg stop-R) to survive finer bucketing in both eras A and B.",
+  "plain": "Re-slicing the same test into 5 groups instead of 4 to see if the 'already ran up this week = worse odds' pattern is a real smooth trend or just an artifact of how the 4 groups were cut.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "feature", "name": "ret7", "buckets": "quintiles"}
+}

@@ -1,0 +1,218 @@
+{
+ "id": "tapedir_pct40ma_long",
+ "question": "Long four_pct large-caps gated by % of stocks above 40dma (quartiles): expect POSITIVE top-minus-bottom effect - broad participation above the 40dma makes the long breakout hold up better.",
+ "plain": "Buying a large-cap 4%-up-day breakout: does it work better when a high percentage of stocks are already above their 40-day average?",
+ "spec": {
+  "id": "tapedir_pct40ma_long",
+  "question": "Long four_pct large-caps gated by % of stocks above 40dma (quartiles): expect POSITIVE top-minus-bottom effect - broad participation above the 40dma makes the long breakout hold up better.",
+  "plain": "Buying a large-cap 4%-up-day breakout: does it work better when a high percentage of stocks are already above their 40-day average?",
+  "cohort": {
+   "trigger": "four_pct",
+   "side": "long",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "market",
+   "name": "pct40ma",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 8531,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.7,
+    31.6
+   ],
+   "A": {
+    "n": 992,
+    "avg_stop_r": -0.039,
+    "med_ret_o5": -0.43,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": -0.092
+   },
+   "B": {
+    "n": 602,
+    "avg_stop_r": 0.006,
+    "med_ret_o5": -0.13,
+    "win5_pct": 49.2,
+    "avg_stop_r_20": 0.084
+   },
+   "COVID": {
+    "n": 542,
+    "avg_stop_r": 0.076,
+    "med_ret_o5": -0.03,
+    "win5_pct": 49.8,
+    "avg_stop_r_20": 0.271
+   }
+  },
+  "1": {
+   "cond_range": [
+    31.7,
+    52.4
+   ],
+   "A": {
+    "n": 621,
+    "avg_stop_r": 0.02,
+    "med_ret_o5": -0.11,
+    "win5_pct": 48.5,
+    "avg_stop_r_20": 0.064
+   },
+   "B": {
+    "n": 617,
+    "avg_stop_r": -0.061,
+    "med_ret_o5": -0.21,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": -0.076
+   },
+   "COVID": {
+    "n": 901,
+    "avg_stop_r": 0.192,
+    "med_ret_o5": 0.17,
+    "win5_pct": 51.2,
+    "avg_stop_r_20": 0.536
+   }
+  },
+  "2": {
+   "cond_range": [
+    52.5,
+    71.5
+   ],
+   "A": {
+    "n": 762,
+    "avg_stop_r": -0.155,
+    "med_ret_o5": -0.67,
+    "win5_pct": 42.5,
+    "avg_stop_r_20": -0.28
+   },
+   "B": {
+    "n": 686,
+    "avg_stop_r": 0.139,
+    "med_ret_o5": 0.32,
+    "win5_pct": 51.5,
+    "avg_stop_r_20": 0.2
+   },
+   "COVID": {
+    "n": 684,
+    "avg_stop_r": -0.031,
+    "med_ret_o5": -0.62,
+    "win5_pct": 45.3,
+    "avg_stop_r_20": 0.044
+   }
+  },
+  "3": {
+   "cond_range": [
+    71.6,
+    96.3
+   ],
+   "A": {
+    "n": 630,
+    "avg_stop_r": 0.014,
+    "med_ret_o5": -0.42,
+    "win5_pct": 46.2,
+    "avg_stop_r_20": -0.092
+   },
+   "B": {
+    "n": 556,
+    "avg_stop_r": -0.006,
+    "med_ret_o5": -0.68,
+    "win5_pct": 44.6,
+    "avg_stop_r_20": 0.102
+   },
+   "COVID": {
+    "n": 938,
+    "avg_stop_r": -0.02,
+    "med_ret_o5": -0.55,
+    "win5_pct": 45.6,
+    "avg_stop_r_20": 0.05
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.054,
+  "COVID": -0.096,
+  "B": -0.012
+ },
+ "extreme_bucket_n": {
+  "A": [
+   992,
+   630
+  ],
+  "B": [
+   602,
+   556
+  ]
+ },
+ "null_beat_pct": 7.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.05,
+   "n": 613,
+   "n_ext": [
+    111,
+    237
+   ]
+  },
+  "B24": {
+   "effect": -0.088,
+   "n": 1848,
+   "n_ext": [
+    491,
+    319
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.0,
+  "COVID": -0.221,
+  "B": 0.018
+ },
+ "null_beat_pct_20": 26.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.066,
+  "COVID": -0.062,
+  "B": 0.07
+ },
+ "effect_R_trail_w5": {
+  "A": 0.072,
+  "COVID": -0.01,
+  "B": 0.097
+ },
+ "null_beat_pct_trail": 56.49999999999999,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.045,
+  "COVID": -0.097,
+  "B": 0.067
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.045,
+  "COVID": -0.028,
+  "B": 0.076
+ },
+ "null_beat_pct_trail_be": 32.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.169,
+  "COVID": 0.01,
+  "B": 0.027
+ },
+ "effect_R_close_w5": {
+  "A": 0.175,
+  "COVID": 0.049,
+  "B": 0.002
+ },
+ "null_beat_pct_close": 69.5,
+ "verdict_close": "FAIL"
+}

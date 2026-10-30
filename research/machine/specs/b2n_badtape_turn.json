@@ -1,0 +1,6 @@
+{
+  "id": "b2n_badtape_turn",
+  "question": "Inside bad tape (market:net4 <= 44, h4 bottom-quintile edge): does liquidity soften burst damage? Expect POSITIVE turn_decile top-minus-bottom effect (illiquid worst) but ALL buckets still negative avg stop-R in era B - nothing worth taking, liquidity only softens the bleed.",
+  "cohort": {"trigger": "burst", "filters": [["market:net4", "<=", 44]]},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quartiles"}
+}

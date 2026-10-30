@@ -1,0 +1,477 @@
+{
+ "args": {
+  "trigger": "ep",
+  "mode": "pocket",
+  "seeds": null,
+  "genome": "gradient",
+  "side": "long",
+  "pop": 24,
+  "gens": 20,
+  "seed": 2,
+  "finalists": 4,
+  "fit": true,
+  "placebo": true,
+  "dry": false,
+  "no_archive": false,
+  "no_ledger": false,
+  "no_certify": false,
+  "ruler": "stop_r_20",
+  "train_end": 2023
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.5035780159334201,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "burst_success",
+      ">="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 2,
+   "vetoes": 0
+  },
+  {
+   "gen": 2,
+   "best": 0.5035780159334201,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "burst_success",
+      ">="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 5,
+   "vetoes": 0
+  },
+  {
+   "gen": 3,
+   "best": 0.555958483099454,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 9,
+   "vetoes": 0
+  },
+  {
+   "gen": 4,
+   "best": 0.6066807813247596,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ]
+    ]
+   },
+   "archive": 10,
+   "vetoes": 0
+  },
+  {
+   "gen": 5,
+   "best": 0.8053443354282797,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "ret_126",
+      "<="
+     ],
+     [
+      "adr20",
+      "<="
+     ]
+    ]
+   },
+   "archive": 11,
+   "vetoes": 0
+  },
+  {
+   "gen": 6,
+   "best": 0.8053443354282797,
+   "median": 0.2736094563635434,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "ret_126",
+      "<="
+     ],
+     [
+      "adr20",
+      "<="
+     ]
+    ]
+   },
+   "archive": 13,
+   "vetoes": 0
+  },
+  {
+   "gen": 7,
+   "best": 0.8053443354282797,
+   "median": 0.20643894656179645,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "ret_126",
+      "<="
+     ],
+     [
+      "adr20",
+      "<="
+     ]
+    ]
+   },
+   "archive": 14,
+   "vetoes": 0
+  },
+  {
+   "gen": 8,
+   "best": 0.8053443354282797,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "ret_126",
+      "<="
+     ],
+     [
+      "adr20",
+      "<="
+     ]
+    ]
+   },
+   "archive": 14,
+   "vetoes": 0
+  },
+  {
+   "gen": 9,
+   "best": 0.8053443354282797,
+   "median": 0.12710601521300474,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "ret_126",
+      "<="
+     ],
+     [
+      "adr20",
+      "<="
+     ]
+    ]
+   },
+   "archive": 16,
+   "vetoes": 0
+  },
+  {
+   "gen": 10,
+   "best": 0.8053443354282797,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "ret_126",
+      "<="
+     ],
+     [
+      "adr20",
+      "<="
+     ]
+    ]
+   },
+   "archive": 18,
+   "vetoes": 0
+  },
+  {
+   "gen": 11,
+   "best": 0.8053443354282797,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "ret_126",
+      "<="
+     ],
+     [
+      "adr20",
+      "<="
+     ]
+    ]
+   },
+   "archive": 18,
+   "vetoes": 0
+  },
+  {
+   "gen": 12,
+   "best": 1.0060834435870885,
+   "median": 0.06192048727544369,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "sector_rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 18,
+   "vetoes": 0
+  },
+  {
+   "gen": 13,
+   "best": 1.0060834435870885,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "sector_rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 18,
+   "vetoes": 0
+  },
+  {
+   "gen": 14,
+   "best": 1.0060834435870885,
+   "median": 0.0932183900926758,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "sector_rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 19,
+   "vetoes": 0
+  },
+  {
+   "gen": 15,
+   "best": 1.0060834435870885,
+   "median": 0.16015779646949332,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "sector_rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 19,
+   "vetoes": 0
+  },
+  {
+   "gen": 16,
+   "best": 1.0060834435870885,
+   "median": 0.021146501785050426,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "sector_rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 20,
+   "vetoes": 0
+  },
+  {
+   "gen": 17,
+   "best": 1.0060834435870885,
+   "median": 0.2657895480473172,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "sector_rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 20,
+   "vetoes": 0
+  },
+  {
+   "gen": 18,
+   "best": 1.0060834435870885,
+   "median": 0.28198174558246014,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "sector_rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 23,
+   "vetoes": 0
+  },
+  {
+   "gen": 19,
+   "best": 1.0060834435870885,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "sector_rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 23,
+   "vetoes": 0
+  },
+  {
+   "gen": 20,
+   "best": 1.0060834435870885,
+   "median": 0.38801498111003274,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      ">="
+     ],
+     [
+      "adr20",
+      "<="
+     ],
+     [
+      "sector_rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 23,
+   "vetoes": 0
+  }
+ ],
+ "unevaluable_seeds": [],
+ "finalists": []
+}

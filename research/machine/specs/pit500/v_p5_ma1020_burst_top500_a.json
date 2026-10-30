@@ -1,0 +1,21 @@
+{
+  "id": "v_p5_ma1020_burst_top500_a",
+  "question": "Red-team of p5_ma1020_burst_top500 (bucket perturbation: quartiles instead of quintiles): index 10/20-DMA gate on top-500 PIT-mcap bursts graded PASS-INVERTED (higher ratio = worse); red-team: expect the NEGATIVE sign to survive in both eras",
+  "plain": "Robustness re-test of the top-500 index-trend result -- bucket perturbation: quartiles instead of quintiles.",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        500
+      ]
+    ]
+  },
+  "condition": {
+    "type": "market",
+    "name": "ma1020_nifty50",
+    "buckets": "quartiles"
+  }
+}

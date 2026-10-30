@@ -1,0 +1,11 @@
+{
+  "id": "b6_fpd_adr20",
+  "question": "Large-cap four_pct_down shorts bucketed by adr20 (average daily range, the stock's baseline volatility character): expect POSITIVE top-minus-bottom effect - breakdowns in naturally HIGH-ADR (volatile, momentum-style) large caps fall harder than breakdowns in naturally LOW-ADR (quiet, defensive) large caps, mirroring the house prior that loud/volatile beats quiet on the long side.",
+  "plain": "Does a 4% breakdown work better as a short in a stock that is normally volatile and momentum-driven, versus a stock that is normally quiet and low-volatility?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "adr20", "buckets": "quartiles"}
+}

@@ -1,0 +1,36 @@
+{
+  "id": "commodity_tsmom_baseline_v1",
+  "stage": "S4",
+  "strategy": "commodity_tsmom_baseline",
+  "family": "positional_commodity_trend",
+  "module": "src.backtest.studies.commodity_tsmom",
+  "spec_path": "research/factory/commodity_tsmom/SPEC.md",
+  "dataset_paths": [
+    "data/parquet/commodities/global/GC_F.parquet",
+    "data/parquet/commodities/global/SI_F.parquet",
+    "data/parquet/commodities/global/HG_F.parquet"
+  ],
+  "parameters": {
+    "costs": "5 bps per unit one-way turnover",
+    "cost_per_turnover": 0.0005,
+    "entry_clock": "weekly Friday/last-session signal; one full daily bar lag",
+    "eras": "2001-12,2013-19,2020-26",
+    "control_type": "fixed-seed 200-path random-sign, same weekly rebalance/vol scale",
+    "survivorship": "continuous front-month futures; no listing/delisting universe",
+    "lookbacks": [21, 63, 126, 252],
+    "target_annual_vol": 0.1,
+    "vol_lookback": 63,
+    "vol_cap": 2.0,
+    "random_seed": 20260902,
+    "random_paths": 200,
+    "preserve_neutral_control": false,
+    "continuous_futures_caveat": "Yahoo continuous roll/term-structure construction is unverified"
+  },
+  "success_bars": {
+    "positive_net_full_cagr": "scaled net CAGR > 0",
+    "positive_net_cagr_at_least_2_of_3_eras": "scaled net CAGR > 0 in at least two eras",
+    "scaled_sharpe_gt_scaled_long_only": "scaled Sharpe > identically scaled always-long",
+    "scaled_sharpe_gt_random_p95": "scaled Sharpe > random-sign control p95"
+  },
+  "artifact_paths": []
+}

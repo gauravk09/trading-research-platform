@@ -1,0 +1,9 @@
+{
+  "id": "ct_darvas_gated",
+  "plain": "Darvas box breakout large caps, gated to healthy pct40ma tape, longer 60-bar hold",
+  "source": "csv",
+  "csv": "darvas_box_events.csv",
+  "filters": [["market:pct40ma", ">=", 50]],
+  "horizon": 60,
+  "risk": 0.0075
+}

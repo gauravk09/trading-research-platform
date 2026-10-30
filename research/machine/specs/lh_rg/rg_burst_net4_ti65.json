@@ -1,0 +1,9 @@
+{
+  "id": "rg_burst_net4_ti65",
+  "plain": "Large-cap breakout (burst) long, only taken when net4 tape is healthy (>=50) AND the stock itself has an intact trend (ti65>=1) - fewer, higher-quality trades",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["market:net4", ">=", 50], ["ti65", ">=", 1.0]],
+  "horizon": 20,
+  "risk": 0.0075
+}

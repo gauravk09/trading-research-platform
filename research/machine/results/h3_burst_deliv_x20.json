@@ -1,0 +1,172 @@
+{
+ "id": "h3_burst_deliv_x20",
+ "question": "Does a delivery spike vs own 20d mean (deliv_x20, institutional intent) improve burst outcomes? No house prior; naive expectation POSITIVE effect. Data starts 2020-10 so era A expected INSUFFICIENT.",
+ "plain": null,
+ "spec": {
+  "id": "h3_burst_deliv_x20",
+  "question": "Does a delivery spike vs own 20d mean (deliv_x20, institutional intent) improve burst outcomes? No house prior; naive expectation POSITIVE effect. Data starts 2020-10 so era A expected INSUFFICIENT.",
+  "cohort": {
+   "trigger": "burst"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "deliv_x20",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 16020,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.01929665356874466,
+    0.5826349854469299
+   ],
+   "B": {
+    "n": 2902,
+    "avg_stop_r": -0.151,
+    "med_ret_o5": -1.48,
+    "win5_pct": 38.0,
+    "avg_stop_r_20": -0.206
+   },
+   "COVID": {
+    "n": 1103,
+    "avg_stop_r": -0.091,
+    "med_ret_o5": -1.4,
+    "win5_pct": 40.2,
+    "avg_stop_r_20": -0.035
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.582806408405304,
+    0.7777138352394104
+   ],
+   "B": {
+    "n": 2633,
+    "avg_stop_r": -0.103,
+    "med_ret_o5": -1.07,
+    "win5_pct": 41.4,
+    "avg_stop_r_20": -0.098
+   },
+   "COVID": {
+    "n": 1372,
+    "avg_stop_r": -0.111,
+    "med_ret_o5": -1.37,
+    "win5_pct": 39.4,
+    "avg_stop_r_20": 0.01
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.7777355313301086,
+    0.9545702338218689
+   ],
+   "B": {
+    "n": 2690,
+    "avg_stop_r": -0.084,
+    "med_ret_o5": -1.16,
+    "win5_pct": 41.7,
+    "avg_stop_r_20": -0.015
+   },
+   "COVID": {
+    "n": 1315,
+    "avg_stop_r": -0.005,
+    "med_ret_o5": -1.02,
+    "win5_pct": 41.9,
+    "avg_stop_r_20": 0.12
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.9545746445655823,
+    4.406486511230469
+   ],
+   "B": {
+    "n": 2696,
+    "avg_stop_r": 0.049,
+    "med_ret_o5": -0.32,
+    "win5_pct": 47.5,
+    "avg_stop_r_20": 0.143
+   },
+   "COVID": {
+    "n": 1309,
+    "avg_stop_r": 0.092,
+    "med_ret_o5": -0.39,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": 0.303
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": 0.183,
+  "B": 0.199
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   2902,
+   2696
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.34,
+   "n": 3484,
+   "n_ext": [
+    815,
+    872
+   ]
+  },
+  "B24": {
+   "effect": 0.13,
+   "n": 7437,
+   "n_ext": [
+    2087,
+    1824
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "PASS (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": 0.338,
+  "B": 0.349
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "PASS (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": 0.313,
+  "B": 0.346
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": 0.259,
+  "B": 0.28
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "PASS (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": 0.319,
+  "B": 0.319
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": 0.264,
+  "B": 0.255
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "PASS (modern)",
+ "verdict_close": "N/A (look-ahead)",
+ "close_flaw": "deliv_x20 is published after the close"
+}

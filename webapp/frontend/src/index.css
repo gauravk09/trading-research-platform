@@ -1,0 +1,106 @@
+/* Design tokens — dark, premium. Palette + hairline/shadow system adapted from
+   the "Beautiful UI" aesthetic: charcoal surfaces, fine diagonal-hatch texture,
+   crisp blue accent, layered hairline shadows instead of flat borders. */
+:root {
+  --bg: #161719;
+  --bg-raise: #1f2124;
+  --bg-card: linear-gradient(180deg, #202226 0%, #1a1c1f 100%);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.13);
+  --text: #f2f3f4;
+  --text-dim: #9a9da3;
+  --text-faint: #62656b;
+  --accent: #2f8bff;
+  --accent-soft: rgba(47, 139, 255, 0.15);
+  --up: #2ee6a8;
+  --up-soft: rgba(46, 230, 168, 0.12);
+  --down: #ff5d73;
+  --down-soft: rgba(255, 93, 115, 0.12);
+  --warn: #ffc14d;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --font-ui: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  /* hairline ring + soft layered depth, the Beautiful-UI card treatment */
+  --shadow: 0 0 0 1px var(--border), 0 1px 2px rgba(0, 0, 0, 0.30), 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* fine diagonal hatch + a whisper of accent glow up top — the textured
+   "crafted" surface, kept very low-contrast so tables/charts stay readable */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(720px 340px at 16% -10%, rgba(47, 139, 255, 0.07), transparent 62%),
+    repeating-linear-gradient(-45deg,
+      transparent 0 7px,
+      rgba(255, 255, 255, 0.018) 7px 8px);
+}
+
+::selection { background: var(--accent-soft); }
+
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: #2c2f34; border-radius: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+a { color: var(--accent); text-decoration: none; }
+
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--bg-raise);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 0.15s, background 0.15s;
+}
+button:hover { border-color: var(--border-strong); }
+button.active {
+  background: var(--accent-soft);
+  border-color: rgba(47, 139, 255, 0.5);
+  color: #8fc0ff;
+}
+
+input, select {
+  font-family: var(--font-ui);
+  background: var(--bg-raise);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+}
+input:focus, select:focus { border-color: rgba(47, 139, 255, 0.55); }
+input::placeholder { color: var(--text-faint); }
+
+.num { font-variant-numeric: tabular-nums; }
+.up { color: var(--up); }
+.down { color: var(--down); }
+.dim { color: var(--text-dim); }
+
+/* No 1px border — the hairline lives in --shadow's inset ring, so cards get a
+   single crisp edge plus soft depth (the Beautiful-UI card treatment). */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}

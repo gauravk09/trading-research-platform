@@ -1,0 +1,7 @@
+{
+  "id": "b4il_turn_calm_bounce",
+  "question": "Among calm (low-volatility, adr20<=3) BOUNCE setups, does lower turnover still win per the illiquidity premium, or does higher turnover win once volatility is controlled for?",
+  "plain": "Testing the illiquidity premium on calm, low-volatility oversold bounces specifically, to see if controlling for volatility changes which turnover bucket wins.",
+  "cohort": {"trigger": "bounce", "filters": [["adr20", "<=", 3]]},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quartiles"}
+}

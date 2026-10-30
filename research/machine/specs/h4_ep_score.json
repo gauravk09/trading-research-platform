@@ -1,0 +1,6 @@
+{
+  "id": "h4_ep_score",
+  "question": "House belief: EPs work BETTER in weak tapes - expect low breadth-score bucket to beat high, i.e. negative top-minus-bottom effect",
+  "cohort": {"trigger": "ep"},
+  "condition": {"type": "market", "name": "score", "buckets": [-5.5, -1.5, 1.5, 5.5]}
+}

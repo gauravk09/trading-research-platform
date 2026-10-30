@@ -1,0 +1,13 @@
+{
+ "id": "v_b3dl_deliv_four_pct_reslice",
+ "question": "Red-team perturbation (2026-08-06 batch): re-sliced to quartiles",
+ "cohort": {
+  "trigger": "four_pct",
+  "filters": []
+ },
+ "condition": {
+  "type": "feature",
+  "name": "deliv_x20",
+  "buckets": "quartiles"
+ }
+}

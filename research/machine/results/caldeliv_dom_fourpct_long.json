@@ -1,0 +1,196 @@
+{
+ "id": "caldeliv_dom_fourpct_long",
+ "question": "Among top-150 large-cap four_pct longs, does day-of-month (dom: first-3 vs mid vs last-days, turn-of-month effect) change breakout follow-through? Expect first-3-days-of-month strongest, end-of-month not elevated.",
+ "plain": "Buying a large-cap 4%-up-day breakout: does it work better in the first few trading days of the month (turn-of-month effect) versus mid-month or month-end?",
+ "spec": {
+  "id": "caldeliv_dom_fourpct_long",
+  "question": "Among top-150 large-cap four_pct longs, does day-of-month (dom: first-3 vs mid vs last-days, turn-of-month effect) change breakout follow-through? Expect first-3-days-of-month strongest, end-of-month not elevated.",
+  "plain": "Buying a large-cap 4%-up-day breakout: does it work better in the first few trading days of the month (turn-of-month effect) versus mid-month or month-end?",
+  "cohort": {
+   "trigger": "four_pct",
+   "side": "long",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "calendar",
+   "name": "dom",
+   "buckets": [
+    0,
+    3,
+    24,
+    31
+   ]
+  }
+ },
+ "side": "long",
+ "n": 8531,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    1.0,
+    3.0
+   ],
+   "A": {
+    "n": 274,
+    "avg_stop_r": -0.07,
+    "med_ret_o5": -0.5,
+    "win5_pct": 43.8,
+    "avg_stop_r_20": 0.13
+   },
+   "B": {
+    "n": 307,
+    "avg_stop_r": -0.056,
+    "med_ret_o5": -0.41,
+    "win5_pct": 46.6,
+    "avg_stop_r_20": -0.188
+   },
+   "COVID": {
+    "n": 391,
+    "avg_stop_r": 0.279,
+    "med_ret_o5": 0.77,
+    "win5_pct": 56.5,
+    "avg_stop_r_20": 0.365
+   }
+  },
+  "1": {
+   "cond_range": [
+    4.0,
+    24.0
+   ],
+   "A": {
+    "n": 1980,
+    "avg_stop_r": -0.026,
+    "med_ret_o5": -0.38,
+    "win5_pct": 46.6,
+    "avg_stop_r_20": -0.11
+   },
+   "B": {
+    "n": 1629,
+    "avg_stop_r": 0.026,
+    "med_ret_o5": -0.16,
+    "win5_pct": 48.4,
+    "avg_stop_r_20": 0.119
+   },
+   "COVID": {
+    "n": 1924,
+    "avg_stop_r": -0.024,
+    "med_ret_o5": -0.81,
+    "win5_pct": 44.4,
+    "avg_stop_r_20": 0.18
+   }
+  },
+  "2": {
+   "cond_range": [
+    25.0,
+    31.0
+   ],
+   "A": {
+    "n": 751,
+    "avg_stop_r": -0.086,
+    "med_ret_o5": -0.69,
+    "win5_pct": 43.8,
+    "avg_stop_r_20": -0.188
+   },
+   "B": {
+    "n": 525,
+    "avg_stop_r": 0.061,
+    "med_ret_o5": -0.12,
+    "win5_pct": 49.3,
+    "avg_stop_r_20": 0.112
+   },
+   "COVID": {
+    "n": 750,
+    "avg_stop_r": 0.148,
+    "med_ret_o5": 0.31,
+    "win5_pct": 52.5,
+    "avg_stop_r_20": 0.29
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.016,
+  "COVID": -0.131,
+  "B": 0.117
+ },
+ "extreme_bucket_n": {
+  "A": [
+   274,
+   751
+  ],
+  "B": [
+   307,
+   525
+  ]
+ },
+ "null_beat_pct": 30.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.103,
+   "n": 613,
+   "n_ext": [
+    64,
+    159
+   ]
+  },
+  "B24": {
+   "effect": 0.066,
+   "n": 1848,
+   "n_ext": [
+    243,
+    366
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.318,
+  "COVID": -0.075,
+  "B": 0.3
+ },
+ "null_beat_pct_20": 32.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.232,
+  "COVID": -0.081,
+  "B": 0.432
+ },
+ "effect_R_trail_w5": {
+  "A": -0.219,
+  "COVID": -0.009,
+  "B": 0.427
+ },
+ "null_beat_pct_trail": 4.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.241,
+  "COVID": -0.182,
+  "B": 0.246
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.223,
+  "COVID": -0.101,
+  "B": 0.264
+ },
+ "null_beat_pct_trail_be": 57.99999999999999,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.086,
+  "COVID": -0.144,
+  "B": 0.147
+ },
+ "effect_R_close_w5": {
+  "A": -0.083,
+  "COVID": -0.167,
+  "B": 0.135
+ },
+ "null_beat_pct_close": 47.5,
+ "verdict_close": "FAIL"
+}

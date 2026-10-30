@@ -1,0 +1,6 @@
+{
+  "id": "b2p_ep_win_deliv",
+  "question": "Stack: EPs with ret_252 >= 0 (pre-registered loser-avoidance edge from h2_ep_ret252) conditioned on deliv_x20 quartiles. Expect POSITIVE top-minus-bottom (delivery spike = institutional intent), mirroring h3_burst_deliv_x20 era-B +0.20. deliv_x20 data starts 2020-10 so era A is empty by construction and an INSUFFICIENT verdict is expected - the era-B table is the readout.",
+  "cohort": {"trigger": "ep", "filters": [["ret_252", ">=", 0]]},
+  "condition": {"type": "feature", "name": "deliv_x20", "buckets": "quartiles"}
+}

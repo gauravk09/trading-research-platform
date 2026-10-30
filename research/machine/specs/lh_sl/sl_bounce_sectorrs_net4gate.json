@@ -1,0 +1,9 @@
+{
+  "id": "sl_bounce_sectorrs_net4gate",
+  "plain": "Buy bounce-off-support setups only in leadership stocks within leading sectors, and only when market breadth (net4) is not deteriorating.",
+  "source": "trigger",
+  "trigger": "bounce",
+  "filters": [["sector_rs", ">=", 0.75], ["rs", ">=", 0.6], ["market:net4", ">=", 40]],
+  "horizon": 20,
+  "risk": 0.0075
+}

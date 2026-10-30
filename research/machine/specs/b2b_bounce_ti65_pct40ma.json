@@ -1,0 +1,6 @@
+{
+  "id": "b2b_bounce_ti65_pct40ma",
+  "question": "Given leader-trend bounces (ti65 >= 1.11, top-quintile edge from c001), does the washout gate rescue: expect LOW market:pct40ma buckets (edges [0,20,40,60,100]) to have BETTER era-B stop-R if the leader-washout pocket is real.",
+  "cohort": {"trigger": "bounce", "filters": [["ti65", ">=", 1.11]]},
+  "condition": {"type": "market", "name": "pct40ma", "buckets": [0, 20, 40, 60, 100]}
+}

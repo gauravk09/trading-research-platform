@@ -1,0 +1,557 @@
+{
+ "args": {
+  "trigger": "burst",
+  "mode": "seeded",
+  "seeds": "specs/ga_seeds/burst.json",
+  "genome": "gradient",
+  "side": "long",
+  "pop": 56,
+  "gens": 30,
+  "seed": 1,
+  "finalists": 4,
+  "placebo": true,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.165487361041069,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret21",
+      "<=",
+      7.5013
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 1.093150316721258,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 1.093150316721258,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 4,
+   "best": 1.3379722311600177,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 5,
+   "best": 1.3379722311600177,
+   "median": 0.11791878207748968,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 6,
+   "best": 1.3379722311600177,
+   "median": 0.5995356554269553,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 7,
+   "best": 1.3379722311600177,
+   "median": 0.4176089411058831,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 8,
+   "best": 1.3379722311600177,
+   "median": 1.0818541426402146,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 9,
+   "best": 1.3379722311600177,
+   "median": 1.093150316721258,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 10,
+   "best": 1.3379722311600177,
+   "median": 1.093150316721258,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 11,
+   "best": 1.3379722311600177,
+   "median": 0.9203940007897718,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 12,
+   "best": 1.3379722311600177,
+   "median": 0.6021106063228496,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 13,
+   "best": 1.3379722311600177,
+   "median": 0.7542991748901866,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 14,
+   "best": 1.3379722311600177,
+   "median": 1.0765659617154322,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 15,
+   "best": 1.4325152675030353,
+   "median": 1.093150316721258,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 16,
+   "best": 1.4325152675030353,
+   "median": 1.0457615216176424,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 17,
+   "best": 1.4325152675030353,
+   "median": 0.7435615878392834,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 18,
+   "best": 1.4325152675030353,
+   "median": 1.0817049711611342,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 19,
+   "best": 1.4325152675030353,
+   "median": 0.7436101637396237,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 20,
+   "best": 1.4325152675030353,
+   "median": 1.2631669679484818,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 21,
+   "best": 1.4325152675030353,
+   "median": 1.3379722311600177,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 22,
+   "best": 1.4325152675030353,
+   "median": 1.2755604328796508,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 23,
+   "best": 1.4325152675030353,
+   "median": 1.0415827823238843,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 24,
+   "best": 1.4325152675030353,
+   "median": 1.1315283832478253,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 25,
+   "best": 1.4325152675030353,
+   "median": 1.3379722311600177,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 26,
+   "best": 1.4325152675030353,
+   "median": 1.1315283832478253,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 27,
+   "best": 1.4325152675030353,
+   "median": 1.3183265217599933,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 28,
+   "best": 1.4325152675030353,
+   "median": 1.0649287541757537,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 29,
+   "best": 1.4325152675030353,
+   "median": 1.3379722311600177,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 30,
+   "best": 1.4325152675030353,
+   "median": 1.2493047861042745,
+   "best_ind": {
+    "filters": [
+     [
+      "volc5_50",
+      "<=",
+      2.3998
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "consol_days",
+     "buckets": "quartiles"
+    }
+   }
+  }
+ ],
+ "unevaluable_seeds": [
+  {
+   "id": "d1_deliv_veto",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "d2_deliv_regime",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.2
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ]
+   ]
+  },
+  {
+   "id": "c3_R5_system",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.5
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.7
+    ]
+   ]
+  }
+ ],
+ "finalists": []
+}

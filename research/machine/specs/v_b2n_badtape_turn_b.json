@@ -1,0 +1,6 @@
+{
+  "id": "v_b2n_badtape_turn_b",
+  "question": "Perturbation B of b2n_badtape_turn: tighten bad-tape edge ~20% (market:net4 <= 35 instead of 44) and switch bucketing quartiles -> quintiles on turn_decile. Expect POSITIVE top-minus-bottom effect in both era A and era B (liquidity softens burst damage in bad tape), all buckets still negative avg stop-R in era B.",
+  "cohort": {"trigger": "burst", "filters": [["market:net4", "<=", 35]]},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quintiles"}
+}

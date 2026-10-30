@@ -1,0 +1,11 @@
+{
+  "id": "lcvcp_fourpct_volc",
+  "question": "Among large-cap 4%+ breakouts, does lower pre-signal volatility contraction (volc5_50, 5d range vs 50d range) improve forward returns? Expected: negative top-minus-bottom (contracted vol beats expanded vol)",
+  "plain": "Do large-cap breakouts that come out of genuinely quiet (low-volatility) trading beat ones that were already volatile before the move?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "volc5_50", "buckets": "quartiles"}
+}

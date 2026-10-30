@@ -1,0 +1,223 @@
+{
+ "id": "tapedir_ingate_rs_long",
+ "question": "Inside an already-green tape (market net4 >= 134, top quartile), does relative strength still separate winners among four_pct large-cap longs? Expect POSITIVE rs top-minus-bottom effect - tape gate alone doesn't make stock quality redundant.",
+ "plain": "Once you've confirmed the tape is green, does picking the strongest relative-strength large-caps for the long breakout still add extra edge?",
+ "spec": {
+  "id": "tapedir_ingate_rs_long",
+  "question": "Inside an already-green tape (market net4 >= 134, top quartile), does relative strength still separate winners among four_pct large-cap longs? Expect POSITIVE rs top-minus-bottom effect - tape gate alone doesn't make stock quality redundant.",
+  "plain": "Once you've confirmed the tape is green, does picking the strongest relative-strength large-caps for the long breakout still add extra edge?",
+  "cohort": {
+   "trigger": "four_pct",
+   "side": "long",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     200
+    ],
+    [
+     "market:net4",
+     ">=",
+     134
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "rs",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 3135,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0987723246216774,
+    45.45540237426758
+   ],
+   "A": {
+    "n": 155,
+    "avg_stop_r": 0.17,
+    "med_ret_o5": 0.03,
+    "win5_pct": 50.3,
+    "avg_stop_r_20": -0.053
+   },
+   "B": {
+    "n": 237,
+    "avg_stop_r": 0.241,
+    "med_ret_o5": 1.43,
+    "win5_pct": 61.6,
+    "avg_stop_r_20": 0.253
+   },
+   "COVID": {
+    "n": 392,
+    "avg_stop_r": 0.098,
+    "med_ret_o5": -0.2,
+    "win5_pct": 48.7,
+    "avg_stop_r_20": 0.198
+   }
+  },
+  "1": {
+   "cond_range": [
+    45.4732551574707,
+    62.0172233581543
+   ],
+   "A": {
+    "n": 149,
+    "avg_stop_r": -0.083,
+    "med_ret_o5": -0.51,
+    "win5_pct": 45.6,
+    "avg_stop_r_20": -0.309
+   },
+   "B": {
+    "n": 267,
+    "avg_stop_r": 0.075,
+    "med_ret_o5": 0.31,
+    "win5_pct": 51.7,
+    "avg_stop_r_20": 0.157
+   },
+   "COVID": {
+    "n": 368,
+    "avg_stop_r": 0.051,
+    "med_ret_o5": -0.11,
+    "win5_pct": 48.9,
+    "avg_stop_r_20": 0.077
+   }
+  },
+  "2": {
+   "cond_range": [
+    62.0391845703125,
+    77.1292724609375
+   ],
+   "A": {
+    "n": 162,
+    "avg_stop_r": 0.165,
+    "med_ret_o5": 0.45,
+    "win5_pct": 53.1,
+    "avg_stop_r_20": 0.057
+   },
+   "B": {
+    "n": 319,
+    "avg_stop_r": 0.213,
+    "med_ret_o5": 0.36,
+    "win5_pct": 54.5,
+    "avg_stop_r_20": 0.429
+   },
+   "COVID": {
+    "n": 302,
+    "avg_stop_r": 0.108,
+    "med_ret_o5": 0.1,
+    "win5_pct": 50.3,
+    "avg_stop_r_20": 0.222
+   }
+  },
+  "3": {
+   "cond_range": [
+    77.16178131103516,
+    99.71024322509766
+   ],
+   "A": {
+    "n": 153,
+    "avg_stop_r": 0.185,
+    "med_ret_o5": 0.83,
+    "win5_pct": 56.9,
+    "avg_stop_r_20": 0.091
+   },
+   "B": {
+    "n": 387,
+    "avg_stop_r": 0.099,
+    "med_ret_o5": 1.0,
+    "win5_pct": 55.8,
+    "avg_stop_r_20": 0.283
+   },
+   "COVID": {
+    "n": 244,
+    "avg_stop_r": 0.241,
+    "med_ret_o5": 1.17,
+    "win5_pct": 59.0,
+    "avg_stop_r_20": 0.475
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.015,
+  "COVID": 0.143,
+  "B": -0.142
+ },
+ "extreme_bucket_n": {
+  "A": [
+   155,
+   153
+  ],
+  "B": [
+   237,
+   387
+  ]
+ },
+ "null_beat_pct": 6.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.331,
+   "n": 115,
+   "n_ext": [
+    26,
+    28
+   ]
+  },
+  "B24": {
+   "effect": -0.121,
+   "n": 1095,
+   "n_ext": [
+    211,
+    359
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.144,
+  "COVID": 0.277,
+  "B": 0.03
+ },
+ "null_beat_pct_20": 66.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": 0.301,
+  "COVID": 0.395,
+  "B": 0.015
+ },
+ "effect_R_trail_w5": {
+  "A": 0.33,
+  "COVID": 0.207,
+  "B": -0.01
+ },
+ "null_beat_pct_trail": 91.5,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 0.233,
+  "COVID": 0.376,
+  "B": -0.034
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.262,
+  "COVID": 0.222,
+  "B": -0.038
+ },
+ "null_beat_pct_trail_be": 89.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.019,
+  "COVID": 0.224,
+  "B": -0.222
+ },
+ "effect_R_close_w5": {
+  "A": 0.026,
+  "COVID": 0.217,
+  "B": -0.217
+ },
+ "null_beat_pct_close": 9.0,
+ "verdict_close": "INSUFFICIENT"
+}

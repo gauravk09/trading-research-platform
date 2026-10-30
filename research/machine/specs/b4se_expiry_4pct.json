@@ -1,0 +1,7 @@
+{
+  "id": "b4se_expiry_4pct",
+  "question": "Expected: weak/negative — expiry-week volatility literature suggests returns after a 4% up day are weaker or choppier when the trigger falls within expiry week (0-2 calendar days to monthly expiry) versus the rest of the month.",
+  "plain": "Testing whether being close to F&O monthly expiry (last Thursday) makes 4%-up-day follow-through worse, as expiry-week volatility studies suggest.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "calendar", "name": "expiry_dist", "buckets": [-1, 2, 7, 40]}
+}

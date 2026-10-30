@@ -1,0 +1,6 @@
+{
+  "id": "h4_burst_ratio10",
+  "question": "Breadth-momentum qualifier: bursts in LOW ratio10 tapes should underperform - expect higher ratio10 buckets better, i.e. positive top-minus-bottom effect",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "market", "name": "ratio10", "buckets": "quintiles"}
+}

@@ -1,0 +1,20 @@
+{
+ "id": "v_b6_fpd_effratio_mcap300",
+ "question": "Red-team perturbation (2026-08-06 batch): mcap_rank<=300 instead of 150",
+ "cohort": {
+  "trigger": "four_pct_down",
+  "side": "short",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    300
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "eff_ratio",
+  "buckets": "quartiles"
+ }
+}

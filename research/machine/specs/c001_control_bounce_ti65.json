@@ -1,0 +1,6 @@
+{
+  "id": "c001_control_bounce_ti65",
+  "question": "POSITIVE CONTROL (known result P9): washout bounces do better in stocks whose own trend is strong - expect higher ti65 quintiles to have higher stop-R",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "feature", "name": "ti65", "buckets": "quintiles"}
+}

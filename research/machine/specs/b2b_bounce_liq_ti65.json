@@ -1,0 +1,13 @@
+{
+  "id": "b2b_bounce_liq_ti65",
+  "question": "Does the leader-trend effect on bounces (c001: +0.11/+0.14 WEAK) sharpen in the liquid half (turn_decile >= 0.5, house convention)? Condition ti65 quintiles; expect POSITIVE top-minus-bottom effect (stronger own-trend = better stop-R) in both eras.",
+  "cohort": {
+    "trigger": "bounce",
+    "filters": [["turn_decile", ">=", 0.5]]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "ti65",
+    "buckets": "quintiles"
+  }
+}

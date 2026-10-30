@@ -1,0 +1,7 @@
+{
+  "id": "b3kl_dist50_fourpct",
+  "question": "Oliver Kell warns 'exhaustion extension' far above the 50DMA is late; on four_pct 4%-up days, expect higher dist_50dma (more extended above 50DMA) to be WORSE (lower avg stop-R) than being close to the 50DMA.",
+  "plain": "Oliver Kell says buying a stock that already ran way above its 50-day average is dangerous overextension; this checks whether 4%-up days far above the 50DMA do worse than ones closer to it.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "feature", "name": "dist_50dma", "buckets": "quartiles"}
+}

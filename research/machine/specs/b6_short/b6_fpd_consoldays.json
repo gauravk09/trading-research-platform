@@ -1,0 +1,11 @@
+{
+  "id": "b6_fpd_consoldays",
+  "question": "Large-cap four_pct_down shorts bucketed by consol_days (length of prior consolidation): expect POSITIVE top-minus-bottom effect - a breakdown out of a LONG consolidation (distribution had more time to build, more supply overhead) falls harder than a breakdown out of a short/no consolidation (fresh, less overhead supply).",
+  "plain": "Does a breakdown fall further when it comes after a long sideways consolidation (more trapped buyers overhead) versus a short one?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "consol_days", "buckets": "quartiles"}
+}

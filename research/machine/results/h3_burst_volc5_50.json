@@ -1,0 +1,209 @@
+{
+ "id": "h3_burst_volc5_50",
+ "question": "Does 5d-vs-50d volume posture (volc5_50) matter for bursts? Expect NEGATIVE effect: dry-up (<1) before the burst should beat a pre-existing volume crescendo; house prior says volume filters are neutral-to-harmful.",
+ "plain": null,
+ "spec": {
+  "id": "h3_burst_volc5_50",
+  "question": "Does 5d-vs-50d volume posture (volc5_50) matter for bursts? Expect NEGATIVE effect: dry-up (<1) before the burst should beat a pre-existing volume crescendo; house prior says volume filters are neutral-to-harmful.",
+  "cohort": {
+   "trigger": "burst"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "volc5_50",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 23467,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.24743856489658356,
+    0.8376170992851257
+   ],
+   "A": {
+    "n": 1364,
+    "avg_stop_r": -0.061,
+    "med_ret_o5": -1.07,
+    "win5_pct": 42.0,
+    "avg_stop_r_20": -0.127
+   },
+   "B": {
+    "n": 2713,
+    "avg_stop_r": -0.073,
+    "med_ret_o5": -1.13,
+    "win5_pct": 42.1,
+    "avg_stop_r_20": -0.03
+   },
+   "COVID": {
+    "n": 1790,
+    "avg_stop_r": 0.038,
+    "med_ret_o5": -1.25,
+    "win5_pct": 40.7,
+    "avg_stop_r_20": 0.232
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.8376263380050659,
+    1.1611558198928833
+   ],
+   "A": {
+    "n": 1406,
+    "avg_stop_r": -0.094,
+    "med_ret_o5": -1.03,
+    "win5_pct": 41.5,
+    "avg_stop_r_20": -0.099
+   },
+   "B": {
+    "n": 2717,
+    "avg_stop_r": -0.056,
+    "med_ret_o5": -0.78,
+    "win5_pct": 43.7,
+    "avg_stop_r_20": -0.024
+   },
+   "COVID": {
+    "n": 1744,
+    "avg_stop_r": 0.009,
+    "med_ret_o5": -0.95,
+    "win5_pct": 44.0,
+    "avg_stop_r_20": 0.145
+   }
+  },
+  "2": {
+   "cond_range": [
+    1.1611663103103638,
+    1.7072519063949585
+   ],
+   "A": {
+    "n": 1379,
+    "avg_stop_r": -0.021,
+    "med_ret_o5": -0.73,
+    "win5_pct": 43.3,
+    "avg_stop_r_20": -0.013
+   },
+   "B": {
+    "n": 2771,
+    "avg_stop_r": -0.033,
+    "med_ret_o5": -0.89,
+    "win5_pct": 43.5,
+    "avg_stop_r_20": 0.007
+   },
+   "COVID": {
+    "n": 1716,
+    "avg_stop_r": 0.014,
+    "med_ret_o5": -0.78,
+    "win5_pct": 44.2,
+    "avg_stop_r_20": 0.152
+   }
+  },
+  "3": {
+   "cond_range": [
+    1.707633137702942,
+    8.675704956054688
+   ],
+   "A": {
+    "n": 1180,
+    "avg_stop_r": -0.063,
+    "med_ret_o5": -0.97,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": -0.066
+   },
+   "B": {
+    "n": 3142,
+    "avg_stop_r": -0.116,
+    "med_ret_o5": -1.29,
+    "win5_pct": 40.2,
+    "avg_stop_r_20": -0.071
+   },
+   "COVID": {
+    "n": 1545,
+    "avg_stop_r": -0.118,
+    "med_ret_o5": -1.54,
+    "win5_pct": 40.5,
+    "avg_stop_r_20": -0.037
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.002,
+  "COVID": -0.156,
+  "B": -0.043
+ },
+ "extreme_bucket_n": {
+  "A": [
+   1364,
+   1180
+  ],
+  "B": [
+   2713,
+   3142
+  ]
+ },
+ "null_beat_pct": 99.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.042,
+   "n": 3673,
+   "n_ext": [
+    810,
+    1085
+   ]
+  },
+  "B24": {
+   "effect": -0.054,
+   "n": 7670,
+   "n_ext": [
+    1903,
+    2057
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.061,
+  "COVID": -0.269,
+  "B": -0.041
+ },
+ "null_beat_pct_20": 98.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.121,
+  "COVID": -0.166,
+  "B": -0.021
+ },
+ "effect_R_trail_w5": {
+  "A": 0.108,
+  "COVID": -0.127,
+  "B": 0.015
+ },
+ "null_beat_pct_trail": 74.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.104,
+  "COVID": -0.115,
+  "B": -0.035
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.09,
+  "COVID": -0.091,
+  "B": -0.005
+ },
+ "null_beat_pct_trail_be": 68.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.007,
+  "COVID": -0.045,
+  "B": -0.032
+ },
+ "effect_R_close_w5": {
+  "A": -0.011,
+  "COVID": -0.038,
+  "B": -0.036
+ },
+ "null_beat_pct_close": 55.50000000000001,
+ "verdict_close": "FAIL"
+}

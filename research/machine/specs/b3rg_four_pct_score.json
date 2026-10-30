@@ -1,0 +1,7 @@
+{
+  "id": "b3rg_four_pct_score",
+  "question": "Expect four_pct triggers to work better when the overall market breadth score is strongly positive vs strongly negative, since trading with the market should improve follow-through on 4% up days",
+  "plain": "Does a stock's 4% up day work better when the overall market breadth score (a -5 to +5 gauge) is strongly positive?",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "market", "name": "score", "buckets": "quartiles"}
+}

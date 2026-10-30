@@ -1,0 +1,209 @@
+{
+ "id": "h1_burst_days_since_burst",
+ "question": "On burst triggers, do rested bases (LONGER days_since_burst) outperform recently-burst stocks? Expected: positive effect (top quartile = longest rest beats bottom), per DEP house prior; watch for same-day degeneracy (all zeros).",
+ "plain": null,
+ "spec": {
+  "id": "h1_burst_days_since_burst",
+  "question": "On burst triggers, do rested bases (LONGER days_since_burst) outperform recently-burst stocks? Expected: positive effect (top quartile = longest rest beats bottom), per DEP house prior; watch for same-day degeneracy (all zeros).",
+  "cohort": {
+   "trigger": "burst"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "days_since_burst",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 23465,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    8.0
+   ],
+   "A": {
+    "n": 1403,
+    "avg_stop_r": -0.045,
+    "med_ret_o5": -1.02,
+    "win5_pct": 42.1,
+    "avg_stop_r_20": -0.132
+   },
+   "B": {
+    "n": 3330,
+    "avg_stop_r": -0.068,
+    "med_ret_o5": -1.09,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": 0.003
+   },
+   "COVID": {
+    "n": 2092,
+    "avg_stop_r": 0.078,
+    "med_ret_o5": -1.02,
+    "win5_pct": 43.5,
+    "avg_stop_r_20": 0.17
+   }
+  },
+  "1": {
+   "cond_range": [
+    9.0,
+    13.0
+   ],
+   "A": {
+    "n": 1074,
+    "avg_stop_r": -0.133,
+    "med_ret_o5": -1.5,
+    "win5_pct": 39.7,
+    "avg_stop_r_20": -0.118
+   },
+   "B": {
+    "n": 2405,
+    "avg_stop_r": -0.069,
+    "med_ret_o5": -0.96,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": -0.058
+   },
+   "COVID": {
+    "n": 1594,
+    "avg_stop_r": -0.064,
+    "med_ret_o5": -1.35,
+    "win5_pct": 40.2,
+    "avg_stop_r_20": 0.076
+   }
+  },
+  "2": {
+   "cond_range": [
+    14.0,
+    25.0
+   ],
+   "A": {
+    "n": 1345,
+    "avg_stop_r": -0.028,
+    "med_ret_o5": -0.73,
+    "win5_pct": 43.3,
+    "avg_stop_r_20": -0.043
+   },
+   "B": {
+    "n": 2874,
+    "avg_stop_r": -0.083,
+    "med_ret_o5": -1.26,
+    "win5_pct": 40.6,
+    "avg_stop_r_20": -0.097
+   },
+   "COVID": {
+    "n": 1734,
+    "avg_stop_r": -0.049,
+    "med_ret_o5": -1.08,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": 0.116
+   }
+  },
+  "3": {
+   "cond_range": [
+    26.0,
+    528.0
+   ],
+   "A": {
+    "n": 1505,
+    "avg_stop_r": -0.05,
+    "med_ret_o5": -0.75,
+    "win5_pct": 43.4,
+    "avg_stop_r_20": -0.025
+   },
+   "B": {
+    "n": 2734,
+    "avg_stop_r": -0.064,
+    "med_ret_o5": -0.76,
+    "win5_pct": 43.1,
+    "avg_stop_r_20": 0.024
+   },
+   "COVID": {
+    "n": 1375,
+    "avg_stop_r": -0.037,
+    "med_ret_o5": -0.88,
+    "win5_pct": 43.2,
+    "avg_stop_r_20": 0.142
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.005,
+  "COVID": -0.114,
+  "B": 0.004
+ },
+ "extreme_bucket_n": {
+  "A": [
+   1403,
+   1505
+  ],
+  "B": [
+   3330,
+   2734
+  ]
+ },
+ "null_beat_pct": 57.99999999999999,
+ "modern_split": {
+  "B23": {
+   "effect": 0.042,
+   "n": 3673,
+   "n_ext": [
+    976,
+    969
+   ]
+  },
+  "B24": {
+   "effect": -0.026,
+   "n": 7670,
+   "n_ext": [
+    2354,
+    1765
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.107,
+  "COVID": -0.028,
+  "B": 0.021
+ },
+ "null_beat_pct_20": 16.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.11,
+  "COVID": -0.034,
+  "B": 0.052
+ },
+ "effect_R_trail_w5": {
+  "A": 0.121,
+  "COVID": -0.004,
+  "B": 0.092
+ },
+ "null_beat_pct_trail": 28.999999999999996,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.119,
+  "COVID": -0.004,
+  "B": 0.081
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.124,
+  "COVID": 0.015,
+  "B": 0.11
+ },
+ "null_beat_pct_trail_be": 93.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.003,
+  "COVID": -0.056,
+  "B": 0.003
+ },
+ "effect_R_close_w5": {
+  "A": 0.005,
+  "COVID": -0.044,
+  "B": 0.002
+ },
+ "null_beat_pct_close": 38.5,
+ "verdict_close": "FAIL"
+}

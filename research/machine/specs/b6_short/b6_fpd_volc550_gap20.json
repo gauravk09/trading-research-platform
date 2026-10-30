@@ -1,0 +1,22 @@
+{
+  "id": "b6_fpd_volc550_gap20",
+  "question": "Large-cap four_pct_down shorts bucketed by volc5_50 (5-day vs 50-day volume climax ratio): expect POSITIVE top-minus-bottom effect - a breakdown accompanied by a recent volume climax (heavy 5-day volume vs the 50-day base, signalling real distribution) falls harder than a breakdown with no volume climax (quiet, possibly just noise).",
+  "plain": "When a large-cap breaks down, does it matter if trading volume has recently spiked (a possible distribution climax) versus staying quiet - do the volume-climax breakdowns keep falling harder?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        150
+      ]
+    ],
+    "min_gap": 20
+  },
+  "condition": {
+    "type": "feature",
+    "name": "volc5_50",
+    "buckets": "quartiles"
+  }
+}

@@ -1,0 +1,1 @@
+{"id":"x_check_dow","question":"engine check: day-of-week calendar condition runs (Mon=0 vs rest); India Monday-positive prior","plain":"Engine check: does day-of-week grade 4% days (India Monday effect)?","cohort":{"trigger":"four_pct"},"condition":{"type":"calendar","name":"dow","buckets":[-1,0,4]}}

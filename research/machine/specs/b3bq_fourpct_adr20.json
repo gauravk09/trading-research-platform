@@ -1,0 +1,7 @@
+{
+  "id": "b3bq_fourpct_adr20",
+  "question": "On plain 4% up days, does the stock's own volatility (adr20, average daily range %) grade the day? Unlike on burst (where adr20 was a mechanical control since burst events are volatility-gated by construction), this cohort has no such gating, so a real relationship (direction unclear a priori) can show up if base/volatility quality matters generically.",
+  "plain": "Idea: does how volatile a stock normally is (its average daily range) change how well a plain 4% up day performs, once we are not already filtering for tight bases?",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "adr20", "buckets": "quartiles"}
+}

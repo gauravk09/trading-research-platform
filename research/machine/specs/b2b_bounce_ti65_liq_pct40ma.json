@@ -1,0 +1,6 @@
+{
+  "id": "b2b_bounce_ti65_liq_pct40ma",
+  "question": "Liquid leader bounces (ti65 >= 1.11 AND turn_decile >= 0.5): does the washout gate work here — expect LOW market:pct40ma buckets (edges [0,20,40,60,100]) better in era B; hunting an absolutely-positive era-B cell.",
+  "cohort": {"trigger": "bounce", "filters": [["ti65", ">=", 1.11], ["turn_decile", ">=", 0.5]]},
+  "condition": {"type": "market", "name": "pct40ma", "buckets": [0, 20, 40, 60, 100]}
+}

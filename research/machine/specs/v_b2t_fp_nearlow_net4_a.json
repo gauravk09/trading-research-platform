@@ -1,0 +1,12 @@
+{
+  "id": "v_b2t_fp_nearlow_net4_a",
+  "question": "Perturbation A of b2t_fp_nearlow_net4: tighten both cohort edges ~20% (bounce_low21 <= 14.5 instead of 18.16, turn_decile >= 0.6 instead of 0.5), condition net4 quintiles. Expected: positive effect persists in eras A and B, top net4 quintile best.",
+  "cohort": {
+    "trigger": "four_pct",
+    "filters": [
+      ["bounce_low21", "<=", 14.5],
+      ["turn_decile", ">=", 0.6]
+    ]
+  },
+  "condition": {"type": "market", "name": "net4", "buckets": "quintiles"}
+}

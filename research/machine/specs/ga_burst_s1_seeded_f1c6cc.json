@@ -1,0 +1,13 @@
+{
+ "id": "ga_burst_s1_seeded_f1c6cc",
+ "question": "GA-evolved (burst): filters [none]; condition turn_decile (quartiles). Train CV folds +0.29/+0.19/+0.16/+0.20R \u2014 expect more of it = better. Era B untouched until this run.",
+ "cohort": {
+  "trigger": "burst",
+  "filters": []
+ },
+ "condition": {
+  "type": "feature",
+  "name": "turn_decile",
+  "buckets": "quartiles"
+ }
+}

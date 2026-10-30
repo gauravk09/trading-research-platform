@@ -1,0 +1,9 @@
+{
+  "id": "sl_fourpct_sectorrs_top",
+  "plain": "Buy 4%-up-day breakouts only in stocks belonging to the strongest sectors (sector_rs top quartile) and with strong own relative strength.",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["sector_rs", ">=", 0.75], ["rs", ">=", 0.75]],
+  "horizon": 20,
+  "risk": 0.0075
+}

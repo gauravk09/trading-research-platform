@@ -1,0 +1,13 @@
+{
+  "id": "b2b_bounce_ti65top_liq_net25q",
+  "question": "Same double-stacked cohort (ti65 >= 1.11 leaders, turn_decile >= 0.5 liquid half) conditioned on market net25q quartiles: washout belief says leader dip-buys earn best when the quarterly tape is WEAK; expect NEGATIVE top-minus-bottom effect (low net25q quartile best).",
+  "cohort": {
+    "trigger": "bounce",
+    "filters": [["ti65", ">=", 1.11], ["turn_decile", ">=", 0.5]]
+  },
+  "condition": {
+    "type": "market",
+    "name": "net25q",
+    "buckets": "quartiles"
+  }
+}

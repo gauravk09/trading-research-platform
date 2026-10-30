@@ -1,0 +1,11 @@
+{
+  "id": "b6_fp_net25q",
+  "question": "Large-cap four_pct (up-day) shorts bucketed by market net25q: expect POSITIVE top-minus-bottom effect - shorting an up-day pop works better when the medium-term breadth (net25q) is STRONG, generalizing the tape-divergence short edge to a different, tighter-stop trigger (four_pct keeps only ~75% of events as valid fades).",
+  "plain": "Does the 'the tape being strong helps a large-cap short' edge also show up when shorting ordinary 4% up-day pops (not just down-day breakdowns), even though fewer of these trades get a valid wide-stop fill?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "market", "name": "net25q", "buckets": "quartiles"}
+}

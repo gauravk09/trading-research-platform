@@ -1,0 +1,195 @@
+{
+ "id": "b4tm_dom_fourpct_small",
+ "question": "Among four_pct triggers restricted to smaller/less-liquid names (turn_decile<=0.5), is the turn-of-month first-3-days effect stronger than in the unrestricted universe (paper says TOM is stronger in smallcaps)?",
+ "plain": "Testing if the turn-of-month rally effect (RFB 2023, IJMEC) is bigger in smaller stocks, as the research paper claims.",
+ "spec": {
+  "id": "b4tm_dom_fourpct_small",
+  "question": "Among four_pct triggers restricted to smaller/less-liquid names (turn_decile<=0.5), is the turn-of-month first-3-days effect stronger than in the unrestricted universe (paper says TOM is stronger in smallcaps)?",
+  "plain": "Testing if the turn-of-month rally effect (RFB 2023, IJMEC) is bigger in smaller stocks, as the research paper claims.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": [
+    [
+     "turn_decile",
+     "<=",
+     0.5
+    ]
+   ]
+  },
+  "condition": {
+   "type": "calendar",
+   "name": "dom",
+   "buckets": [
+    0,
+    3,
+    24,
+    31
+   ]
+  }
+ },
+ "side": "long",
+ "n": 22545,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    1.0,
+    3.0
+   ],
+   "A": {
+    "n": 256,
+    "avg_stop_r": 0.111,
+    "med_ret_o5": -0.39,
+    "win5_pct": 46.5,
+    "avg_stop_r_20": -0.154
+   },
+   "B": {
+    "n": 1636,
+    "avg_stop_r": -0.034,
+    "med_ret_o5": -0.7,
+    "win5_pct": 44.7,
+    "avg_stop_r_20": -0.006
+   },
+   "COVID": {
+    "n": 850,
+    "avg_stop_r": 0.045,
+    "med_ret_o5": -0.52,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": 0.023
+   }
+  },
+  "1": {
+   "cond_range": [
+    4.0,
+    24.0
+   ],
+   "A": {
+    "n": 1907,
+    "avg_stop_r": -0.228,
+    "med_ret_o5": -2.28,
+    "win5_pct": 34.2,
+    "avg_stop_r_20": -0.401
+   },
+   "B": {
+    "n": 9136,
+    "avg_stop_r": -0.072,
+    "med_ret_o5": -1.45,
+    "win5_pct": 40.7,
+    "avg_stop_r_20": 0.001
+   },
+   "COVID": {
+    "n": 4366,
+    "avg_stop_r": -0.234,
+    "med_ret_o5": -2.47,
+    "win5_pct": 35.4,
+    "avg_stop_r_20": -0.082
+   }
+  },
+  "2": {
+   "cond_range": [
+    25.0,
+    31.0
+   ],
+   "A": {
+    "n": 556,
+    "avg_stop_r": -0.174,
+    "med_ret_o5": -1.89,
+    "win5_pct": 35.3,
+    "avg_stop_r_20": -0.365
+   },
+   "B": {
+    "n": 2422,
+    "avg_stop_r": -0.023,
+    "med_ret_o5": -0.86,
+    "win5_pct": 44.5,
+    "avg_stop_r_20": -0.052
+   },
+   "COVID": {
+    "n": 1416,
+    "avg_stop_r": 0.008,
+    "med_ret_o5": -0.58,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": 0.019
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.285,
+  "COVID": -0.037,
+  "B": 0.01
+ },
+ "extreme_bucket_n": {
+  "A": [
+   256,
+   556
+  ],
+  "B": [
+   1636,
+   2422
+  ]
+ },
+ "null_beat_pct": 31.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.112,
+   "n": 3009,
+   "n_ext": [
+    303,
+    632
+   ]
+  },
+  "B24": {
+   "effect": -0.033,
+   "n": 10185,
+   "n_ext": [
+    1333,
+    1790
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.21,
+  "COVID": -0.004,
+  "B": -0.046
+ },
+ "null_beat_pct_20": 34.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.21,
+  "COVID": 0.071,
+  "B": -0.083
+ },
+ "effect_R_trail_w5": {
+  "A": -0.178,
+  "COVID": 0.021,
+  "B": -0.041
+ },
+ "null_beat_pct_trail": 37.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.222,
+  "COVID": 0.043,
+  "B": -0.062
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.194,
+  "COVID": 0.029,
+  "B": -0.034
+ },
+ "null_beat_pct_trail_be": 41.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.283,
+  "COVID": -0.149,
+  "B": 0.061
+ },
+ "effect_R_close_w5": {
+  "A": -0.22,
+  "COVID": -0.114,
+  "B": 0.076
+ },
+ "null_beat_pct_close": 36.5,
+ "verdict_close": "FAIL"
+}

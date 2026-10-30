@@ -1,0 +1,6 @@
+{
+  "id": "c002_control_placebo",
+  "question": "NEGATIVE CONTROL: a meaningless per-symbol pseudo-random trait must show no effect - expect FAIL",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "placebo", "name": "placebo", "buckets": "quartiles"}
+}

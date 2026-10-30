@@ -1,0 +1,210 @@
+{
+ "id": "b3qm_ep_adr20",
+ "question": "On EP (episodic pivot) events, higher adr20 (high volatility names) grades better stop-based R -- expect higher ADR = better",
+ "plain": "Qullamaggie loves high-volatility (high average daily range) stocks -- does that hold up specifically for extreme-volume episodic pivot events?",
+ "spec": {
+  "id": "b3qm_ep_adr20",
+  "question": "On EP (episodic pivot) events, higher adr20 (high volatility names) grades better stop-based R -- expect higher ADR = better",
+  "plain": "Qullamaggie loves high-volatility (high average daily range) stocks -- does that hold up specifically for extreme-volume episodic pivot events?",
+  "cohort": {
+   "trigger": "ep"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "adr20",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 5169,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    1.606220006942749,
+    3.6454052925109863
+   ],
+   "A": {
+    "n": 234,
+    "avg_stop_r": 0.049,
+    "med_ret_o5": 0.5,
+    "win5_pct": 54.3,
+    "avg_stop_r_20": -0.011
+   },
+   "B": {
+    "n": 721,
+    "avg_stop_r": -0.065,
+    "med_ret_o5": -0.47,
+    "win5_pct": 46.2,
+    "avg_stop_r_20": 0.065
+   },
+   "COVID": {
+    "n": 338,
+    "avg_stop_r": 0.131,
+    "med_ret_o5": 0.33,
+    "win5_pct": 53.6,
+    "avg_stop_r_20": 0.284
+   }
+  },
+  "1": {
+   "cond_range": [
+    3.64609956741333,
+    4.4554667472839355
+   ],
+   "A": {
+    "n": 231,
+    "avg_stop_r": 0.06,
+    "med_ret_o5": -0.06,
+    "win5_pct": 49.8,
+    "avg_stop_r_20": 0.015
+   },
+   "B": {
+    "n": 682,
+    "avg_stop_r": -0.004,
+    "med_ret_o5": -1.03,
+    "win5_pct": 44.7,
+    "avg_stop_r_20": 0.158
+   },
+   "COVID": {
+    "n": 379,
+    "avg_stop_r": 0.217,
+    "med_ret_o5": 0.38,
+    "win5_pct": 53.6,
+    "avg_stop_r_20": 0.538
+   }
+  },
+  "2": {
+   "cond_range": [
+    4.455567359924316,
+    5.516374111175537
+   ],
+   "A": {
+    "n": 199,
+    "avg_stop_r": -0.14,
+    "med_ret_o5": -1.0,
+    "win5_pct": 44.2,
+    "avg_stop_r_20": -0.166
+   },
+   "B": {
+    "n": 686,
+    "avg_stop_r": -0.006,
+    "med_ret_o5": -0.73,
+    "win5_pct": 45.9,
+    "avg_stop_r_20": 0.197
+   },
+   "COVID": {
+    "n": 407,
+    "avg_stop_r": 0.09,
+    "med_ret_o5": -0.19,
+    "win5_pct": 48.9,
+    "avg_stop_r_20": 0.249
+   }
+  },
+  "3": {
+   "cond_range": [
+    5.518950462341309,
+    42.2562255859375
+   ],
+   "A": {
+    "n": 244,
+    "avg_stop_r": -0.209,
+    "med_ret_o5": -1.73,
+    "win5_pct": 40.6,
+    "avg_stop_r_20": -0.172
+   },
+   "B": {
+    "n": 581,
+    "avg_stop_r": -0.085,
+    "med_ret_o5": -1.2,
+    "win5_pct": 43.5,
+    "avg_stop_r_20": -0.06
+   },
+   "COVID": {
+    "n": 467,
+    "avg_stop_r": 0.038,
+    "med_ret_o5": -0.8,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": -0.012
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.258,
+  "COVID": -0.093,
+  "B": -0.02
+ },
+ "extreme_bucket_n": {
+  "A": [
+   234,
+   244
+  ],
+  "B": [
+   721,
+   581
+  ]
+ },
+ "null_beat_pct": 93.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.12,
+   "n": 659,
+   "n_ext": [
+    249,
+    95
+   ]
+  },
+  "B24": {
+   "effect": -0.019,
+   "n": 2011,
+   "n_ext": [
+    472,
+    486
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.161,
+  "COVID": -0.296,
+  "B": -0.125
+ },
+ "null_beat_pct_20": 76.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.341,
+  "COVID": -0.071,
+  "B": -0.234
+ },
+ "effect_R_trail_w5": {
+  "A": -0.285,
+  "COVID": -0.147,
+  "B": -0.235
+ },
+ "null_beat_pct_trail": 91.0,
+ "verdict_trail": "WEAK",
+ "effect_R_trail_be": {
+  "A": -0.319,
+  "COVID": -0.056,
+  "B": -0.168
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.294,
+  "COVID": -0.126,
+  "B": -0.159
+ },
+ "null_beat_pct_trail_be": 98.5,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": -0.34,
+  "COVID": 0.053,
+  "B": -0.029
+ },
+ "effect_R_close_w5": {
+  "A": -0.333,
+  "COVID": 0.023,
+  "B": -0.047
+ },
+ "null_beat_pct_close": 63.0,
+ "verdict_close": "FAIL"
+}

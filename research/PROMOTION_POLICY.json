@@ -1,0 +1,9 @@
+{
+  "promotion_authority": "research/factory/LEDGER.md",
+  "promotion_grade_minimum_stage": "S4",
+  "canonical_runner": "src/backtest/canonical_runner.py",
+  "canonical_module_prefix": "src.backtest.studies.",
+  "portfolio_runner": "src/backtest/bookrunner.py",
+  "research_directory": "descriptive hypothesis discovery only; not a promotion path",
+  "alpha_forge": "frozen archived exploration; no new promotion claims"
+}

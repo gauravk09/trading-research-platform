@@ -1,0 +1,96 @@
+{
+ "args": {
+  "trigger": "burst",
+  "mode": "pocket",
+  "side": "long",
+  "pop": 24,
+  "gens": 10,
+  "seed": 1,
+  "finalists": 4,
+  "placebo": false,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  },
+  {
+   "gen": 2,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  },
+  {
+   "gen": 3,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  },
+  {
+   "gen": 4,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  },
+  {
+   "gen": 5,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  },
+  {
+   "gen": 6,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  },
+  {
+   "gen": 7,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  },
+  {
+   "gen": 8,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  },
+  {
+   "gen": 9,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  },
+  {
+   "gen": 10,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   }
+  }
+ ],
+ "finalists": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "b2t_fourpct_net4_blow21",
+  "question": "Stack A: four_pct days in a strong tape (market net4 >= 134, h4 top-quintile edge) conditioned on bounce_low21 quintiles - expect NEGATIVE top-minus-bottom (extended above 21d low still worse even in a good tape), with near-low buckets positive in absolute era-B stop-R",
+  "cohort": {
+    "trigger": "four_pct",
+    "filters": [["market:net4", ">=", 134]]
+  },
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quintiles"}
+}

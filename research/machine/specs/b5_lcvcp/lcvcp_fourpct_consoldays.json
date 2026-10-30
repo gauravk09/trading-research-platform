@@ -1,0 +1,27 @@
+{
+  "id": "lcvcp_fourpct_consoldays",
+  "question": "Among large-cap 4%+ breakouts, does a longer standing tight base (consol_days) before the trigger improve forward returns? Expected: positive top-minus-bottom (long base beats no base)",
+  "plain": "Do large-cap breakouts out of a long-standing tight base outperform breakouts with no real base behind them?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        200
+      ]
+    ]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "consol_days",
+    "buckets": [
+      -0.5,
+      0.5,
+      5.5,
+      20.5,
+      10000
+    ]
+  }
+}

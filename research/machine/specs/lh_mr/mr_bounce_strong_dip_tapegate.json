@@ -1,0 +1,9 @@
+{
+  "id": "mr_bounce_strong_dip_tapegate",
+  "plain": "Same as mr_bounce_strong_dip but only take the trade when the market tape is healthy (net4 >= 40).",
+  "source": "trigger",
+  "trigger": "bounce",
+  "filters": [["ti65", ">=", 1.0], ["dist_50dma", ">=", 0], ["pct_52wh", ">=", -15], ["market:net4", ">=", 40]],
+  "horizon": 10,
+  "risk": 0.0075
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b4tm_dom_fourpct",
+  "question": "On four_pct triggers, does day-of-month bucket [first-3 vs mid vs last-days] show first-3-days-of-month strongest (turn-of-month effect), with end-of-month NOT elevated?",
+  "plain": "Testing the turn-of-month effect (RFB 2023, IJMEC): Indian stocks tend to rally in the first few trading days of the month, but NOT at month-end.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "calendar", "name": "dom", "buckets": [0, 3, 24, 31]}
+}

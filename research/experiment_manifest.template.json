@@ -1,0 +1,20 @@
+{
+  "run_name": "example_lone_loser_s4",
+  "stage": "S4",
+  "strategy": "lone_loser_short",
+  "family": "breakdown_short",
+  "code_entrypoint": "src/backtest/studies/example.py",
+  "spec_path": "research/factory/example/SPEC.md",
+  "dataset_paths": ["data/processed/close_matrix.parquet"],
+  "parameters": {
+    "costs": "0.15%/side",
+    "entry_clock": "D+1 open",
+    "eras": "2015-19,2020-22,2023-26",
+    "control_type": "same-date matched random",
+    "risk_pct": 0.5
+  },
+  "metrics": {"gross_return": 0.0, "max_drawdown": 0.0},
+  "status": "completed",
+  "verdict": "UNDECIDED",
+  "artifact_paths": ["research/factory/example/report.md"]
+}

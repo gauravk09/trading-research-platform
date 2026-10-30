@@ -1,0 +1,21 @@
+{
+ "id": "d_freshhigh_sectorrs",
+ "question": "Reddit candidate #6 (hitesh2710/ValuePickr, multi-year-high breakout with sector clustering): among near-52wk-high pullback setups, does the stock's SECTOR relative strength (proxy for 'sector peers also making new highs') predict a better outcome than an isolated high in a weak sector? Expect direction: top-quartile sector_rs beats bottom-quartile.",
+ "plain": "Take the existing 'pullback' event (uptrend, made a 63-day high recently, pulled back to touch the 20-day average) and narrow it to names actually near their real 52-week high (pct_52wh >= -5, i.e. within 5% of the high) -- the closest existing entry mechanic in the event store to hitesh2710's preferred 'first pullback after the breakout' entry. Bucket by sector_rs (percentile rank of the stock's sector composite RS) -- this is a PROXY for his 'multiple sector peers also making 52-week highs' rule, since no literal cross-sectional sector-high-count feature exists in the store. If his sector-clustering claim is real, the top sector_rs quartile should show a materially better stop_r than the bottom quartile, in both eras, surviving the permutation null.",
+ "source": "https://forum.valuepickr.com/t/52-week-highs-and-all-time-highs-strategy/35627 (candidate #6 in reddit_x_strategy_ideas.md, doc's own hypothesis #101)",
+ "claimed_performance": "no P&L published; author's credibility rests on a public 2020 pharma-cluster call record (Sun, Cipla, Biocon, Laurus, Alembic), not a backtest",
+ "proxy_decisions": [
+  "trigger=pullback stands in for 'first pullback after a multi-year-high breakout' -- pullback's native definition uses a 63-day high, not a literal multi-year high; the pct_52wh filter tightens this toward a real 52-week high, but it is still not the doc's stricter 'multi-year / all-time high after a >=6-month base'",
+  "condition=sector_rs (existing feature, percentile rank of sector composite RS) stands in for 'count of sector peers also at 52-wk highs' -- no such cross-sectional count feature exists in the store; sector_rs is directionally related but is a relative-strength measure, not a literal cluster count",
+  "min_gap left unset (default) -- report raw n; if extreme-bucket n looks overlap-heavy, a gap20/gap60 red-team follow-up spec should be run before trusting the null_beat_pct, per the house overlap-control convention (SCOREBOARD.md batch 2/6)"
+ ],
+ "cohort": {
+  "trigger": "pullback",
+  "filters": [["pct_52wh", ">=", -5]]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "sector_rs",
+  "buckets": "quartiles"
+ }
+}

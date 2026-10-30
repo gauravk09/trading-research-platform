@@ -1,0 +1,13 @@
+{
+ "id": "ga_pullback_s1_e883ae",
+ "question": "GA-evolved (pullback): filters [none]; condition ret7 (quintiles). Train CV folds +2.47/-0.67/-1.08/-0.90R \u2014 expect more of it = worse. Era B untouched until this run.",
+ "cohort": {
+  "trigger": "pullback",
+  "filters": []
+ },
+ "condition": {
+  "type": "feature",
+  "name": "ret7",
+  "buckets": "quintiles"
+ }
+}

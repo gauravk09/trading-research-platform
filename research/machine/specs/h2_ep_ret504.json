@@ -1,0 +1,6 @@
+{
+  "id": "h2_ep_ret504",
+  "question": "Does 2-year prior return grade episodic pivots? Expected direction: folklore says top ret_504 quartile (2-year proven movers) beats bottom (positive effect); EP folklore also argues the opposite (best EPs come from long-neglected stocks), house prior says indifferent - stating folklore-positive as the tested direction.",
+  "cohort": {"trigger": "ep"},
+  "condition": {"type": "derived", "name": "ret_504", "buckets": "quartiles"}
+}

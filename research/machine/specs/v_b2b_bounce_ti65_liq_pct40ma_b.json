@@ -1,0 +1,16 @@
+{
+  "id": "v_b2b_bounce_ti65_liq_pct40ma_b",
+  "question": "Original cohort (ti65 >= 1.11, turn_decile >= 0.5) with bucket edges shifted ~20% to [0,24,48,72,100]: expect LOW pct40ma bucket still better in era B if the effect is not an artifact of the exact 0-20 cell.",
+  "cohort": {
+    "trigger": "bounce",
+    "filters": [
+      ["ti65", ">=", 1.11],
+      ["turn_decile", ">=", 0.5]
+    ]
+  },
+  "condition": {
+    "type": "market",
+    "name": "pct40ma",
+    "buckets": [0, 24, 48, 72, 100]
+  }
+}

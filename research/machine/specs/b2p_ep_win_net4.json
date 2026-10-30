@@ -1,0 +1,6 @@
+{
+  "id": "b2p_ep_win_net4",
+  "question": "Stack: EPs with ret_252 >= 0 (pre-registered loser-avoidance edge; h2_ep_ret252 bottom quartile <= -12.65 is the bad cell) conditioned on market net4 quartiles. House prior (EPs better in weak tapes) pre-states NEGATIVE top-minus-bottom, i.e. the net4 kill-switch should NOT add on top of the winner-only filter.",
+  "cohort": {"trigger": "ep", "filters": [["ret_252", ">=", 0]]},
+  "condition": {"type": "market", "name": "net4", "buckets": "quartiles"}
+}

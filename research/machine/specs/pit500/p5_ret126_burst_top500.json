@@ -1,0 +1,21 @@
+{
+  "id": "p5_ret126_burst_top500",
+  "question": "[top-500 by point-in-time market cap] Does 6-month prior return select breakout winners inside a point-in-time top-quality universe -- expect top quartile to beat bottom",
+  "plain": "Six-month momentum as a breakout filter, restricted to bigger companies. Universe: top-500 by point-in-time market cap.",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        500
+      ]
+    ]
+  },
+  "condition": {
+    "type": "derived",
+    "name": "ret_126",
+    "buckets": "quartiles"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "rsrel_long_sectorrs",
+  "question": "Among large-cap 4% up days, does the stock's sector strength (sector_rs) grade the long trade, with higher sector_rs producing better stop-based R? Expect higher=better (positive effect).",
+  "plain": "Does being in a hot sector help a large-cap breakout day, separate from the stock's own RS?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "sector_rs", "buckets": "quartiles"}
+}

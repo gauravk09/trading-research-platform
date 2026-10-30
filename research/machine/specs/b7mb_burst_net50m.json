@@ -1,0 +1,7 @@
+{
+  "id": "b7mb_burst_net50m",
+  "question": "Muninn article's strongest breadth measure: count of stocks up 50% in a month (leadership, not participation) should grade breakouts -- expect higher net50m = better",
+  "plain": "The article found that counting stocks up 50% in a month (real leadership being created) was the strongest breadth signal for breakout trades, beating fast daily counts; this checks that on NSE breakouts.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "market", "name": "net50m", "buckets": "quintiles"}
+}

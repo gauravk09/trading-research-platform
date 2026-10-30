@@ -1,0 +1,6 @@
+{
+  "id": "v_b2t_fp_net4top_blow21_b",
+  "question": "Perturbation of b2t_fp_net4top_blow21: tighten the strong-tape filter net4 134 -> 161 (+20%) AND switch bucketing quintiles -> quartiles. Expect bounce_low21 effect to stay NEGATIVE (extended top bucket worst) in both era A and era B.",
+  "cohort": {"trigger": "four_pct", "filters": [["market:net4", ">=", 161]]},
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quartiles"}
+}

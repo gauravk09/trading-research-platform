@@ -1,0 +1,211 @@
+{
+ "id": "b3bq_fourpct_tightness",
+ "question": "On plain 4% up days, does pre-move range tightness (tightness = 5d range pct-rank, LOW=tight) grade the day? Expect LOW tightness (tighter range before the move) = better stop-R, per Darvas-box/VCP logic that tight coiling precedes the best expansions.",
+ "plain": "Darvas box idea: a stock that was trading in a very tight, narrow range right before a 4% up day should have a better follow-through than one that was already choppy and wide-ranging.",
+ "spec": {
+  "id": "b3bq_fourpct_tightness",
+  "question": "On plain 4% up days, does pre-move range tightness (tightness = 5d range pct-rank, LOW=tight) grade the day? Expect LOW tightness (tighter range before the move) = better stop-R, per Darvas-box/VCP logic that tight coiling precedes the best expansions.",
+  "plain": "Darvas box idea: a stock that was trading in a very tight, narrow range right before a 4% up day should have a better follow-through than one that was already choppy and wide-ranging.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "tightness",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 64161,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.003968254197388887,
+    0.4960317313671112
+   ],
+   "A": {
+    "n": 824,
+    "avg_stop_r": -0.021,
+    "med_ret_o5": -0.62,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": 0.175
+   },
+   "B": {
+    "n": 7968,
+    "avg_stop_r": -0.002,
+    "med_ret_o5": -0.89,
+    "win5_pct": 43.9,
+    "avg_stop_r_20": 0.0
+   },
+   "COVID": {
+    "n": 7287,
+    "avg_stop_r": -0.005,
+    "med_ret_o5": -0.99,
+    "win5_pct": 43.3,
+    "avg_stop_r_20": 0.175
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5,
+    0.7063491940498352
+   ],
+   "A": {
+    "n": 786,
+    "avg_stop_r": -0.093,
+    "med_ret_o5": -0.91,
+    "win5_pct": 40.1,
+    "avg_stop_r_20": 0.181
+   },
+   "B": {
+    "n": 9009,
+    "avg_stop_r": 0.011,
+    "med_ret_o5": -0.76,
+    "win5_pct": 45.0,
+    "avg_stop_r_20": 0.053
+   },
+   "COVID": {
+    "n": 6489,
+    "avg_stop_r": -0.018,
+    "med_ret_o5": -0.97,
+    "win5_pct": 43.0,
+    "avg_stop_r_20": 0.134
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.7083333134651184,
+    0.8650793433189392
+   ],
+   "A": {
+    "n": 724,
+    "avg_stop_r": -0.072,
+    "med_ret_o5": -0.95,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": -0.019
+   },
+   "B": {
+    "n": 9320,
+    "avg_stop_r": -0.03,
+    "med_ret_o5": -0.73,
+    "win5_pct": 45.1,
+    "avg_stop_r_20": 0.053
+   },
+   "COVID": {
+    "n": 5899,
+    "avg_stop_r": -0.013,
+    "med_ret_o5": -1.15,
+    "win5_pct": 42.6,
+    "avg_stop_r_20": 0.072
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.8690476417541504,
+    1.0
+   ],
+   "A": {
+    "n": 736,
+    "avg_stop_r": -0.068,
+    "med_ret_o5": -0.8,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": -0.159
+   },
+   "B": {
+    "n": 10144,
+    "avg_stop_r": -0.004,
+    "med_ret_o5": -0.43,
+    "win5_pct": 46.8,
+    "avg_stop_r_20": 0.078
+   },
+   "COVID": {
+    "n": 4975,
+    "avg_stop_r": -0.156,
+    "med_ret_o5": -1.5,
+    "win5_pct": 40.9,
+    "avg_stop_r_20": -0.102
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.047,
+  "COVID": -0.151,
+  "B": -0.002
+ },
+ "extreme_bucket_n": {
+  "A": [
+   824,
+   736
+  ],
+  "B": [
+   7968,
+   10144
+  ]
+ },
+ "null_beat_pct": 55.50000000000001,
+ "modern_split": {
+  "B23": {
+   "effect": 0.017,
+   "n": 8703,
+   "n_ext": [
+    1848,
+    2385
+   ]
+  },
+  "B24": {
+   "effect": -0.008,
+   "n": 27738,
+   "n_ext": [
+    6120,
+    7759
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.333,
+  "COVID": -0.276,
+  "B": 0.078
+ },
+ "null_beat_pct_20": 28.999999999999996,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.163,
+  "COVID": -0.291,
+  "B": 0.113
+ },
+ "effect_R_trail_w5": {
+  "A": -0.149,
+  "COVID": -0.215,
+  "B": 0.137
+ },
+ "null_beat_pct_trail": 36.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.17,
+  "COVID": -0.232,
+  "B": 0.046
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.162,
+  "COVID": -0.188,
+  "B": 0.069
+ },
+ "null_beat_pct_trail_be": 82.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.021,
+  "COVID": -0.206,
+  "B": -0.039
+ },
+ "effect_R_close_w5": {
+  "A": -0.055,
+  "COVID": -0.204,
+  "B": -0.025
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "FAIL"
+}

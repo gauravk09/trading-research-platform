@@ -1,0 +1,6 @@
+{
+  "id": "h2_burst_ret504",
+  "question": "Does 2-year stock character grade bursts? Expected direction: folklore says top ret_504 quintile (multi-year proven movers) beats bottom (positive effect); house prior says bursts are indifferent to stock character, so expect flat/FAIL.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "derived", "name": "ret_504", "buckets": "quintiles"}
+}

@@ -1,0 +1,11 @@
+{
+  "id": "fadeshort_fourpct_dist50dma",
+  "question": "On four_pct days in top-150 large caps, does the most-extended-above-50dma quartile fall harder when shorted (positive top-minus-bottom short effect, extreme quartile n>=200/era)?",
+  "plain": "When a large-cap stock jumps 4%+ while already far above its 50-day average, does shorting the most stretched names work better than shorting the least stretched ones?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "dist_50dma", "buckets": "quartiles"}
+}

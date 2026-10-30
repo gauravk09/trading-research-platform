@@ -1,0 +1,11 @@
+{
+  "id": "bkdnshort_rvol50",
+  "question": "Shorting four_pct_down top-150 stocks: bucketed by rvol50 (volume vs 50d average on the signal day), expect POSITIVE top-minus-bottom effect (shorts work better on heavy distribution-volume breakdowns than on low-volume ones)",
+  "plain": "Do breakdown shorts work better when the breakdown day comes on unusually heavy volume (real selling) versus light volume (noise)?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "rvol50", "buckets": "quartiles"}
+}

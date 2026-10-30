@@ -1,0 +1,12 @@
+{
+  "id": "rsrel_long_rs_gap20",
+  "question": "Same as rsrel_long_rs but with min_gap:20 to strip repeated-signal clustering per symbol -- does the RS-rank edge on large-cap 4% up days survive when events are spaced out? Expect higher=better (positive effect).",
+  "plain": "Overlap check: if we only count one 4% up day per stock every 20 bars (so we're not just re-counting the same hot streak), does the strong-RS edge on large caps still hold?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]],
+    "min_gap": 20
+  },
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

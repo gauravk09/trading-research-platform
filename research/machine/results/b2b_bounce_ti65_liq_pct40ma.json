@@ -1,0 +1,227 @@
+{
+ "id": "b2b_bounce_ti65_liq_pct40ma",
+ "question": "Liquid leader bounces (ti65 >= 1.11 AND turn_decile >= 0.5): does the washout gate work here \u2014 expect LOW market:pct40ma buckets (edges [0,20,40,60,100]) better in era B; hunting an absolutely-positive era-B cell.",
+ "plain": null,
+ "spec": {
+  "id": "b2b_bounce_ti65_liq_pct40ma",
+  "question": "Liquid leader bounces (ti65 >= 1.11 AND turn_decile >= 0.5): does the washout gate work here \u2014 expect LOW market:pct40ma buckets (edges [0,20,40,60,100]) better in era B; hunting an absolutely-positive era-B cell.",
+  "cohort": {
+   "trigger": "bounce",
+   "filters": [
+    [
+     "ti65",
+     ">=",
+     1.11
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.5
+    ]
+   ]
+  },
+  "condition": {
+   "type": "market",
+   "name": "pct40ma",
+   "buckets": [
+    0,
+    20,
+    40,
+    60,
+    100
+   ]
+  }
+ },
+ "side": "long",
+ "n": 19436,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.8,
+    19.8
+   ],
+   "A": {
+    "n": 331,
+    "avg_stop_r": 0.309,
+    "med_ret_o5": 1.76,
+    "win5_pct": 61.9,
+    "avg_stop_r_20": 0.408
+   },
+   "B": {
+    "n": 328,
+    "avg_stop_r": 1.749,
+    "med_ret_o5": 1.13,
+    "win5_pct": 55.8,
+    "avg_stop_r_20": 3.115
+   },
+   "COVID": {
+    "n": 209,
+    "avg_stop_r": 0.286,
+    "med_ret_o5": 1.85,
+    "win5_pct": 58.4,
+    "avg_stop_r_20": 0.313
+   }
+  },
+  "1": {
+   "cond_range": [
+    20.1,
+    39.9
+   ],
+   "A": {
+    "n": 448,
+    "avg_stop_r": 0.179,
+    "med_ret_o5": -0.64,
+    "win5_pct": 44.4,
+    "avg_stop_r_20": 0.426
+   },
+   "B": {
+    "n": 1252,
+    "avg_stop_r": 0.128,
+    "med_ret_o5": -0.46,
+    "win5_pct": 48.2,
+    "avg_stop_r_20": -0.166
+   },
+   "COVID": {
+    "n": 959,
+    "avg_stop_r": 0.689,
+    "med_ret_o5": 0.64,
+    "win5_pct": 55.3,
+    "avg_stop_r_20": 1.59
+   }
+  },
+  "2": {
+   "cond_range": [
+    40.1,
+    60.0
+   ],
+   "A": {
+    "n": 1611,
+    "avg_stop_r": 0.054,
+    "med_ret_o5": -0.33,
+    "win5_pct": 46.9,
+    "avg_stop_r_20": 0.267
+   },
+   "B": {
+    "n": 2213,
+    "avg_stop_r": 0.317,
+    "med_ret_o5": 0.34,
+    "win5_pct": 52.6,
+    "avg_stop_r_20": -0.028
+   },
+   "COVID": {
+    "n": 1692,
+    "avg_stop_r": 0.289,
+    "med_ret_o5": -0.04,
+    "win5_pct": 49.3,
+    "avg_stop_r_20": 0.574
+   }
+  },
+  "3": {
+   "cond_range": [
+    60.1,
+    96.3
+   ],
+   "A": {
+    "n": 1814,
+    "avg_stop_r": 0.097,
+    "med_ret_o5": -0.58,
+    "win5_pct": 43.3,
+    "avg_stop_r_20": -0.041
+   },
+   "B": {
+    "n": 4420,
+    "avg_stop_r": 0.247,
+    "med_ret_o5": 0.21,
+    "win5_pct": 51.8,
+    "avg_stop_r_20": 0.422
+   },
+   "COVID": {
+    "n": 4159,
+    "avg_stop_r": 0.035,
+    "med_ret_o5": -0.16,
+    "win5_pct": 48.5,
+    "avg_stop_r_20": 0.357
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.212,
+  "COVID": -0.251,
+  "B": -1.502
+ },
+ "extreme_bucket_n": {
+  "A": [
+   331,
+   1814
+  ],
+  "B": [
+   328,
+   4420
+  ]
+ },
+ "null_beat_pct": 99.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.086,
+   "n": 2421,
+   "n_ext": [
+    57,
+    1930
+   ]
+  },
+  "B24": {
+   "effect": -2.067,
+   "n": 5792,
+   "n_ext": [
+    271,
+    2490
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "PASS",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.449,
+  "COVID": 0.044,
+  "B": -2.693
+ },
+ "null_beat_pct_20": 99.5,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": 0.022,
+  "COVID": 0.055,
+  "B": -1.121
+ },
+ "effect_R_trail_w5": {
+  "A": -0.168,
+  "COVID": -0.137,
+  "B": -0.141
+ },
+ "null_beat_pct_trail": 82.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.053,
+  "COVID": -0.078,
+  "B": -1.183
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.116,
+  "COVID": -0.16,
+  "B": -0.124
+ },
+ "null_beat_pct_trail_be": 88.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.026,
+  "COVID": -0.592,
+  "B": -0.48
+ },
+ "effect_R_close_w5": {
+  "A": -0.109,
+  "COVID": -0.166,
+  "B": -0.24
+ },
+ "null_beat_pct_close": 96.0,
+ "verdict_close": "FAIL"
+}

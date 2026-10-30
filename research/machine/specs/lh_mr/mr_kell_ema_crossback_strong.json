@@ -1,0 +1,9 @@
+{
+  "id": "mr_kell_ema_crossback_strong",
+  "plain": "EMA crossback pullback re-entry setup, restricted to structurally strong large caps near highs in uptrend.",
+  "source": "csv",
+  "csv": "kell_ema_crossback_events.csv",
+  "filters": [["ti65", ">=", 1.0], ["dist_50dma", ">=", 0], ["pct_52wh", ">=", -15]],
+  "horizon": 10,
+  "risk": 0.0075
+}

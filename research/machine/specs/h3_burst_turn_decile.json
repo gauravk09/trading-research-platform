@@ -1,0 +1,6 @@
+{
+  "id": "h3_burst_turn_decile",
+  "question": "Does size/liquidity (turn_decile) change burst outcomes? Expect NEGATIVE effect: smaller/less-liquid stocks should out-earn large liquid ones on stop-R.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quartiles"}
+}

@@ -1,0 +1,1 @@
+{"id":"x_ps_adr_b","question":"SYSTEM CHECK: real adr20 values SHUFFLED across events (salt b) must FAIL despite realistic distribution","cohort":{"trigger":"burst"},"condition":{"type":"placebo_shuffled","name":"adr20","salt":"b","buckets":"quartiles"}}

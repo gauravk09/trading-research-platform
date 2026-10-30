@@ -1,0 +1,12 @@
+{
+ "id": "qm_deliv_x20",
+ "question": "Does the delivery-% spike select winners on faithful flag breakouts as it does on 4%-days/bursts (PASS modern +0.20-0.29R)? Expect positive. OPEN-RULER ONLY (post-close publication).",
+ "cohort": {
+  "trigger": "qm_flag"
+ },
+ "condition": {
+  "type": "feature",
+  "name": "deliv_x20",
+  "buckets": "quartiles"
+ }
+}

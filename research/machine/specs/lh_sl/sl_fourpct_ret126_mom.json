@@ -1,0 +1,9 @@
+{
+  "id": "sl_fourpct_ret126_mom",
+  "plain": "Buy 4%-up-day breakouts only in stocks already up strongly over the prior 6 months (ret_126 positive momentum threshold), a pure price-momentum leadership filter.",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["ret_126", ">=", 20]],
+  "horizon": 20,
+  "risk": 0.0075
+}

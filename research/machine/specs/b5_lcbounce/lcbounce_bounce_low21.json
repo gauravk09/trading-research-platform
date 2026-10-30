@@ -1,0 +1,11 @@
+{
+  "id": "lcbounce_bounce_low21",
+  "question": "On large-cap bounce setups, does being closer to the 21-day low (deeper washout) produce a better subsequent long stop-R than sitting further above it? Expect the lowest bounce_low21 bucket to have the best avg_stop_r.",
+  "plain": "Tests whether a large-cap trading right at its 1-month low bounces better than one that has already lifted off its low.",
+  "cohort": {
+    "trigger": "bounce",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quartiles"}
+}

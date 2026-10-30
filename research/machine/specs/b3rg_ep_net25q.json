@@ -1,0 +1,7 @@
+{
+  "id": "b3rg_ep_net25q",
+  "question": "Expect episodic pivot (ep) triggers to work better when quarterly breadth (net25q) is strongly positive, since a big-volume gap should follow through more in a market where winners are broadly outnumbering losers",
+  "plain": "Does an episodic pivot (huge-volume surprise move) work better when most stocks in the market have been winning lately?",
+  "cohort": {"trigger": "ep", "filters": []},
+  "condition": {"type": "market", "name": "net25q", "buckets": "quartiles"}
+}

@@ -1,0 +1,11 @@
+{
+  "id": "b6_fpd_days52wh",
+  "question": "Large-cap four_pct_down shorts bucketed by days_since_52wh: expect POSITIVE top-minus-bottom effect - breakdowns that occur a LONG time after the stock's last 52-week high (trend already stale/failing) fall harder than breakdowns fresh off a new high (still in an intact uptrend, likely to be bought).",
+  "plain": "Does a 4% breakdown work better as a short when the stock hasn't made a new high in a long time (trend already tired) versus a breakdown that happens shortly after a fresh high (still in a strong uptrend)?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "days_since_52wh", "buckets": "quartiles"}
+}

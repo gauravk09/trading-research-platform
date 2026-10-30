@@ -1,0 +1,11 @@
+{
+  "id": "bkdnshort_net4",
+  "question": "Shorting four_pct_down top-150 stocks: bucketed by same-day market net4 (breadth), expect NEGATIVE top-minus-bottom effect (shorts profit more when net4 is low/weak tape, less or lose when net4 is high/strong tape)",
+  "plain": "Do breakdown shorts work better when the overall market is weak that day (few net advancers) than when the market is strong?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "market", "name": "net4", "buckets": "quartiles"}
+}

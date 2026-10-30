@@ -1,0 +1,210 @@
+{
+ "id": "b3qm_burst_ret63",
+ "question": "On burst events, a stronger 3-month prior run (ret_63) grades better -- expect higher ret_63 = better",
+ "plain": "Does a strong 3-month price run before a breakout (not just the last month) predict a better breakout trade?",
+ "spec": {
+  "id": "b3qm_burst_ret63",
+  "question": "On burst events, a stronger 3-month prior run (ret_63) grades better -- expect higher ret_63 = better",
+  "plain": "Does a strong 3-month price run before a breakout (not just the last month) predict a better breakout trade?",
+  "cohort": {
+   "trigger": "burst"
+  },
+  "condition": {
+   "type": "derived",
+   "name": "ret_63",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 23458,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -72.10023498535156,
+    -1.4423072338104248
+   ],
+   "A": {
+    "n": 1432,
+    "avg_stop_r": -0.07,
+    "med_ret_o5": -1.04,
+    "win5_pct": 41.6,
+    "avg_stop_r_20": -0.085
+   },
+   "B": {
+    "n": 2884,
+    "avg_stop_r": -0.097,
+    "med_ret_o5": -1.03,
+    "win5_pct": 42.5,
+    "avg_stop_r_20": -0.166
+   },
+   "COVID": {
+    "n": 1549,
+    "avg_stop_r": -0.017,
+    "med_ret_o5": -1.09,
+    "win5_pct": 41.6,
+    "avg_stop_r_20": 0.094
+   }
+  },
+  "1": {
+   "cond_range": [
+    -1.4416873455047607,
+    10.433483123779297
+   ],
+   "A": {
+    "n": 1397,
+    "avg_stop_r": -0.103,
+    "med_ret_o5": -1.12,
+    "win5_pct": 40.8,
+    "avg_stop_r_20": -0.153
+   },
+   "B": {
+    "n": 2928,
+    "avg_stop_r": -0.07,
+    "med_ret_o5": -1.05,
+    "win5_pct": 41.4,
+    "avg_stop_r_20": -0.039
+   },
+   "COVID": {
+    "n": 1539,
+    "avg_stop_r": -0.025,
+    "med_ret_o5": -0.99,
+    "win5_pct": 43.3,
+    "avg_stop_r_20": 0.093
+   }
+  },
+  "2": {
+   "cond_range": [
+    10.436737060546875,
+    24.81752586364746
+   ],
+   "A": {
+    "n": 1333,
+    "avg_stop_r": -0.045,
+    "med_ret_o5": -0.8,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": -0.038
+   },
+   "B": {
+    "n": 2849,
+    "avg_stop_r": -0.035,
+    "med_ret_o5": -0.89,
+    "win5_pct": 43.7,
+    "avg_stop_r_20": 0.098
+   },
+   "COVID": {
+    "n": 1682,
+    "avg_stop_r": -0.026,
+    "med_ret_o5": -1.1,
+    "win5_pct": 42.0,
+    "avg_stop_r_20": 0.163
+   }
+  },
+  "3": {
+   "cond_range": [
+    24.818397521972656,
+    222.41380310058594
+   ],
+   "A": {
+    "n": 1159,
+    "avg_stop_r": -0.013,
+    "med_ret_o5": -0.74,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": -0.023
+   },
+   "B": {
+    "n": 2682,
+    "avg_stop_r": -0.083,
+    "med_ret_o5": -1.14,
+    "win5_pct": 41.6,
+    "avg_stop_r_20": -0.011
+   },
+   "COVID": {
+    "n": 2024,
+    "avg_stop_r": 0.016,
+    "med_ret_o5": -1.21,
+    "win5_pct": 42.6,
+    "avg_stop_r_20": 0.153
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.057,
+  "COVID": 0.032,
+  "B": 0.014
+ },
+ "extreme_bucket_n": {
+  "A": [
+   1432,
+   1159
+  ],
+  "B": [
+   2884,
+   2682
+  ]
+ },
+ "null_beat_pct": 87.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.046,
+   "n": 3673,
+   "n_ext": [
+    633,
+    1094
+   ]
+  },
+  "B24": {
+   "effect": -0.028,
+   "n": 7670,
+   "n_ext": [
+    2251,
+    1588
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.062,
+  "COVID": 0.059,
+  "B": 0.155
+ },
+ "null_beat_pct_20": 93.0,
+ "verdict_20": "WEAK",
+ "effect_R_trail": {
+  "A": 0.081,
+  "COVID": -0.005,
+  "B": 0.174
+ },
+ "effect_R_trail_w5": {
+  "A": 0.041,
+  "COVID": -0.009,
+  "B": 0.16
+ },
+ "null_beat_pct_trail": 91.0,
+ "verdict_trail": "WEAK",
+ "effect_R_trail_be": {
+  "A": 0.051,
+  "COVID": -0.004,
+  "B": 0.101
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.025,
+  "COVID": -0.024,
+  "B": 0.092
+ },
+ "null_beat_pct_trail_be": 91.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.065,
+  "COVID": 0.08,
+  "B": 0.093
+ },
+ "effect_R_close_w5": {
+  "A": 0.05,
+  "COVID": 0.068,
+  "B": 0.084
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "FAIL"
+}

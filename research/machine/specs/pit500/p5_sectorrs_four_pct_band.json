@@ -1,0 +1,26 @@
+{
+  "id": "p5_sectorrs_four_pct_band",
+  "question": "[point-in-time market-cap rank 151-500 (mid band, excludes mega-caps)] Does sector relative strength select 4%-up-day winners inside a point-in-time top-quality universe -- expect top quartile to beat bottom",
+  "plain": "Being in a strong sector as a filter on 4% up-days, restricted to bigger companies. Universe: point-in-time market-cap rank 151-500 (mid band, excludes mega-caps).",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        500
+      ],
+      [
+        "mcap_rank",
+        ">=",
+        151
+      ]
+    ]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "sector_rs",
+    "buckets": "quartiles"
+  }
+}

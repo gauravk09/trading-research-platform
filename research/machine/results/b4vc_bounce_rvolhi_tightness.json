@@ -1,0 +1,217 @@
+{
+ "id": "b4vc_bounce_rvolhi_tightness",
+ "question": "Stacking BOUNCE + rvol50>=2 (high volume already present), does tightness further sharpen the effect? Expect LOW tightness (high volume + narrow range = classic VSA absorption) = best stop-R.",
+ "plain": "Tests the full VSA absorption signature (volume spike plus narrow range) on already high-volume bounce setups.",
+ "spec": {
+  "id": "b4vc_bounce_rvolhi_tightness",
+  "question": "Stacking BOUNCE + rvol50>=2 (high volume already present), does tightness further sharpen the effect? Expect LOW tightness (high volume + narrow range = classic VSA absorption) = best stop-R.",
+  "plain": "Tests the full VSA absorption signature (volume spike plus narrow range) on already high-volume bounce setups.",
+  "cohort": {
+   "trigger": "bounce",
+   "filters": [
+    [
+     "rvol50",
+     ">=",
+     2
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "tightness",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 4401,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.003968254197388887,
+    0.591269850730896
+   ],
+   "A": {
+    "n": 76,
+    "avg_stop_r": 0.781,
+    "med_ret_o5": 1.15,
+    "win5_pct": 60.5,
+    "avg_stop_r_20": 2.144
+   },
+   "B": {
+    "n": 691,
+    "avg_stop_r": 0.337,
+    "med_ret_o5": 0.03,
+    "win5_pct": 50.1,
+    "avg_stop_r_20": 0.463
+   },
+   "COVID": {
+    "n": 342,
+    "avg_stop_r": 0.651,
+    "med_ret_o5": 0.1,
+    "win5_pct": 52.0,
+    "avg_stop_r_20": 0.796
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5952380895614624,
+    0.829365074634552
+   ],
+   "A": {
+    "n": 63,
+    "avg_stop_r": -0.443,
+    "med_ret_o5": -0.62,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": -0.427
+   },
+   "B": {
+    "n": 730,
+    "avg_stop_r": 0.61,
+    "med_ret_o5": 0.22,
+    "win5_pct": 51.4,
+    "avg_stop_r_20": 0.291
+   },
+   "COVID": {
+    "n": 325,
+    "avg_stop_r": -0.004,
+    "med_ret_o5": -0.34,
+    "win5_pct": 46.5,
+    "avg_stop_r_20": 0.146
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.8333333134651184,
+    0.9523809552192688
+   ],
+   "A": {
+    "n": 39,
+    "avg_stop_r": -0.328,
+    "med_ret_o5": -0.6,
+    "win5_pct": 43.6,
+    "avg_stop_r_20": 0.164
+   },
+   "B": {
+    "n": 725,
+    "avg_stop_r": 0.293,
+    "med_ret_o5": -0.11,
+    "win5_pct": 49.1,
+    "avg_stop_r_20": 0.677
+   },
+   "COVID": {
+    "n": 344,
+    "avg_stop_r": 0.08,
+    "med_ret_o5": 0.42,
+    "win5_pct": 53.5,
+    "avg_stop_r_20": 0.862
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.9563491940498352,
+    1.0
+   ],
+   "A": {
+    "n": 35,
+    "avg_stop_r": -0.515,
+    "med_ret_o5": -0.71,
+    "win5_pct": 40.0,
+    "avg_stop_r_20": -0.183
+   },
+   "B": {
+    "n": 714,
+    "avg_stop_r": 0.088,
+    "med_ret_o5": 0.11,
+    "win5_pct": 50.7,
+    "avg_stop_r_20": 0.177
+   },
+   "COVID": {
+    "n": 317,
+    "avg_stop_r": -0.286,
+    "med_ret_o5": -0.2,
+    "win5_pct": 49.2,
+    "avg_stop_r_20": -0.279
+   }
+  }
+ },
+ "effect_R": {
+  "A": -1.296,
+  "COVID": -0.937,
+  "B": -0.248
+ },
+ "extreme_bucket_n": {
+  "A": [
+   76,
+   35
+  ],
+  "B": [
+   691,
+   714
+  ]
+ },
+ "null_beat_pct": 94.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.057,
+   "n": 601,
+   "n_ext": [
+    161,
+    122
+   ]
+  },
+  "B24": {
+   "effect": -0.314,
+   "n": 2259,
+   "n_ext": [
+    530,
+    592
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": -2.327,
+  "COVID": -1.075,
+  "B": -0.286
+ },
+ "null_beat_pct_20": 99.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": -0.618,
+  "COVID": -0.645,
+  "B": 0.027
+ },
+ "effect_R_trail_w5": {
+  "A": -0.077,
+  "COVID": -0.241,
+  "B": 0.236
+ },
+ "null_beat_pct_trail": 89.0,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": -0.517,
+  "COVID": -0.566,
+  "B": 0.123
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.116,
+  "COVID": -0.163,
+  "B": 0.229
+ },
+ "null_beat_pct_trail_be": 47.5,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": -1.185,
+  "COVID": -0.947,
+  "B": -0.114
+ },
+ "effect_R_close_w5": {
+  "A": -0.819,
+  "COVID": -0.611,
+  "B": 0.022
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "INSUFFICIENT"
+}

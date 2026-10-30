@@ -1,0 +1,6 @@
+{
+  "id": "h4_bounce_pct40ma",
+  "question": "User rule: washout dip-buys only when market pct40ma is LOW - expect low pct40ma buckets to have higher stop-R, i.e. negative top-minus-bottom effect",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "market", "name": "pct40ma", "buckets": [0, 20, 40, 60, 100]}
+}

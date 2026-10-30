@@ -1,0 +1,172 @@
+{
+ "id": "qm_deliv_x20",
+ "question": "Does the delivery-% spike select winners on faithful flag breakouts as it does on 4%-days/bursts (PASS modern +0.20-0.29R)? Expect positive. OPEN-RULER ONLY (post-close publication).",
+ "plain": null,
+ "spec": {
+  "id": "qm_deliv_x20",
+  "question": "Does the delivery-% spike select winners on faithful flag breakouts as it does on 4%-days/bursts (PASS modern +0.20-0.29R)? Expect positive. OPEN-RULER ONLY (post-close publication).",
+  "cohort": {
+   "trigger": "qm_flag"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "deliv_x20",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 7010,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0773816928267479,
+    0.5933277606964111
+   ],
+   "B": {
+    "n": 1148,
+    "avg_stop_r": -0.17,
+    "med_ret_o5": -1.35,
+    "win5_pct": 40.2,
+    "avg_stop_r_20": -0.142
+   },
+   "COVID": {
+    "n": 605,
+    "avg_stop_r": -0.116,
+    "med_ret_o5": -1.62,
+    "win5_pct": 41.8,
+    "avg_stop_r_20": -0.02
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5934693813323975,
+    0.7768094539642334
+   ],
+   "B": {
+    "n": 988,
+    "avg_stop_r": -0.065,
+    "med_ret_o5": -1.32,
+    "win5_pct": 41.2,
+    "avg_stop_r_20": -0.03
+   },
+   "COVID": {
+    "n": 764,
+    "avg_stop_r": -0.161,
+    "med_ret_o5": -1.5,
+    "win5_pct": 40.4,
+    "avg_stop_r_20": -0.087
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.7770500779151917,
+    0.9497090578079224
+   ],
+   "B": {
+    "n": 1079,
+    "avg_stop_r": -0.116,
+    "med_ret_o5": -1.04,
+    "win5_pct": 42.2,
+    "avg_stop_r_20": 0.012
+   },
+   "COVID": {
+    "n": 673,
+    "avg_stop_r": 0.006,
+    "med_ret_o5": -1.14,
+    "win5_pct": 43.1,
+    "avg_stop_r_20": 0.036
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.9497277736663818,
+    2.4195926189422607
+   ],
+   "B": {
+    "n": 1055,
+    "avg_stop_r": -0.062,
+    "med_ret_o5": -0.83,
+    "win5_pct": 44.6,
+    "avg_stop_r_20": 0.112
+   },
+   "COVID": {
+    "n": 698,
+    "avg_stop_r": 0.083,
+    "med_ret_o5": -0.64,
+    "win5_pct": 46.4,
+    "avg_stop_r_20": 0.217
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": 0.199,
+  "B": 0.108
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   1148,
+   1055
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.203,
+   "n": 1531,
+   "n_ext": [
+    378,
+    360
+   ]
+  },
+  "B24": {
+   "effect": 0.059,
+   "n": 2739,
+   "n_ext": [
+    770,
+    695
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "WEAK (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": 0.237,
+  "B": 0.254
+ },
+ "null_beat_pct_20": 99.5,
+ "verdict_20": "PASS (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": 0.241,
+  "B": 0.189
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": 0.15,
+  "B": 0.163
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "FAIL (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": 0.262,
+  "B": 0.143
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": 0.217,
+  "B": 0.118
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "FAIL (modern)",
+ "verdict_close": "N/A (look-ahead)",
+ "close_flaw": "deliv_x20 is published after the close"
+}

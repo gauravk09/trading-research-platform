@@ -1,0 +1,236 @@
+{
+ "id": "x_pb_bounce",
+ "question": "SYSTEM CHECK: random per-symbol trait on the big bounce cohort must FAIL",
+ "plain": null,
+ "spec": {
+  "id": "x_pb_bounce",
+  "question": "SYSTEM CHECK: random per-symbol trait on the big bounce cohort must FAIL",
+  "cohort": {
+   "trigger": "bounce"
+  },
+  "condition": {
+   "type": "placebo",
+   "name": "pbb",
+   "buckets": "quintiles"
+  }
+ },
+ "side": "long",
+ "n": 134995,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    0.179
+   ],
+   "A": {
+    "n": 7427,
+    "avg_stop_r": 0.039,
+    "med_ret_o5": -0.37,
+    "win5_pct": 45.8,
+    "avg_stop_r_20": 0.049
+   },
+   "B": {
+    "n": 12595,
+    "avg_stop_r": 0.235,
+    "med_ret_o5": -0.3,
+    "win5_pct": 46.8,
+    "avg_stop_r_20": 0.268
+   },
+   "COVID": {
+    "n": 7059,
+    "avg_stop_r": 0.171,
+    "med_ret_o5": -0.24,
+    "win5_pct": 47.7,
+    "avg_stop_r_20": 0.467
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.18,
+    0.395
+   ],
+   "A": {
+    "n": 7056,
+    "avg_stop_r": -0.163,
+    "med_ret_o5": -0.47,
+    "win5_pct": 44.7,
+    "avg_stop_r_20": -0.145
+   },
+   "B": {
+    "n": 12967,
+    "avg_stop_r": 0.149,
+    "med_ret_o5": -0.24,
+    "win5_pct": 47.4,
+    "avg_stop_r_20": 0.2
+   },
+   "COVID": {
+    "n": 6909,
+    "avg_stop_r": 0.165,
+    "med_ret_o5": -0.19,
+    "win5_pct": 48.2,
+    "avg_stop_r_20": 0.503
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.396,
+    0.614
+   ],
+   "A": {
+    "n": 6782,
+    "avg_stop_r": -0.019,
+    "med_ret_o5": -0.45,
+    "win5_pct": 45.6,
+    "avg_stop_r_20": 0.032
+   },
+   "B": {
+    "n": 13199,
+    "avg_stop_r": 0.239,
+    "med_ret_o5": -0.26,
+    "win5_pct": 47.4,
+    "avg_stop_r_20": 0.148
+   },
+   "COVID": {
+    "n": 7044,
+    "avg_stop_r": 0.103,
+    "med_ret_o5": -0.31,
+    "win5_pct": 47.3,
+    "avg_stop_r_20": 0.344
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.615,
+    0.815
+   ],
+   "A": {
+    "n": 6507,
+    "avg_stop_r": -0.047,
+    "med_ret_o5": -0.34,
+    "win5_pct": 46.1,
+    "avg_stop_r_20": 0.062
+   },
+   "B": {
+    "n": 13403,
+    "avg_stop_r": 0.183,
+    "med_ret_o5": -0.25,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": 0.169
+   },
+   "COVID": {
+    "n": 7059,
+    "avg_stop_r": 0.105,
+    "med_ret_o5": -0.2,
+    "win5_pct": 48.1,
+    "avg_stop_r_20": 0.398
+   }
+  },
+  "4": {
+   "cond_range": [
+    0.816,
+    0.999
+   ],
+   "A": {
+    "n": 7201,
+    "avg_stop_r": -0.028,
+    "med_ret_o5": -0.36,
+    "win5_pct": 46.2,
+    "avg_stop_r_20": -0.067
+   },
+   "B": {
+    "n": 12510,
+    "avg_stop_r": 0.08,
+    "med_ret_o5": -0.27,
+    "win5_pct": 47.4,
+    "avg_stop_r_20": 0.026
+   },
+   "COVID": {
+    "n": 7277,
+    "avg_stop_r": 0.273,
+    "med_ret_o5": -0.11,
+    "win5_pct": 48.8,
+    "avg_stop_r_20": 0.564
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.068,
+  "COVID": 0.102,
+  "B": -0.155
+ },
+ "extreme_bucket_n": {
+  "A": [
+   7427,
+   7201
+  ],
+  "B": [
+   12595,
+   12510
+  ]
+ },
+ "null_beat_pct": 64.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.06,
+   "n": 14874,
+   "n_ext": [
+    2869,
+    2965
+   ]
+  },
+  "B24": {
+   "effect": -0.188,
+   "n": 49800,
+   "n_ext": [
+    9726,
+    9545
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.116,
+  "COVID": 0.098,
+  "B": -0.242
+ },
+ "null_beat_pct_20": 68.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.106,
+  "COVID": 0.169,
+  "B": -0.019
+ },
+ "effect_R_trail_w5": {
+  "A": -0.0,
+  "COVID": 0.002,
+  "B": 0.016
+ },
+ "null_beat_pct_trail": 15.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.075,
+  "COVID": 0.194,
+  "B": -0.044
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.006,
+  "COVID": 0.004,
+  "B": 0.004
+ },
+ "null_beat_pct_trail_be": 13.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.013,
+  "COVID": 0.062,
+  "B": -0.011
+ },
+ "effect_R_close_w5": {
+  "A": 0.013,
+  "COVID": 0.027,
+  "B": 0.006
+ },
+ "null_beat_pct_close": 48.0,
+ "verdict_close": "FAIL"
+}

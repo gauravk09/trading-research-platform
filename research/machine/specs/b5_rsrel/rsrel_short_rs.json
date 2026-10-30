@@ -1,0 +1,11 @@
+{
+  "id": "rsrel_short_rs",
+  "question": "Among large-cap 4%-down days (short side), does composite RS rank (rs) grade the short trade -- do LOW-rs (laggard) names fall harder than high-rs names? Expect lower rs=better short, i.e. top-minus-bottom effect negative.",
+  "plain": "When large caps break down, do the weakest-RS names keep falling the hardest, or does strong-vs-weak stop mattering once a stock is already breaking down?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

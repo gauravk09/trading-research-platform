@@ -1,0 +1,7 @@
+{
+  "id": "b3kl_pct52wh_fourpct",
+  "question": "Oliver Kell's price-cycle framework favors buying strength near highs, not chasing deep extended moves off lows; on four_pct days, expect being CLOSE to the 52-week high (small pct_52wh) to do BETTER than being far below it (large pct_52wh).",
+  "plain": "Oliver Kell's price-cycle idea says the best buys are stocks near their 52-week high, not ones far below it; this checks if 4%-up days near the high do better than 4%-up days far from the high.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "feature", "name": "pct_52wh", "buckets": "quartiles"}
+}

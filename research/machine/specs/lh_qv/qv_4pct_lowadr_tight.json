@@ -1,0 +1,9 @@
+{
+  "id": "qv_4pct_lowadr_tight",
+  "plain": "Four-pct pop large caps, calm ADR (<=3.7, bottom quartile) + tight prior base (tightness>=0.65), 10-bar hold",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["adr20", "<=", 3.7], ["tightness", ">=", 0.65]],
+  "horizon": 10,
+  "risk": 0.0075
+}

@@ -1,0 +1,211 @@
+{
+ "id": "b3rs_fourpct_rs",
+ "question": "Does composite RS rank (rs) grade any 4% up day, with higher rs producing better stop-based R? Expect higher=better.",
+ "plain": "Same relative-strength-is-king idea, applied to any ordinary 4% up day instead of just tight-base breakouts.",
+ "spec": {
+  "id": "b3rs_fourpct_rs",
+  "question": "Does composite RS rank (rs) grade any 4% up day, with higher rs producing better stop-based R? Expect higher=better.",
+  "plain": "Same relative-strength-is-king idea, applied to any ordinary 4% up day instead of just tight-base breakouts.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "rs",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 83452,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.05611896142363548,
+    46.8006706237793
+   ],
+   "A": {
+    "n": 4614,
+    "avg_stop_r": 0.028,
+    "med_ret_o5": -0.7,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": -0.09
+   },
+   "B": {
+    "n": 9624,
+    "avg_stop_r": 0.061,
+    "med_ret_o5": -0.5,
+    "win5_pct": 46.7,
+    "avg_stop_r_20": 0.093
+   },
+   "COVID": {
+    "n": 6625,
+    "avg_stop_r": -0.01,
+    "med_ret_o5": -0.95,
+    "win5_pct": 43.4,
+    "avg_stop_r_20": 0.075
+   }
+  },
+  "1": {
+   "cond_range": [
+    46.8026237487793,
+    64.84342956542969
+   ],
+   "A": {
+    "n": 4498,
+    "avg_stop_r": -0.079,
+    "med_ret_o5": -1.12,
+    "win5_pct": 41.3,
+    "avg_stop_r_20": -0.143
+   },
+   "B": {
+    "n": 9524,
+    "avg_stop_r": -0.022,
+    "med_ret_o5": -0.79,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": 0.025
+   },
+   "COVID": {
+    "n": 6841,
+    "avg_stop_r": -0.063,
+    "med_ret_o5": -1.25,
+    "win5_pct": 41.3,
+    "avg_stop_r_20": 0.07
+   }
+  },
+  "2": {
+   "cond_range": [
+    64.84361267089844,
+    80.63968658447266
+   ],
+   "A": {
+    "n": 4830,
+    "avg_stop_r": -0.075,
+    "med_ret_o5": -1.04,
+    "win5_pct": 42.6,
+    "avg_stop_r_20": -0.151
+   },
+   "B": {
+    "n": 9558,
+    "avg_stop_r": -0.028,
+    "med_ret_o5": -0.78,
+    "win5_pct": 44.5,
+    "avg_stop_r_20": 0.037
+   },
+   "COVID": {
+    "n": 6475,
+    "avg_stop_r": -0.058,
+    "med_ret_o5": -1.12,
+    "win5_pct": 42.2,
+    "avg_stop_r_20": 0.075
+   }
+  },
+  "3": {
+   "cond_range": [
+    80.64049530029297,
+    100.0
+   ],
+   "A": {
+    "n": 5393,
+    "avg_stop_r": -0.044,
+    "med_ret_o5": -1.01,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": -0.097
+   },
+   "B": {
+    "n": 9766,
+    "avg_stop_r": -0.051,
+    "med_ret_o5": -0.77,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": 0.02
+   },
+   "COVID": {
+    "n": 5704,
+    "avg_stop_r": -0.045,
+    "med_ret_o5": -1.22,
+    "win5_pct": 43.3,
+    "avg_stop_r_20": 0.085
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.072,
+  "COVID": -0.035,
+  "B": -0.113
+ },
+ "extreme_bucket_n": {
+  "A": [
+   4614,
+   5393
+  ],
+  "B": [
+   9624,
+   9766
+  ]
+ },
+ "null_beat_pct": 98.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.1,
+   "n": 9099,
+   "n_ext": [
+    1794,
+    2620
+   ]
+  },
+  "B24": {
+   "effect": -0.116,
+   "n": 29373,
+   "n_ext": [
+    7830,
+    7146
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "WEAK",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.007,
+  "COVID": 0.01,
+  "B": -0.073
+ },
+ "null_beat_pct_20": 47.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.018,
+  "COVID": 0.014,
+  "B": 0.02
+ },
+ "effect_R_trail_w5": {
+  "A": -0.042,
+  "COVID": -0.014,
+  "B": 0.006
+ },
+ "null_beat_pct_trail": 0.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.037,
+  "COVID": -0.003,
+  "B": -0.019
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.06,
+  "COVID": -0.019,
+  "B": -0.025
+ },
+ "null_beat_pct_trail_be": 22.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.046,
+  "COVID": 0.043,
+  "B": -0.065
+ },
+ "effect_R_close_w5": {
+  "A": -0.056,
+  "COVID": 0.01,
+  "B": -0.055
+ },
+ "null_beat_pct_close": 10.0,
+ "verdict_close": "FAIL"
+}

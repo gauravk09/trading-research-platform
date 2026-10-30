@@ -1,0 +1,210 @@
+{
+ "id": "b4vc_bounce_tightness",
+ "question": "On BOUNCE setups, does a narrow trading range (tightness) signal VSA-style absorption near lows and predict a better bounce? Expect LOW tightness = better stop-R.",
+ "plain": "Tests the VSA idea that a narrow price range near lows (absorption) predicts a better mean-reversion bounce than a wide, volatile range.",
+ "spec": {
+  "id": "b4vc_bounce_tightness",
+  "question": "On BOUNCE setups, does a narrow trading range (tightness) signal VSA-style absorption near lows and predict a better bounce? Expect LOW tightness = better stop-R.",
+  "plain": "Tests the VSA idea that a narrow price range near lows (absorption) predicts a better mean-reversion bounce than a wide, volatile range.",
+  "cohort": {
+   "trigger": "bounce"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "tightness",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 100861,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.003968254197388887,
+    0.2539682686328888
+   ],
+   "A": {
+    "n": 1667,
+    "avg_stop_r": 0.015,
+    "med_ret_o5": 0.08,
+    "win5_pct": 50.0,
+    "avg_stop_r_20": 0.345
+   },
+   "B": {
+    "n": 15030,
+    "avg_stop_r": 0.021,
+    "med_ret_o5": -0.54,
+    "win5_pct": 43.9,
+    "avg_stop_r_20": 0.016
+   },
+   "COVID": {
+    "n": 8571,
+    "avg_stop_r": 0.338,
+    "med_ret_o5": -0.42,
+    "win5_pct": 45.7,
+    "avg_stop_r_20": 0.689
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.255952388048172,
+    0.5039682388305664
+   ],
+   "A": {
+    "n": 1435,
+    "avg_stop_r": 0.166,
+    "med_ret_o5": 0.24,
+    "win5_pct": 52.4,
+    "avg_stop_r_20": 0.405
+   },
+   "B": {
+    "n": 15141,
+    "avg_stop_r": 0.124,
+    "med_ret_o5": -0.47,
+    "win5_pct": 45.3,
+    "avg_stop_r_20": 0.19
+   },
+   "COVID": {
+    "n": 8640,
+    "avg_stop_r": 0.113,
+    "med_ret_o5": -0.29,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": 0.487
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.5079365372657776,
+    0.75
+   ],
+   "A": {
+    "n": 1122,
+    "avg_stop_r": 0.259,
+    "med_ret_o5": 0.48,
+    "win5_pct": 55.6,
+    "avg_stop_r_20": 1.438
+   },
+   "B": {
+    "n": 15612,
+    "avg_stop_r": 0.288,
+    "med_ret_o5": -0.23,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": 0.146
+   },
+   "COVID": {
+    "n": 8473,
+    "avg_stop_r": 0.045,
+    "med_ret_o5": -0.17,
+    "win5_pct": 48.4,
+    "avg_stop_r_20": 0.301
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.7519841194152832,
+    1.0
+   ],
+   "A": {
+    "n": 831,
+    "avg_stop_r": 0.229,
+    "med_ret_o5": 0.54,
+    "win5_pct": 54.3,
+    "avg_stop_r_20": 0.199
+   },
+   "B": {
+    "n": 16023,
+    "avg_stop_r": 0.299,
+    "med_ret_o5": 0.26,
+    "win5_pct": 52.0,
+    "avg_stop_r_20": 0.305
+   },
+   "COVID": {
+    "n": 8316,
+    "avg_stop_r": 0.186,
+    "med_ret_o5": 0.23,
+    "win5_pct": 51.4,
+    "avg_stop_r_20": 0.32
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.214,
+  "COVID": -0.151,
+  "B": 0.278
+ },
+ "extreme_bucket_n": {
+  "A": [
+   1667,
+   831
+  ],
+  "B": [
+   15030,
+   16023
+  ]
+ },
+ "null_beat_pct": 9.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.175,
+   "n": 14350,
+   "n_ext": [
+    4265,
+    2898
+   ]
+  },
+  "B24": {
+   "effect": 0.331,
+   "n": 47456,
+   "n_ext": [
+    10765,
+    13125
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.146,
+  "COVID": -0.369,
+  "B": 0.289
+ },
+ "null_beat_pct_20": 4.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.107,
+  "COVID": -0.105,
+  "B": 0.184
+ },
+ "effect_R_trail_w5": {
+  "A": 0.224,
+  "COVID": 0.195,
+  "B": 0.26
+ },
+ "null_beat_pct_trail": 14.000000000000002,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.149,
+  "COVID": -0.128,
+  "B": 0.175
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.217,
+  "COVID": 0.168,
+  "B": 0.233
+ },
+ "null_beat_pct_trail_be": 13.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.083,
+  "COVID": 0.064,
+  "B": 0.262
+ },
+ "effect_R_close_w5": {
+  "A": 0.138,
+  "COVID": 0.015,
+  "B": 0.131
+ },
+ "null_beat_pct_close": 69.5,
+ "verdict_close": "FAIL"
+}

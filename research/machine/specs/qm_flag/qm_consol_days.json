@@ -1,0 +1,12 @@
+{
+ "id": "qm_consol_days",
+ "question": "Does base length before the breakout select winners on the faithful flag cohort, as it does on the trail ruler for bursts (CONFIRMED +0.26R)? Expect positive.",
+ "cohort": {
+  "trigger": "qm_flag"
+ },
+ "condition": {
+  "type": "feature",
+  "name": "consol_days",
+  "buckets": "quartiles"
+ }
+}

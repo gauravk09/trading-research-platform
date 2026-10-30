@@ -1,0 +1,9 @@
+{
+  "id": "mr_connors_rsi2_strong",
+  "plain": "Classic Connors RSI(2) oversold dip-buy, restricted to structurally strong large caps (above 50dma, near highs, positive trend).",
+  "source": "csv",
+  "csv": "connors_rsi2_events.csv",
+  "filters": [["ti65", ">=", 1.0], ["dist_50dma", ">=", 0], ["pct_52wh", ">=", -15]],
+  "horizon": 5,
+  "risk": 0.0075
+}

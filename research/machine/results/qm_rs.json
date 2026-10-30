@@ -1,0 +1,209 @@
+{
+ "id": "qm_rs",
+ "question": "Does relative strength select winners once the trigger is a faithful flag breakout, where it FAILed on the generic burst? Expect positive if trigger fidelity was the problem.",
+ "plain": null,
+ "spec": {
+  "id": "qm_rs",
+  "question": "Does relative strength select winners once the trigger is a faithful flag breakout, where it FAILed on the generic burst? Expect positive if trigger fidelity was the problem.",
+  "cohort": {
+   "trigger": "qm_flag"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "rs",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 10982,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    24.28801155090332,
+    74.83759307861328
+   ],
+   "A": {
+    "n": 300,
+    "avg_stop_r": -0.17,
+    "med_ret_o5": -1.55,
+    "win5_pct": 39.3,
+    "avg_stop_r_20": -0.33
+   },
+   "B": {
+    "n": 973,
+    "avg_stop_r": -0.1,
+    "med_ret_o5": -1.29,
+    "win5_pct": 41.4,
+    "avg_stop_r_20": 0.018
+   },
+   "COVID": {
+    "n": 1473,
+    "avg_stop_r": -0.052,
+    "med_ret_o5": -1.48,
+    "win5_pct": 40.7,
+    "avg_stop_r_20": 0.014
+   }
+  },
+  "1": {
+   "cond_range": [
+    74.84049987792969,
+    83.10015106201172
+   ],
+   "A": {
+    "n": 528,
+    "avg_stop_r": -0.089,
+    "med_ret_o5": -1.05,
+    "win5_pct": 41.3,
+    "avg_stop_r_20": 0.082
+   },
+   "B": {
+    "n": 1265,
+    "avg_stop_r": -0.131,
+    "med_ret_o5": -1.51,
+    "win5_pct": 40.7,
+    "avg_stop_r_20": -0.047
+   },
+   "COVID": {
+    "n": 952,
+    "avg_stop_r": -0.019,
+    "med_ret_o5": -0.74,
+    "win5_pct": 45.4,
+    "avg_stop_r_20": 0.013
+   }
+  },
+  "2": {
+   "cond_range": [
+    83.10050964355469,
+    89.6263656616211
+   ],
+   "A": {
+    "n": 619,
+    "avg_stop_r": -0.09,
+    "med_ret_o5": -0.61,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": -0.147
+   },
+   "B": {
+    "n": 1252,
+    "avg_stop_r": -0.126,
+    "med_ret_o5": -1.04,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": -0.013
+   },
+   "COVID": {
+    "n": 874,
+    "avg_stop_r": -0.117,
+    "med_ret_o5": -1.9,
+    "win5_pct": 40.7,
+    "avg_stop_r_20": -0.061
+   }
+  },
+  "3": {
+   "cond_range": [
+    89.63545989990234,
+    99.82320404052734
+   ],
+   "A": {
+    "n": 768,
+    "avg_stop_r": -0.098,
+    "med_ret_o5": -1.2,
+    "win5_pct": 41.5,
+    "avg_stop_r_20": -0.069
+   },
+   "B": {
+    "n": 1362,
+    "avg_stop_r": -0.031,
+    "med_ret_o5": -1.05,
+    "win5_pct": 43.6,
+    "avg_stop_r_20": 0.07
+   },
+   "COVID": {
+    "n": 616,
+    "avg_stop_r": -0.033,
+    "med_ret_o5": -1.11,
+    "win5_pct": 45.0,
+    "avg_stop_r_20": 0.16
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.073,
+  "COVID": 0.019,
+  "B": 0.068
+ },
+ "extreme_bucket_n": {
+  "A": [
+   300,
+   768
+  ],
+  "B": [
+   973,
+   1362
+  ]
+ },
+ "null_beat_pct": 72.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.168,
+   "n": 1726,
+   "n_ext": [
+    390,
+    358
+   ]
+  },
+  "B24": {
+   "effect": 0.051,
+   "n": 3126,
+   "n_ext": [
+    583,
+    1004
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.26,
+  "COVID": 0.145,
+  "B": 0.052
+ },
+ "null_beat_pct_20": 65.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.186,
+  "COVID": 0.086,
+  "B": -0.047
+ },
+ "effect_R_trail_w5": {
+  "A": 0.116,
+  "COVID": 0.097,
+  "B": -0.053
+ },
+ "null_beat_pct_trail": 3.5000000000000004,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.163,
+  "COVID": 0.076,
+  "B": 0.034
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.085,
+  "COVID": 0.045,
+  "B": 0.004
+ },
+ "null_beat_pct_trail_be": 80.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.148,
+  "COVID": 0.173,
+  "B": 0.076
+ },
+ "effect_R_close_w5": {
+  "A": 0.135,
+  "COVID": 0.158,
+  "B": 0.035
+ },
+ "null_beat_pct_close": 92.5,
+ "verdict_close": "WEAK"
+}

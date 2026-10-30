@@ -1,0 +1,218 @@
+{
+ "id": "lcvcp_fourpct_dist50",
+ "question": "Among large-cap 4%+ breakouts, does breaking out near (not far above) the 50dma produce better forward returns than breakouts already extended above it? Expected: negative top-minus-bottom (near-50dma quartile beats far-extended quartile)",
+ "plain": "Do large-cap breakouts that happen close to the 50-day average beat ones that are already stretched far above it?",
+ "spec": {
+  "id": "lcvcp_fourpct_dist50",
+  "question": "Among large-cap 4%+ breakouts, does breaking out near (not far above) the 50dma produce better forward returns than breakouts already extended above it? Expected: negative top-minus-bottom (near-50dma quartile beats far-extended quartile)",
+  "plain": "Do large-cap breakouts that happen close to the 50-day average beat ones that are already stretched far above it?",
+  "cohort": {
+   "trigger": "four_pct",
+   "side": "long",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "dist_50dma",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 8332,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -71.76354217529297,
+    -0.12232302129268646
+   ],
+   "A": {
+    "n": 796,
+    "avg_stop_r": 0.025,
+    "med_ret_o5": -0.29,
+    "win5_pct": 47.4,
+    "avg_stop_r_20": -0.068
+   },
+   "B": {
+    "n": 532,
+    "avg_stop_r": 0.018,
+    "med_ret_o5": 0.16,
+    "win5_pct": 50.9,
+    "avg_stop_r_20": 0.002
+   },
+   "COVID": {
+    "n": 755,
+    "avg_stop_r": 0.023,
+    "med_ret_o5": -0.73,
+    "win5_pct": 45.7,
+    "avg_stop_r_20": 0.304
+   }
+  },
+  "1": {
+   "cond_range": [
+    -0.1217629685997963,
+    6.558248519897461
+   ],
+   "A": {
+    "n": 721,
+    "avg_stop_r": -0.048,
+    "med_ret_o5": -0.45,
+    "win5_pct": 45.4,
+    "avg_stop_r_20": -0.104
+   },
+   "B": {
+    "n": 688,
+    "avg_stop_r": 0.055,
+    "med_ret_o5": -0.08,
+    "win5_pct": 49.0,
+    "avg_stop_r_20": 0.156
+   },
+   "COVID": {
+    "n": 674,
+    "avg_stop_r": 0.13,
+    "med_ret_o5": 0.09,
+    "win5_pct": 51.0,
+    "avg_stop_r_20": 0.353
+   }
+  },
+  "2": {
+   "cond_range": [
+    6.561275482177734,
+    12.632660865783691
+   ],
+   "A": {
+    "n": 732,
+    "avg_stop_r": -0.052,
+    "med_ret_o5": -0.39,
+    "win5_pct": 46.4,
+    "avg_stop_r_20": -0.098
+   },
+   "B": {
+    "n": 622,
+    "avg_stop_r": -0.03,
+    "med_ret_o5": -0.3,
+    "win5_pct": 45.8,
+    "avg_stop_r_20": -0.036
+   },
+   "COVID": {
+    "n": 729,
+    "avg_stop_r": 0.041,
+    "med_ret_o5": -0.2,
+    "win5_pct": 47.5,
+    "avg_stop_r_20": 0.234
+   }
+  },
+  "3": {
+   "cond_range": [
+    12.639313697814941,
+    101.99259185791016
+   ],
+   "A": {
+    "n": 557,
+    "avg_stop_r": -0.169,
+    "med_ret_o5": -1.11,
+    "win5_pct": 40.0,
+    "avg_stop_r_20": -0.269
+   },
+   "B": {
+    "n": 619,
+    "avg_stop_r": 0.047,
+    "med_ret_o5": -0.44,
+    "win5_pct": 48.1,
+    "avg_stop_r_20": 0.178
+   },
+   "COVID": {
+    "n": 907,
+    "avg_stop_r": 0.043,
+    "med_ret_o5": -0.31,
+    "win5_pct": 47.9,
+    "avg_stop_r_20": 0.076
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.194,
+  "COVID": 0.02,
+  "B": 0.029
+ },
+ "extreme_bucket_n": {
+  "A": [
+   796,
+   557
+  ],
+  "B": [
+   532,
+   619
+  ]
+ },
+ "null_beat_pct": 42.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.118,
+   "n": 613,
+   "n_ext": [
+    87,
+    191
+   ]
+  },
+  "B24": {
+   "effect": 0.054,
+   "n": 1848,
+   "n_ext": [
+    445,
+    428
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.201,
+  "COVID": -0.228,
+  "B": 0.175
+ },
+ "null_beat_pct_20": 85.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.131,
+  "COVID": -0.086,
+  "B": 0.145
+ },
+ "effect_R_trail_w5": {
+  "A": -0.15,
+  "COVID": -0.083,
+  "B": 0.185
+ },
+ "null_beat_pct_trail": 11.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.141,
+  "COVID": -0.036,
+  "B": 0.085
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.144,
+  "COVID": -0.022,
+  "B": 0.125
+ },
+ "null_beat_pct_trail_be": 6.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.151,
+  "COVID": 0.126,
+  "B": 0.02
+ },
+ "effect_R_close_w5": {
+  "A": -0.141,
+  "COVID": 0.133,
+  "B": 0.008
+ },
+ "null_beat_pct_close": 60.5,
+ "verdict_close": "FAIL"
+}

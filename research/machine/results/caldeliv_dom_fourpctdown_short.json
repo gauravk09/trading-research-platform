@@ -1,0 +1,196 @@
+{
+ "id": "caldeliv_dom_fourpctdown_short",
+ "question": "Among top-150 large-cap four_pct_down shorts, does day-of-month (dom: first-3 vs mid vs last-days) change breakdown follow-through? Expect symmetric-ish weakening near turn-of-month (bullish seasonal bias should hurt shorts there), so short edge should be weakest in first-3-days.",
+ "plain": "Shorting a large-cap 4%-down-day breakdown: is it a worse short in the first few trading days of the month (turn-of-month bullish bias)?",
+ "spec": {
+  "id": "caldeliv_dom_fourpctdown_short",
+  "question": "Among top-150 large-cap four_pct_down shorts, does day-of-month (dom: first-3 vs mid vs last-days) change breakdown follow-through? Expect symmetric-ish weakening near turn-of-month (bullish seasonal bias should hurt shorts there), so short edge should be weakest in first-3-days.",
+  "plain": "Shorting a large-cap 4%-down-day breakdown: is it a worse short in the first few trading days of the month (turn-of-month bullish bias)?",
+  "cohort": {
+   "trigger": "four_pct_down",
+   "side": "short",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "calendar",
+   "name": "dom",
+   "buckets": [
+    0,
+    3,
+    24,
+    31
+   ]
+  }
+ },
+ "side": "short",
+ "n": 5568,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    1.0,
+    3.0
+   ],
+   "A": {
+    "n": 201,
+    "avg_stop_r": 0.021,
+    "med_ret_o5": -0.22,
+    "win5_pct": 47.3,
+    "avg_stop_r_20": -0.047
+   },
+   "B": {
+    "n": 110,
+    "avg_stop_r": -0.153,
+    "med_ret_o5": 0.04,
+    "win5_pct": 51.8,
+    "avg_stop_r_20": 0.118
+   },
+   "COVID": {
+    "n": 94,
+    "avg_stop_r": -0.426,
+    "med_ret_o5": 2.87,
+    "win5_pct": 68.1,
+    "avg_stop_r_20": -0.424
+   }
+  },
+  "1": {
+   "cond_range": [
+    4.0,
+    24.0
+   ],
+   "A": {
+    "n": 1433,
+    "avg_stop_r": -0.048,
+    "med_ret_o5": 0.49,
+    "win5_pct": 53.0,
+    "avg_stop_r_20": -0.162
+   },
+   "B": {
+    "n": 1194,
+    "avg_stop_r": -0.149,
+    "med_ret_o5": 0.8,
+    "win5_pct": 55.7,
+    "avg_stop_r_20": -0.343
+   },
+   "COVID": {
+    "n": 1496,
+    "avg_stop_r": 0.058,
+    "med_ret_o5": -0.41,
+    "win5_pct": 47.3,
+    "avg_stop_r_20": -0.018
+   }
+  },
+  "2": {
+   "cond_range": [
+    25.0,
+    31.0
+   ],
+   "A": {
+    "n": 367,
+    "avg_stop_r": -0.053,
+    "med_ret_o5": 0.52,
+    "win5_pct": 53.1,
+    "avg_stop_r_20": 0.029
+   },
+   "B": {
+    "n": 265,
+    "avg_stop_r": -0.107,
+    "med_ret_o5": 0.8,
+    "win5_pct": 55.8,
+    "avg_stop_r_20": -0.061
+   },
+   "COVID": {
+    "n": 408,
+    "avg_stop_r": -0.163,
+    "med_ret_o5": 0.63,
+    "win5_pct": 54.9,
+    "avg_stop_r_20": 0.331
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.074,
+  "COVID": 0.262,
+  "B": 0.047
+ },
+ "extreme_bucket_n": {
+  "A": [
+   201,
+   367
+  ],
+  "B": [
+   110,
+   265
+  ]
+ },
+ "null_beat_pct": 13.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.725,
+   "n": 300,
+   "n_ext": [
+    25,
+    66
+   ]
+  },
+  "B24": {
+   "effect": -0.167,
+   "n": 1269,
+   "n_ext": [
+    85,
+    199
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.076,
+  "COVID": 0.755,
+  "B": -0.179
+ },
+ "null_beat_pct_20": 54.0,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": -0.099,
+  "COVID": 0.363,
+  "B": -0.203
+ },
+ "effect_R_trail_w5": {
+  "A": -0.124,
+  "COVID": 0.246,
+  "B": -0.182
+ },
+ "null_beat_pct_trail": 7.000000000000001,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": -0.111,
+  "COVID": 0.137,
+  "B": 0.069
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.135,
+  "COVID": 0.03,
+  "B": 0.057
+ },
+ "null_beat_pct_trail_be": 3.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": -0.098,
+  "COVID": 0.208,
+  "B": -0.013
+ },
+ "effect_R_close_w5": {
+  "A": -0.108,
+  "COVID": 0.208,
+  "B": -0.056
+ },
+ "null_beat_pct_close": 16.5,
+ "verdict_close": "INSUFFICIENT"
+}

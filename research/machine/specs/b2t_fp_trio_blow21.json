@@ -1,0 +1,6 @@
+{
+  "id": "b2t_fp_trio_blow21",
+  "question": "FULL TRIO: four_pct + liquid half (turn_decile >= 0.5) + strong tape (market net4 >= 134) -> bounce_low21 quintiles. Expected: near/mid-low buckets (<= ~18.16) are the best cells and hopefully positive in absolute era-B avg stop-R; extended top quintile remains negative.",
+  "cohort": {"trigger": "four_pct", "filters": [["turn_decile", ">=", 0.5], ["market:net4", ">=", 134]]},
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quintiles"}
+}

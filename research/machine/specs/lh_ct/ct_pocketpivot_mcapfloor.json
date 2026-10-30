@@ -1,0 +1,9 @@
+{
+  "id": "ct_pocketpivot_mcapfloor",
+  "plain": "Pocket pivot large caps, mega-cap floor (>=30k cr) plus trend structure filter",
+  "source": "csv",
+  "csv": "pocket_pivot_events.csv",
+  "filters": [["mcap_cr", ">=", 30000], ["ti65", ">=", 1.0]],
+  "horizon": 20,
+  "risk": 0.0075
+}

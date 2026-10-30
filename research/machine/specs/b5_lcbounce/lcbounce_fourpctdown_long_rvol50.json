@@ -1,0 +1,11 @@
+{
+  "id": "lcbounce_fourpctdown_long_rvol50",
+  "question": "Buying large-cap four_pct_down breakdown days LONG (fading the crash) instead of shorting them: does a bigger volume spike (higher rvol50) on the breakdown produce a better subsequent long stop-R, contrasting with the short-side edge on the same trigger? Expect the top rvol50 quartile to have the best avg_stop_r.",
+  "plain": "Tests the contrarian idea of buying (not shorting) a large-cap that just gapped/broke down hard on heavy volume, to see if the panic-volume breakdown is itself a buyable capitulation low.",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "rvol50", "buckets": "quartiles"}
+}

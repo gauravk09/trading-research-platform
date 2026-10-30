@@ -1,0 +1,209 @@
+{
+ "id": "qm_turn_decile",
+ "question": "Does liquidity (turnover decile) select winners on the faithful flag breakout as it does on bursts (PASS +0.15R)? Expect positive.",
+ "plain": null,
+ "spec": {
+  "id": "qm_turn_decile",
+  "question": "Does liquidity (turnover decile) select winners on the faithful flag breakout as it does on bursts (PASS +0.15R)? Expect positive.",
+  "cohort": {
+   "trigger": "qm_flag"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "turn_decile",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 10982,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0036250646226108074,
+    0.4008968472480774
+   ],
+   "A": {
+    "n": 513,
+    "avg_stop_r": -0.163,
+    "med_ret_o5": -1.78,
+    "win5_pct": 39.4,
+    "avg_stop_r_20": -0.065
+   },
+   "B": {
+    "n": 1228,
+    "avg_stop_r": -0.238,
+    "med_ret_o5": -2.9,
+    "win5_pct": 35.0,
+    "avg_stop_r_20": -0.125
+   },
+   "COVID": {
+    "n": 1005,
+    "avg_stop_r": -0.09,
+    "med_ret_o5": -2.44,
+    "win5_pct": 39.3,
+    "avg_stop_r_20": -0.069
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.4009034335613251,
+    0.6208333373069763
+   ],
+   "A": {
+    "n": 551,
+    "avg_stop_r": -0.069,
+    "med_ret_o5": -1.54,
+    "win5_pct": 40.3,
+    "avg_stop_r_20": -0.082
+   },
+   "B": {
+    "n": 1124,
+    "avg_stop_r": -0.125,
+    "med_ret_o5": -1.51,
+    "win5_pct": 40.4,
+    "avg_stop_r_20": -0.028
+   },
+   "COVID": {
+    "n": 1070,
+    "avg_stop_r": -0.195,
+    "med_ret_o5": -1.85,
+    "win5_pct": 40.0,
+    "avg_stop_r_20": -0.049
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.6210340857505798,
+    0.800576388835907
+   ],
+   "A": {
+    "n": 612,
+    "avg_stop_r": -0.028,
+    "med_ret_o5": -0.53,
+    "win5_pct": 44.9,
+    "avg_stop_r_20": 0.023
+   },
+   "B": {
+    "n": 1228,
+    "avg_stop_r": -0.032,
+    "med_ret_o5": -0.81,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": 0.095
+   },
+   "COVID": {
+    "n": 905,
+    "avg_stop_r": -0.019,
+    "med_ret_o5": -1.39,
+    "win5_pct": 42.3,
+    "avg_stop_r_20": 0.111
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.8006644248962402,
+    1.0
+   ],
+   "A": {
+    "n": 539,
+    "avg_stop_r": -0.166,
+    "med_ret_o5": -0.67,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": -0.254
+   },
+   "B": {
+    "n": 1272,
+    "avg_stop_r": 0.006,
+    "med_ret_o5": -0.1,
+    "win5_pct": 48.8,
+    "avg_stop_r_20": 0.085
+   },
+   "COVID": {
+    "n": 935,
+    "avg_stop_r": 0.104,
+    "med_ret_o5": -0.22,
+    "win5_pct": 49.0,
+    "avg_stop_r_20": 0.107
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.002,
+  "COVID": 0.194,
+  "B": 0.244
+ },
+ "extreme_bucket_n": {
+  "A": [
+   513,
+   539
+  ],
+  "B": [
+   1228,
+   1272
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.225,
+   "n": 1726,
+   "n_ext": [
+    461,
+    390
+   ]
+  },
+  "B24": {
+   "effect": 0.265,
+   "n": 3126,
+   "n_ext": [
+    767,
+    882
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.189,
+  "COVID": 0.176,
+  "B": 0.21
+ },
+ "null_beat_pct_20": 98.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.006,
+  "COVID": 0.109,
+  "B": 0.334
+ },
+ "effect_R_trail_w5": {
+  "A": 0.013,
+  "COVID": 0.122,
+  "B": 0.288
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.026,
+  "COVID": 0.105,
+  "B": 0.252
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.002,
+  "COVID": 0.104,
+  "B": 0.224
+ },
+ "null_beat_pct_trail_be": 99.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.136,
+  "COVID": -0.214,
+  "B": 0.037
+ },
+ "effect_R_close_w5": {
+  "A": -0.098,
+  "COVID": -0.084,
+  "B": 0.094
+ },
+ "null_beat_pct_close": 96.0,
+ "verdict_close": "FAIL"
+}

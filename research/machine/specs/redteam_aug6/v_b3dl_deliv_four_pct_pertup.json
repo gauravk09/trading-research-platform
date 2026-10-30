@@ -1,0 +1,20 @@
+{
+ "id": "v_b3dl_deliv_four_pct_pertup",
+ "question": "Red-team perturbation (2026-08-06 batch): deliv_x20 bucket edges x1.2",
+ "cohort": {
+  "trigger": "four_pct",
+  "filters": []
+ },
+ "condition": {
+  "type": "feature",
+  "name": "deliv_x20",
+  "buckets": [
+   0,
+   0.691,
+   0.901,
+   1.063,
+   1.241,
+   10
+  ]
+ }
+}

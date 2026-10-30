@@ -1,0 +1,7 @@
+{
+  "id": "tapedir_ratio10_short",
+  "question": "Short four_pct_down large-caps gated by market ratio10 (quartiles): expect NEGATIVE top-minus-bottom effect - a weak 10-day advance/decline ratio makes the short breakdown work better, so the bottom bucket should beat the top bucket.",
+  "plain": "Shorting a large-cap 4%-down-day breakdown: does it work better when the 10-day advance/decline ratio is strongly negative?",
+  "cohort": {"trigger": "four_pct_down", "side": "short", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "market", "name": "ratio10", "buckets": "quartiles"}
+}

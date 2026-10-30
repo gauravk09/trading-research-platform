@@ -1,0 +1,412 @@
+[
+ {
+  "id": "g1_ma1020_n500",
+  "src": "R1/R3/R5 theme-1: mechanical index-trend gate \u2014 'Nifty above its short MA' reduced to 10DMA > 20DMA on Nifty500",
+  "filters": [
+   [
+    "market:ma1020_nifty500",
+    ">=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "g2_ma1020_sc250",
+  "src": "R1: the smallcap leg of the dual-index 9/20-EMA gate (CNX Smallcap above 9EMA, 9>20)",
+  "filters": [
+   [
+    "market:ma1020_smallcap250",
+    ">=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "g3_dual_ma1020",
+  "src": "R1 verbatim: BOTH indices must be in 10>20 alignment or no new trades",
+  "filters": [
+   [
+    "market:ma1020_nifty500",
+    ">=",
+    1.0
+   ],
+   [
+    "market:ma1020_smallcap250",
+    ">=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "g4_ti65_n500",
+  "src": "B9 Weinstein stage-2 / R8 CANSLIM M-filter: index above its long MA (7/65 ratio >= 1)",
+  "filters": [
+   [
+    "market:ti65_nifty500",
+    ">=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "g5_dd2y_sc250",
+  "src": "R2: Nifty500 weekly-Supertrend risk-off switch, proxied by smallcap index not deep in its 2-yr drawdown",
+  "filters": [
+   [
+    "market:dd2y_smallcap250",
+    ">=",
+    -10.0
+   ]
+  ]
+ },
+ {
+  "id": "g6_pct40ma",
+  "src": "HOUSE CORRECTION to theme-1: per-stock breadth gate (%>40DMA >= 55) is the incumbent book-level gate",
+  "filters": [
+   [
+    "market:pct40ma",
+    ">=",
+    55.0
+   ]
+  ]
+ },
+ {
+  "id": "g7_net4",
+  "src": "HOUSE: net 4%-up minus 4%-down breadth, the strongest market series on the board",
+  "filters": [
+   [
+    "market:net4",
+    ">=",
+    100.0
+   ]
+  ]
+ },
+ {
+  "id": "g8_net50m",
+  "src": "HOUSE: net 50%-in-a-month breadth \u2014 an mm_history column never used as a filter before",
+  "filters": [
+   [
+    "market:net50m",
+    ">=",
+    7.0
+   ]
+  ]
+ },
+ {
+  "id": "g9_breadth_plus_index",
+  "src": "The synthesis's open question: does the crowd's index-MA gate ADD anything on top of our breadth gate?",
+  "filters": [
+   [
+    "market:pct40ma",
+    ">=",
+    55.0
+   ],
+   [
+    "market:ma1020_nifty500",
+    ">=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "d1_deliv_veto",
+  "src": "R5 (3 independent sources): delivery vs own 20d mean as a VETO \u2014 exclude the bottom bucket. Open ruler only (deliv is next_open).",
+  "filters": [
+   [
+    "deliv_x20",
+    ">=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "d2_deliv_regime",
+  "src": "R5 full gate: delivery spike 1.2x own average AND positive breadth regime",
+  "filters": [
+   [
+    "deliv_x20",
+    ">=",
+    1.2
+   ],
+   [
+    "market:pct40ma",
+    ">=",
+    55.0
+   ]
+  ]
+ },
+ {
+  "id": "h1_near52wh",
+  "src": "R6/R8: buy strength near multi-year highs \u2014 within 5% of the 52-week high",
+  "filters": [
+   [
+    "pct_52wh",
+    ">=",
+    -5.0
+   ]
+  ]
+ },
+ {
+  "id": "h2_fresh_high",
+  "src": "R6: the FIRST cross of a multi-year high, not a perpetual compounder \u2014 high made in the last month",
+  "filters": [
+   [
+    "days_since_52wh",
+    "<=",
+    20.0
+   ]
+  ]
+ },
+ {
+  "id": "h3_trend_template",
+  "src": "R1 technical filter / B9 stage-2 / R8: price>50>150DMA Minervini template",
+  "filters": [
+   [
+    "trend_template",
+    ">=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "h4_multiyear_up",
+  "src": "R6: multi-year-high crossings come out of a stock already up over a year",
+  "filters": [
+   [
+    "ret_252",
+    ">=",
+    20.0
+   ]
+  ]
+ },
+ {
+  "id": "v1_base",
+  "src": "R1/R6/R10 theme-4: the BASE is the signal \u2014 consecutive tight sessions before the move",
+  "filters": [
+   [
+    "consol_days",
+    ">=",
+    3.0
+   ]
+  ]
+ },
+ {
+  "id": "v2_dryup",
+  "src": "R5 'quiet accumulation' / R1 VCP: total volume DRYING into the base (5d vol < 50d vol)",
+  "filters": [
+   [
+    "volc5_50",
+    "<=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "v3_vcp",
+  "src": "R1 VCP + R5 quiet accumulation combined: tight range AND declining volume",
+  "filters": [
+   [
+    "consol_days",
+    ">=",
+    3.0
+   ],
+   [
+    "volc5_50",
+    "<=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "v4_tightness",
+  "src": "R1/R6: 5-day range in the bottom 40% of its own trailing year (flag/pennant tightness)",
+  "filters": [
+   [
+    "tightness",
+    "<=",
+    0.48
+   ]
+  ]
+ },
+ {
+  "id": "m1_eff_lowvol",
+  "src": "R2/R4/B6/B8 theme-2: vol-SCALED momentum \u2014 trend efficiency high, daily range low",
+  "filters": [
+   [
+    "eff_ratio",
+    ">=",
+    0.23
+   ],
+   [
+    "adr20",
+    "<=",
+    5.5
+   ]
+  ]
+ },
+ {
+  "id": "m2_mom_lowvol",
+  "src": "R4 Nifty200-Momentum-30 clone: 6-month return divided by volatility, as two filters",
+  "filters": [
+   [
+    "ret_126",
+    ">=",
+    38.0
+   ],
+   [
+    "adr20",
+    "<=",
+    5.5
+   ]
+  ]
+ },
+ {
+  "id": "m3_rs_lowvol",
+  "src": "R12/R13/B8: relative-strength rank high but volatility contained (the 'quality momentum' variant)",
+  "filters": [
+   [
+    "rs",
+    ">=",
+    82.0
+   ],
+   [
+    "adr20",
+    "<=",
+    5.5
+   ]
+  ]
+ },
+ {
+  "id": "s1_liquid",
+  "src": "R5 mcap>Rs2000cr floor + HOUSE finding 'illiquid is worse' \u2014 top-30% turnover",
+  "filters": [
+   [
+    "turn_decile",
+    ">=",
+    0.7
+   ]
+  ]
+ },
+ {
+  "id": "s2_smaller",
+  "src": "R2 smallcap-segment claim (external), which the house expects to LOSE \u2014 bottom-half turnover",
+  "filters": [
+   [
+    "turn_decile",
+    "<=",
+    0.5
+   ]
+  ]
+ },
+ {
+  "id": "x1_quiet_breakout",
+  "src": "ANTI-CONVERGENT: R1/R10/B10 demand volume thrust; the house board says the opposite. Seed the house version \u2014 breakout on BELOW-median relative volume.",
+  "filters": [
+   [
+    "rvol50",
+    "<=",
+    2.1
+   ]
+  ]
+ },
+ {
+  "id": "x2_accum_no_thrust",
+  "src": "O'Neil up/down volume accumulation (R8) WITHOUT the breakout-day thrust the house has inverted five times",
+  "filters": [
+   [
+    "updown_vol50",
+    ">=",
+    1.6
+   ],
+   [
+    "rvol50",
+    "<=",
+    2.1
+   ]
+  ]
+ },
+ {
+  "id": "c1_R1_system",
+  "src": "R1 composite: smallcap index gate + tight base + stage-2 template",
+  "filters": [
+   [
+    "market:ma1020_smallcap250",
+    ">=",
+    1.0
+   ],
+   [
+    "consol_days",
+    ">=",
+    3.0
+   ],
+   [
+    "trend_template",
+    ">=",
+    1.0
+   ]
+  ]
+ },
+ {
+  "id": "c2_R6_system",
+  "src": "R6 composite: near multi-year high + base + SECTOR CLUSTERING (peers strong)",
+  "filters": [
+   [
+    "pct_52wh",
+    ">=",
+    -5.0
+   ],
+   [
+    "consol_days",
+    ">=",
+    3.0
+   ],
+   [
+    "sector_rs",
+    ">=",
+    0.75
+   ]
+  ]
+ },
+ {
+  "id": "c3_R5_system",
+  "src": "R5 composite: delivery spike + breadth regime + liquidity floor",
+  "filters": [
+   [
+    "deliv_x20",
+    ">=",
+    1.5
+   ],
+   [
+    "market:pct40ma",
+    ">=",
+    55.0
+   ],
+   [
+    "turn_decile",
+    ">=",
+    0.7
+   ]
+  ]
+ },
+ {
+  "id": "c4_R2_system",
+  "src": "R2 composite: index regime ON + high RS + contained volatility",
+  "filters": [
+   [
+    "market:ma1020_nifty500",
+    ">=",
+    1.0
+   ],
+   [
+    "rs",
+    ">=",
+    82.0
+   ],
+   [
+    "adr20",
+    "<=",
+    5.5
+   ]
+  ]
+ }
+]

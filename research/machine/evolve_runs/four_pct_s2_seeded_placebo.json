@@ -1,0 +1,723 @@
+{
+ "args": {
+  "trigger": "four_pct",
+  "mode": "seeded",
+  "seeds": "specs/ga_seeds/four_pct.json",
+  "genome": "gradient",
+  "side": "long",
+  "pop": 56,
+  "gens": 30,
+  "seed": 2,
+  "finalists": 4,
+  "placebo": true,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.3581376246640906,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "dist_50dma",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 0.3581376246640906,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "dist_50dma",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 0.5619841722620633,
+   "median": 0.09858407415371367,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "market:pct40ma",
+      "<=",
+      53.4
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -10.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "sector_rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 4,
+   "best": 0.5619841722620633,
+   "median": 0.004105954692745106,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "market:pct40ma",
+      "<=",
+      53.4
+     ],
+     [
+      "market:dd2y_smallcap250",
+      ">=",
+      -10.0
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "sector_rs",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 5,
+   "best": 1.1815493298205988,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 6,
+   "best": 1.1815493298205988,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 7,
+   "best": 1.1815493298205988,
+   "median": 0.3635582549423755,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 8,
+   "best": 1.1815493298205988,
+   "median": 0.0987197901017188,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 9,
+   "best": 1.1815493298205988,
+   "median": 0.4285014335960036,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 10,
+   "best": 1.1923181003620433,
+   "median": 0.816392485847247,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 11,
+   "best": 1.2352446713106195,
+   "median": 1.030209172543213,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">=",
+      0.028
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 12,
+   "best": 1.2352446713106195,
+   "median": 1.1225451977100802,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">=",
+      0.028
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 13,
+   "best": 1.3627730779037304,
+   "median": 1.0635410655995616,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">=",
+      0.028
+     ],
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 14,
+   "best": 1.3627730779037304,
+   "median": 1.1923181003620433,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">=",
+      0.028
+     ],
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 15,
+   "best": 1.3627730779037304,
+   "median": 1.1923181003620433,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">=",
+      0.028
+     ],
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 16,
+   "best": 1.5003200682246105,
+   "median": 1.2398591884691037,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">=",
+      0.028
+     ],
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 17,
+   "best": 1.6018289662729666,
+   "median": 1.3528311446274055,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 18,
+   "best": 1.6018289662729666,
+   "median": 1.3627730779037304,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 19,
+   "best": 1.6018289662729666,
+   "median": 1.3627730779037304,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 20,
+   "best": 1.6018289662729666,
+   "median": 1.4366819809300255,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 21,
+   "best": 1.6018289662729666,
+   "median": 1.1009535036168727,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 22,
+   "best": 1.6018289662729666,
+   "median": 1.1080328820114764,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 23,
+   "best": 1.6018289662729666,
+   "median": 1.2682000954868649,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 24,
+   "best": 1.6018289662729666,
+   "median": 1.1506312373166807,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 25,
+   "best": 1.6018289662729666,
+   "median": 1.0484971948683444,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 26,
+   "best": 1.6018289662729666,
+   "median": 1.0635410655995616,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 27,
+   "best": 1.6018289662729666,
+   "median": 1.0484971948683444,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 28,
+   "best": 1.6018289662729666,
+   "median": 1.0484971948683444,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 29,
+   "best": 1.6018289662729666,
+   "median": 1.2998096081233979,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 30,
+   "best": 1.6018289662729666,
+   "median": 1.0635410655995616,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_63",
+      "<=",
+      47.164
+     ],
+     [
+      "ret30",
+      "<=",
+      -3.1718
+     ]
+    ],
+    "condition": {
+     "type": "market",
+     "name": "score",
+     "buckets": "quartiles"
+    }
+   }
+  }
+ ],
+ "unevaluable_seeds": [
+  {
+   "id": "d1_deliv_veto",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "d2_deliv_regime",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.2
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ]
+   ]
+  },
+  {
+   "id": "c3_R5_system",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     1.5
+    ],
+    [
+     "market:pct40ma",
+     ">=",
+     55.0
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.7
+    ]
+   ]
+  }
+ ],
+ "finalists": []
+}

@@ -1,0 +1,18 @@
+{
+ "id": "v_b4tm_dom_bounce_gap20",
+ "question": "Red-team perturbation (2026-08-06 batch): min_gap 20",
+ "cohort": {
+  "trigger": "bounce",
+  "min_gap": 20
+ },
+ "condition": {
+  "type": "calendar",
+  "name": "dom",
+  "buckets": [
+   0,
+   3,
+   24,
+   31
+  ]
+ }
+}

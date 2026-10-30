@@ -1,0 +1,445 @@
+{
+ "args": {
+  "trigger": "ep",
+  "mode": "pocket",
+  "seeds": null,
+  "genome": "gradient",
+  "side": "long",
+  "pop": 24,
+  "gens": 20,
+  "seed": 3,
+  "finalists": 4,
+  "fit": true,
+  "placebo": true,
+  "dry": false,
+  "no_archive": false,
+  "no_ledger": false,
+  "no_certify": false,
+  "ruler": "stop_r_20",
+  "train_end": 2023
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.07607547777067575,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "trend_template",
+      "<="
+     ],
+     [
+      "rvol50",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 3,
+   "vetoes": 0
+  },
+  {
+   "gen": 2,
+   "best": 1.0766667851294025,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 5,
+   "vetoes": 0
+  },
+  {
+   "gen": 3,
+   "best": 1.0766667851294025,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 7,
+   "vetoes": 0
+  },
+  {
+   "gen": 4,
+   "best": 1.0766667851294025,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 7,
+   "vetoes": 0
+  },
+  {
+   "gen": 5,
+   "best": 1.0766667851294025,
+   "median": 0.15734449279755613,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 12,
+   "vetoes": 0
+  },
+  {
+   "gen": 6,
+   "best": 1.0766667851294025,
+   "median": 0.15734449279755613,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 14,
+   "vetoes": 0
+  },
+  {
+   "gen": 7,
+   "best": 1.0766667851294025,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 16,
+   "vetoes": 0
+  },
+  {
+   "gen": 8,
+   "best": 1.0766667851294025,
+   "median": 0.029834848775163132,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 18,
+   "vetoes": 0
+  },
+  {
+   "gen": 9,
+   "best": 1.0766667851294025,
+   "median": 0.045628983754670276,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 21,
+   "vetoes": 0
+  },
+  {
+   "gen": 10,
+   "best": 1.0766667851294025,
+   "median": 0.29047724547655623,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 24,
+   "vetoes": 0
+  },
+  {
+   "gen": 11,
+   "best": 1.0766667851294025,
+   "median": 0.2082958578034143,
+   "best_ind": {
+    "filters": [
+     [
+      "ret30",
+      "<="
+     ],
+     [
+      "eff_ratio",
+      ">="
+     ]
+    ]
+   },
+   "archive": 27,
+   "vetoes": 0
+  },
+  {
+   "gen": 12,
+   "best": 1.1101487519990858,
+   "median": 0.4233228436695625,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "ti65",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 27,
+   "vetoes": 0
+  },
+  {
+   "gen": 13,
+   "best": 1.1101487519990858,
+   "median": 0.29591546827535087,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "ti65",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 30,
+   "vetoes": 0
+  },
+  {
+   "gen": 14,
+   "best": 1.1101487519990858,
+   "median": 0.1976448147864557,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "ti65",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 32,
+   "vetoes": 0
+  },
+  {
+   "gen": 15,
+   "best": 1.1101487519990858,
+   "median": 0.04774453255121794,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "ti65",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 32,
+   "vetoes": 0
+  },
+  {
+   "gen": 16,
+   "best": 1.1101487519990858,
+   "median": 0.3483366277210737,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "ti65",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 33,
+   "vetoes": 0
+  },
+  {
+   "gen": 17,
+   "best": 1.1101487519990858,
+   "median": 0.2483983737694528,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "ti65",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 34,
+   "vetoes": 0
+  },
+  {
+   "gen": 18,
+   "best": 1.1101487519990858,
+   "median": 0.6340851136272594,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "ti65",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 35,
+   "vetoes": 0
+  },
+  {
+   "gen": 19,
+   "best": 1.1101487519990858,
+   "median": 0.11931210071067425,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "ti65",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 36,
+   "vetoes": 0
+  },
+  {
+   "gen": 20,
+   "best": 1.1101487519990858,
+   "median": 0.7894933193387079,
+   "best_ind": {
+    "filters": [
+     [
+      "eff_ratio",
+      ">="
+     ],
+     [
+      "ti65",
+      ">="
+     ],
+     [
+      "ret30",
+      "<="
+     ]
+    ]
+   },
+   "archive": 38,
+   "vetoes": 0
+  }
+ ],
+ "unevaluable_seeds": [],
+ "finalists": []
+}

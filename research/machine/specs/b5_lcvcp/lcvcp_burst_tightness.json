@@ -1,0 +1,11 @@
+{
+  "id": "lcvcp_burst_tightness",
+  "question": "Among large-cap volume bursts, does a tighter pre-signal 5d range (lower tightness pct-rank) produce better forward returns? Expected: negative top-minus-bottom (tight quartile beats wide quartile)",
+  "plain": "Do large-cap stocks that were coiled tight before a volume-burst day run further than ones that were already choppy/wide?",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 200]]
+  },
+  "condition": {"type": "feature", "name": "tightness", "buckets": "quartiles"}
+}

@@ -1,0 +1,26 @@
+{
+ "id": "v_tapedir_net4_short_pertdn",
+ "question": "Red-team perturbation (2026-08-06 batch): net4 fixed edges -350/-80/0",
+ "cohort": {
+  "trigger": "four_pct_down",
+  "side": "short",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    150
+   ]
+  ]
+ },
+ "condition": {
+  "type": "market",
+  "name": "net4",
+  "buckets": [
+   -1000,
+   -350,
+   -80,
+   0,
+   1000
+  ]
+ }
+}

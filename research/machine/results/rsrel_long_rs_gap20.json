@@ -1,0 +1,219 @@
+{
+ "id": "rsrel_long_rs_gap20",
+ "question": "Same as rsrel_long_rs but with min_gap:20 to strip repeated-signal clustering per symbol -- does the RS-rank edge on large-cap 4% up days survive when events are spaced out? Expect higher=better (positive effect).",
+ "plain": "Overlap check: if we only count one 4% up day per stock every 20 bars (so we're not just re-counting the same hot streak), does the strong-RS edge on large caps still hold?",
+ "spec": {
+  "id": "rsrel_long_rs_gap20",
+  "question": "Same as rsrel_long_rs but with min_gap:20 to strip repeated-signal clustering per symbol -- does the RS-rank edge on large-cap 4% up days survive when events are spaced out? Expect higher=better (positive effect).",
+  "plain": "Overlap check: if we only count one 4% up day per stock every 20 bars (so we're not just re-counting the same hot streak), does the strong-RS edge on large caps still hold?",
+  "cohort": {
+   "trigger": "four_pct",
+   "side": "long",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ],
+   "min_gap": 20
+  },
+  "condition": {
+   "type": "feature",
+   "name": "rs",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 6151,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0987723246216774,
+    46.92399215698242
+   ],
+   "A": {
+    "n": 554,
+    "avg_stop_r": 0.022,
+    "med_ret_o5": -0.11,
+    "win5_pct": 48.7,
+    "avg_stop_r_20": -0.005
+   },
+   "B": {
+    "n": 365,
+    "avg_stop_r": 0.079,
+    "med_ret_o5": 0.22,
+    "win5_pct": 51.8,
+    "avg_stop_r_20": 0.091
+   },
+   "COVID": {
+    "n": 619,
+    "avg_stop_r": -0.037,
+    "med_ret_o5": -0.56,
+    "win5_pct": 44.4,
+    "avg_stop_r_20": 0.082
+   }
+  },
+  "1": {
+   "cond_range": [
+    46.94070053100586,
+    63.38236618041992
+   ],
+   "A": {
+    "n": 532,
+    "avg_stop_r": -0.043,
+    "med_ret_o5": -0.56,
+    "win5_pct": 45.1,
+    "avg_stop_r_20": -0.116
+   },
+   "B": {
+    "n": 446,
+    "avg_stop_r": -0.057,
+    "med_ret_o5": -0.33,
+    "win5_pct": 45.5,
+    "avg_stop_r_20": 0.034
+   },
+   "COVID": {
+    "n": 560,
+    "avg_stop_r": 0.033,
+    "med_ret_o5": -0.32,
+    "win5_pct": 46.8,
+    "avg_stop_r_20": 0.24
+   }
+  },
+  "2": {
+   "cond_range": [
+    63.38995361328125,
+    77.40718078613281
+   ],
+   "A": {
+    "n": 545,
+    "avg_stop_r": -0.03,
+    "med_ret_o5": -0.4,
+    "win5_pct": 46.1,
+    "avg_stop_r_20": -0.08
+   },
+   "B": {
+    "n": 493,
+    "avg_stop_r": 0.049,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.9,
+    "avg_stop_r_20": 0.146
+   },
+   "COVID": {
+    "n": 499,
+    "avg_stop_r": -0.031,
+    "med_ret_o5": -0.46,
+    "win5_pct": 45.9,
+    "avg_stop_r_20": 0.116
+   }
+  },
+  "3": {
+   "cond_range": [
+    77.41034698486328,
+    99.71024322509766
+   ],
+   "A": {
+    "n": 604,
+    "avg_stop_r": -0.055,
+    "med_ret_o5": -0.29,
+    "win5_pct": 45.5,
+    "avg_stop_r_20": -0.08
+   },
+   "B": {
+    "n": 526,
+    "avg_stop_r": 0.043,
+    "med_ret_o5": 0.03,
+    "win5_pct": 50.4,
+    "avg_stop_r_20": 0.106
+   },
+   "COVID": {
+    "n": 408,
+    "avg_stop_r": 0.228,
+    "med_ret_o5": 0.25,
+    "win5_pct": 52.7,
+    "avg_stop_r_20": 0.371
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.077,
+  "COVID": 0.264,
+  "B": -0.036
+ },
+ "extreme_bucket_n": {
+  "A": [
+   554,
+   604
+  ],
+  "B": [
+   365,
+   526
+  ]
+ },
+ "null_beat_pct": 59.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.403,
+   "n": 476,
+   "n_ext": [
+    104,
+    104
+   ]
+  },
+  "B24": {
+   "effect": 0.097,
+   "n": 1354,
+   "n_ext": [
+    261,
+    422
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.075,
+  "COVID": 0.289,
+  "B": 0.015
+ },
+ "null_beat_pct_20": 28.499999999999996,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.011,
+  "COVID": 0.318,
+  "B": 0.079
+ },
+ "effect_R_trail_w5": {
+  "A": -0.017,
+  "COVID": 0.245,
+  "B": 0.081
+ },
+ "null_beat_pct_trail": 54.50000000000001,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.02,
+  "COVID": 0.315,
+  "B": 0.004
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.012,
+  "COVID": 0.257,
+  "B": 0.017
+ },
+ "null_beat_pct_trail_be": 68.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.082,
+  "COVID": 0.354,
+  "B": -0.069
+ },
+ "effect_R_close_w5": {
+  "A": -0.081,
+  "COVID": 0.311,
+  "B": -0.07
+ },
+ "null_beat_pct_close": 80.0,
+ "verdict_close": "FAIL"
+}

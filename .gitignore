@@ -1,0 +1,14 @@
+.env
+data/
+logs/
+output/
+research/output/
+__pycache__/
+*.pyc
+.DS_Store
+.claude/settings.local.json
+node_modules/
+webapp/frontend/dist/
+.lavish/
+.zcode/
+.claude/launch.json

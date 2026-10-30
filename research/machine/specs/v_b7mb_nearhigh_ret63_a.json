@@ -1,0 +1,6 @@
+{
+  "id": "v_b7mb_nearhigh_ret63_a",
+  "question": "Perturbation of b7mb_nearhigh_ret63: near-high filter tightened to within 8% of the 52wk high, quintiles - expect the negative (more momentum = worse) effect to survive with same sign in both eras",
+  "cohort": {"trigger": "four_pct", "filters": [["pct_52wh", ">=", -8]]},
+  "condition": {"type": "derived", "name": "ret_63", "buckets": "quintiles"}
+}

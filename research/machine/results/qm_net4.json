@@ -1,0 +1,209 @@
+{
+ "id": "qm_net4",
+ "question": "Does strong market breadth (net4) still select the good faithful-Qullamaggie flag breakouts, the way it does on the generic burst (PASS +0.20R)? Expect positive.",
+ "plain": null,
+ "spec": {
+  "id": "qm_net4",
+  "question": "Does strong market breadth (net4) still select the good faithful-Qullamaggie flag breakouts, the way it does on the generic burst (PASS +0.20R)? Expect positive.",
+  "cohort": {
+   "trigger": "qm_flag"
+  },
+  "condition": {
+   "type": "market",
+   "name": "net4",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 10982,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -666.0,
+    51.0
+   ],
+   "A": {
+    "n": 978,
+    "avg_stop_r": -0.145,
+    "med_ret_o5": -1.13,
+    "win5_pct": 41.5,
+    "avg_stop_r_20": 0.009
+   },
+   "B": {
+    "n": 978,
+    "avg_stop_r": -0.131,
+    "med_ret_o5": -1.26,
+    "win5_pct": 41.6,
+    "avg_stop_r_20": 0.032
+   },
+   "COVID": {
+    "n": 835,
+    "avg_stop_r": -0.136,
+    "med_ret_o5": -1.49,
+    "win5_pct": 41.3,
+    "avg_stop_r_20": 0.065
+   }
+  },
+  "1": {
+   "cond_range": [
+    52.0,
+    86.0
+   ],
+   "A": {
+    "n": 748,
+    "avg_stop_r": -0.08,
+    "med_ret_o5": -0.97,
+    "win5_pct": 41.3,
+    "avg_stop_r_20": -0.101
+   },
+   "B": {
+    "n": 1346,
+    "avg_stop_r": -0.097,
+    "med_ret_o5": -1.02,
+    "win5_pct": 43.2,
+    "avg_stop_r_20": 0.019
+   },
+   "COVID": {
+    "n": 703,
+    "avg_stop_r": -0.104,
+    "med_ret_o5": -1.38,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": 0.072
+   }
+  },
+  "2": {
+   "cond_range": [
+    87.0,
+    122.0
+   ],
+   "A": {
+    "n": 303,
+    "avg_stop_r": -0.036,
+    "med_ret_o5": -0.66,
+    "win5_pct": 43.9,
+    "avg_stop_r_20": -0.287
+   },
+   "B": {
+    "n": 1296,
+    "avg_stop_r": -0.167,
+    "med_ret_o5": -1.71,
+    "win5_pct": 38.9,
+    "avg_stop_r_20": -0.08
+   },
+   "COVID": {
+    "n": 1077,
+    "avg_stop_r": -0.05,
+    "med_ret_o5": -1.83,
+    "win5_pct": 40.5,
+    "avg_stop_r_20": -0.127
+   }
+  },
+  "3": {
+   "cond_range": [
+    123.0,
+    888.0
+   ],
+   "A": {
+    "n": 186,
+    "avg_stop_r": -0.086,
+    "med_ret_o5": -0.91,
+    "win5_pct": 43.5,
+    "avg_stop_r_20": -0.278
+   },
+   "B": {
+    "n": 1232,
+    "avg_stop_r": 0.009,
+    "med_ret_o5": -0.79,
+    "win5_pct": 45.0,
+    "avg_stop_r_20": 0.068
+   },
+   "COVID": {
+    "n": 1300,
+    "avg_stop_r": 0.018,
+    "med_ret_o5": -0.86,
+    "win5_pct": 45.0,
+    "avg_stop_r_20": 0.085
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.059,
+  "COVID": 0.154,
+  "B": 0.14
+ },
+ "extreme_bucket_n": {
+  "A": [
+   978,
+   186
+  ],
+  "B": [
+   978,
+   1232
+  ]
+ },
+ "null_beat_pct": 98.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.245,
+   "n": 1726,
+   "n_ext": [
+    250,
+    207
+   ]
+  },
+  "B24": {
+   "effect": 0.134,
+   "n": 3126,
+   "n_ext": [
+    728,
+    1025
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.287,
+  "COVID": 0.02,
+  "B": 0.036
+ },
+ "null_beat_pct_20": 19.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": -0.277,
+  "COVID": 0.1,
+  "B": 0.042
+ },
+ "effect_R_trail_w5": {
+  "A": -0.168,
+  "COVID": 0.111,
+  "B": 0.087
+ },
+ "null_beat_pct_trail": 45.0,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": -0.114,
+  "COVID": 0.088,
+  "B": 0.003
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.029,
+  "COVID": 0.116,
+  "B": 0.054
+ },
+ "null_beat_pct_trail_be": 41.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.127,
+  "COVID": 0.114,
+  "B": 0.17
+ },
+ "effect_R_close_w5": {
+  "A": 0.134,
+  "COVID": 0.13,
+  "B": 0.159
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "INSUFFICIENT"
+}

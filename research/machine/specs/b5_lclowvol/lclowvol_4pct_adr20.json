@@ -1,0 +1,15 @@
+{
+  "id": "lclowvol_4pct_adr20",
+  "question": "Among large-cap (top150) four_pct burst days, does the LOWER adr20 quartile outperform the higher one on long stop-R? Expect NEGATIVE top-minus-bottom effect (quiet/low-ADR names beat loud/high-ADR names).",
+  "plain": "For big-cap stocks that just popped 4%+, do the calmer (low daily-range) ones make better longs than the wilder ones?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "adr20",
+    "buckets": "quartiles"
+  }
+}

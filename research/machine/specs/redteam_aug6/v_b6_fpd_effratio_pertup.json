@@ -1,0 +1,26 @@
+{
+ "id": "v_b6_fpd_effratio_pertup",
+ "question": "Red-team perturbation (2026-08-06 batch): eff_ratio edges x1.2",
+ "cohort": {
+  "trigger": "four_pct_down",
+  "side": "short",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    150
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "eff_ratio",
+  "buckets": [
+   0,
+   0.072,
+   0.151,
+   0.25,
+   1.0
+  ]
+ }
+}

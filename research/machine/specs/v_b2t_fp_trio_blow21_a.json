@@ -1,0 +1,16 @@
+{
+  "id": "v_b2t_fp_trio_blow21_a",
+  "question": "PERTURB A: four_pct + turn_decile >= 0.6 (was 0.5) + market net4 >= 107 (was 134, -20%) -> bounce_low21 quintiles. Expected same direction as original: near-low buckets best, extended top quintile worst, so negative top-minus-bottom effect in both era A and era B.",
+  "cohort": {
+    "trigger": "four_pct",
+    "filters": [
+      ["turn_decile", ">=", 0.6],
+      ["market:net4", ">=", 107]
+    ]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "bounce_low21",
+    "buckets": "quintiles"
+  }
+}

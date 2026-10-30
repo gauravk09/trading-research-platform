@@ -1,0 +1,209 @@
+{
+ "id": "x_qm_cheat",
+ "question": "SYSTEM CHECK (canary) on the NEW qm_flag cohort: the event's own future 5d return as condition must PASS with an enormous effect on every ruler \u2014 proves the new trigger's rows are plumbed identically to the others",
+ "plain": null,
+ "spec": {
+  "id": "x_qm_cheat",
+  "question": "SYSTEM CHECK (canary) on the NEW qm_flag cohort: the event's own future 5d return as condition must PASS with an enormous effect on every ruler \u2014 proves the new trigger's rows are plumbed identically to the others",
+  "cohort": {
+   "trigger": "qm_flag"
+  },
+  "condition": {
+   "type": "cheat",
+   "name": "ret_o5",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 10961,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -42.04568099975586,
+    -5.2109479904174805
+   ],
+   "A": {
+    "n": 491,
+    "avg_stop_r": -1.017,
+    "med_ret_o5": -7.77,
+    "win5_pct": 0.0,
+    "avg_stop_r_20": -1.017
+   },
+   "B": {
+    "n": 1202,
+    "avg_stop_r": -1.028,
+    "med_ret_o5": -8.22,
+    "win5_pct": 0.0,
+    "avg_stop_r_20": -1.028
+   },
+   "COVID": {
+    "n": 1048,
+    "avg_stop_r": -1.017,
+    "med_ret_o5": -8.48,
+    "win5_pct": 0.0,
+    "avg_stop_r_20": -1.017
+   }
+  },
+  "1": {
+   "cond_range": [
+    -5.207294464111328,
+    -1.2062788009643555
+   ],
+   "A": {
+    "n": 590,
+    "avg_stop_r": -0.784,
+    "med_ret_o5": -3.01,
+    "win5_pct": 0.0,
+    "avg_stop_r_20": -0.789
+   },
+   "B": {
+    "n": 1206,
+    "avg_stop_r": -0.792,
+    "med_ret_o5": -3.07,
+    "win5_pct": 0.0,
+    "avg_stop_r_20": -0.784
+   },
+   "COVID": {
+    "n": 944,
+    "avg_stop_r": -0.819,
+    "med_ret_o5": -3.2,
+    "win5_pct": 0.0,
+    "avg_stop_r_20": -0.815
+   }
+  },
+  "2": {
+   "cond_range": [
+    -1.2058436870574951,
+    3.4946203231811523
+   ],
+   "A": {
+    "n": 611,
+    "avg_stop_r": -0.152,
+    "med_ret_o5": 0.84,
+    "win5_pct": 67.9,
+    "avg_stop_r_20": -0.124
+   },
+   "B": {
+    "n": 1278,
+    "avg_stop_r": -0.094,
+    "med_ret_o5": 0.85,
+    "win5_pct": 69.9,
+    "avg_stop_r_20": -0.024
+   },
+   "COVID": {
+    "n": 851,
+    "avg_stop_r": -0.201,
+    "med_ret_o5": 0.86,
+    "win5_pct": 69.6,
+    "avg_stop_r_20": -0.021
+   }
+  },
+  "3": {
+   "cond_range": [
+    3.5017013549804688,
+    66.77272033691406
+   ],
+   "A": {
+    "n": 514,
+    "avg_stop_r": 1.626,
+    "med_ret_o5": 7.4,
+    "win5_pct": 100.0,
+    "avg_stop_r_20": 1.753
+   },
+   "B": {
+    "n": 1154,
+    "avg_stop_r": 1.611,
+    "med_ret_o5": 7.55,
+    "win5_pct": 100.0,
+    "avg_stop_r_20": 2.002
+   },
+   "COVID": {
+    "n": 1072,
+    "avg_stop_r": 1.672,
+    "med_ret_o5": 8.48,
+    "win5_pct": 100.0,
+    "avg_stop_r_20": 1.802
+   }
+  }
+ },
+ "effect_R": {
+  "A": 2.643,
+  "COVID": 2.689,
+  "B": 2.639
+ },
+ "extreme_bucket_n": {
+  "A": [
+   491,
+   514
+  ],
+  "B": [
+   1202,
+   1154
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 2.609,
+   "n": 1726,
+   "n_ext": [
+    359,
+    425
+   ]
+  },
+  "B24": {
+   "effect": 2.655,
+   "n": 3114,
+   "n_ext": [
+    843,
+    729
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "PASS",
+ "track": "full",
+ "effect_R_20": {
+  "A": 2.77,
+  "COVID": 2.82,
+  "B": 3.03
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": 2.414,
+  "COVID": 2.754,
+  "B": 2.767
+ },
+ "effect_R_trail_w5": {
+  "A": 2.141,
+  "COVID": 2.39,
+  "B": 2.447
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": 2.057,
+  "COVID": 2.347,
+  "B": 2.403
+ },
+ "effect_R_trail_be_w5": {
+  "A": 1.83,
+  "COVID": 2.085,
+  "B": 2.153
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": 2.898,
+  "COVID": 3.182,
+  "B": 3.057
+ },
+ "effect_R_close_w5": {
+  "A": 2.736,
+  "COVID": 2.914,
+  "B": 2.822
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "PASS"
+}

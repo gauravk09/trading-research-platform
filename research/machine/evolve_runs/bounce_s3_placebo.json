@@ -1,0 +1,586 @@
+{
+ "args": {
+  "trigger": "bounce",
+  "mode": "gradient",
+  "side": "long",
+  "pop": 24,
+  "gens": 30,
+  "seed": 3,
+  "finalists": 4,
+  "placebo": true,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.28047217620171505,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 0.28047217620171505,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret30",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 0.8034245608171031,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 4,
+   "best": 0.8034245608171031,
+   "median": 0.2493548722199659,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 5,
+   "best": 0.8034245608171031,
+   "median": 0.3898034675597759,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 6,
+   "best": 0.8959701419264542,
+   "median": 0.3898034675597759,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 7,
+   "best": 0.8959701419264542,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 8,
+   "best": 0.8959701419264542,
+   "median": 0.19490173377988795,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 9,
+   "best": 0.8959701419264542,
+   "median": 0.19490173377988795,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 10,
+   "best": 0.8959701419264542,
+   "median": 0.6730138362986623,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 11,
+   "best": 0.8959701419264542,
+   "median": 0.7084822725423353,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 12,
+   "best": 0.8959701419264542,
+   "median": 0.429957769712509,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 13,
+   "best": 0.8959701419264542,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 14,
+   "best": 0.8959701419264542,
+   "median": 0.4532714276732546,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 15,
+   "best": 0.8959701419264542,
+   "median": 0.8034245608171031,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 16,
+   "best": 0.8959701419264542,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 17,
+   "best": 0.8959701419264542,
+   "median": 0.36448429560932616,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 18,
+   "best": 0.8959701419264542,
+   "median": 0.7746973513717786,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 19,
+   "best": 0.8959701419264542,
+   "median": 0.09046797460779636,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 20,
+   "best": 0.8959701419264542,
+   "median": 0.8034245608171031,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 21,
+   "best": 0.8959701419264542,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 22,
+   "best": 0.8959701419264542,
+   "median": 0.6430418929904402,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 23,
+   "best": 0.8959701419264542,
+   "median": 0.13576366415821006,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 24,
+   "best": 0.8959701419264542,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 25,
+   "best": 0.8959701419264542,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 26,
+   "best": 0.8959701419264542,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 27,
+   "best": 0.8959701419264542,
+   "median": 0.5832427565931699,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 28,
+   "best": 0.8959701419264542,
+   "median": 0.5466782944035042,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 29,
+   "best": 0.8959701419264542,
+   "median": 0.09046797460779636,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  },
+  {
+   "gen": 30,
+   "best": 0.8959701419264542,
+   "median": 0.29977789679794986,
+   "best_ind": {
+    "filters": [
+     [
+      "ret7",
+      "<=",
+      -5.5362
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "ret7",
+     "buckets": "quartiles"
+    }
+   }
+  }
+ ],
+ "finalists": []
+}

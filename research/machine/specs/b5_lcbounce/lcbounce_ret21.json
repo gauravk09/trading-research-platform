@@ -1,0 +1,11 @@
+{
+  "id": "lcbounce_ret21",
+  "question": "On large-cap bounce setups, does a more negative 21-day return (deeper monthly drawdown into the bounce) produce a better subsequent long stop-R than a milder ret21? Expect the most-negative ret21 bucket to have the best avg_stop_r.",
+  "plain": "Tests whether large caps down the most over the prior month bounce back better than ones only mildly weak.",
+  "cohort": {
+    "trigger": "bounce",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "ret21", "buckets": "quartiles"}
+}

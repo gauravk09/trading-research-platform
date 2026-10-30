@@ -1,0 +1,7 @@
+{
+  "id": "caldeliv_dom_fourpctdown_short",
+  "question": "Among top-150 large-cap four_pct_down shorts, does day-of-month (dom: first-3 vs mid vs last-days) change breakdown follow-through? Expect symmetric-ish weakening near turn-of-month (bullish seasonal bias should hurt shorts there), so short edge should be weakest in first-3-days.",
+  "plain": "Shorting a large-cap 4%-down-day breakdown: is it a worse short in the first few trading days of the month (turn-of-month bullish bias)?",
+  "cohort": {"trigger": "four_pct_down", "side": "short", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "calendar", "name": "dom", "buckets": [0, 3, 24, 31]}
+}

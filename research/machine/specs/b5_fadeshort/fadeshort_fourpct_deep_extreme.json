@@ -1,0 +1,11 @@
+{
+  "id": "fadeshort_fourpct_deep_extreme",
+  "question": "On four_pct days in top-200 large caps, restricted to names already >=15% above the 50dma (a hard extension gate), does the highest ret7 quartile within that already-stretched cohort fall hardest when shorted?",
+  "plain": "Among large-cap 4% pops that are already deeply extended above the 50-day average, does adding a sharp prior-week run-up make the short fade even better?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 200], ["dist_50dma", ">=", 15]]
+  },
+  "condition": {"type": "feature", "name": "ret7", "buckets": "quartiles"}
+}

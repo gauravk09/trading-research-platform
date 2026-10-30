@@ -1,0 +1,11 @@
+{
+  "id": "bkdnshort_weaktape_rs",
+  "question": "Shorting four_pct_down top-150 stocks ISOLATED to weak-tape days (market net4 <= 10, bottom quartile), bucketed by stock rs: expect NEGATIVE top-minus-bottom effect, and a MORE negative / larger-magnitude effect than the unconditioned bkdnshort_rs spec, since weak tape + weak stock should compound",
+  "plain": "In a combo test - on days when the overall market is already weak - do breakdown shorts work even better on stocks that are also relative laggards, compared to relatively strong stocks breaking down the same day?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150], ["market:net4", "<=", 10]]
+  },
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

@@ -1,0 +1,6 @@
+{
+  "id": "h6_four_pct_blow21",
+  "question": "Inversion check on 4% up days: stock_env found lower bounce_low21 better, so pre-stating expect LOWER bounce_low21 quintiles (price nearer its 21d low) to have higher stop-R",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quintiles"}
+}

@@ -1,0 +1,9 @@
+{
+  "id": "rg_burst_pct40ma_55",
+  "plain": "Large-cap breakout (burst) long, only taken when a majority of the market (>=55%) is trading above its 40-day average",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["market:pct40ma", ">=", 55]],
+  "horizon": 20,
+  "risk": 0.0075
+}

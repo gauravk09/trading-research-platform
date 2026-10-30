@@ -1,0 +1,13 @@
+{
+ "id": "v_b4dl_burst_deliv_reslice",
+ "question": "Red-team perturbation (2026-08-06 batch): re-sliced to quintiles",
+ "cohort": {
+  "trigger": "burst",
+  "filters": []
+ },
+ "condition": {
+  "type": "feature",
+  "name": "deliv_x20",
+  "buckets": "quintiles"
+ }
+}

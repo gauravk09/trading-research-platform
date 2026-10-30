@@ -1,0 +1,6 @@
+{
+  "id": "h6_burst_sector_rs",
+  "question": "Do 4% breakouts from tight bases work better in strong sectors - expect HIGHER sector_rs quintiles to have higher stop-R",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "sector_rs", "buckets": "quintiles"}
+}

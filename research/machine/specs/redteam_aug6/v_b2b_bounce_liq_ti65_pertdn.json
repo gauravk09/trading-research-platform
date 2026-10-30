@@ -1,0 +1,26 @@
+{
+ "id": "v_b2b_bounce_liq_ti65_pertdn",
+ "question": "Red-team perturbation (2026-08-06 batch): ti65 edges nudged down",
+ "cohort": {
+  "trigger": "bounce",
+  "filters": [
+   [
+    "turn_decile",
+    ">=",
+    0.5
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "ti65",
+  "buckets": [
+   0,
+   0.93,
+   0.985,
+   1.035,
+   1.09,
+   3.0
+  ]
+ }
+}

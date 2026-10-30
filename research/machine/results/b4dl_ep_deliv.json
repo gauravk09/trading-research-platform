@@ -1,0 +1,174 @@
+{
+ "id": "b4dl_ep_deliv",
+ "question": "On episodic-pivot (extreme volume) events, does higher deliver-vs-own-20d-avg (deliv_x20) grade better forward outcome? Expect higher delivery = better (genuine buying, not churn).",
+ "plain": "Tests whether episodic pivots backed by high delivery percentage (real buying, not intraday churn) work better than low-delivery pivots.",
+ "spec": {
+  "id": "b4dl_ep_deliv",
+  "question": "On episodic-pivot (extreme volume) events, does higher deliver-vs-own-20d-avg (deliv_x20) grade better forward outcome? Expect higher delivery = better (genuine buying, not churn).",
+  "plain": "Tests whether episodic pivots backed by high delivery percentage (real buying, not intraday churn) work better than low-delivery pivots.",
+  "cohort": {
+   "trigger": "ep",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "deliv_x20",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 3591,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.03773382678627968,
+    0.45412585139274597
+   ],
+   "B": {
+    "n": 792,
+    "avg_stop_r": -0.212,
+    "med_ret_o5": -2.01,
+    "win5_pct": 37.9,
+    "avg_stop_r_20": -0.278
+   },
+   "COVID": {
+    "n": 106,
+    "avg_stop_r": -0.078,
+    "med_ret_o5": -0.55,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": 0.051
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.4541877508163452,
+    0.6807445883750916
+   ],
+   "B": {
+    "n": 606,
+    "avg_stop_r": -0.024,
+    "med_ret_o5": -0.42,
+    "win5_pct": 46.4,
+    "avg_stop_r_20": 0.21
+   },
+   "COVID": {
+    "n": 292,
+    "avg_stop_r": 0.098,
+    "med_ret_o5": 0.37,
+    "win5_pct": 51.7,
+    "avg_stop_r_20": 0.213
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.6807634234428406,
+    0.8731562495231628
+   ],
+   "B": {
+    "n": 608,
+    "avg_stop_r": 0.067,
+    "med_ret_o5": -0.29,
+    "win5_pct": 48.7,
+    "avg_stop_r_20": 0.233
+   },
+   "COVID": {
+    "n": 289,
+    "avg_stop_r": 0.032,
+    "med_ret_o5": -0.08,
+    "win5_pct": 49.1,
+    "avg_stop_r_20": 0.051
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.873165488243103,
+    2.3673171997070312
+   ],
+   "B": {
+    "n": 570,
+    "avg_stop_r": 0.052,
+    "med_ret_o5": 0.01,
+    "win5_pct": 49.8,
+    "avg_stop_r_20": 0.331
+   },
+   "COVID": {
+    "n": 328,
+    "avg_stop_r": 0.327,
+    "med_ret_o5": 0.75,
+    "win5_pct": 58.2,
+    "avg_stop_r_20": 0.53
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": 0.405,
+  "B": 0.263
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   792,
+   570
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.165,
+   "n": 613,
+   "n_ext": [
+    87,
+    165
+   ]
+  },
+  "B24": {
+   "effect": 0.276,
+   "n": 1963,
+   "n_ext": [
+    705,
+    405
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "INSUFFICIENT (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": 0.479,
+  "B": 0.609
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "INSUFFICIENT (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": 0.274,
+  "B": 0.666
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": 0.294,
+  "B": 0.509
+ },
+ "null_beat_pct_trail": 99.5,
+ "verdict_trail": "INSUFFICIENT (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": 0.239,
+  "B": 0.413
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": 0.253,
+  "B": 0.346
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "INSUFFICIENT (modern)",
+ "verdict_close": "N/A (look-ahead)",
+ "close_flaw": "deliv_x20 is published after the close"
+}

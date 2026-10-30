@@ -1,0 +1,218 @@
+{
+ "id": "rsrel_short_sectorrs",
+ "question": "Among large-cap 4%-down days (short side), does sector strength (sector_rs) grade the short trade -- do names in already-weak sectors fall harder than names in strong sectors? Expect lower sector_rs=better short, i.e. top-minus-bottom effect negative.",
+ "plain": "Do breakdowns in already-weak sectors keep falling harder than breakdowns in strong sectors, or does the sector not matter once the stock itself is breaking down?",
+ "spec": {
+  "id": "rsrel_short_sectorrs",
+  "question": "Among large-cap 4%-down days (short side), does sector strength (sector_rs) grade the short trade -- do names in already-weak sectors fall harder than names in strong sectors? Expect lower sector_rs=better short, i.e. top-minus-bottom effect negative.",
+  "plain": "Do breakdowns in already-weak sectors keep falling harder than breakdowns in strong sectors, or does the sector not matter once the stock itself is breaking down?",
+  "cohort": {
+   "trigger": "four_pct_down",
+   "side": "short",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "sector_rs",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "short",
+ "n": 5554,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.01123595517128706,
+    0.34090909361839294
+   ],
+   "A": {
+    "n": 508,
+    "avg_stop_r": 0.052,
+    "med_ret_o5": -0.12,
+    "win5_pct": 48.2,
+    "avg_stop_r_20": 0.037
+   },
+   "B": {
+    "n": 292,
+    "avg_stop_r": 0.092,
+    "med_ret_o5": -0.21,
+    "win5_pct": 48.3,
+    "avg_stop_r_20": -0.067
+   },
+   "COVID": {
+    "n": 614,
+    "avg_stop_r": 0.094,
+    "med_ret_o5": 0.61,
+    "win5_pct": 53.9,
+    "avg_stop_r_20": 0.119
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.3448275923728943,
+    0.5617977380752563
+   ],
+   "A": {
+    "n": 437,
+    "avg_stop_r": -0.084,
+    "med_ret_o5": 0.52,
+    "win5_pct": 54.5,
+    "avg_stop_r_20": -0.02
+   },
+   "B": {
+    "n": 426,
+    "avg_stop_r": -0.203,
+    "med_ret_o5": 1.04,
+    "win5_pct": 57.0,
+    "avg_stop_r_20": -0.314
+   },
+   "COVID": {
+    "n": 510,
+    "avg_stop_r": -0.133,
+    "med_ret_o5": 0.15,
+    "win5_pct": 51.0,
+    "avg_stop_r_20": -0.185
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.5632184147834778,
+    0.7386363744735718
+   ],
+   "A": {
+    "n": 530,
+    "avg_stop_r": -0.09,
+    "med_ret_o5": 0.6,
+    "win5_pct": 54.3,
+    "avg_stop_r_20": -0.206
+   },
+   "B": {
+    "n": 427,
+    "avg_stop_r": -0.19,
+    "med_ret_o5": 0.94,
+    "win5_pct": 56.7,
+    "avg_stop_r_20": -0.211
+   },
+   "COVID": {
+    "n": 438,
+    "avg_stop_r": 0.062,
+    "med_ret_o5": -0.47,
+    "win5_pct": 47.3,
+    "avg_stop_r_20": 0.035
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.7415730357170105,
+    1.0
+   ],
+   "A": {
+    "n": 512,
+    "avg_stop_r": -0.075,
+    "med_ret_o5": 0.5,
+    "win5_pct": 53.1,
+    "avg_stop_r_20": -0.279
+   },
+   "B": {
+    "n": 424,
+    "avg_stop_r": -0.193,
+    "med_ret_o5": 1.01,
+    "win5_pct": 57.5,
+    "avg_stop_r_20": -0.4
+   },
+   "COVID": {
+    "n": 436,
+    "avg_stop_r": -0.084,
+    "med_ret_o5": -0.91,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": 0.169
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.127,
+  "COVID": -0.178,
+  "B": -0.284
+ },
+ "extreme_bucket_n": {
+  "A": [
+   508,
+   512
+  ],
+  "B": [
+   292,
+   424
+  ]
+ },
+ "null_beat_pct": 82.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.984,
+   "n": 300,
+   "n_ext": [
+    46,
+    76
+   ]
+  },
+  "B24": {
+   "effect": -0.15,
+   "n": 1269,
+   "n_ext": [
+    246,
+    348
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.316,
+  "COVID": 0.05,
+  "B": -0.334
+ },
+ "null_beat_pct_20": 93.5,
+ "verdict_20": "WEAK",
+ "effect_R_trail": {
+  "A": -0.123,
+  "COVID": -0.068,
+  "B": -0.229
+ },
+ "effect_R_trail_w5": {
+  "A": -0.134,
+  "COVID": -0.116,
+  "B": -0.253
+ },
+ "null_beat_pct_trail": 84.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.096,
+  "COVID": 0.012,
+  "B": -0.185
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.107,
+  "COVID": -0.049,
+  "B": -0.209
+ },
+ "null_beat_pct_trail_be": 52.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.076,
+  "COVID": -0.119,
+  "B": -0.267
+ },
+ "effect_R_close_w5": {
+  "A": -0.073,
+  "COVID": -0.076,
+  "B": -0.269
+ },
+ "null_beat_pct_close": 90.5,
+ "verdict_close": "WEAK"
+}

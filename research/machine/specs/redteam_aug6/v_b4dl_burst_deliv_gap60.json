@@ -1,0 +1,14 @@
+{
+ "id": "v_b4dl_burst_deliv_gap60",
+ "question": "Red-team perturbation (2026-08-06 batch): min_gap 60 non-overlap cohort",
+ "cohort": {
+  "trigger": "burst",
+  "filters": [],
+  "min_gap": 60
+ },
+ "condition": {
+  "type": "feature",
+  "name": "deliv_x20",
+  "buckets": "quartiles"
+ }
+}

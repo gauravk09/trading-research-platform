@@ -1,0 +1,6 @@
+{
+  "id": "h1_fourpct_days_since_burst",
+  "question": "On four_pct triggers, do rested stocks (LONGER days_since_burst) outperform recently-burst ones? Expected: positive effect (longest-rest quartile beats shortest), per DEP rested-base house prior.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "feature", "name": "days_since_burst", "buckets": "quartiles"}
+}

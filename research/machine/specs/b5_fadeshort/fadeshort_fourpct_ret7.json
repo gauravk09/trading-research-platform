@@ -1,0 +1,11 @@
+{
+  "id": "fadeshort_fourpct_ret7",
+  "question": "On four_pct days in top-150 large caps, does a sharper trailing 1-week run-up (ret7) make the short fade work better (highest ret7 quartile falls hardest)?",
+  "plain": "When a large-cap stock pops 4%+ after already ripping hard over the prior week, does shorting into that climax work better than shorting a 4% pop with no prior run-up?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "ret7", "buckets": "quartiles"}
+}

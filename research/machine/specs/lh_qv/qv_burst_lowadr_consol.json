@@ -1,0 +1,9 @@
+{
+  "id": "qv_burst_lowadr_consol",
+  "plain": "Momentum burst large caps, calm ADR (<=3.2, bottom quartile) + real consolidation before the burst (consol_days>=3), 20-bar hold",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["adr20", "<=", 3.2], ["consol_days", ">=", 3]],
+  "horizon": 20,
+  "risk": 0.0075
+}

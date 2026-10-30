@@ -1,0 +1,7 @@
+{
+  "id": "b4rv_bounce_low21",
+  "question": "On bounce, does being closer to the 21-day low (deeper washout, lower bounce_low21) produce a better subsequent stop-based R than being further above it? Expect the lowest bounce_low21 bucket to have the best avg_stop_r.",
+  "plain": "Tests whether stocks trading right at their 1-month low bounce better than ones already off their low (deeper-washout hypothesis).",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quartiles"}
+}

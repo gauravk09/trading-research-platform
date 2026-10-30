@@ -1,0 +1,21 @@
+{
+  "id": "p5_net4_burst_top500",
+  "question": "[top-500 by point-in-time market cap] SANITY ANCHOR: the certified net4 breadth gate must still grade breakouts inside a point-in-time top-quality universe -- expect greener tape = better",
+  "plain": "Sanity check: the already-proven market-breadth gate, re-run on the restricted universe to prove the cell is not too thin to judge. Universe: top-500 by point-in-time market cap.",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        500
+      ]
+    ]
+  },
+  "condition": {
+    "type": "market",
+    "name": "net4",
+    "buckets": "quintiles"
+  }
+}

@@ -1,0 +1,209 @@
+{
+ "id": "h2_ep_ret252",
+ "question": "Do episodic pivots on big prior 1-year gainers outperform EPs on laggards? Expected direction: folklore says top ret_252 quartile beats bottom (positive effect); house prior found EPs indifferent to stock character, so a PASS either way is new information.",
+ "plain": null,
+ "spec": {
+  "id": "h2_ep_ret252",
+  "question": "Do episodic pivots on big prior 1-year gainers outperform EPs on laggards? Expected direction: folklore says top ret_252 quartile beats bottom (positive effect); house prior found EPs indifferent to stock character, so a PASS either way is new information.",
+  "cohort": {
+   "trigger": "ep"
+  },
+  "condition": {
+   "type": "derived",
+   "name": "ret_252",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 4979,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -87.77970886230469,
+    -12.650519371032715
+   ],
+   "A": {
+    "n": 342,
+    "avg_stop_r": -0.141,
+    "med_ret_o5": -0.98,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": -0.021
+   },
+   "B": {
+    "n": 459,
+    "avg_stop_r": -0.13,
+    "med_ret_o5": -1.62,
+    "win5_pct": 40.7,
+    "avg_stop_r_20": -0.11
+   },
+   "COVID": {
+    "n": 444,
+    "avg_stop_r": 0.072,
+    "med_ret_o5": -0.17,
+    "win5_pct": 47.7,
+    "avg_stop_r_20": 0.339
+   }
+  },
+  "1": {
+   "cond_range": [
+    -12.603748321533203,
+    28.335630416870117
+   ],
+   "A": {
+    "n": 202,
+    "avg_stop_r": 0.01,
+    "med_ret_o5": 0.05,
+    "win5_pct": 50.5,
+    "avg_stop_r_20": -0.117
+   },
+   "B": {
+    "n": 689,
+    "avg_stop_r": -0.096,
+    "med_ret_o5": -0.92,
+    "win5_pct": 43.1,
+    "avg_stop_r_20": -0.01
+   },
+   "COVID": {
+    "n": 354,
+    "avg_stop_r": 0.258,
+    "med_ret_o5": 0.98,
+    "win5_pct": 57.6,
+    "avg_stop_r_20": 0.514
+   }
+  },
+  "2": {
+   "cond_range": [
+    28.43898582458496,
+    85.38004302978516
+   ],
+   "A": {
+    "n": 168,
+    "avg_stop_r": -0.07,
+    "med_ret_o5": 0.04,
+    "win5_pct": 50.0,
+    "avg_stop_r_20": -0.077
+   },
+   "B": {
+    "n": 710,
+    "avg_stop_r": -0.002,
+    "med_ret_o5": -0.34,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": 0.241
+   },
+   "COVID": {
+    "n": 366,
+    "avg_stop_r": 0.101,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.5,
+    "avg_stop_r_20": 0.159
+   }
+  },
+  "3": {
+   "cond_range": [
+    85.38252258300781,
+    2394.23095703125
+   ],
+   "A": {
+    "n": 113,
+    "avg_stop_r": 0.107,
+    "med_ret_o5": 0.55,
+    "win5_pct": 52.2,
+    "avg_stop_r_20": 0.019
+   },
+   "B": {
+    "n": 728,
+    "avg_stop_r": 0.069,
+    "med_ret_o5": -0.19,
+    "win5_pct": 49.0,
+    "avg_stop_r_20": 0.21
+   },
+   "COVID": {
+    "n": 404,
+    "avg_stop_r": 0.082,
+    "med_ret_o5": -0.45,
+    "win5_pct": 48.0,
+    "avg_stop_r_20": 0.04
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.248,
+  "COVID": 0.01,
+  "B": 0.199
+ },
+ "extreme_bucket_n": {
+  "A": [
+   342,
+   113
+  ],
+  "B": [
+   459,
+   728
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.102,
+   "n": 654,
+   "n_ext": [
+    77,
+    198
+   ]
+  },
+  "B24": {
+   "effect": 0.185,
+   "n": 1932,
+   "n_ext": [
+    382,
+    530
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.041,
+  "COVID": -0.299,
+  "B": 0.32
+ },
+ "null_beat_pct_20": 82.0,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": -0.012,
+  "COVID": -0.338,
+  "B": 0.487
+ },
+ "effect_R_trail_w5": {
+  "A": -0.068,
+  "COVID": -0.294,
+  "B": 0.488
+ },
+ "null_beat_pct_trail": 99.0,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 0.074,
+  "COVID": -0.267,
+  "B": 0.426
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.017,
+  "COVID": -0.226,
+  "B": 0.346
+ },
+ "null_beat_pct_trail_be": 99.5,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.172,
+  "COVID": 0.073,
+  "B": 0.314
+ },
+ "effect_R_close_w5": {
+  "A": 0.127,
+  "COVID": 0.042,
+  "B": 0.293
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "INSUFFICIENT"
+}

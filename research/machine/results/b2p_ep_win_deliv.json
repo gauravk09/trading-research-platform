@@ -1,0 +1,179 @@
+{
+ "id": "b2p_ep_win_deliv",
+ "question": "Stack: EPs with ret_252 >= 0 (pre-registered loser-avoidance edge from h2_ep_ret252) conditioned on deliv_x20 quartiles. Expect POSITIVE top-minus-bottom (delivery spike = institutional intent), mirroring h3_burst_deliv_x20 era-B +0.20. deliv_x20 data starts 2020-10 so era A is empty by construction and an INSUFFICIENT verdict is expected - the era-B table is the readout.",
+ "plain": null,
+ "spec": {
+  "id": "b2p_ep_win_deliv",
+  "question": "Stack: EPs with ret_252 >= 0 (pre-registered loser-avoidance edge from h2_ep_ret252) conditioned on deliv_x20 quartiles. Expect POSITIVE top-minus-bottom (delivery spike = institutional intent), mirroring h3_burst_deliv_x20 era-B +0.20. deliv_x20 data starts 2020-10 so era A is empty by construction and an INSUFFICIENT verdict is expected - the era-B table is the readout.",
+  "cohort": {
+   "trigger": "ep",
+   "filters": [
+    [
+     "ret_252",
+     ">=",
+     0
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "deliv_x20",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 2673,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.06273294240236282,
+    0.5150427222251892
+   ],
+   "B": {
+    "n": 535,
+    "avg_stop_r": -0.112,
+    "med_ret_o5": -1.17,
+    "win5_pct": 41.9,
+    "avg_stop_r_20": -0.059
+   },
+   "COVID": {
+    "n": 134,
+    "avg_stop_r": -0.06,
+    "med_ret_o5": 0.07,
+    "win5_pct": 50.0,
+    "avg_stop_r_20": -0.008
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5153801441192627,
+    0.7059586644172668
+   ],
+   "B": {
+    "n": 434,
+    "avg_stop_r": 0.014,
+    "med_ret_o5": -0.3,
+    "win5_pct": 48.4,
+    "avg_stop_r_20": 0.274
+   },
+   "COVID": {
+    "n": 234,
+    "avg_stop_r": 0.149,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.6,
+    "avg_stop_r_20": 0.3
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.7063693404197693,
+    0.8848005533218384
+   ],
+   "B": {
+    "n": 440,
+    "avg_stop_r": 0.128,
+    "med_ret_o5": 0.07,
+    "win5_pct": 50.2,
+    "avg_stop_r_20": 0.315
+   },
+   "COVID": {
+    "n": 228,
+    "avg_stop_r": -0.009,
+    "med_ret_o5": -0.29,
+    "win5_pct": 47.8,
+    "avg_stop_r_20": -0.008
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.8849015235900879,
+    2.3673171997070312
+   ],
+   "B": {
+    "n": 442,
+    "avg_stop_r": 0.039,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.8,
+    "avg_stop_r_20": 0.256
+   },
+   "COVID": {
+    "n": 226,
+    "avg_stop_r": 0.351,
+    "med_ret_o5": 1.29,
+    "win5_pct": 58.8,
+    "avg_stop_r_20": 0.502
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": 0.411,
+  "B": 0.151
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   535,
+   442
+  ]
+ },
+ "null_beat_pct": 91.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.088,
+   "n": 509,
+   "n_ext": [
+    97,
+    144
+   ]
+  },
+  "B24": {
+   "effect": 0.165,
+   "n": 1342,
+   "n_ext": [
+    438,
+    298
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "INSUFFICIENT (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": 0.51,
+  "B": 0.315
+ },
+ "null_beat_pct_20": 82.0,
+ "verdict_20": "INSUFFICIENT (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": 0.261,
+  "B": 0.343
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": 0.299,
+  "B": 0.296
+ },
+ "null_beat_pct_trail": 87.0,
+ "verdict_trail": "INSUFFICIENT (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": 0.251,
+  "B": 0.333
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": 0.26,
+  "B": 0.261
+ },
+ "null_beat_pct_trail_be": 97.0,
+ "verdict_trail_be": "INSUFFICIENT (modern)",
+ "verdict_close": "N/A (look-ahead)",
+ "close_flaw": "deliv_x20 is published after the close"
+}

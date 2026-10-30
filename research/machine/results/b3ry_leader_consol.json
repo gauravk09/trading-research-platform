@@ -1,0 +1,141 @@
+{
+ "id": "b3ry_leader_consol",
+ "question": "For David Ryan style leaders (strong RS, near 52-week high) breaking out, expect LONGER consol_days (more properly-formed base) to show BETTER stop-R than a rushed short base",
+ "plain": "Ryan looks for strong-RS leaders breaking out near new highs after a proper base -- this checks whether, among those leaders, a longer/more mature base beats a short, rushed one.",
+ "spec": {
+  "id": "b3ry_leader_consol",
+  "question": "For David Ryan style leaders (strong RS, near 52-week high) breaking out, expect LONGER consol_days (more properly-formed base) to show BETTER stop-R than a rushed short base",
+  "plain": "Ryan looks for strong-RS leaders breaking out near new highs after a proper base -- this checks whether, among those leaders, a longer/more mature base beats a short, rushed one.",
+  "cohort": {
+   "trigger": "burst",
+   "filters": [
+    [
+     "rs",
+     ">=",
+     80
+    ],
+    [
+     "pct_52wh",
+     "<=",
+     5
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "consol_days",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 3402,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    180.0
+   ],
+   "A": {
+    "n": 295,
+    "avg_stop_r": -0.111,
+    "med_ret_o5": -0.77,
+    "win5_pct": 41.0,
+    "avg_stop_r_20": 0.067
+   },
+   "B": {
+    "n": 2158,
+    "avg_stop_r": -0.076,
+    "med_ret_o5": -0.95,
+    "win5_pct": 43.6,
+    "avg_stop_r_20": -0.0
+   },
+   "COVID": {
+    "n": 949,
+    "avg_stop_r": 0.143,
+    "med_ret_o5": -0.64,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": 0.257
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "extreme_bucket_n": {
+  "A": [
+   295,
+   295
+  ],
+  "B": [
+   2158,
+   2158
+  ]
+ },
+ "null_beat_pct": 0.0,
+ "modern_split": {
+  "B23": {
+   "effect": NaN,
+   "n": 708,
+   "n_ext": [
+    708,
+    708
+   ]
+  },
+  "B24": {
+   "effect": NaN,
+   "n": 1450,
+   "n_ext": [
+    1450,
+    1450
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_20": 0.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail": 0.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_be_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail_be": 0.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_close_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_close": 0.0,
+ "verdict_close": "FAIL"
+}

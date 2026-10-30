@@ -1,0 +1,12 @@
+{
+ "id": "qm_adr20",
+ "question": "Is the low-volatility (ADR) anomaly present on faithful flag breakouts as it is on bursts (PASS, high ADR = worse)? Expect negative.",
+ "cohort": {
+  "trigger": "qm_flag"
+ },
+ "condition": {
+  "type": "feature",
+  "name": "adr20",
+  "buckets": "quartiles"
+ }
+}

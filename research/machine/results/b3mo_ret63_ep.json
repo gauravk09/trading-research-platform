@@ -1,0 +1,211 @@
+{
+ "id": "b3mo_ret63_ep",
+ "question": "On ep (extreme-volume episodic pivot), do stocks with stronger 3-month prior returns (ret_63) grade higher? (expect higher=better, momentum continuation into the pivot)",
+ "plain": "Momentum idea: does an episodic-pivot stock that was already trending up over the last 3 months perform better afterward than one that wasn't?",
+ "spec": {
+  "id": "b3mo_ret63_ep",
+  "question": "On ep (extreme-volume episodic pivot), do stocks with stronger 3-month prior returns (ret_63) grade higher? (expect higher=better, momentum continuation into the pivot)",
+  "plain": "Momentum idea: does an episodic-pivot stock that was already trending up over the last 3 months perform better afterward than one that wasn't?",
+  "cohort": {
+   "trigger": "ep",
+   "filters": []
+  },
+  "condition": {
+   "type": "derived",
+   "name": "ret_63",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 5163,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -73.8770980834961,
+    -1.2506484985351562
+   ],
+   "A": {
+    "n": 341,
+    "avg_stop_r": -0.12,
+    "med_ret_o5": -0.83,
+    "win5_pct": 44.9,
+    "avg_stop_r_20": -0.024
+   },
+   "B": {
+    "n": 576,
+    "avg_stop_r": -0.124,
+    "med_ret_o5": -1.62,
+    "win5_pct": 40.3,
+    "avg_stop_r_20": -0.196
+   },
+   "COVID": {
+    "n": 374,
+    "avg_stop_r": 0.119,
+    "med_ret_o5": -0.04,
+    "win5_pct": 48.7,
+    "avg_stop_r_20": 0.414
+   }
+  },
+  "1": {
+   "cond_range": [
+    -1.2481629848480225,
+    16.744304656982422
+   ],
+   "A": {
+    "n": 228,
+    "avg_stop_r": -0.03,
+    "med_ret_o5": -0.18,
+    "win5_pct": 48.7,
+    "avg_stop_r_20": -0.213
+   },
+   "B": {
+    "n": 693,
+    "avg_stop_r": -0.049,
+    "med_ret_o5": -0.61,
+    "win5_pct": 45.9,
+    "avg_stop_r_20": 0.139
+   },
+   "COVID": {
+    "n": 370,
+    "avg_stop_r": 0.119,
+    "med_ret_o5": 0.13,
+    "win5_pct": 50.8,
+    "avg_stop_r_20": 0.292
+   }
+  },
+  "2": {
+   "cond_range": [
+    16.84210205078125,
+    37.62946319580078
+   ],
+   "A": {
+    "n": 171,
+    "avg_stop_r": 0.046,
+    "med_ret_o5": 0.55,
+    "win5_pct": 54.4,
+    "avg_stop_r_20": 0.053
+   },
+   "B": {
+    "n": 729,
+    "avg_stop_r": 0.011,
+    "med_ret_o5": -0.43,
+    "win5_pct": 46.4,
+    "avg_stop_r_20": 0.283
+   },
+   "COVID": {
+    "n": 390,
+    "avg_stop_r": 0.042,
+    "med_ret_o5": -0.26,
+    "win5_pct": 47.7,
+    "avg_stop_r_20": 0.144
+   }
+  },
+  "3": {
+   "cond_range": [
+    37.63874816894531,
+    293.80804443359375
+   ],
+   "A": {
+    "n": 164,
+    "avg_stop_r": -0.089,
+    "med_ret_o5": -1.14,
+    "win5_pct": 42.1,
+    "avg_stop_r_20": -0.184
+   },
+   "B": {
+    "n": 671,
+    "avg_stop_r": -0.007,
+    "med_ret_o5": -0.58,
+    "win5_pct": 47.4,
+    "avg_stop_r_20": 0.099
+   },
+   "COVID": {
+    "n": 456,
+    "avg_stop_r": 0.169,
+    "med_ret_o5": 0.54,
+    "win5_pct": 53.1,
+    "avg_stop_r_20": 0.169
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.03,
+  "COVID": 0.05,
+  "B": 0.116
+ },
+ "extreme_bucket_n": {
+  "A": [
+   341,
+   164
+  ],
+  "B": [
+   576,
+   671
+  ]
+ },
+ "null_beat_pct": 95.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.285,
+   "n": 659,
+   "n_ext": [
+    72,
+    216
+   ]
+  },
+  "B24": {
+   "effect": 0.05,
+   "n": 2010,
+   "n_ext": [
+    504,
+    455
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.16,
+  "COVID": -0.245,
+  "B": 0.295
+ },
+ "null_beat_pct_20": 81.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": -0.14,
+  "COVID": -0.394,
+  "B": 0.433
+ },
+ "effect_R_trail_w5": {
+  "A": -0.193,
+  "COVID": -0.289,
+  "B": 0.366
+ },
+ "null_beat_pct_trail": 92.5,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": -0.087,
+  "COVID": -0.189,
+  "B": 0.291
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.11,
+  "COVID": -0.101,
+  "B": 0.254
+ },
+ "null_beat_pct_trail_be": 81.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.078,
+  "COVID": 0.214,
+  "B": 0.221
+ },
+ "effect_R_close_w5": {
+  "A": 0.058,
+  "COVID": 0.17,
+  "B": 0.21
+ },
+ "null_beat_pct_close": 97.5,
+ "verdict_close": "INSUFFICIENT"
+}

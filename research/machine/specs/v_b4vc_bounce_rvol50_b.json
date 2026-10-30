@@ -1,0 +1,13 @@
+{
+  "id": "v_b4vc_bounce_rvol50_b",
+  "question": "Perturbation of b4vc_bounce_rvol50: same BOUNCE cohort, rvol50 condition but with quartile edges shifted ~20% higher (0.47/0.73/1.12 vs original 0.39/0.60/0.93). Expect the same HIGHER rvol50 = better stop-R gradient to survive the edge shift.",
+  "plain": "Robustness check: does the volume-spike bounce edge hold up when the bucket cut-points are moved about 20 percent higher?",
+  "cohort": {
+    "trigger": "bounce"
+  },
+  "condition": {
+    "type": "feature",
+    "name": "rvol50",
+    "buckets": [0, 0.47, 0.73, 1.12, 50]
+  }
+}

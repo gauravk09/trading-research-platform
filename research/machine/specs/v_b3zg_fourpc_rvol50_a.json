@@ -1,0 +1,7 @@
+{
+  "id": "v_b3zg_fourpc_rvol50_a",
+  "question": "Robustness check on b3zg_fourpc_rvol50: same four_pct/rvol50 cohort but quintiles instead of quartiles -- expect same negative-gradient effect (highest rvol50 quintile worse stop-R than lowest, both eras) to survive finer bucketing.",
+  "plain": "Re-testing the volume-spike-hurts-breakouts finding with 5 buckets instead of 4 to see if it's a smooth pattern or just an artifact of how we sliced it.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "rvol50", "buckets": "quintiles"}
+}

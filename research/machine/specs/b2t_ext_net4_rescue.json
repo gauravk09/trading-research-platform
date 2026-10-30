@@ -1,0 +1,9 @@
+{
+  "id": "b2t_ext_net4_rescue",
+  "question": "Rescue check: extended four_pct days (bounce_low21 >= 25.89, the h6 drag quintile) conditioned on market net4 quintiles - pre-stating a good tape does NOT rescue extended entries: sign may be positive like h4 but the top net4 bucket should REMAIN NEGATIVE in absolute era-B avg stop-R",
+  "cohort": {
+    "trigger": "four_pct",
+    "filters": [["bounce_low21", ">=", 25.89]]
+  },
+  "condition": {"type": "market", "name": "net4", "buckets": "quintiles"}
+}

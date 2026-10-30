@@ -1,0 +1,22 @@
+{
+  "id": "v_p5_effratio_burst_top500_gap60",
+  "question": "Red-team of p5_effratio_burst_top500 (overlap control, 60 bars): eff_ratio on top-500 PIT-mcap bursts graded PASS on the CLOSE ruler (full universe was FAIL); red-team: expect smoother prior trend = better to survive with same sign in both eras",
+  "plain": "Robustness re-test of the top-500 chart-linearity result -- overlap control, 60 bars.",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        500
+      ]
+    ],
+    "min_gap": 60
+  },
+  "condition": {
+    "type": "feature",
+    "name": "eff_ratio",
+    "buckets": "quartiles"
+  }
+}

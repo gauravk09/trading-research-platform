@@ -1,0 +1,11 @@
+{
+  "id": "bkdnshort_rs",
+  "question": "Shorting four_pct_down top-150 stocks: bucketed by rs (relative strength rank), expect NEGATIVE top-minus-bottom effect (shorts work better on the weakest-RS breakdowns, worse on breakdowns from stocks that are still relatively strong)",
+  "plain": "Do breakdown shorts work better on stocks that were already market laggards, versus stocks that were still relative leaders before they broke down?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

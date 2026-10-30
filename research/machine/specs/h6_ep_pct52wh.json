@@ -1,0 +1,6 @@
+{
+  "id": "h6_ep_pct52wh",
+  "question": "Do EPs deeper off their 52-week high outperform (house: deeper-off-highs EPs better) - expect LOWER pct_52wh quintiles to have higher stop-R",
+  "cohort": {"trigger": "ep"},
+  "condition": {"type": "feature", "name": "pct_52wh", "buckets": "quintiles"}
+}

@@ -1,0 +1,7 @@
+{
+  "id": "lcmomo_fourpct_ret63",
+  "question": "Among top-150 large-cap four_pct events, does 3-month prior return (ret_63) select winners for a long, expecting top quartile to beat bottom quartile in stop-R? This is the shortest-horizon momentum lever, expected to be weaker than ret_126/ret_252.",
+  "plain": "Buying a 4%-up-day breakout in a large-cap: does 3-month prior momentum matter as much as longer-term momentum?",
+  "cohort": {"trigger": "four_pct", "side": "long", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "derived", "name": "ret_63", "buckets": "quartiles"}
+}

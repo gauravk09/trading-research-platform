@@ -1,0 +1,11 @@
+{
+  "id": "fadeshort_burst_dist50dma",
+  "question": "On burst days in top-150 large caps, does the most-extended-above-50dma quartile fall harder when shorted than the least-extended quartile?",
+  "plain": "When a large-cap stock has a volume/momentum burst while already far above its 50-day average, does shorting the most stretched names beat shorting the least stretched ones?",
+  "cohort": {
+    "trigger": "burst",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 200]]
+  },
+  "condition": {"type": "feature", "name": "dist_50dma", "buckets": "quartiles"}
+}

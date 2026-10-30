@@ -1,0 +1,218 @@
+{
+ "id": "bkdnshort_dist50dma",
+ "question": "Shorting four_pct_down top-150 stocks: bucketed by dist_50dma (% distance of price from its 50dma, negative = below), expect POSITIVE top-minus-bottom effect (stocks just starting to break down, still near/above their 50dma, short better than stocks already far extended below their 50dma which carry more bounce risk)",
+ "plain": "Do breakdown shorts work better on stocks that are only just starting to roll over (still near their 50-day average), versus stocks that are already deeply extended below it and due for a bounce?",
+ "spec": {
+  "id": "bkdnshort_dist50dma",
+  "question": "Shorting four_pct_down top-150 stocks: bucketed by dist_50dma (% distance of price from its 50dma, negative = below), expect POSITIVE top-minus-bottom effect (stocks just starting to break down, still near/above their 50dma, short better than stocks already far extended below their 50dma which carry more bounce risk)",
+  "plain": "Do breakdown shorts work better on stocks that are only just starting to roll over (still near their 50-day average), versus stocks that are already deeply extended below it and due for a bounce?",
+  "cohort": {
+   "trigger": "four_pct_down",
+   "side": "short",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "dist_50dma",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "short",
+ "n": 5484,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -66.77518463134766,
+    -10.510233879089355
+   ],
+   "A": {
+    "n": 546,
+    "avg_stop_r": -0.17,
+    "med_ret_o5": 0.82,
+    "win5_pct": 55.5,
+    "avg_stop_r_20": -0.383
+   },
+   "B": {
+    "n": 303,
+    "avg_stop_r": -0.254,
+    "med_ret_o5": 1.64,
+    "win5_pct": 59.4,
+    "avg_stop_r_20": -0.366
+   },
+   "COVID": {
+    "n": 522,
+    "avg_stop_r": -0.13,
+    "med_ret_o5": 0.37,
+    "win5_pct": 51.3,
+    "avg_stop_r_20": -0.056
+   }
+  },
+  "1": {
+   "cond_range": [
+    -10.509281158447266,
+    -4.8170695304870605
+   ],
+   "A": {
+    "n": 515,
+    "avg_stop_r": 0.066,
+    "med_ret_o5": 0.65,
+    "win5_pct": 53.8,
+    "avg_stop_r_20": 0.106
+   },
+   "B": {
+    "n": 407,
+    "avg_stop_r": -0.076,
+    "med_ret_o5": 0.23,
+    "win5_pct": 52.3,
+    "avg_stop_r_20": -0.179
+   },
+   "COVID": {
+    "n": 449,
+    "avg_stop_r": 0.074,
+    "med_ret_o5": -0.29,
+    "win5_pct": 47.7,
+    "avg_stop_r_20": 0.116
+   }
+  },
+  "2": {
+   "cond_range": [
+    -4.812509536743164,
+    1.3869234323501587
+   ],
+   "A": {
+    "n": 440,
+    "avg_stop_r": -0.008,
+    "med_ret_o5": -0.09,
+    "win5_pct": 49.1,
+    "avg_stop_r_20": -0.07
+   },
+   "B": {
+    "n": 464,
+    "avg_stop_r": -0.025,
+    "med_ret_o5": 0.25,
+    "win5_pct": 51.9,
+    "avg_stop_r_20": -0.136
+   },
+   "COVID": {
+    "n": 467,
+    "avg_stop_r": -0.008,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.7,
+    "avg_stop_r_20": 0.06
+   }
+  },
+  "3": {
+   "cond_range": [
+    1.3904235363006592,
+    90.09033203125
+   ],
+   "A": {
+    "n": 416,
+    "avg_stop_r": -0.025,
+    "med_ret_o5": 0.0,
+    "win5_pct": 49.5,
+    "avg_stop_r_20": -0.075
+   },
+   "B": {
+    "n": 395,
+    "avg_stop_r": -0.261,
+    "med_ret_o5": 1.41,
+    "win5_pct": 59.7,
+    "avg_stop_r_20": -0.417
+   },
+   "COVID": {
+    "n": 560,
+    "avg_stop_r": 0.034,
+    "med_ret_o5": 0.11,
+    "win5_pct": 50.2,
+    "avg_stop_r_20": 0.03
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.144,
+  "COVID": 0.163,
+  "B": -0.007
+ },
+ "extreme_bucket_n": {
+  "A": [
+   546,
+   416
+  ],
+  "B": [
+   303,
+   395
+  ]
+ },
+ "null_beat_pct": 88.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.652,
+   "n": 300,
+   "n_ext": [
+    49,
+    100
+   ]
+  },
+  "B24": {
+   "effect": 0.135,
+   "n": 1269,
+   "n_ext": [
+    254,
+    295
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.308,
+  "COVID": 0.086,
+  "B": -0.051
+ },
+ "null_beat_pct_20": 88.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.269,
+  "COVID": 0.219,
+  "B": -0.086
+ },
+ "effect_R_trail_w5": {
+  "A": 0.264,
+  "COVID": 0.191,
+  "B": -0.076
+ },
+ "null_beat_pct_trail": 91.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.154,
+  "COVID": 0.147,
+  "B": -0.034
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.153,
+  "COVID": 0.118,
+  "B": -0.026
+ },
+ "null_beat_pct_trail_be": 91.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.125,
+  "COVID": -0.198,
+  "B": -0.013
+ },
+ "effect_R_close_w5": {
+  "A": 0.118,
+  "COVID": -0.027,
+  "B": 0.012
+ },
+ "null_beat_pct_close": 56.49999999999999,
+ "verdict_close": "FAIL"
+}

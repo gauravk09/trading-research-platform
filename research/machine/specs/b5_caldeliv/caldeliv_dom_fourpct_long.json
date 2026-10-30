@@ -1,0 +1,7 @@
+{
+  "id": "caldeliv_dom_fourpct_long",
+  "question": "Among top-150 large-cap four_pct longs, does day-of-month (dom: first-3 vs mid vs last-days, turn-of-month effect) change breakout follow-through? Expect first-3-days-of-month strongest, end-of-month not elevated.",
+  "plain": "Buying a large-cap 4%-up-day breakout: does it work better in the first few trading days of the month (turn-of-month effect) versus mid-month or month-end?",
+  "cohort": {"trigger": "four_pct", "side": "long", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "calendar", "name": "dom", "buckets": [0, 3, 24, 31]}
+}

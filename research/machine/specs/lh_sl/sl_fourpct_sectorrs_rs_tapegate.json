@@ -1,0 +1,9 @@
+{
+  "id": "sl_fourpct_sectorrs_rs_tapegate",
+  "plain": "Buy 4%-up-day breakouts only in leadership stocks (top-quartile sector_rs and rs) and only when the broad tape is healthy (market:net4 decent) -- the full sector-leadership + tape combo.",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["sector_rs", ">=", 0.75], ["rs", ">=", 0.75], ["market:net4", ">=", 40]],
+  "horizon": 20,
+  "risk": 0.0075
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b4dl_4pct_rvol_deliv",
+  "question": "Among 4%-up days that are also volume spikes (rvol50>=2), does higher delivery% (deliv_x20) confirm the move and grade better outcome? Expect higher delivery = better (VSA absorption/confirmation idea).",
+  "plain": "Tests whether a 4% up-day volume spike is more reliable when backed by high delivery percentage, i.e. real buying rather than intraday churn (VSA absorption concept).",
+  "cohort": {"trigger": "four_pct", "filters": [["rvol50", ">=", 2]]},
+  "condition": {"type": "feature", "name": "deliv_x20", "buckets": "quartiles"}
+}

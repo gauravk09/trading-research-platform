@@ -1,0 +1,9 @@
+{
+  "id": "mr_bounce_strong_dip",
+  "plain": "Buy the bounce trigger only in stocks with strong structure: above 50dma, near 52wk highs, positive ti65 trend.",
+  "source": "trigger",
+  "trigger": "bounce",
+  "filters": [["ti65", ">=", 1.0], ["dist_50dma", ">=", 0], ["pct_52wh", ">=", -15]],
+  "horizon": 10,
+  "risk": 0.0075
+}

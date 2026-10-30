@@ -1,0 +1,11 @@
+{
+  "id": "lcvcp_fourpct_effratio",
+  "question": "Among large-cap 4%+ breakouts, do stocks with a more linear prior chart (higher 60d eff_ratio) outperform choppier movers? Expected: positive top-minus-bottom (linear beats choppy)",
+  "plain": "Do large-cap breakouts from a smooth, orderly prior uptrend do better than breakouts from a jagged, back-and-forth chart?",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "eff_ratio", "buckets": "quartiles"}
+}

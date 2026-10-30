@@ -1,0 +1,7 @@
+{
+  "id": "b3mo_ret126_fourpct",
+  "question": "On four_pct (any 4% up day), do stocks with stronger 6-month prior returns (ret_126) grade higher, i.e. higher ret_126 bucket -> better stop-based R? (expect higher=better, momentum continuation)",
+  "plain": "Jegadeesh-Titman momentum: does a stock that's already up a lot over the last 6 months keep working better after a 4% up day than one that isn't?",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "derived", "name": "ret_126", "buckets": "quartiles"}
+}

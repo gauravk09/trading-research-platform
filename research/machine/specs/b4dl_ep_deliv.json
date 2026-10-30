@@ -1,0 +1,7 @@
+{
+  "id": "b4dl_ep_deliv",
+  "question": "On episodic-pivot (extreme volume) events, does higher deliver-vs-own-20d-avg (deliv_x20) grade better forward outcome? Expect higher delivery = better (genuine buying, not churn).",
+  "plain": "Tests whether episodic pivots backed by high delivery percentage (real buying, not intraday churn) work better than low-delivery pivots.",
+  "cohort": {"trigger": "ep", "filters": []},
+  "condition": {"type": "feature", "name": "deliv_x20", "buckets": "quartiles"}
+}

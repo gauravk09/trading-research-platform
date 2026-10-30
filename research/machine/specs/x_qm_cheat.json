@@ -1,0 +1,1 @@
+{"id":"x_qm_cheat","question":"SYSTEM CHECK (canary) on the NEW qm_flag cohort: the event's own future 5d return as condition must PASS with an enormous effect on every ruler — proves the new trigger's rows are plumbed identically to the others","cohort":{"trigger":"qm_flag"},"condition":{"type":"cheat","name":"ret_o5","buckets":"quartiles"}}

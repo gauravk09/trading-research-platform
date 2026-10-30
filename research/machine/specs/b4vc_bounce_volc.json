@@ -1,0 +1,7 @@
+{
+  "id": "b4vc_bounce_volc",
+  "question": "On BOUNCE setups, does the volume-change ratio (volc5_50: recent 5d vs 50d avg volume) predict better follow-through? Expect HIGHER volc5_50 (accelerating volume into the down-cluster = capitulation) = better stop-R.",
+  "plain": "Tests whether accelerating volume (5-day vs 50-day average) into a stock's down-day cluster predicts a better mean-reversion bounce.",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "feature", "name": "volc5_50", "buckets": "quartiles"}
+}

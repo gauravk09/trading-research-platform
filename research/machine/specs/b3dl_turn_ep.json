@@ -1,0 +1,7 @@
+{
+  "id": "b3dl_turn_ep",
+  "question": "Does turn_decile (liquidity/size rank) grade episodic pivots, or are EPs already all large/liquid names so size adds nothing? Expect little-to-no effect since EP triggers require extreme volume already.",
+  "plain": "Episodic pivots are extreme-volume gap events; this checks whether bigger, more liquid stocks among them do better than smaller/thinner ones, or whether size stops mattering once a stock already has that much volume.",
+  "cohort": {"trigger": "ep", "filters": []},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quintiles"}
+}

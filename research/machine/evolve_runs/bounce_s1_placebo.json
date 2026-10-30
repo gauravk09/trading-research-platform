@@ -1,0 +1,418 @@
+{
+ "args": {
+  "trigger": "bounce",
+  "mode": "gradient",
+  "side": "long",
+  "pop": 24,
+  "gens": 30,
+  "seed": 1,
+  "finalists": 4,
+  "placebo": true,
+  "dry": false
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.6134644827803586,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "market",
+     "name": "net4",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 2,
+   "best": 0.9189619565454265,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "adr20",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 3,
+   "best": 0.9189619565454265,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "adr20",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 4,
+   "best": 0.9189619565454265,
+   "median": 0.1162828096376321,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "adr20",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 5,
+   "best": 0.9189619565454265,
+   "median": 0.06902720844703479,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "adr20",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 6,
+   "best": 0.9189619565454265,
+   "median": 0.02670554899801647,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "adr20",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 7,
+   "best": 0.9516980382417761,
+   "median": 0.17420015467275662,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 8,
+   "best": 0.9516980382417761,
+   "median": 0.5951046383249868,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 9,
+   "best": 0.9516980382417761,
+   "median": 0.5839515852787671,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 10,
+   "best": 0.9516980382417761,
+   "median": 0.10358289110524932,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 11,
+   "best": 0.9516980382417761,
+   "median": 0.3665567056020053,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 12,
+   "best": 0.9516980382417761,
+   "median": 0.21631302767628574,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 13,
+   "best": 0.9516980382417761,
+   "median": 0.2851988953589223,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 14,
+   "best": 0.9516980382417761,
+   "median": 0.3470659344948786,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 15,
+   "best": 0.9516980382417761,
+   "median": 0.5517859548365882,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 16,
+   "best": 0.9516980382417761,
+   "median": 0.9353299973936013,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 17,
+   "best": 0.9516980382417761,
+   "median": 0.38446558788320007,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 18,
+   "best": 0.9516980382417761,
+   "median": 0.5580576233677433,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 19,
+   "best": 0.9516980382417761,
+   "median": 0.38446558788320007,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 20,
+   "best": 0.9516980382417761,
+   "median": 0.35345551591142943,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 21,
+   "best": 0.9516980382417761,
+   "median": 0.18388106365502,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 22,
+   "best": 0.9516980382417761,
+   "median": 0.5964072138125418,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 23,
+   "best": 0.9516980382417761,
+   "median": 0.32217727504595794,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 24,
+   "best": 0.9516980382417761,
+   "median": 0.7630312143719307,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 25,
+   "best": 0.9516980382417761,
+   "median": 0.38446558788320007,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 26,
+   "best": 0.9516980382417761,
+   "median": 0.4551827041574692,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 27,
+   "best": 0.9516980382417761,
+   "median": 0.5454957491019841,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 28,
+   "best": 0.9516980382417761,
+   "median": 0.31730749424275934,
+   "best_ind": {
+    "filters": [],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 29,
+   "best": 0.9777258732094792,
+   "median": 0.3498884868638969,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_126",
+      ">=",
+      -14.0938
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  },
+  {
+   "gen": 30,
+   "best": 0.9777258732094792,
+   "median": 0.3913057587880449,
+   "best_ind": {
+    "filters": [
+     [
+      "ret_126",
+      ">=",
+      -14.0938
+     ]
+    ],
+    "condition": {
+     "type": "feature",
+     "name": "days_since_burst",
+     "buckets": "quintiles"
+    }
+   }
+  }
+ ],
+ "finalists": []
+}

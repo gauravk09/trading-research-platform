@@ -1,0 +1,15 @@
+{
+  "id": "lclowvol_burst_adr20",
+  "question": "Among large-cap (top200, since burst is thin) burst-trigger days, does LOWER adr20 beat higher adr20 on long stop-R? Expect NEGATIVE top-minus-bottom effect.",
+  "plain": "For big-cap momentum bursts, do the calmer (low daily-range) names make better longs than the wilder ones?",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 200]]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "adr20",
+    "buckets": "quartiles"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "v_b3zg_fourpc_rvol50_b",
+  "question": "Robustness check on b3zg_fourpc_rvol50: same four_pct/rvol50 cohort with explicit bucket edges shifted ~20% above the original quartile cuts (1.46, 2.60, 5.08 vs original 1.22, 2.17, 4.23) -- expect same negative-gradient effect (highest-rvol50 bucket worse stop-R than lowest, both eras) to survive the shifted cutpoints.",
+  "plain": "Re-testing the volume-spike-hurts-breakouts finding by moving the bucket boundaries higher to make sure the result isn't an accident of exactly where we drew the lines.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "rvol50", "buckets": [1.46, 2.60, 5.08]}
+}

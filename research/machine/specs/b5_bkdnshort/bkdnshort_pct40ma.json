@@ -1,0 +1,11 @@
+{
+  "id": "bkdnshort_pct40ma",
+  "question": "Shorting four_pct_down top-150 stocks: bucketed by market pct40ma (% of names above their 40dma), expect NEGATIVE top-minus-bottom effect (shorts work better when few stocks are above their 40dma i.e. broad market weakness)",
+  "plain": "Do breakdown shorts work better when most stocks in the market are already below their own 40-day average (broad weakness) versus when most are still above it (broad strength)?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "market", "name": "pct40ma", "buckets": "quartiles"}
+}

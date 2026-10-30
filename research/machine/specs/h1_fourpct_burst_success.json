@@ -1,0 +1,6 @@
+{
+  "id": "h1_fourpct_burst_success",
+  "question": "On four_pct triggers, does prior burst_success track record predict follow-through? Expected: modest positive effect (high prior success = better stop-R), mirroring the weak positive seen on the burst cohort.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "feature", "name": "burst_success", "buckets": "quartiles"}
+}

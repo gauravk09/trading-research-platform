@@ -1,0 +1,12 @@
+{
+ "id": "v_h4_ep_score_quart",
+ "question": "Red-team perturbation (2026-08-06 batch): breadth-score quartiles instead of fixed edges",
+ "cohort": {
+  "trigger": "ep"
+ },
+ "condition": {
+  "type": "market",
+  "name": "score",
+  "buckets": "quartiles"
+ }
+}

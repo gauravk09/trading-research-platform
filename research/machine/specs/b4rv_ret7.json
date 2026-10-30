@@ -1,0 +1,7 @@
+{
+  "id": "b4rv_ret7",
+  "question": "On bounce (3rd down close), does a more negative 7-day return (deeper short-term drawdown into the bounce) produce a better subsequent stop-based R than a milder ret7? Expect the most-negative ret7 bucket to have the best avg_stop_r.",
+  "plain": "Tests whether stocks that fell harder over the prior week bounce better afterward (short-term reversal / Connors RSI-2 idea).",
+  "cohort": {"trigger": "bounce"},
+  "condition": {"type": "feature", "name": "ret7", "buckets": "quartiles"}
+}

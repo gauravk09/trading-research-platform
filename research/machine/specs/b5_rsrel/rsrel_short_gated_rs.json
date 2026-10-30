@@ -1,0 +1,11 @@
+{
+  "id": "rsrel_short_gated_rs",
+  "question": "Gated to large-cap 4%-down days already in the bottom sector-RS quartile (sector_rs<=0.25), does the stock's own RS rank still grade the short trade? Expect lower rs=better short, i.e. top-minus-bottom effect negative.",
+  "plain": "If we only short breakdowns in already-weak sectors, does picking the weakest stock within that sector add extra edge, or is sector weakness doing all the work?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 200], ["sector_rs", "<=", 0.25]]
+  },
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

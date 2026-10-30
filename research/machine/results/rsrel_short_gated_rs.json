@@ -1,0 +1,223 @@
+{
+ "id": "rsrel_short_gated_rs",
+ "question": "Gated to large-cap 4%-down days already in the bottom sector-RS quartile (sector_rs<=0.25), does the stock's own RS rank still grade the short trade? Expect lower rs=better short, i.e. top-minus-bottom effect negative.",
+ "plain": "If we only short breakdowns in already-weak sectors, does picking the weakest stock within that sector add extra edge, or is sector weakness doing all the work?",
+ "spec": {
+  "id": "rsrel_short_gated_rs",
+  "question": "Gated to large-cap 4%-down days already in the bottom sector-RS quartile (sector_rs<=0.25), does the stock's own RS rank still grade the short trade? Expect lower rs=better short, i.e. top-minus-bottom effect negative.",
+  "plain": "If we only short breakdowns in already-weak sectors, does picking the weakest stock within that sector add extra edge, or is sector weakness doing all the work?",
+  "cohort": {
+   "trigger": "four_pct_down",
+   "side": "short",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     200
+    ],
+    [
+     "sector_rs",
+     "<=",
+     0.25
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "rs",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "short",
+ "n": 1202,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.7746111154556274,
+    18.7724552154541
+   ],
+   "A": {
+    "n": 124,
+    "avg_stop_r": 0.207,
+    "med_ret_o5": -0.98,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": 0.163
+   },
+   "B": {
+    "n": 51,
+    "avg_stop_r": 0.25,
+    "med_ret_o5": -0.96,
+    "win5_pct": 43.1,
+    "avg_stop_r_20": -0.147
+   },
+   "COVID": {
+    "n": 126,
+    "avg_stop_r": -0.102,
+    "med_ret_o5": 0.26,
+    "win5_pct": 52.4,
+    "avg_stop_r_20": -0.139
+   }
+  },
+  "1": {
+   "cond_range": [
+    18.81769561767578,
+    32.12588119506836
+   ],
+   "A": {
+    "n": 92,
+    "avg_stop_r": 0.046,
+    "med_ret_o5": -0.29,
+    "win5_pct": 46.7,
+    "avg_stop_r_20": 0.13
+   },
+   "B": {
+    "n": 67,
+    "avg_stop_r": 0.253,
+    "med_ret_o5": -0.46,
+    "win5_pct": 40.3,
+    "avg_stop_r_20": 0.063
+   },
+   "COVID": {
+    "n": 141,
+    "avg_stop_r": -0.077,
+    "med_ret_o5": 0.83,
+    "win5_pct": 56.7,
+    "avg_stop_r_20": -0.05
+   }
+  },
+  "2": {
+   "cond_range": [
+    32.1503791809082,
+    47.59762954711914
+   ],
+   "A": {
+    "n": 98,
+    "avg_stop_r": 0.189,
+    "med_ret_o5": -0.88,
+    "win5_pct": 41.8,
+    "avg_stop_r_20": 0.045
+   },
+   "B": {
+    "n": 74,
+    "avg_stop_r": -0.018,
+    "med_ret_o5": 0.25,
+    "win5_pct": 54.1,
+    "avg_stop_r_20": -0.378
+   },
+   "COVID": {
+    "n": 128,
+    "avg_stop_r": 0.01,
+    "med_ret_o5": 0.4,
+    "win5_pct": 52.3,
+    "avg_stop_r_20": -0.081
+   }
+  },
+  "3": {
+   "cond_range": [
+    47.614524841308594,
+    99.4305648803711
+   ],
+   "A": {
+    "n": 90,
+    "avg_stop_r": 0.199,
+    "med_ret_o5": -0.83,
+    "win5_pct": 42.2,
+    "avg_stop_r_20": 0.011
+   },
+   "B": {
+    "n": 66,
+    "avg_stop_r": -0.208,
+    "med_ret_o5": 0.77,
+    "win5_pct": 60.6,
+    "avg_stop_r_20": -0.279
+   },
+   "COVID": {
+    "n": 145,
+    "avg_stop_r": 0.357,
+    "med_ret_o5": 0.34,
+    "win5_pct": 54.5,
+    "avg_stop_r_20": 0.373
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.008,
+  "COVID": 0.458,
+  "B": -0.458
+ },
+ "extreme_bucket_n": {
+  "A": [
+   124,
+   90
+  ],
+  "B": [
+   51,
+   66
+  ]
+ },
+ "null_beat_pct": 24.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.478,
+   "n": 36,
+   "n_ext": [
+    13,
+    5
+   ]
+  },
+  "B24": {
+   "effect": -0.456,
+   "n": 222,
+   "n_ext": [
+    38,
+    61
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.153,
+  "COVID": 0.512,
+  "B": -0.132
+ },
+ "null_beat_pct_20": 38.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": -0.097,
+  "COVID": 0.204,
+  "B": -0.034
+ },
+ "effect_R_trail_w5": {
+  "A": -0.097,
+  "COVID": 0.095,
+  "B": -0.034
+ },
+ "null_beat_pct_trail": 32.5,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": -0.049,
+  "COVID": 0.179,
+  "B": -0.275
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.049,
+  "COVID": 0.07,
+  "B": -0.275
+ },
+ "null_beat_pct_trail_be": 9.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": -0.143,
+  "COVID": 0.35,
+  "B": -0.419
+ },
+ "effect_R_close_w5": {
+  "A": -0.153,
+  "COVID": 0.209,
+  "B": -0.419
+ },
+ "null_beat_pct_close": 13.5,
+ "verdict_close": "INSUFFICIENT"
+}

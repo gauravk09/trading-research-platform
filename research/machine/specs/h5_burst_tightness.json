@@ -1,0 +1,6 @@
+{
+  "id": "h5_burst_tightness",
+  "question": "Does a tighter pre-burst 5d range (low tightness pct-rank = tight) improve burst outcomes? Expected: negative top-minus-bottom (tight better), echoing the four_pct lower-is-better inversion, though burst prior says null",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "tightness", "buckets": "quartiles"}
+}

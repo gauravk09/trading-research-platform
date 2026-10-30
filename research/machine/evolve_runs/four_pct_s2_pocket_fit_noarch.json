@@ -1,0 +1,285 @@
+{
+ "args": {
+  "trigger": "four_pct",
+  "mode": "pocket",
+  "seeds": null,
+  "genome": "gradient",
+  "side": "long",
+  "pop": 24,
+  "gens": 15,
+  "seed": 2,
+  "finalists": 4,
+  "fit": true,
+  "placebo": false,
+  "dry": false,
+  "no_archive": true,
+  "no_ledger": true,
+  "no_certify": true,
+  "ruler": "stop_r",
+  "train_end": 2020
+ },
+ "generations": [
+  {
+   "gen": 1,
+   "best": 0.0,
+   "median": 0.0,
+   "best_ind": {
+    "filters": []
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 2,
+   "best": 0.2716542313608423,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 3,
+   "best": 0.2716542313608423,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 4,
+   "best": 0.2716542313608423,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 5,
+   "best": 0.2716542313608423,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 6,
+   "best": 0.33462542415855784,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 7,
+   "best": 0.33462542415855784,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 8,
+   "best": 0.33462542415855784,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 9,
+   "best": 0.33462542415855784,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 10,
+   "best": 0.33462542415855784,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 11,
+   "best": 0.33462542415855784,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 12,
+   "best": 0.33462542415855784,
+   "median": 0.004434410345897838,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 13,
+   "best": 0.33462542415855784,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 14,
+   "best": 0.33462542415855784,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  },
+  {
+   "gen": 15,
+   "best": 0.33462542415855784,
+   "median": 0.0,
+   "best_ind": {
+    "filters": [
+     [
+      "rs",
+      "<="
+     ],
+     [
+      "consol_days",
+      "<="
+     ]
+    ]
+   },
+   "archive": 0,
+   "vetoes": 0
+  }
+ ],
+ "unevaluable_seeds": [],
+ "finalists": []
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b3bq_ep_consoldays",
+  "question": "On episodic-pivot (extreme-volume gap) events, does prior base length (consol_days) grade the outcome? Expect longer consol_days = better stop-R, since an EP breaking out of a longer, more mature base should be a stronger surprise catalyst.",
+  "plain": "Idea: an episodic pivot (a big surprise-news gap) works better when the stock had been quietly building a base for a long time beforehand, versus one with no prior base.",
+  "cohort": {"trigger": "ep", "filters": []},
+  "condition": {"type": "feature", "name": "consol_days", "buckets": "quartiles"}
+}

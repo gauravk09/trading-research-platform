@@ -1,0 +1,188 @@
+{
+ "id": "b4se_expiry_4pct",
+ "question": "Expected: weak/negative \u2014 expiry-week volatility literature suggests returns after a 4% up day are weaker or choppier when the trigger falls within expiry week (0-2 calendar days to monthly expiry) versus the rest of the month.",
+ "plain": "Testing whether being close to F&O monthly expiry (last Thursday) makes 4%-up-day follow-through worse, as expiry-week volatility studies suggest.",
+ "spec": {
+  "id": "b4se_expiry_4pct",
+  "question": "Expected: weak/negative \u2014 expiry-week volatility literature suggests returns after a 4% up day are weaker or choppier when the trigger falls within expiry week (0-2 calendar days to monthly expiry) versus the rest of the month.",
+  "plain": "Testing whether being close to F&O monthly expiry (last Thursday) makes 4%-up-day follow-through worse, as expiry-week volatility studies suggest.",
+  "cohort": {
+   "trigger": "four_pct"
+  },
+  "condition": {
+   "type": "calendar",
+   "name": "expiry_dist",
+   "buckets": [
+    -1,
+    2,
+    7,
+    40
+   ]
+  }
+ },
+ "side": "long",
+ "n": 76899,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    2.0
+   ],
+   "A": {
+    "n": 2621,
+    "avg_stop_r": -0.04,
+    "med_ret_o5": -0.74,
+    "win5_pct": 44.5,
+    "avg_stop_r_20": -0.086
+   },
+   "B": {
+    "n": 4929,
+    "avg_stop_r": 0.043,
+    "med_ret_o5": -0.13,
+    "win5_pct": 49.1,
+    "avg_stop_r_20": 0.0
+   },
+   "COVID": {
+    "n": 3680,
+    "avg_stop_r": 0.049,
+    "med_ret_o5": -0.33,
+    "win5_pct": 47.7,
+    "avg_stop_r_20": 0.192
+   }
+  },
+  "1": {
+   "cond_range": [
+    3.0,
+    7.0
+   ],
+   "A": {
+    "n": 2600,
+    "avg_stop_r": -0.003,
+    "med_ret_o5": -0.77,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": -0.013
+   },
+   "B": {
+    "n": 4660,
+    "avg_stop_r": -0.057,
+    "med_ret_o5": -1.0,
+    "win5_pct": 43.2,
+    "avg_stop_r_20": -0.069
+   },
+   "COVID": {
+    "n": 3004,
+    "avg_stop_r": -0.106,
+    "med_ret_o5": -1.22,
+    "win5_pct": 41.7,
+    "avg_stop_r_20": 0.053
+   }
+  },
+  "2": {
+   "cond_range": [
+    8.0,
+    30.0
+   ],
+   "A": {
+    "n": 12515,
+    "avg_stop_r": -0.05,
+    "med_ret_o5": -1.06,
+    "win5_pct": 42.5,
+    "avg_stop_r_20": -0.13
+   },
+   "B": {
+    "n": 26182,
+    "avg_stop_r": -0.006,
+    "med_ret_o5": -0.73,
+    "win5_pct": 45.0,
+    "avg_stop_r_20": 0.084
+   },
+   "COVID": {
+    "n": 16708,
+    "avg_stop_r": -0.082,
+    "med_ret_o5": -1.47,
+    "win5_pct": 40.4,
+    "avg_stop_r_20": 0.04
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.011,
+  "COVID": -0.132,
+  "B": -0.049
+ },
+ "extreme_bucket_n": {
+  "A": [
+   2621,
+   12515
+  ],
+  "B": [
+   4929,
+   26182
+  ]
+ },
+ "null_beat_pct": 69.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.231,
+   "n": 8247,
+   "n_ext": [
+    1215,
+    6053
+   ]
+  },
+  "B24": {
+   "effect": 0.009,
+   "n": 27524,
+   "n_ext": [
+    3714,
+    20129
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.044,
+  "COVID": -0.152,
+  "B": 0.084
+ },
+ "null_beat_pct_20": 15.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.071,
+  "COVID": -0.179,
+  "B": -0.012
+ },
+ "effect_R_trail_w5": {
+  "A": -0.074,
+  "COVID": -0.18,
+  "B": -0.01
+ },
+ "null_beat_pct_trail": 74.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.055,
+  "COVID": -0.149,
+  "B": -0.017
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.059,
+  "COVID": -0.15,
+  "B": -0.017
+ },
+ "null_beat_pct_trail_be": 72.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.018,
+  "COVID": -0.064,
+  "B": -0.044
+ },
+ "effect_R_close_w5": {
+  "A": -0.033,
+  "COVID": -0.079,
+  "B": -0.055
+ },
+ "null_beat_pct_close": 49.0,
+ "verdict_close": "FAIL"
+}

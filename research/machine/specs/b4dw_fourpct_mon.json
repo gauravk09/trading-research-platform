@@ -1,0 +1,7 @@
+{
+  "id": "b4dw_fourpct_mon",
+  "question": "Does a 4% breakout day that falls on a Monday produce better stop-based R than one on Tue-Fri? Indian day-of-week studies report abnormally POSITIVE Monday returns (opposite of the classic US Monday effect), though the effect is reported as weakening in recent years -- expect WEAK/decayed here.",
+  "plain": "Tests whether Monday is a lucky day for 4%-up-day triggers, per Indian day-of-week studies showing a reversed (positive) Monday effect vs the US.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "calendar", "name": "dow", "buckets": [-1, 0, 4]}
+}

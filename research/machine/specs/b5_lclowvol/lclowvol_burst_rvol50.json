@@ -1,0 +1,15 @@
+{
+  "id": "lclowvol_burst_rvol50",
+  "question": "Among large-cap (top200, since burst is thin) burst-trigger days, does LOWER rvol50 beat higher rvol50 on long stop-R? Expect NEGATIVE top-minus-bottom effect.",
+  "plain": "For big-cap momentum bursts, do the ones with unremarkable recent volume make better longs than the volume-frenzy ones?",
+  "cohort": {
+    "trigger": "burst",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 200]]
+  },
+  "condition": {
+    "type": "feature",
+    "name": "rvol50",
+    "buckets": "quartiles"
+  }
+}

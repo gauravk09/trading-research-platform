@@ -1,0 +1,613 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Anticipation Live</title>
+<style>
+  body { margin: 0; background: #0e1117; color: #d8dee9;
+         font: 13px -apple-system, "Segoe UI", sans-serif; }
+  #hdr { display: flex; align-items: center; gap: 14px;
+         padding: 8px 14px; border-bottom: 1px solid #22262e; }
+  #hdr .title { font-weight: 600; }
+  #hdr .muted { color: #6b7280; }
+  #trkmsg { color: #f6b93b; }
+
+  /* Tab bar */
+  #tabs { display: flex; gap: 6px; padding: 8px 14px 0; flex-wrap: wrap; }
+  #tabs button { background: rgba(128,128,128,.08); color: #9aa3b2;
+                 border: 1px solid transparent; border-radius: 9px;
+                 padding: 5px 13px; font-weight: 600; font-size: 13px;
+                 cursor: pointer; }
+  #tabs button.active { background: rgba(38,166,154,.16); color: #26a69a;
+                        border-color: rgba(38,166,154,.4); }
+
+  /* Scan tables */
+  #table { padding: 6px 14px 30px; }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  thead th { position: sticky; top: 0; background: #0e1117; text-align: right;
+             color: #6b7280; font-weight: 600; padding: 7px 12px;
+             border-bottom: 1px solid #2c313c; cursor: pointer;
+             white-space: nowrap; user-select: none; }
+  thead th:hover { color: #9aa3b2; }
+  thead th:first-child, tbody td.c-symbol { text-align: left; }
+  thead th .arrow { color: #26a69a; }
+  /* "?" help chip — hover shows the column definition */
+  .help { position: relative; display: inline-block; width: 14px; height: 14px;
+          line-height: 14px; text-align: center; border-radius: 50%;
+          font-size: 10px; font-weight: 700; color: #6b7280;
+          background: rgba(128,128,128,.16); cursor: help; margin-left: 4px; }
+  .help:hover { color: #d8dee9; background: rgba(122,162,247,.28); }
+  .help::after {
+    content: attr(data-tip);
+    position: absolute; top: calc(100% + 7px); right: -5px;
+    width: 250px; white-space: normal; text-align: left;
+    background: #1a1f29; color: #d8dee9; border: 1px solid #39404e;
+    border-radius: 6px; padding: 8px 10px;
+    font-size: 11.5px; font-weight: 400; line-height: 1.5; letter-spacing: 0;
+    box-shadow: 0 8px 22px rgba(0,0,0,.55);
+    opacity: 0; visibility: hidden; transition: opacity .12s ease;
+    pointer-events: none; z-index: 60; }
+  .help:hover::after { opacity: 1; visibility: visible; }
+  /* leftmost column is left-aligned — flip the tooltip so it stays on screen */
+  thead th:first-child .help::after { right: auto; left: -5px; }
+  tbody td { padding: 6px 12px; text-align: right; border-bottom: 1px solid #171b22; }
+  tbody tr:hover { background: #141922; }
+  td.c-symbol { font-weight: 700; }
+  td.c-date, td.c-reason { text-align: left; }
+  td.c-reason { color: #9aa3b2; font-weight: 400; white-space: normal; max-width: 360px; }
+  .rvol-strong { color: #e8c15a; font-weight: 700; }
+  .rvol-hot    { color: #f6b93b; font-weight: 700; }
+  .badge { background: rgba(122,162,247,.14); color: #7aa2f7;
+           border-radius: 7px; padding: 1px 8px; font-size: 11px; font-weight: 600; }
+  .badge.bear { background: rgba(239,83,80,.14); color: #ef5350; }
+  /* amber, so it can't be misread as the blue DEP badge */
+  .badge.fo { background: rgba(232,193,90,.14); color: #e8c15a; }
+  /* validated-strategy signal — hover the badge for which rule decided */
+  .badge.take    { background: rgba(38,166,154,.16); color: #26a69a; }
+  .badge.skip    { background: rgba(239,83,80,.16);  color: #ef5350; }
+  .badge.caution { background: rgba(232,193,90,.16); color: #e8c15a; }
+  #tape { padding: 4px 16px; font-size: 11.5px; color: #9aa3b2;
+          font-variant-numeric: tabular-nums; }
+  #tape b { color: #d8dee9; }
+
+  /* Order Pad tickets */
+  .tgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+           gap: 12px; padding: 4px 16px 16px; align-items: start; }
+  .ticket { border: 1px solid #232833; border-left: 3px solid var(--side, #26a69a);
+            border-radius: 12px; padding: 13px 15px 12px; margin: 0;
+            background: #12151c; transition: border-color .15s ease; }
+  .ticket:hover { border-color: #303747; border-left-color: var(--side, #26a69a); }
+  .ticket.prov { opacity: .9; }
+
+  .thead { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .thl { display: flex; align-items: center; gap: 9px; min-width: 0; }
+  .thr { display: flex; align-items: center; gap: 7px; flex: none; }
+  .side { font-size: 11px; font-weight: 700; letter-spacing: .03em; color: #fff;
+          background: var(--side, #26a69a); padding: 3px 9px; border-radius: 6px; white-space: nowrap; }
+  .tsym { font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
+  .play { font-size: 11.5px; color: #6b7280; white-space: nowrap;
+          overflow: hidden; text-overflow: ellipsis; }
+  .chip { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 100px;
+          border: 1px solid #2c313c; color: #9aa3b2; white-space: nowrap; }
+  .chip.up { color: #26a69a; border-color: #1e3a30; background: #0e1a15; }
+  .chip.dn { color: #ef5350; border-color: #3a1e1e; background: #1a0e0e; }
+  .chip.tag { color: #c9d1e0; }
+
+  .metrics { display: grid; grid-template-columns: repeat(2, 1fr);
+             gap: 8px; margin: 12px 0 2px; }
+  .metric { background: #0e1117; border: 1px solid #1e232c; border-radius: 8px; padding: 7px 10px; }
+  .mlabel { font-size: 9.5px; text-transform: uppercase; letter-spacing: .08em;
+            color: #5b6270; margin-bottom: 3px; }
+  .mval { font-size: 14px; font-weight: 600; color: #d8dee9; }
+  .mval.stopv { color: #ef8a88; }
+  .msub { font-size: 10px; color: #6b7280; margin-top: 1px; }
+
+  .callout { display: flex; gap: 8px; align-items: flex-start; margin-top: 11px;
+             font-size: 11.5px; line-height: 1.5; padding: 8px 11px; border-radius: 8px; }
+  .callout .ci { flex: none; }
+  .callout.warn { color: #e8c15a; background: #1c1706; border: 1px solid #3a2f10; }
+  .callout.ok { color: #6fceb0; background: #0e1a15; border: 1px solid #1e3a30; }
+
+  .tbtn { background: #12151c; border: 1px solid #2c313c; border-radius: 6px;
+          color: #9aa3b2; cursor: pointer; font-size: 11px; line-height: 1;
+          padding: 5px 9px; vertical-align: middle; }
+  .tbtn:hover { border-color: #7aa2f7; background: #1a1f2b; color: #d8dee9; }
+  .tchart { margin: 0; padding: 3px 6px; }
+  .tfoot { display: flex; gap: 6px; margin-top: 11px; }
+  .tcard { display: none; margin: 9px 0 0; padding: 9px 11px; background: #0d1016;
+           border: 1px solid #22262e; border-radius: 8px; font-size: 11px;
+           color: #9aa3b2; white-space: pre-wrap; user-select: all; }
+  .tcard.show { display: block; }
+  .muted { color: #4b5563; }
+  tbody tr { cursor: pointer; }
+  #empty { padding: 40px; text-align: center; color: #6b7280; }
+
+  /* ⊕ track button — stamps the row's LTP + time, routes it to User Picks */
+  th.c-trk, td.c-trk { width: 22px; padding-left: 14px; padding-right: 0; }
+  .trk { color: #39404e; font-size: 15px; line-height: 1; cursor: pointer; }
+  .trk:hover { color: #7aa2f7; }
+  .trk.on { color: #26a69a; }
+
+  /* Chart modal */
+  #modal { position: fixed; inset: 0; background: rgba(0,0,0,.6);
+           display: none; align-items: center; justify-content: center; z-index: 50; }
+  #modal.open { display: flex; }
+  #modal .panel { background: #12151c; border: 1px solid #2c313c; border-radius: 10px;
+                  width: min(1100px, 94vw); height: min(640px, 88vh);
+                  display: flex; flex-direction: column; }
+  #modal .mhdr { display: flex; align-items: center; gap: 10px; padding: 8px 12px;
+                 border-bottom: 1px solid #22262e; }
+  #modal .mhdr .sym { font-weight: 700; font-size: 15px; }
+  #modal .mhdr button { background: #1a1f29; color: #9aa3b2; border: 1px solid #2c313c;
+                        border-radius: 4px; padding: 3px 12px; cursor: pointer;
+                        font-weight: 600; }
+  #modal .mhdr button.active { color: #26a69a; border-color: rgba(38,166,154,.5);
+                               background: rgba(38,166,154,.12); }
+  #modal .mhdr .close { margin-left: auto; }
+  .mwrap { flex: 1; min-height: 0; position: relative; }
+  #mchart { position: absolute; inset: 0; }
+  /* crosshair readout — the hovered bar's OHLC, its move and its volume */
+  #mlegend { position: absolute; top: 8px; left: 12px; z-index: 5;
+             pointer-events: none; font-size: 11.5px; color: #9aa3b2;
+             font-variant-numeric: tabular-nums; letter-spacing: .2px; }
+  #mlegend b { color: #d8dee9; margin-right: 8px; }
+  #mlegend .v { color: #d8dee9; }
+</style>
+</head>
+<body>
+<div id="hdr">
+  <span class="title">Anticipation Live</span>
+  <span id="status" class="muted">loading…</span>
+  <!-- separate from #status, which the 3s poll overwrites -->
+  <span id="trkmsg"></span>
+</div>
+<div id="tabs"></div>
+<div id="tape"></div>
+<div id="table"></div>
+
+<div id="modal">
+  <div class="panel">
+    <div class="mhdr">
+      <span class="sym"></span>
+      <span class="fo"></span>
+      <button data-interval="day">D</button>
+      <button data-interval="5minute">5m</button>
+      <span id="mstatus" class="muted"></span>
+      <button class="close">✕</button>
+    </div>
+    <div class="mwrap"><div id="mchart"></div><div id="mlegend"></div></div>
+  </div>
+</div>
+
+<script src="/lib.js"></script>
+<script>
+const TABS = [
+  { id: "movers",         label: "📈 Live Movers",        kind: "movers" },
+  { id: "user_picks",     label: "⭐ User Picks",         kind: "scan" },
+  { id: "four_pct",       label: "🚀 4% Breakout",        kind: "scan" },
+  { id: "breakdown",      label: "🔻 4% Breakdown",       kind: "scan" },
+  { id: "anticipation",   label: "🎯 Anticipation + Vol", kind: "scan" },
+  { id: "reversal",       label: "↩︎ Reversal Up",        kind: "scan" },
+  { id: "reversal_down",  label: "↪︎ Reversal Down",      kind: "scan" },
+  { id: "four_pct_up_7d", label: "📈 4% Up (7d)",         kind: "scan" },
+  { id: "four_pct_down_7d",label:"📉 4% Down (7d)",       kind: "scan" },
+  { id: "orderpad",       label: "🧾 Order Pad",          kind: "pad"  },
+];
+
+// Shown as the hover tooltip on each column's "?" chip. Keyed by header label.
+const COL_HELP = {
+  "Symbol":  "NSE trading symbol. Click any row for its daily / 5-minute chart.",
+  "LTP":     "Last traded price right now.",
+  "Chg%":    "Change vs yesterday's close — the same basis Zerodha shows "
+           + "(previous close, not today's open).",
+  "RVOL":    "Relative volume: today's volume, projected to a full session, "
+           + "÷ the 7-day average. 2x+/3x+ highlighted — real setups run hot.",
+  "Rng":     "Where the last trade sits in today's high-low range so far, as a %. "
+           + "100% = at the day's high, 0% = at the day's low. Confirms a move "
+           + "is closing strong, not fading.",
+  "Entry":   "Suggested entry = the last price when the breakout/breakdown fired.",
+  "Stop":    "Suggested stop = today's low (longs) or today's high (shorts).",
+  "Mcap Cr": "Market capitalisation in ₹ crore (last EOD).",
+  "5d Rng%": "Width of the last 5 days' high-low range as a % — smaller = tighter coil.",
+  "ADR%":    "Average daily range %: the typical day's move, a volatility gauge.",
+  "T/O Cr":  "Average daily turnover in ₹ crore — a liquidity measure.",
+  "7d Up%":  "Biggest single-day gain over the last 7 EOD sessions.",
+  "7d Dn%":  "Biggest single-day drop over the last 7 EOD sessions.",
+  "Down d":  "Consecutive down days coming into today.",
+  "Up d":    "Consecutive up days coming into today.",
+  "Trigger": "Which rule fired this row (a scan can match more than one pattern).",
+  "Signal":  "TAKE / CAUTION / SKIP from the validated strategy rules "
+           + "(lone-loser short gates, tape strength, breadth gates, stock trend). "
+           + "Hover a badge for exactly which rule decided and the live values.",
+  "Date":    "The date you added this pick to output/user_picks.csv.",
+  "Reasoning": "Your own note for why you picked it.",
+  "Vol M":   "Today's traded shares in millions, projected to a full session. "
+           + "The ep9m trigger fires at 15M — top ~2% of all NSE stock-days, "
+           + "India's version of Bonde's 9M-share rule.",
+  "Tracked": "The time you hit ⊕ on this symbol.",
+  "Track ₹": "The LTP at the moment you hit ⊕ — your reference price.",
+  "Since%":  "Move since YOU tracked it. Chg% can't tell you this: it measures "
+           + "from yesterday's close, so it includes the move you already missed.",
+};
+
+let active = TABS[0], curTable = null, sortKey = null, sortDir = -1;
+let tracked = new Set();
+
+// ── Tab bar ────────────────────────────────────────────────────────────────
+const tabsEl = document.getElementById("tabs");
+TABS.forEach(tab => {
+  const b = document.createElement("button");
+  b.textContent = tab.label;
+  b.onclick = () => selectTab(tab);
+  tab.btn = b;
+  tabsEl.appendChild(b);
+});
+
+function selectTab(tab) {
+  active = tab;
+  sortKey = null; sortDir = -1;               // each tab has its own columns
+  TABS.forEach(t => t.btn.classList.toggle("active", t === tab));
+  document.getElementById("status").textContent = "loading…";
+  document.getElementById("table").innerHTML = "";
+  poll();
+}
+
+// ── Table rendering (shared by every tab) ─────────────────────────────────────
+function fmtCell(key, v, row) {
+  if (key === "symbol") {
+    const dep = row && row.dep ? ' <span class="badge">DEP</span>' : "";
+    return v + dep;
+  }
+  if (v === null || v === undefined) return '<span class="muted">—</span>';
+  if (key === "date" || key === "reason") return v;
+  if (key === "signal") {
+    const cls = v === "TAKE" ? "take" : v === "SKIP" ? "skip"
+              : v === "CAUTION" ? "caution" : "";
+    const why = row && row.why ? ` title="${String(row.why).replace(/"/g, "&quot;")}"` : "";
+    return `<span class="badge ${cls}"${why}>${v}</span>`;
+  }
+  if (key === "trigger") {
+    const bear = v === "breakdown" || v === "reversal down";
+    return `<span class="badge${bear ? " bear" : ""}">${v}</span>`;
+  }
+  if (key === "chg_pct" || key === "max_up_7d" || key === "max_down_7d"
+      || key === "since_pct") {
+    const col = v >= 0 ? "#26a69a" : "#ef5350";
+    return `<span style="color:${col}">${v >= 0 ? "+" : ""}${v.toFixed(2)}%</span>`;
+  }
+  if (key === "volume") return `${v.toFixed(1)}M`;
+  if (key === "track_time") return v;
+  if (key === "rvol") {
+    const cls = v >= 3 ? "rvol-hot" : v >= 2 ? "rvol-strong" : "";
+    return `<span class="${cls}">${v.toFixed(2)}×</span>`;
+  }
+  if (key === "range_pos")      return `${Math.round(v)}%`;
+  if (key === "range_pct_5d")   return `${v.toFixed(1)}%`;
+  if (key === "adr_pct")        return `${v.toFixed(2)}%`;
+  if (key === "avg_turnover_cr") return `₹${v.toFixed(0)}`;
+  if (key === "mcap_cr")        return v.toLocaleString("en-IN");
+  if (key === "down_streak" || key === "up_streak") return v;
+  return v.toFixed(2);          // last / entry / stop
+}
+
+function cmp(a, b) {
+  const na = a === null || a === undefined, nb = b === null || b === undefined;
+  if (na || nb) return na - nb;                // nulls sink, regardless of dir
+  if (typeof a === "number" && typeof b === "number") return (a - b) * sortDir;
+  return String(a).localeCompare(String(b)) * sortDir;
+}
+
+function renderTable(res) {
+  curTable = res;
+  const m = res.market;
+  document.getElementById("tape").innerHTML = m
+    ? `Tape (EOD ${m.date || "?"}): net4 <b>${m.net4 ?? "—"}</b> · `
+      + `pct40ma <b>${m.pct40ma != null ? m.pct40ma.toFixed(0) + "%" : "—"}</b> · `
+      + `Nifty ti65 <b>${m.ti65_nifty != null ? m.ti65_nifty.toFixed(3) : "—"}</b>`
+      + ` — drives the Signal column`
+    : "";
+  const t = document.getElementById("table");
+  if (!res.rows.length) {
+    t.innerHTML = '<div id="empty">Nothing here yet.</div>';
+    return;
+  }
+  const rows = sortKey ? res.rows.slice().sort((a, b) => cmp(a[sortKey], b[sortKey]))
+                       : res.rows;
+  const head = '<th class="c-trk"></th>' + res.columns.map(c => {
+    const help = COL_HELP[c.label];
+    const arrow = c.key === sortKey ? `<span class="arrow">${sortDir < 0 ? "▼" : "▲"}</span>` : "";
+    const chip = help ? ` <span class="help" data-tip="${help.replace(/"/g, "&quot;")}">?</span>` : "";
+    return `<th data-key="${c.key}">${c.label}${arrow}${chip}</th>`;
+  }).join("");
+  const body = rows.map(r => {
+    const on = tracked.has(r.symbol);
+    const trk = `<td class="c-trk"><span class="trk${on ? " on" : ""}" `
+              + `data-track="${r.symbol}" title="${on ? "Stop tracking" : "Track from here"}">`
+              + `${on ? "●" : "⊕"}</span></td>`;
+    return `<tr data-symbol="${r.symbol}">` + trk +
+      res.columns.map(c => `<td class="c-${c.key}">${fmtCell(c.key, r[c.key], r)}</td>`).join("") +
+      "</tr>";
+  }).join("");
+  t.innerHTML = `<table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+}
+
+async function toggleTrack(symbol) {
+  const on = !tracked.has(symbol);
+  // optimistic so the ● lands immediately; the next poll is the source of truth
+  if (on) tracked.add(symbol); else tracked.delete(symbol);
+  renderTable(curTable);
+  const msg = document.getElementById("trkmsg");
+  try {
+    const r = await fetch(`/track?symbol=${symbol}&on=${on ? 1 : 0}`);
+    // A dashboard started before /track existed answers 404. Say so — otherwise
+    // the ⊕ just quietly reverts on the next poll and looks broken.
+    if (!r.ok) throw new Error(r.status === 404
+      ? "/track missing — restart the dashboard to load the new code"
+      : `HTTP ${r.status}`);
+    const d = await r.json();
+    if (d.error) throw new Error(d.error);
+    msg.textContent = "";
+  } catch (err) {
+    if (on) tracked.delete(symbol); else tracked.add(symbol);   // undo the guess
+    msg.textContent = `⊕ ${symbol}: ${err.message}`;
+    renderTable(curTable);
+  }
+}
+
+document.getElementById("table").addEventListener("click", e => {
+  if (e.target.classList.contains("help")) return;   // reading help ≠ sorting
+  if (e.target.dataset.track) {                      // ⊕ ≠ open the chart
+    toggleTrack(e.target.dataset.track);
+    return;
+  }
+  if (e.target.dataset.chart) {                      // 📈 on an Order Pad ticket
+    openChart(e.target.dataset.chart);
+    return;
+  }
+  if (e.target.dataset.copy) {                       // 📋 copy the full order card
+    const pre = e.target.closest(".ticket").querySelector(".tcard");
+    if (pre) {
+      const b = e.target, old = b.textContent;
+      const flash = txt => { b.textContent = txt; setTimeout(() => { if (b.isConnected) b.textContent = old; }, 1200); };
+      navigator.clipboard.writeText(pre.textContent).then(() => flash("✓ Copied"), () => flash("⚠ copy failed"));
+    }
+    return;
+  }
+  if (e.target.dataset.cardtoggle) {                 // ▸ expand / collapse the order card
+    const sym = e.target.dataset.cardtoggle;
+    const pre = e.target.closest(".ticket").querySelector(".tcard");
+    const shown = pre.classList.toggle("show");
+    if (shown) padExpanded.add(sym); else padExpanded.delete(sym);
+    e.target.textContent = shown ? "▾ Hide card" : "▸ Order card";
+    return;
+  }
+  const th = e.target.closest("th[data-key]");
+  if (th) {
+    const key = th.dataset.key;
+    if (key === sortKey) sortDir = -sortDir;
+    else { sortKey = key; sortDir = -1; }      // first click: biggest first
+    renderTable(curTable);
+    return;
+  }
+  const row = e.target.closest("tr[data-symbol]");
+  if (row) openChart(row.dataset.symbol);
+});
+
+// ── Chart modal (click a row → daily or 5-minute chart) ──────────────────────
+const modal = document.getElementById("modal");
+let mSymbol = "", mInterval = "day", mChart = null;
+
+function openChart(symbol) {
+  mSymbol = symbol;
+  modal.querySelector(".sym").textContent = symbol;
+  modal.querySelector(".fo").innerHTML = "";   // clear the previous symbol's badge
+  modal.classList.add("open");
+  loadChart();
+}
+
+function closeChart() {
+  modal.classList.remove("open");
+  if (mChart) { mChart.remove(); mChart = null; }
+}
+
+modal.addEventListener("click", e => {
+  if (e.target === modal || e.target.classList.contains("close")) closeChart();
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeChart(); });
+modal.querySelectorAll("[data-interval]").forEach(b => {
+  b.onclick = () => { mInterval = b.dataset.interval; loadChart(); };
+});
+
+function candleSma(candles, n) {
+  const out = [];
+  let sum = 0;
+  for (let i = 0; i < candles.length; i++) {
+    sum += candles[i].close;
+    if (i >= n) sum -= candles[i - n].close;
+    if (i >= n - 1) out.push({ time: candles[i].time, value: sum / n });
+  }
+  return out;
+}
+
+async function loadChart() {
+  modal.querySelectorAll("[data-interval]").forEach(b =>
+    b.classList.toggle("active", b.dataset.interval === mInterval));
+  const status = document.getElementById("mstatus");
+  status.textContent = "loading…";
+  const symbol = mSymbol, interval = mInterval;
+  let d;
+  try {
+    d = await (await fetch(`/chart?symbol=${symbol}&interval=${interval}`)).json();
+  } catch (e) { status.textContent = "fetch failed"; return; }
+  if (symbol !== mSymbol || interval !== mInterval || !modal.classList.contains("open")) return;
+  if (d.error) { status.textContent = d.error; return; }
+  status.textContent = "";
+  modal.querySelector(".fo").innerHTML = d.is_fo ? '<span class="badge fo">F&amp;O</span>' : "";
+
+  if (mChart) { mChart.remove(); mChart = null; }
+  const el = document.getElementById("mchart");
+  const isDay = interval === "day";
+  mChart = LightweightCharts.createChart(el, {
+    autoSize: true,
+    layout: { background: { color: "transparent" }, textColor: "#9aa3b2", fontSize: 12 },
+    grid: { vertLines: { visible: false }, horzLines: { color: "rgba(140,150,170,.08)" } },
+    crosshair: { mode: 0 },
+    rightPriceScale: { borderVisible: false },
+    timeScale: { borderVisible: false, timeVisible: !isDay, secondsVisible: false,
+                 rightOffset: 3 },
+  });
+  const candle = mChart.addCandlestickSeries({
+    upColor: "#26a69a", downColor: "#ef5350", borderVisible: false,
+    wickUpColor: "#26a69a", wickDownColor: "#ef5350",
+  });
+  candle.setData(d.candles);
+  mChart.priceScale("right").applyOptions({ scaleMargins: { top: 0.03, bottom: 0.22 } });
+
+  const vol = mChart.addHistogramSeries({
+    priceScaleId: "vol", priceFormat: { type: "volume" },
+    priceLineVisible: false, lastValueVisible: false,
+  });
+  mChart.priceScale("vol").applyOptions({ scaleMargins: { top: 0.82, bottom: 0 } });
+  vol.setData(d.candles.map(c => ({ time: c.time, value: c.volume,
+    color: c.close >= c.open ? "rgba(38,166,154,.5)" : "rgba(239,83,80,.5)" })));
+
+  const maStyle = { lineWidth: 1, priceLineVisible: false, lastValueVisible: false,
+                    crosshairMarkerVisible: false };
+  const mas = isDay ? [[10, "#4c8dff"], [20, "#e8c15a"], [50, "#c678dd"], [200, "#ff3b3b", 2]]
+                    : [[20, "#e8c15a"]];
+  for (const [n, color, width] of mas) {
+    const s = mChart.addLineSeries({ color, ...maStyle, lineWidth: width ?? 1 });
+    s.setData(candleSma(d.candles, n));
+  }
+
+  // Crosshair readout: the hovered bar's OHLC, its move and its volume. Falls
+  // back to the newest bar when the pointer leaves the chart, so the panel
+  // always shows something. Change is vs the PREVIOUS bar's close — on the
+  // daily chart that is exactly "how far this stock moved that day".
+  const legend = document.getElementById("mlegend");
+  const at = new Map(d.candles.map((c, i) => [String(c.time), i]));
+  const fmtVol = v => v >= 1e6 ? (v / 1e6).toFixed(2) + "M"
+                    : v >= 1e3 ? (v / 1e3).toFixed(0) + "K" : v;
+  const stamp = t => typeof t === "string" ? t
+    : new Date(t * 1000).toISOString().slice(5, 16).replace("T", " ");
+  function showBar(i) {
+    const c = d.candles[i];
+    if (!c) return;
+    const chg = (c.close / (i > 0 ? d.candles[i - 1].close : c.open) - 1) * 100;
+    const col = chg >= 0 ? "#26a69a" : "#ef5350";
+    legend.innerHTML = `<b>${stamp(c.time)}</b>`
+      + `O <span class="v">${c.open.toFixed(2)}</span> `
+      + `H <span class="v">${c.high.toFixed(2)}</span> `
+      + `L <span class="v">${c.low.toFixed(2)}</span> `
+      + `C <span class="v">${c.close.toFixed(2)}</span> `
+      + `<span style="color:${col}">${chg >= 0 ? "+" : ""}${chg.toFixed(2)}%</span>`
+      + ` · Vol <span class="v">${fmtVol(c.volume)}</span>`;
+  }
+  showBar(d.candles.length - 1);
+  mChart.subscribeCrosshairMove(p => {
+    const i = p.time === undefined ? undefined : at.get(String(p.time));
+    showBar(i === undefined ? d.candles.length - 1 : i);
+  });
+
+  // Daily: land zoomed on the last ~6 months; 5m: last 2 sessions.
+  const visible = isDay ? 126 : 150;
+  const total = d.candles.length;
+  if (total > visible)
+    mChart.timeScale().setVisibleLogicalRange({ from: total - visible, to: total + 3 });
+  else
+    mChart.timeScale().fitContent();
+}
+
+// ── Polling ──────────────────────────────────────────────────────────────────
+async function poll() {
+  const tab = active;                         // guard against a tab switch mid-fetch
+  try {
+    const url = tab.kind === "movers" ? "/data"
+              : tab.kind === "pad" ? `/orderpad?equity=${padEquity}&risk=${padRisk}`
+              : "/scan?name=" + tab.id;
+    const d = await (await fetch(url)).json();
+    if (active !== tab) return;
+    if (tab.kind === "pad") { renderPad(d); return; }
+    tracked = new Set(d.tracked || []);
+    document.getElementById("status").textContent = tab.kind === "movers"
+      ? `${d.rows.length} of ${d.watchlist} moving ≥ ${d.threshold}% · updated ${d.generated}`
+      : `${d.count} hits · ${d.streamed} streamed · updated ${d.generated}`;
+    renderTable(d);
+  } catch (e) {
+    document.getElementById("status").textContent = "connection lost — retrying";
+  }
+}
+
+// ── Order Pad ────────────────────────────────────────────────────────────────
+// Same-day setups are entered ~15:58, so the tickets must come from live
+// quotes: entry = last trade, stop = today's realized low/high. The countdown
+// is the point of the tab — it is the only thing that says "now or never".
+let padEquity = 1000000, padRisk = 0.5;
+const padExpanded = new Set();   // symbols whose order card is open — survives the 3s re-render
+
+function renderPad(d) {
+  const mins = d.minutes_to_close;
+  const urgent = d.session === "closing-window";
+  document.getElementById("status").textContent =
+    `${d.tickets.length} ticket(s) · ${d.session}`
+    + (mins > 0 ? ` · ${mins} min to close` : " · market closed")
+    + ` · updated ${d.generated}`;
+  document.getElementById("tape").innerHTML =
+    `<span style="color:${urgent ? '#f6b93b' : '#9aa3b2'}">`
+    + (urgent ? "⏰ CLOSING WINDOW — same-day entries are live right now"
+       : mins > 0 ? `Same-day setups are entered at 15:58 · ${mins} min to close`
+       : "Market closed — D+1-open books can still be punched as AMOs")
+    + `</span> · equity ₹<input id="padEq" value="${padEquity}" style="width:90px;`
+    + `background:#12151c;color:#d8dee9;border:1px solid #2c313c;border-radius:4px;`
+    + `padding:1px 4px"> · risk <input id="padRk" value="${padRisk}" style="width:44px;`
+    + `background:#12151c;color:#d8dee9;border:1px solid #2c313c;border-radius:4px;`
+    + `padding:1px 4px">%`;
+  document.getElementById("padEq").onchange = e => { padEquity = +e.target.value || 1000000; poll(); };
+  document.getElementById("padRk").onchange = e => { padRisk = +e.target.value || 0.5; poll(); };
+
+  const t = document.getElementById("table");
+  if (!d.tickets.length) {
+    t.innerHTML = '<div id="empty">No TAKE-signalled candidates right now.</div>';
+    return;
+  }
+  t.innerHTML = '<div class="tgrid">' + d.tickets.map(k => {
+    const sideCol = k.side === "SELL" ? "#ef5350" : "#26a69a";
+    const tag = k.window.split(/[—(]/)[0].trim();   // short timing tag; full text on hover
+    const open = padExpanded.has(k.symbol);
+    const up = k.chg_pct >= 0;
+    return `<div class="ticket${k.provisional ? " prov" : ""}" style="--side:${sideCol}">
+      <div class="thead">
+        <div class="thl">
+          <span class="side">${k.side} ${k.qty.toLocaleString("en-IN")}</span>
+          <span class="tsym">${k.symbol}</span>
+          <button class="tbtn tchart" data-chart="${k.symbol}" title="Open daily / 5-minute chart">📈</button>
+          <span class="play" title="${k.playbook}">${k.playbook}</span>
+        </div>
+        <div class="thr">
+          <span class="chip ${up ? "up" : "dn"}">${up ? "+" : ""}${(+k.chg_pct).toFixed(2)}%</span>
+          <span class="chip tag" title="${k.window}">${tag}</span>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="mlabel">Entry</div><div class="mval">₹${k.entry_ref.toLocaleString("en-IN")}</div></div>
+        <div class="metric"><div class="mlabel">Stop</div><div class="mval stopv">₹${k.stop.toLocaleString("en-IN")}</div><div class="msub">${k.stop_pct}% away</div></div>
+        <div class="metric"><div class="mlabel">Risk</div><div class="mval">₹${k.risk_inr.toLocaleString("en-IN")}</div></div>
+        <div class="metric"><div class="mlabel">Value</div><div class="mval">₹${k.value.toLocaleString("en-IN")}</div></div>
+      </div>
+      <div class="callout ${k.provisional ? "warn" : "ok"}">
+        <span class="ci">${k.provisional ? "⏳" : "✓"}</span><span>${k.note}</span>
+      </div>
+      <div class="tfoot">
+        <button class="tbtn" data-cardtoggle="${k.symbol}">${open ? "▾ Hide card" : "▸ Order card"}</button>
+        <button class="tbtn" data-copy="${k.symbol}">📋 Copy</button>
+      </div>
+      <pre class="tcard${open ? " show" : ""}">${k.card}</pre>
+    </div>`;
+  }).join("") + '</div>';
+}
+
+selectTab(TABS[0]);
+setInterval(poll, 3000);
+</script>
+</body>
+</html>

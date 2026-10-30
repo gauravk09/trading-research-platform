@@ -1,0 +1,7 @@
+{
+  "id": "b4lv_ep_adr20",
+  "question": "On the EP (extreme-volume episodic pivot) cohort, do LOWER adr20 stocks give a better stop-R than HIGH adr20 stocks? Expect NEGATIVE top-minus-bottom (low vol wins), consistent with the low-volatility anomaly.",
+  "plain": "Low-volatility anomaly (Pandey; MAS 2022): tests whether calmer stocks (lower adr20) produce better risk-adjusted stop-R on episodic-pivot gap events, which are typically the highest-volatility trigger.",
+  "cohort": {"trigger": "ep", "filters": []},
+  "condition": {"type": "feature", "name": "adr20", "buckets": "quartiles"}
+}

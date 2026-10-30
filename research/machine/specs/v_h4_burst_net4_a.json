@@ -1,0 +1,6 @@
+{
+  "id": "v_h4_burst_net4_a",
+  "question": "Perturbation of h4_burst_net4: liquid half only (turn_decile >= 0.5) - expect the positive net4 top-minus-bottom effect to survive with same sign in both eras",
+  "cohort": {"trigger": "burst", "filters": [["turn_decile", ">=", 0.5]]},
+  "condition": {"type": "market", "name": "net4", "buckets": "quintiles"}
+}

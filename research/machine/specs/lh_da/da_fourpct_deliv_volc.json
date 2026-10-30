@@ -1,0 +1,9 @@
+{
+  "id": "da_fourpct_deliv_volc",
+  "plain": "4%-up day with delivery spike AND rising 5v50 volume conviction, tighter accumulation filter, 20d horizon",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["deliv_x20", ">=", 1.5], ["volc5_50", ">=", 1.2]],
+  "horizon": 20,
+  "risk": 0.0075
+}

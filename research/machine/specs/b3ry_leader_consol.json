@@ -1,0 +1,7 @@
+{
+  "id": "b3ry_leader_consol",
+  "question": "For David Ryan style leaders (strong RS, near 52-week high) breaking out, expect LONGER consol_days (more properly-formed base) to show BETTER stop-R than a rushed short base",
+  "plain": "Ryan looks for strong-RS leaders breaking out near new highs after a proper base -- this checks whether, among those leaders, a longer/more mature base beats a short, rushed one.",
+  "cohort": {"trigger": "burst", "filters": [["rs", ">=", 80], ["pct_52wh", "<=", 5]]},
+  "condition": {"type": "feature", "name": "consol_days", "buckets": "quartiles"}
+}

@@ -1,0 +1,219 @@
+{
+ "id": "b6_fpd_adr20_gap20",
+ "question": "Large-cap four_pct_down shorts bucketed by adr20 (average daily range, the stock's baseline volatility character): expect POSITIVE top-minus-bottom effect - breakdowns in naturally HIGH-ADR (volatile, momentum-style) large caps fall harder than breakdowns in naturally LOW-ADR (quiet, defensive) large caps, mirroring the house prior that loud/volatile beats quiet on the long side.",
+ "plain": "Does a 4% breakdown work better as a short in a stock that is normally volatile and momentum-driven, versus a stock that is normally quiet and low-volatility?",
+ "spec": {
+  "id": "b6_fpd_adr20_gap20",
+  "question": "Large-cap four_pct_down shorts bucketed by adr20 (average daily range, the stock's baseline volatility character): expect POSITIVE top-minus-bottom effect - breakdowns in naturally HIGH-ADR (volatile, momentum-style) large caps fall harder than breakdowns in naturally LOW-ADR (quiet, defensive) large caps, mirroring the house prior that loud/volatile beats quiet on the long side.",
+  "plain": "Does a 4% breakdown work better as a short in a stock that is normally volatile and momentum-driven, versus a stock that is normally quiet and low-volatility?",
+  "cohort": {
+   "trigger": "four_pct_down",
+   "side": "short",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ],
+   "min_gap": 20
+  },
+  "condition": {
+   "type": "feature",
+   "name": "adr20",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "short",
+ "n": 4328,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    1.2527292966842651,
+    2.8241395950317383
+   ],
+   "A": {
+    "n": 316,
+    "avg_stop_r": 0.164,
+    "med_ret_o5": -0.33,
+    "win5_pct": 46.8,
+    "avg_stop_r_20": 0.131
+   },
+   "B": {
+    "n": 478,
+    "avg_stop_r": 0.045,
+    "med_ret_o5": -0.11,
+    "win5_pct": 48.5,
+    "avg_stop_r_20": -0.15
+   },
+   "COVID": {
+    "n": 288,
+    "avg_stop_r": 0.251,
+    "med_ret_o5": -0.21,
+    "win5_pct": 49.0,
+    "avg_stop_r_20": 0.435
+   }
+  },
+  "1": {
+   "cond_range": [
+    2.8249244689941406,
+    3.380148410797119
+   ],
+   "A": {
+    "n": 419,
+    "avg_stop_r": -0.036,
+    "med_ret_o5": 0.34,
+    "win5_pct": 51.8,
+    "avg_stop_r_20": 0.046
+   },
+   "B": {
+    "n": 294,
+    "avg_stop_r": -0.114,
+    "med_ret_o5": 0.48,
+    "win5_pct": 55.8,
+    "avg_stop_r_20": -0.071
+   },
+   "COVID": {
+    "n": 369,
+    "avg_stop_r": -0.076,
+    "med_ret_o5": 0.55,
+    "win5_pct": 52.3,
+    "avg_stop_r_20": 0.038
+   }
+  },
+  "2": {
+   "cond_range": [
+    3.3814377784729004,
+    4.120688438415527
+   ],
+   "A": {
+    "n": 422,
+    "avg_stop_r": -0.142,
+    "med_ret_o5": 0.77,
+    "win5_pct": 55.0,
+    "avg_stop_r_20": -0.202
+   },
+   "B": {
+    "n": 275,
+    "avg_stop_r": -0.235,
+    "med_ret_o5": 0.79,
+    "win5_pct": 54.9,
+    "avg_stop_r_20": -0.433
+   },
+   "COVID": {
+    "n": 385,
+    "avg_stop_r": -0.072,
+    "med_ret_o5": 0.24,
+    "win5_pct": 51.2,
+    "avg_stop_r_20": -0.038
+   }
+  },
+  "3": {
+   "cond_range": [
+    4.120731830596924,
+    19.032756805419922
+   ],
+   "A": {
+    "n": 374,
+    "avg_stop_r": -0.044,
+    "med_ret_o5": 0.36,
+    "win5_pct": 51.6,
+    "avg_stop_r_20": -0.173
+   },
+   "B": {
+    "n": 234,
+    "avg_stop_r": -0.336,
+    "med_ret_o5": 2.69,
+    "win5_pct": 65.0,
+    "avg_stop_r_20": -0.403
+   },
+   "COVID": {
+    "n": 474,
+    "avg_stop_r": -0.097,
+    "med_ret_o5": -0.28,
+    "win5_pct": 48.5,
+    "avg_stop_r_20": -0.277
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.207,
+  "COVID": -0.348,
+  "B": -0.38
+ },
+ "extreme_bucket_n": {
+  "A": [
+   316,
+   374
+  ],
+  "B": [
+   478,
+   234
+  ]
+ },
+ "null_beat_pct": 77.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.048,
+   "n": 255,
+   "n_ext": [
+    115,
+    43
+   ]
+  },
+  "B24": {
+   "effect": -0.454,
+   "n": 1026,
+   "n_ext": [
+    363,
+    191
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.304,
+  "COVID": -0.712,
+  "B": -0.253
+ },
+ "null_beat_pct_20": 62.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.264,
+  "COVID": -0.5,
+  "B": -0.168
+ },
+ "effect_R_trail_w5": {
+  "A": -0.259,
+  "COVID": -0.351,
+  "B": -0.171
+ },
+ "null_beat_pct_trail": 36.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.224,
+  "COVID": -0.43,
+  "B": -0.075
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.219,
+  "COVID": -0.283,
+  "B": -0.079
+ },
+ "null_beat_pct_trail_be": 61.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.143,
+  "COVID": -0.15,
+  "B": -0.382
+ },
+ "effect_R_close_w5": {
+  "A": -0.154,
+  "COVID": -0.169,
+  "B": -0.4
+ },
+ "null_beat_pct_close": 85.0,
+ "verdict_close": "FAIL"
+}

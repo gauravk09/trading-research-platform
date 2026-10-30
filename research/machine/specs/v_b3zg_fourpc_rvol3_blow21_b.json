@@ -1,0 +1,7 @@
+{
+ "id": "v_b3zg_fourpc_rvol3_blow21_b",
+ "question": "Perturbation B: same stack (4% days, rvol50>=3) but rebucketed into quintiles instead of quartiles; expect the same negative-monotonic gradient (near-low quintile least bad) rather than a single lucky-bucket artifact.",
+ "plain": "We keep the same volume-explosion filter but slice the near-low ranking into five groups instead of four, to see if the pattern is a smooth gradient or just one lucky bucket.",
+ "cohort": {"trigger": "four_pct", "filters": [["rvol50", ">=", 3]]},
+ "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quintiles"}
+}

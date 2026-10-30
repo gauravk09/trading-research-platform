@@ -1,0 +1,238 @@
+{
+ "id": "b3dl_turn_bounce",
+ "question": "Does avoiding illiquid names (turn_decile) help washout bounces, the way it helped bursts? Expect higher turn_decile (more liquid/larger) = better stop-R.",
+ "plain": "This checks whether 3-down-day dip bounces work better in bigger, more liquid stocks versus small illiquid ones, the same liquidity edge that already showed up for breakout setups.",
+ "spec": {
+  "id": "b3dl_turn_bounce",
+  "question": "Does avoiding illiquid names (turn_decile) help washout bounces, the way it helped bursts? Expect higher turn_decile (more liquid/larger) = better stop-R.",
+  "plain": "This checks whether 3-down-day dip bounces work better in bigger, more liquid stocks versus small illiquid ones, the same liquidity edge that already showed up for breakout setups.",
+  "cohort": {
+   "trigger": "bounce",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "turn_decile",
+   "buckets": "quintiles"
+  }
+ },
+ "side": "long",
+ "n": 134995,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.1722516119480133,
+    0.4606192409992218
+   ],
+   "A": {
+    "n": 2670,
+    "avg_stop_r": -0.184,
+    "med_ret_o5": -0.88,
+    "win5_pct": 40.6,
+    "avg_stop_r_20": -0.298
+   },
+   "B": {
+    "n": 17918,
+    "avg_stop_r": 0.259,
+    "med_ret_o5": -0.48,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": 0.306
+   },
+   "COVID": {
+    "n": 6411,
+    "avg_stop_r": 0.139,
+    "med_ret_o5": -0.66,
+    "win5_pct": 44.5,
+    "avg_stop_r_20": 0.451
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.46062660217285156,
+    0.5992063283920288
+   ],
+   "A": {
+    "n": 7080,
+    "avg_stop_r": -0.066,
+    "med_ret_o5": -0.82,
+    "win5_pct": 41.9,
+    "avg_stop_r_20": -0.111
+   },
+   "B": {
+    "n": 12656,
+    "avg_stop_r": 0.292,
+    "med_ret_o5": -0.42,
+    "win5_pct": 45.8,
+    "avg_stop_r_20": 0.031
+   },
+   "COVID": {
+    "n": 7263,
+    "avg_stop_r": 0.3,
+    "med_ret_o5": -0.26,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": 0.612
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.5992085933685303,
+    0.7282415628433228
+   ],
+   "A": {
+    "n": 8366,
+    "avg_stop_r": -0.062,
+    "med_ret_o5": -0.54,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": 0.043
+   },
+   "B": {
+    "n": 11368,
+    "avg_stop_r": 0.117,
+    "med_ret_o5": -0.28,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": 0.16
+   },
+   "COVID": {
+    "n": 7265,
+    "avg_stop_r": 0.128,
+    "med_ret_o5": -0.24,
+    "win5_pct": 47.7,
+    "avg_stop_r_20": 0.43
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.7282471656799316,
+    0.8594249486923218
+   ],
+   "A": {
+    "n": 8457,
+    "avg_stop_r": 0.017,
+    "med_ret_o5": -0.29,
+    "win5_pct": 46.9,
+    "avg_stop_r_20": 0.039
+   },
+   "B": {
+    "n": 11282,
+    "avg_stop_r": 0.08,
+    "med_ret_o5": -0.12,
+    "win5_pct": 49.0,
+    "avg_stop_r_20": 0.103
+   },
+   "COVID": {
+    "n": 7260,
+    "avg_stop_r": 0.17,
+    "med_ret_o5": -0.03,
+    "win5_pct": 49.6,
+    "avg_stop_r_20": 0.471
+   }
+  },
+  "4": {
+   "cond_range": [
+    0.8594276309013367,
+    1.0
+   ],
+   "A": {
+    "n": 8400,
+    "avg_stop_r": -0.02,
+    "med_ret_o5": 0.08,
+    "win5_pct": 50.6,
+    "avg_stop_r_20": 0.044
+   },
+   "B": {
+    "n": 11450,
+    "avg_stop_r": 0.081,
+    "med_ret_o5": 0.08,
+    "win5_pct": 50.8,
+    "avg_stop_r_20": 0.146
+   },
+   "COVID": {
+    "n": 7149,
+    "avg_stop_r": 0.079,
+    "med_ret_o5": 0.05,
+    "win5_pct": 50.3,
+    "avg_stop_r_20": 0.312
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.164,
+  "COVID": -0.06,
+  "B": -0.179
+ },
+ "extreme_bucket_n": {
+  "A": [
+   2670,
+   8400
+  ],
+  "B": [
+   17918,
+   11450
+  ]
+ },
+ "null_beat_pct": 85.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.224,
+   "n": 14874,
+   "n_ext": [
+    3729,
+    2614
+   ]
+  },
+  "B24": {
+   "effect": -0.168,
+   "n": 49800,
+   "n_ext": [
+    14189,
+    8836
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.343,
+  "COVID": -0.139,
+  "B": -0.16
+ },
+ "null_beat_pct_20": 74.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.116,
+  "COVID": -0.004,
+  "B": 0.065
+ },
+ "effect_R_trail_w5": {
+  "A": 0.167,
+  "COVID": 0.048,
+  "B": 0.073
+ },
+ "null_beat_pct_trail": 21.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.041,
+  "COVID": 0.053,
+  "B": 0.059
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.14,
+  "COVID": 0.054,
+  "B": 0.056
+ },
+ "null_beat_pct_trail_be": 34.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.102,
+  "COVID": -0.017,
+  "B": 0.026
+ },
+ "effect_R_close_w5": {
+  "A": 0.156,
+  "COVID": 0.113,
+  "B": 0.156
+ },
+ "null_beat_pct_close": 3.5000000000000004,
+ "verdict_close": "FAIL"
+}

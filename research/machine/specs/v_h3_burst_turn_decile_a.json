@@ -1,0 +1,6 @@
+{
+  "id": "v_h3_burst_turn_decile_a",
+  "question": "Perturbation of h3_burst_turn_decile: within the liquid half only (turn_decile >= 0.5), does the POSITIVE liquidity effect (higher turn_decile -> better stop-R) persist in both era A and era B? Expect positive but smaller effect if the original is not a bottom-bucket artifact.",
+  "cohort": {"trigger": "burst", "filters": [["turn_decile", ">=", 0.5]]},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quartiles"}
+}

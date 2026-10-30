@@ -1,0 +1,7 @@
+{
+  "id": "b3bq_fourpct_consoldays",
+  "question": "On plain 4% up days (no burst filter), does a longer prior tight base (consol_days) grade the day? Expect longer consol_days = better stop-R (Minervini VCP / O'Neil flat-base logic: the longer the base, the bigger the eventual move).",
+  "plain": "Minervini/O'Neil idea: a stock that spent a long time building a tight base before a 4% up day should perform better than one with no base at all.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "consol_days", "buckets": "quartiles"}
+}

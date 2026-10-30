@@ -1,0 +1,215 @@
+{
+ "id": "h5_burst_consol_days",
+ "question": "Does a longer standing tight base (consol_days as of trigger day; 0 = 5d range already widened out, >20 = long base intact) improve bursts? Expected: positive top-minus-bottom per longer-base doctrine, but prior says nothing grades bursts so likely null",
+ "plain": null,
+ "spec": {
+  "id": "h5_burst_consol_days",
+  "question": "Does a longer standing tight base (consol_days as of trigger day; 0 = 5d range already widened out, >20 = long base intact) improve bursts? Expected: positive top-minus-bottom per longer-base doctrine, but prior says nothing grades bursts so likely null",
+  "cohort": {
+   "trigger": "burst"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "consol_days",
+   "buckets": [
+    -0.5,
+    0.5,
+    5.5,
+    20.5,
+    10000
+   ]
+  }
+ },
+ "side": "long",
+ "n": 23467,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    0.0
+   ],
+   "A": {
+    "n": 3600,
+    "avg_stop_r": -0.076,
+    "med_ret_o5": -1.05,
+    "win5_pct": 41.3,
+    "avg_stop_r_20": -0.108
+   },
+   "B": {
+    "n": 7642,
+    "avg_stop_r": -0.1,
+    "med_ret_o5": -1.26,
+    "win5_pct": 40.8,
+    "avg_stop_r_20": -0.07
+   },
+   "COVID": {
+    "n": 4836,
+    "avg_stop_r": -0.032,
+    "med_ret_o5": -1.3,
+    "win5_pct": 41.3,
+    "avg_stop_r_20": 0.109
+   }
+  },
+  "1": {
+   "cond_range": [
+    2.0,
+    5.0
+   ],
+   "A": {
+    "n": 647,
+    "avg_stop_r": 0.001,
+    "med_ret_o5": -0.63,
+    "win5_pct": 45.9,
+    "avg_stop_r_20": -0.046
+   },
+   "B": {
+    "n": 1432,
+    "avg_stop_r": -0.005,
+    "med_ret_o5": -0.38,
+    "win5_pct": 46.6,
+    "avg_stop_r_20": 0.054
+   },
+   "COVID": {
+    "n": 856,
+    "avg_stop_r": 0.119,
+    "med_ret_o5": -0.76,
+    "win5_pct": 45.1,
+    "avg_stop_r_20": 0.251
+   }
+  },
+  "2": {
+   "cond_range": [
+    6.0,
+    20.0
+   ],
+   "A": {
+    "n": 783,
+    "avg_stop_r": -0.055,
+    "med_ret_o5": -0.81,
+    "win5_pct": 43.4,
+    "avg_stop_r_20": -0.01
+   },
+   "B": {
+    "n": 1687,
+    "avg_stop_r": -0.022,
+    "med_ret_o5": -0.78,
+    "win5_pct": 43.4,
+    "avg_stop_r_20": 0.039
+   },
+   "COVID": {
+    "n": 874,
+    "avg_stop_r": -0.032,
+    "med_ret_o5": -0.88,
+    "win5_pct": 44.7,
+    "avg_stop_r_20": 0.116
+   }
+  },
+  "3": {
+   "cond_range": [
+    21.0,
+    264.0
+   ],
+   "A": {
+    "n": 299,
+    "avg_stop_r": -0.013,
+    "med_ret_o5": -0.57,
+    "win5_pct": 43.1,
+    "avg_stop_r_20": 0.062
+   },
+   "B": {
+    "n": 582,
+    "avg_stop_r": 0.008,
+    "med_ret_o5": -0.22,
+    "win5_pct": 47.6,
+    "avg_stop_r_20": 0.088
+   },
+   "COVID": {
+    "n": 229,
+    "avg_stop_r": 0.024,
+    "med_ret_o5": -0.41,
+    "win5_pct": 46.3,
+    "avg_stop_r_20": 0.141
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.062,
+  "COVID": 0.056,
+  "B": 0.108
+ },
+ "extreme_bucket_n": {
+  "A": [
+   3600,
+   299
+  ],
+  "B": [
+   7642,
+   582
+  ]
+ },
+ "null_beat_pct": 98.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.244,
+   "n": 3673,
+   "n_ext": [
+    2408,
+    251
+   ]
+  },
+  "B24": {
+   "effect": -0.018,
+   "n": 7670,
+   "n_ext": [
+    5234,
+    331
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "WEAK",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.171,
+  "COVID": 0.033,
+  "B": 0.158
+ },
+ "null_beat_pct_20": 94.5,
+ "verdict_20": "WEAK",
+ "effect_R_trail": {
+  "A": 0.214,
+  "COVID": 0.05,
+  "B": 0.248
+ },
+ "effect_R_trail_w5": {
+  "A": 0.225,
+  "COVID": 0.095,
+  "B": 0.252
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": 0.221,
+  "COVID": 0.011,
+  "B": 0.23
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.222,
+  "COVID": 0.037,
+  "B": 0.223
+ },
+ "null_beat_pct_trail_be": 99.5,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": 0.038,
+  "COVID": 0.022,
+  "B": 0.092
+ },
+ "effect_R_close_w5": {
+  "A": 0.038,
+  "COVID": 0.044,
+  "B": 0.091
+ },
+ "null_beat_pct_close": 89.5,
+ "verdict_close": "FAIL"
+}

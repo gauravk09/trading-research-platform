@@ -1,0 +1,227 @@
+{
+ "id": "v_b2b_bounce_ti65_liq_pct40ma_a",
+ "question": "Perturbed cohort filters (ti65 >= 1.33, turn_decile >= 0.6, both ~20% shifts from 1.11/0.5): expect LOW market:pct40ma buckets (edges [0,20,40,60,100]) still better in era B if original PASS is robust.",
+ "plain": null,
+ "spec": {
+  "id": "v_b2b_bounce_ti65_liq_pct40ma_a",
+  "question": "Perturbed cohort filters (ti65 >= 1.33, turn_decile >= 0.6, both ~20% shifts from 1.11/0.5): expect LOW market:pct40ma buckets (edges [0,20,40,60,100]) still better in era B if original PASS is robust.",
+  "cohort": {
+   "trigger": "bounce",
+   "filters": [
+    [
+     "ti65",
+     ">=",
+     1.33
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.6
+    ]
+   ]
+  },
+  "condition": {
+   "type": "market",
+   "name": "pct40ma",
+   "buckets": [
+    0,
+    20,
+    40,
+    60,
+    100
+   ]
+  }
+ },
+ "side": "long",
+ "n": 1504,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    5.6,
+    19.7
+   ],
+   "A": {
+    "n": 12,
+    "avg_stop_r": -0.66,
+    "med_ret_o5": 1.17,
+    "win5_pct": 58.3,
+    "avg_stop_r_20": -1.0
+   },
+   "B": {
+    "n": 11,
+    "avg_stop_r": -0.437,
+    "med_ret_o5": -5.65,
+    "win5_pct": 45.5,
+    "avg_stop_r_20": -1.0
+   },
+   "COVID": {
+    "n": 15,
+    "avg_stop_r": -0.028,
+    "med_ret_o5": 0.44,
+    "win5_pct": 53.3,
+    "avg_stop_r_20": -0.57
+   }
+  },
+  "1": {
+   "cond_range": [
+    21.2,
+    39.8
+   ],
+   "A": {
+    "n": 23,
+    "avg_stop_r": 2.033,
+    "med_ret_o5": -0.06,
+    "win5_pct": 47.8,
+    "avg_stop_r_20": 3.665
+   },
+   "B": {
+    "n": 71,
+    "avg_stop_r": 0.73,
+    "med_ret_o5": 0.56,
+    "win5_pct": 52.1,
+    "avg_stop_r_20": 1.515
+   },
+   "COVID": {
+    "n": 69,
+    "avg_stop_r": 0.467,
+    "med_ret_o5": 0.91,
+    "win5_pct": 58.0,
+    "avg_stop_r_20": 1.321
+   }
+  },
+  "2": {
+   "cond_range": [
+    40.1,
+    59.8
+   ],
+   "A": {
+    "n": 121,
+    "avg_stop_r": -0.155,
+    "med_ret_o5": -1.19,
+    "win5_pct": 44.6,
+    "avg_stop_r_20": -0.52
+   },
+   "B": {
+    "n": 174,
+    "avg_stop_r": 0.32,
+    "med_ret_o5": 1.1,
+    "win5_pct": 58.0,
+    "avg_stop_r_20": 0.408
+   },
+   "COVID": {
+    "n": 146,
+    "avg_stop_r": -0.285,
+    "med_ret_o5": -0.03,
+    "win5_pct": 48.6,
+    "avg_stop_r_20": -0.344
+   }
+  },
+  "3": {
+   "cond_range": [
+    60.1,
+    96.3
+   ],
+   "A": {
+    "n": 147,
+    "avg_stop_r": 0.253,
+    "med_ret_o5": -1.77,
+    "win5_pct": 41.5,
+    "avg_stop_r_20": 1.082
+   },
+   "B": {
+    "n": 294,
+    "avg_stop_r": 0.496,
+    "med_ret_o5": 0.51,
+    "win5_pct": 55.8,
+    "avg_stop_r_20": 1.084
+   },
+   "COVID": {
+    "n": 421,
+    "avg_stop_r": 0.316,
+    "med_ret_o5": -0.12,
+    "win5_pct": 49.2,
+    "avg_stop_r_20": 1.395
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.913,
+  "COVID": 0.344,
+  "B": 0.932
+ },
+ "extreme_bucket_n": {
+  "A": [
+   12,
+   147
+  ],
+  "B": [
+   11,
+   294
+  ]
+ },
+ "null_beat_pct": 74.5,
+ "modern_split": {
+  "B23": {
+   "effect": 1.194,
+   "n": 166,
+   "n_ext": [
+    3,
+    126
+   ]
+  },
+  "B24": {
+   "effect": 0.775,
+   "n": 384,
+   "n_ext": [
+    8,
+    168
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": 2.082,
+  "COVID": 1.965,
+  "B": 2.084
+ },
+ "null_beat_pct_20": 87.5,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": 1.601,
+  "COVID": 1.064,
+  "B": 1.249
+ },
+ "effect_R_trail_w5": {
+  "A": 0.584,
+  "COVID": 0.084,
+  "B": 0.726
+ },
+ "null_beat_pct_trail": 85.5,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 1.421,
+  "COVID": 0.955,
+  "B": 0.945
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.492,
+  "COVID": 0.066,
+  "B": 0.589
+ },
+ "null_beat_pct_trail_be": 82.0,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.398,
+  "COVID": -1.158,
+  "B": 0.824
+ },
+ "effect_R_close_w5": {
+  "A": -0.064,
+  "COVID": -0.525,
+  "B": 0.253
+ },
+ "null_beat_pct_close": 11.5,
+ "verdict_close": "INSUFFICIENT"
+}

@@ -1,0 +1,6 @@
+{
+  "id": "h5_burst_consol_days",
+  "question": "Does a longer standing tight base (consol_days as of trigger day; 0 = 5d range already widened out, >20 = long base intact) improve bursts? Expected: positive top-minus-bottom per longer-base doctrine, but prior says nothing grades bursts so likely null",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "consol_days", "buckets": [-0.5, 0.5, 5.5, 20.5, 10000]}
+}

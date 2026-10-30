@@ -1,0 +1,224 @@
+{
+ "id": "lcvcp_fourpct_consoldays",
+ "question": "Among large-cap 4%+ breakouts, does a longer standing tight base (consol_days) before the trigger improve forward returns? Expected: positive top-minus-bottom (long base beats no base)",
+ "plain": "Do large-cap breakouts out of a long-standing tight base outperform breakouts with no real base behind them?",
+ "spec": {
+  "id": "lcvcp_fourpct_consoldays",
+  "question": "Among large-cap 4%+ breakouts, does a longer standing tight base (consol_days) before the trigger improve forward returns? Expected: positive top-minus-bottom (long base beats no base)",
+  "plain": "Do large-cap breakouts out of a long-standing tight base outperform breakouts with no real base behind them?",
+  "cohort": {
+   "trigger": "four_pct",
+   "side": "long",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     200
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "consol_days",
+   "buckets": [
+    -0.5,
+    0.5,
+    5.5,
+    20.5,
+    10000
+   ]
+  }
+ },
+ "side": "long",
+ "n": 11950,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    0.0
+   ],
+   "A": {
+    "n": 3094,
+    "avg_stop_r": -0.053,
+    "med_ret_o5": -0.6,
+    "win5_pct": 44.6,
+    "avg_stop_r_20": -0.126
+   },
+   "B": {
+    "n": 2466,
+    "avg_stop_r": 0.017,
+    "med_ret_o5": -0.13,
+    "win5_pct": 48.8,
+    "avg_stop_r_20": 0.081
+   },
+   "COVID": {
+    "n": 3237,
+    "avg_stop_r": 0.071,
+    "med_ret_o5": -0.28,
+    "win5_pct": 47.9,
+    "avg_stop_r_20": 0.27
+   }
+  },
+  "1": {
+   "cond_range": [
+    1.0,
+    5.0
+   ],
+   "A": {
+    "n": 463,
+    "avg_stop_r": 0.005,
+    "med_ret_o5": -0.33,
+    "win5_pct": 47.3,
+    "avg_stop_r_20": 0.08
+   },
+   "B": {
+    "n": 374,
+    "avg_stop_r": 0.078,
+    "med_ret_o5": 0.3,
+    "win5_pct": 51.6,
+    "avg_stop_r_20": 0.118
+   },
+   "COVID": {
+    "n": 459,
+    "avg_stop_r": -0.057,
+    "med_ret_o5": -0.6,
+    "win5_pct": 43.4,
+    "avg_stop_r_20": -0.093
+   }
+  },
+  "2": {
+   "cond_range": [
+    6.0,
+    20.0
+   ],
+   "A": {
+    "n": 439,
+    "avg_stop_r": -0.035,
+    "med_ret_o5": -0.2,
+    "win5_pct": 48.1,
+    "avg_stop_r_20": -0.092
+   },
+   "B": {
+    "n": 405,
+    "avg_stop_r": 0.032,
+    "med_ret_o5": -0.16,
+    "win5_pct": 48.1,
+    "avg_stop_r_20": 0.175
+   },
+   "COVID": {
+    "n": 374,
+    "avg_stop_r": -0.073,
+    "med_ret_o5": -0.67,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": 0.036
+   }
+  },
+  "3": {
+   "cond_range": [
+    21.0,
+    264.0
+   ],
+   "A": {
+    "n": 225,
+    "avg_stop_r": -0.004,
+    "med_ret_o5": -0.18,
+    "win5_pct": 47.1,
+    "avg_stop_r_20": -0.047
+   },
+   "B": {
+    "n": 282,
+    "avg_stop_r": 0.135,
+    "med_ret_o5": 0.23,
+    "win5_pct": 53.9,
+    "avg_stop_r_20": 0.28
+   },
+   "COVID": {
+    "n": 132,
+    "avg_stop_r": 0.228,
+    "med_ret_o5": 0.7,
+    "win5_pct": 56.1,
+    "avg_stop_r_20": 0.301
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.049,
+  "COVID": 0.157,
+  "B": 0.118
+ },
+ "extreme_bucket_n": {
+  "A": [
+   3094,
+   225
+  ],
+  "B": [
+   2466,
+   282
+  ]
+ },
+ "null_beat_pct": 97.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.259,
+   "n": 892,
+   "n_ext": [
+    577,
+    124
+   ]
+  },
+  "B24": {
+   "effect": -0.023,
+   "n": 2635,
+   "n_ext": [
+    1889,
+    158
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "WEAK",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.079,
+  "COVID": 0.031,
+  "B": 0.199
+ },
+ "null_beat_pct_20": 84.5,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": 0.155,
+  "COVID": 0.125,
+  "B": 0.401
+ },
+ "effect_R_trail_w5": {
+  "A": 0.173,
+  "COVID": 0.193,
+  "B": 0.379
+ },
+ "null_beat_pct_trail": 99.5,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": 0.177,
+  "COVID": 0.066,
+  "B": 0.374
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.183,
+  "COVID": 0.127,
+  "B": 0.346
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": 0.052,
+  "COVID": 0.135,
+  "B": 0.143
+ },
+ "effect_R_close_w5": {
+  "A": 0.059,
+  "COVID": 0.15,
+  "B": 0.122
+ },
+ "null_beat_pct_close": 98.5,
+ "verdict_close": "FAIL"
+}

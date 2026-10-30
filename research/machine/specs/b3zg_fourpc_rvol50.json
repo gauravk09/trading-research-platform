@@ -1,0 +1,7 @@
+{
+  "id": "b3zg_fourpc_rvol50",
+  "question": "Zanger: on a 4% up day, does a bigger volume spike (rvol50) grade better follow-through? House prior says volume-confirmation is neutral-to-harmful on NSE -- expect flat/negative.",
+  "plain": "Dan Zanger says a breakout only counts if volume explodes; we test whether NSE 4%-up days with the biggest volume spikes actually perform better afterward.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "rvol50", "buckets": "quartiles"}
+}

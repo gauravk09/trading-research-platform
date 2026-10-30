@@ -1,0 +1,9 @@
+{
+  "id": "qv_burst_tight_quiet_gated",
+  "plain": "Momentum burst large caps, tight base + no volume frenzy, ONLY when tape is healthy (market pct40ma>=50), 20-bar hold",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["tightness", ">=", 0.7], ["volc5_50", "<=", 1.2], ["market:pct40ma", ">=", 50]],
+  "horizon": 20,
+  "risk": 0.0075
+}

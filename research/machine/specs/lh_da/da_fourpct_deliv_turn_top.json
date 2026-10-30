@@ -1,0 +1,9 @@
+{
+  "id": "da_fourpct_deliv_turn_top",
+  "plain": "4%-up day, high delivery spike AND top-decile turnover (only the most liquid, most institutionally-bought names), 20d horizon",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["deliv_x20", ">=", 1.3], ["turn_decile", ">=", 0.8]],
+  "horizon": 20,
+  "risk": 0.0075
+}

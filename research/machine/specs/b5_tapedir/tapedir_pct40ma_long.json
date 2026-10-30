@@ -1,0 +1,7 @@
+{
+  "id": "tapedir_pct40ma_long",
+  "question": "Long four_pct large-caps gated by % of stocks above 40dma (quartiles): expect POSITIVE top-minus-bottom effect - broad participation above the 40dma makes the long breakout hold up better.",
+  "plain": "Buying a large-cap 4%-up-day breakout: does it work better when a high percentage of stocks are already above their 40-day average?",
+  "cohort": {"trigger": "four_pct", "side": "long", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "market", "name": "pct40ma", "buckets": "quartiles"}
+}

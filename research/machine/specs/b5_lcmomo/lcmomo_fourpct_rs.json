@@ -1,0 +1,7 @@
+{
+  "id": "lcmomo_fourpct_rs",
+  "question": "Among top-150 large-cap four_pct events, does cross-sectional RS rank select winners for a long, expecting top quartile to beat bottom quartile in stop-R, more so at 20d than 5d?",
+  "plain": "Buying a 4%-up-day breakout in a large-cap: does IBD-style relative-strength rank pick the better performers over the next month?",
+  "cohort": {"trigger": "four_pct", "side": "long", "filters": [["mcap_rank", "<=", 150]]},
+  "condition": {"type": "feature", "name": "rs", "buckets": "quartiles"}
+}

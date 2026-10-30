@@ -1,0 +1,1 @@
+{"id":"x_qm_pb1","question":"SYSTEM CHECK on the NEW qm_flag cohort: a random per-symbol trait must FAIL on every ruler","cohort":{"trigger":"qm_flag"},"condition":{"type":"placebo","name":"qmpb1","buckets":"quartiles"}}

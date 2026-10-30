@@ -1,0 +1,209 @@
+{
+ "id": "qm_pct40ma",
+ "question": "Does the share of stocks above their 40DMA (tape health) select winners on faithful flag breakouts, where it FAILed the red-team on bursts? Expect positive.",
+ "plain": null,
+ "spec": {
+  "id": "qm_pct40ma",
+  "question": "Does the share of stocks above their 40DMA (tape health) select winners on faithful flag breakouts, where it FAILed the red-team on bursts? Expect positive.",
+  "cohort": {
+   "trigger": "qm_flag"
+  },
+  "condition": {
+   "type": "market",
+   "name": "pct40ma",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 10982,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    5.0,
+    52.6
+   ],
+   "A": {
+    "n": 624,
+    "avg_stop_r": -0.062,
+    "med_ret_o5": -0.84,
+    "win5_pct": 42.8,
+    "avg_stop_r_20": 0.146
+   },
+   "B": {
+    "n": 1108,
+    "avg_stop_r": -0.101,
+    "med_ret_o5": -1.16,
+    "win5_pct": 42.4,
+    "avg_stop_r_20": 0.061
+   },
+   "COVID": {
+    "n": 1019,
+    "avg_stop_r": -0.07,
+    "med_ret_o5": -1.1,
+    "win5_pct": 44.9,
+    "avg_stop_r_20": 0.181
+   }
+  },
+  "1": {
+   "cond_range": [
+    52.7,
+    65.9
+   ],
+   "A": {
+    "n": 709,
+    "avg_stop_r": -0.098,
+    "med_ret_o5": -0.77,
+    "win5_pct": 43.6,
+    "avg_stop_r_20": 0.015
+   },
+   "B": {
+    "n": 1354,
+    "avg_stop_r": -0.055,
+    "med_ret_o5": -0.97,
+    "win5_pct": 43.0,
+    "avg_stop_r_20": -0.162
+   },
+   "COVID": {
+    "n": 703,
+    "avg_stop_r": 0.022,
+    "med_ret_o5": -0.85,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": 0.18
+   }
+  },
+  "2": {
+   "cond_range": [
+    66.0,
+    77.7
+   ],
+   "A": {
+    "n": 434,
+    "avg_stop_r": -0.161,
+    "med_ret_o5": -1.38,
+    "win5_pct": 39.2,
+    "avg_stop_r_20": -0.344
+   },
+   "B": {
+    "n": 1642,
+    "avg_stop_r": -0.079,
+    "med_ret_o5": -1.09,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": 0.111
+   },
+   "COVID": {
+    "n": 670,
+    "avg_stop_r": -0.019,
+    "med_ret_o5": -1.69,
+    "win5_pct": 41.6,
+    "avg_stop_r_20": -0.217
+   }
+  },
+  "3": {
+   "cond_range": [
+    77.9,
+    96.3
+   ],
+   "A": {
+    "n": 448,
+    "avg_stop_r": -0.113,
+    "med_ret_o5": -1.43,
+    "win5_pct": 40.8,
+    "avg_stop_r_20": -0.343
+   },
+   "B": {
+    "n": 748,
+    "avg_stop_r": -0.195,
+    "med_ret_o5": -1.75,
+    "win5_pct": 38.8,
+    "avg_stop_r_20": 0.004
+   },
+   "COVID": {
+    "n": 1523,
+    "avg_stop_r": -0.098,
+    "med_ret_o5": -1.72,
+    "win5_pct": 40.0,
+    "avg_stop_r_20": -0.057
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.051,
+  "COVID": -0.028,
+  "B": -0.094
+ },
+ "extreme_bucket_n": {
+  "A": [
+   624,
+   448
+  ],
+  "B": [
+   1108,
+   748
+  ]
+ },
+ "null_beat_pct": 59.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.209,
+   "n": 1726,
+   "n_ext": [
+    192,
+    280
+   ]
+  },
+  "B24": {
+   "effect": -0.036,
+   "n": 3126,
+   "n_ext": [
+    916,
+    468
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.489,
+  "COVID": -0.239,
+  "B": -0.057
+ },
+ "null_beat_pct_20": 99.0,
+ "verdict_20": "WEAK",
+ "effect_R_trail": {
+  "A": -0.144,
+  "COVID": -0.18,
+  "B": 0.056
+ },
+ "effect_R_trail_w5": {
+  "A": -0.119,
+  "COVID": -0.151,
+  "B": 0.049
+ },
+ "null_beat_pct_trail": 71.5,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.078,
+  "COVID": -0.144,
+  "B": -0.06
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.063,
+  "COVID": -0.095,
+  "B": -0.04
+ },
+ "null_beat_pct_trail_be": 85.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.07,
+  "COVID": -0.016,
+  "B": -0.05
+ },
+ "effect_R_close_w5": {
+  "A": -0.062,
+  "COVID": -0.056,
+  "B": -0.04
+ },
+ "null_beat_pct_close": 17.5,
+ "verdict_close": "FAIL"
+}

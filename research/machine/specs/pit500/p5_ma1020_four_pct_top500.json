@@ -1,0 +1,21 @@
+{
+  "id": "p5_ma1020_four_pct_top500",
+  "question": "[top-500 by point-in-time market cap] Same index 10/20-DMA gate on ordinary 4% up-days inside a point-in-time quality universe -- expect higher ratio = better if micro-cap noise was hiding it",
+  "plain": "The same index trend filter, on every 4% up-day in bigger companies only. Universe: top-500 by point-in-time market cap.",
+  "cohort": {
+    "trigger": "four_pct",
+    "side": "long",
+    "filters": [
+      [
+        "mcap_rank",
+        "<=",
+        500
+      ]
+    ]
+  },
+  "condition": {
+    "type": "market",
+    "name": "ma1020_nifty50",
+    "buckets": "quintiles"
+  }
+}

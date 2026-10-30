@@ -1,0 +1,9 @@
+{
+  "id": "rg_burst_net4_pct40ma_stack",
+  "plain": "Iteration on the one era-B-positive candidate (net4>=50): stack a second tape gate (pct40ma>=50) to try to cut its -34% drawdown further",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["market:net4", ">=", 50], ["market:pct40ma", ">=", 50]],
+  "horizon": 20,
+  "risk": 0.0075
+}

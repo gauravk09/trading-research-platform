@@ -1,0 +1,9 @@
+{
+  "id": "da_fourpct_deliv",
+  "plain": "4%-up day large caps with a delivery-% spike (real buying, not churn), 20d horizon",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["deliv_x20", ">=", 1.3]],
+  "horizon": 20,
+  "risk": 0.0075
+}

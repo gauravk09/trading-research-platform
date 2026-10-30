@@ -1,0 +1,7 @@
+{
+  "id": "b3zg_fourpc_rvol3_blow21",
+  "question": "Stack: on 4% days with explosive volume (rvol50>=3), does buying near the 21d low (bounce_low21) still help, testing whether Zanger's volume-explosion combines with position-in-range? Expect no added edge beyond what bounce_low21 already showed on the plain bounce trigger.",
+  "plain": "We take only the 4%-up days with the biggest volume explosions (Dan Zanger's core idea) and check whether stocks trading near their recent low do better than those further away.",
+  "cohort": {"trigger": "four_pct", "filters": [["rvol50", ">=", 3]]},
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quartiles"}
+}

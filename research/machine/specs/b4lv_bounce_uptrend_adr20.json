@@ -1,0 +1,7 @@
+{
+  "id": "b4lv_bounce_uptrend_adr20",
+  "question": "Restricting BOUNCE to stocks already in a long uptrend (trend_age>=200, Connors-style pullback-in-uptrend), do LOWER adr20 stocks still give a better stop-R? Expect NEGATIVE top-minus-bottom, and effect should be cleaner/stronger than the unrestricted bounce cohort.",
+  "plain": "Combines Connors' pullback-in-uptrend idea with the low-volatility anomaly (Pandey; MAS 2022): among oversold dips inside established uptrends, calmer stocks (lower adr20) should bounce with better risk-adjusted return.",
+  "cohort": {"trigger": "bounce", "filters": [["trend_age", ">=", 200]]},
+  "condition": {"type": "feature", "name": "adr20", "buckets": "quartiles"}
+}

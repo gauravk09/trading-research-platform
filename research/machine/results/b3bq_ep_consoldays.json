@@ -1,0 +1,130 @@
+{
+ "id": "b3bq_ep_consoldays",
+ "question": "On episodic-pivot (extreme-volume gap) events, does prior base length (consol_days) grade the outcome? Expect longer consol_days = better stop-R, since an EP breaking out of a longer, more mature base should be a stronger surprise catalyst.",
+ "plain": "Idea: an episodic pivot (a big surprise-news gap) works better when the stock had been quietly building a base for a long time beforehand, versus one with no prior base.",
+ "spec": {
+  "id": "b3bq_ep_consoldays",
+  "question": "On episodic-pivot (extreme-volume gap) events, does prior base length (consol_days) grade the outcome? Expect longer consol_days = better stop-R, since an EP breaking out of a longer, more mature base should be a stronger surprise catalyst.",
+  "plain": "Idea: an episodic pivot (a big surprise-news gap) works better when the stock had been quietly building a base for a long time beforehand, versus one with no prior base.",
+  "cohort": {
+   "trigger": "ep",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "consol_days",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 5169,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    264.0
+   ],
+   "A": {
+    "n": 908,
+    "avg_stop_r": -0.059,
+    "med_ret_o5": -0.46,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": -0.08
+   },
+   "B": {
+    "n": 2670,
+    "avg_stop_r": -0.039,
+    "med_ret_o5": -0.78,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": 0.095
+   },
+   "COVID": {
+    "n": 1591,
+    "avg_stop_r": 0.114,
+    "med_ret_o5": 0.03,
+    "win5_pct": 50.2,
+    "avg_stop_r_20": 0.248
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "extreme_bucket_n": {
+  "A": [
+   908,
+   908
+  ],
+  "B": [
+   2670,
+   2670
+  ]
+ },
+ "null_beat_pct": 0.0,
+ "modern_split": {
+  "B23": {
+   "effect": NaN,
+   "n": 659,
+   "n_ext": [
+    659,
+    659
+   ]
+  },
+  "B24": {
+   "effect": NaN,
+   "n": 2011,
+   "n_ext": [
+    2011,
+    2011
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_20": 0.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail": 0.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_be_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail_be": 0.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_close_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_close": 0.0,
+ "verdict_close": "FAIL"
+}

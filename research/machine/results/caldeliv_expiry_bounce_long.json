@@ -1,0 +1,196 @@
+{
+ "id": "caldeliv_expiry_bounce_long",
+ "question": "Among top-150 large-cap bounce longs, does calendar distance to monthly expiry (expiry_dist) change bounce follow-through? No strong house prior; testing whether expiry-week (0-2 days) whipsaw hurts a mean-reversion bounce more than a momentum breakout.",
+ "plain": "Buying a large-cap oversold bounce: does it matter whether you're right next to monthly F&O expiry versus mid-cycle?",
+ "spec": {
+  "id": "caldeliv_expiry_bounce_long",
+  "question": "Among top-150 large-cap bounce longs, does calendar distance to monthly expiry (expiry_dist) change bounce follow-through? No strong house prior; testing whether expiry-week (0-2 days) whipsaw hurts a mean-reversion bounce more than a momentum breakout.",
+  "plain": "Buying a large-cap oversold bounce: does it matter whether you're right next to monthly F&O expiry versus mid-cycle?",
+  "cohort": {
+   "trigger": "bounce",
+   "side": "long",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "calendar",
+   "name": "expiry_dist",
+   "buckets": [
+    -1,
+    2,
+    7,
+    40
+   ]
+  }
+ },
+ "side": "long",
+ "n": 18670,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    2.0
+   ],
+   "A": {
+    "n": 1096,
+    "avg_stop_r": 0.005,
+    "med_ret_o5": 0.48,
+    "win5_pct": 55.7,
+    "avg_stop_r_20": 0.174
+   },
+   "B": {
+    "n": 897,
+    "avg_stop_r": 0.33,
+    "med_ret_o5": 0.15,
+    "win5_pct": 51.7,
+    "avg_stop_r_20": 0.616
+   },
+   "COVID": {
+    "n": 758,
+    "avg_stop_r": 0.213,
+    "med_ret_o5": 1.42,
+    "win5_pct": 63.7,
+    "avg_stop_r_20": 0.463
+   }
+  },
+  "1": {
+   "cond_range": [
+    3.0,
+    7.0
+   ],
+   "A": {
+    "n": 1284,
+    "avg_stop_r": 0.06,
+    "med_ret_o5": 0.68,
+    "win5_pct": 56.4,
+    "avg_stop_r_20": -0.055
+   },
+   "B": {
+    "n": 1086,
+    "avg_stop_r": 0.396,
+    "med_ret_o5": 0.08,
+    "win5_pct": 51.7,
+    "avg_stop_r_20": 0.663
+   },
+   "COVID": {
+    "n": 850,
+    "avg_stop_r": -0.247,
+    "med_ret_o5": 0.12,
+    "win5_pct": 51.2,
+    "avg_stop_r_20": -0.119
+   }
+  },
+  "2": {
+   "cond_range": [
+    8.0,
+    30.0
+   ],
+   "A": {
+    "n": 5130,
+    "avg_stop_r": -0.138,
+    "med_ret_o5": -0.07,
+    "win5_pct": 49.1,
+    "avg_stop_r_20": -0.109
+   },
+   "B": {
+    "n": 4134,
+    "avg_stop_r": -0.003,
+    "med_ret_o5": 0.0,
+    "win5_pct": 50.0,
+    "avg_stop_r_20": 0.057
+   },
+   "COVID": {
+    "n": 3435,
+    "avg_stop_r": -0.07,
+    "med_ret_o5": -0.56,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": 0.136
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.143,
+  "COVID": -0.282,
+  "B": -0.333
+ },
+ "extreme_bucket_n": {
+  "A": [
+   1096,
+   5130
+  ],
+  "B": [
+   897,
+   4134
+  ]
+ },
+ "null_beat_pct": 97.0,
+ "modern_split": {
+  "B23": {
+   "effect": -0.577,
+   "n": 1566,
+   "n_ext": [
+    207,
+    980
+   ]
+  },
+  "B24": {
+   "effect": -0.26,
+   "n": 4551,
+   "n_ext": [
+    690,
+    3154
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "PASS",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.283,
+  "COVID": -0.327,
+  "B": -0.559
+ },
+ "null_beat_pct_20": 97.0,
+ "verdict_20": "PASS",
+ "effect_R_trail": {
+  "A": -0.263,
+  "COVID": -0.18,
+  "B": -0.402
+ },
+ "effect_R_trail_w5": {
+  "A": -0.22,
+  "COVID": -0.139,
+  "B": -0.068
+ },
+ "null_beat_pct_trail": 97.0,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": -0.179,
+  "COVID": -0.182,
+  "B": -0.479
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.194,
+  "COVID": -0.125,
+  "B": -0.092
+ },
+ "null_beat_pct_trail_be": 98.0,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": -0.245,
+  "COVID": -0.326,
+  "B": -0.147
+ },
+ "effect_R_close_w5": {
+  "A": -0.214,
+  "COVID": -0.177,
+  "B": -0.092
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "PASS"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "v_b3kl_ret7_fourpct_b",
+  "question": "Perturbation of b3kl (PASS): same four_pct/ret7 exhaustion idea but with explicit bucket edges shifted ~20% outward from the original quartile cut points (0.68/5.08/9.47 -> 0.82/6.09/11.36) — expect the top bucket (ret7 > 11.36%) to still be the worst avg stop-R in both eras A and B.",
+  "plain": "Moving the group boundaries by about 20% to check the 'stock already ran up this week does worse' pattern isn't just an accident of exactly where the original cutoffs fell.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "feature", "name": "ret7", "buckets": [-65.61, 0.82, 6.09, 11.36, 1099.42]}
+}

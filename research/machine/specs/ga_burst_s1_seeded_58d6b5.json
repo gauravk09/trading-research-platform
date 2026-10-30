@@ -1,0 +1,13 @@
+{
+ "id": "ga_burst_s1_seeded_58d6b5",
+ "question": "GA-evolved (burst): filters [none]; condition volc5_50 (quartiles). Train CV folds +0.05/-0.01/+0.01/+0.21R \u2014 expect more of it = better. Era B untouched until this run.",
+ "cohort": {
+  "trigger": "burst",
+  "filters": []
+ },
+ "condition": {
+  "type": "feature",
+  "name": "volc5_50",
+  "buckets": "quartiles"
+ }
+}

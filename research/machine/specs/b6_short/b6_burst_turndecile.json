@@ -1,0 +1,11 @@
+{
+  "id": "b6_burst_turndecile",
+  "question": "Large-cap burst-day shorts bucketed by turn_decile (own-stock turnover decile): expect POSITIVE top-minus-bottom effect - a momentum/volume burst on the HEAVIEST-turnover names fades harder when shorted than a burst on thin-turnover names, on the theory that heavy-turnover bursts are more likely distribution than genuine accumulation.",
+  "plain": "When a large-cap has a volume/momentum burst, does shorting the heaviest-turnover bursts (possible distribution) work better than shorting quiet-turnover bursts?",
+  "cohort": {
+    "trigger": "burst",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quartiles"}
+}

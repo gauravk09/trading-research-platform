@@ -1,0 +1,11 @@
+{
+  "id": "lcbounce_rvol50",
+  "question": "On large-cap bounce (3-down-close) setups, does a bigger capitulation volume spike (higher rvol50) produce a better subsequent long stop-R than a quiet volume bounce? Expect the top rvol50 quartile to have the best avg_stop_r, monotone across buckets.",
+  "plain": "Tests whether large-cap dip-buys work better when the down-move happened on heavy volume (real capitulation/panic) vs on light, boring volume.",
+  "cohort": {
+    "trigger": "bounce",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "rvol50", "buckets": "quartiles"}
+}

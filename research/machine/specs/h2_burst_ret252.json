@@ -1,0 +1,6 @@
+{
+  "id": "h2_burst_ret252",
+  "question": "Do bursts fired by big prior 1-year gainers (proven movers) earn better stop-R? Expected direction: folklore says top ret_252 quintile beats bottom (positive effect); house prior (stock_env_matrix) says nothing grades bursts, so flat would confirm house view.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "derived", "name": "ret_252", "buckets": "quintiles"}
+}

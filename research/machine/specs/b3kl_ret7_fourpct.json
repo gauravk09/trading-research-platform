@@ -1,0 +1,7 @@
+{
+  "id": "b3kl_ret7_fourpct",
+  "question": "Oliver Kell's exhaustion-extension idea applied to the very short term: on four_pct days, expect higher trailing 1-week return (ret7, more overextended in the last week) to be WORSE (lower avg stop-R) than a lower/flatter ret7 — a short-term fade risk.",
+  "plain": "Oliver Kell warns that a stock already up a lot in just the past week is more likely to be exhausted; this checks if 4%-up days following a big 1-week run do worse than ones without that run-up.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "feature", "name": "ret7", "buckets": "quartiles"}
+}

@@ -1,0 +1,180 @@
+{
+ "id": "b4dl_4pct_rvol_deliv",
+ "question": "Among 4%-up days that are also volume spikes (rvol50>=2), does higher delivery% (deliv_x20) confirm the move and grade better outcome? Expect higher delivery = better (VSA absorption/confirmation idea).",
+ "plain": "Tests whether a 4% up-day volume spike is more reliable when backed by high delivery percentage, i.e. real buying rather than intraday churn (VSA absorption concept).",
+ "spec": {
+  "id": "b4dl_4pct_rvol_deliv",
+  "question": "Among 4%-up days that are also volume spikes (rvol50>=2), does higher delivery% (deliv_x20) confirm the move and grade better outcome? Expect higher delivery = better (VSA absorption/confirmation idea).",
+  "plain": "Tests whether a 4% up-day volume spike is more reliable when backed by high delivery percentage, i.e. real buying rather than intraday churn (VSA absorption concept).",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": [
+    [
+     "rvol50",
+     ">=",
+     2
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "deliv_x20",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 29690,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.01929665356874466,
+    0.5131687521934509
+   ],
+   "B": {
+    "n": 5564,
+    "avg_stop_r": -0.153,
+    "med_ret_o5": -1.5,
+    "win5_pct": 39.5,
+    "avg_stop_r_20": -0.198
+   },
+   "COVID": {
+    "n": 1859,
+    "avg_stop_r": -0.218,
+    "med_ret_o5": -1.7,
+    "win5_pct": 38.4,
+    "avg_stop_r_20": -0.13
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5131810903549194,
+    0.7000839114189148
+   ],
+   "B": {
+    "n": 4703,
+    "avg_stop_r": -0.08,
+    "med_ret_o5": -1.09,
+    "win5_pct": 42.2,
+    "avg_stop_r_20": -0.052
+   },
+   "COVID": {
+    "n": 2719,
+    "avg_stop_r": -0.124,
+    "med_ret_o5": -1.42,
+    "win5_pct": 39.4,
+    "avg_stop_r_20": -0.098
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.7000936269760132,
+    0.8766272068023682
+   ],
+   "B": {
+    "n": 4709,
+    "avg_stop_r": -0.055,
+    "med_ret_o5": -1.03,
+    "win5_pct": 43.0,
+    "avg_stop_r_20": 0.01
+   },
+   "COVID": {
+    "n": 2713,
+    "avg_stop_r": -0.079,
+    "med_ret_o5": -1.32,
+    "win5_pct": 41.5,
+    "avg_stop_r_20": -0.022
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.8766410946846008,
+    4.406486511230469
+   ],
+   "B": {
+    "n": 4934,
+    "avg_stop_r": -0.004,
+    "med_ret_o5": -0.53,
+    "win5_pct": 45.8,
+    "avg_stop_r_20": 0.119
+   },
+   "COVID": {
+    "n": 2489,
+    "avg_stop_r": 0.05,
+    "med_ret_o5": -0.6,
+    "win5_pct": 46.1,
+    "avg_stop_r_20": 0.144
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": 0.268,
+  "B": 0.149
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   5564,
+   4934
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.234,
+   "n": 5524,
+   "n_ext": [
+    1177,
+    1431
+   ]
+  },
+  "B24": {
+   "effect": 0.107,
+   "n": 14386,
+   "n_ext": [
+    4387,
+    3503
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "PASS (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": 0.273,
+  "B": 0.317
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "PASS (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": 0.274,
+  "B": 0.343
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": 0.237,
+  "B": 0.291
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "PASS (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": 0.273,
+  "B": 0.258
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": 0.239,
+  "B": 0.217
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "PASS (modern)",
+ "verdict_close": "N/A (look-ahead)",
+ "close_flaw": "deliv_x20 is published after the close"
+}

@@ -1,0 +1,221 @@
+{
+ "id": "v_b2t_fp_nearlow_net4_b",
+ "question": "Perturbation B of b2t_fp_nearlow_net4: loosen bounce_low21 edge ~20% (<= 21.8 instead of 18.16), keep turn_decile >= 0.5, and change bucketing from quintiles to quartiles. Expected: positive effect persists in eras A and B, top net4 quartile best.",
+ "plain": null,
+ "spec": {
+  "id": "v_b2t_fp_nearlow_net4_b",
+  "question": "Perturbation B of b2t_fp_nearlow_net4: loosen bounce_low21 edge ~20% (<= 21.8 instead of 18.16), keep turn_decile >= 0.5, and change bucketing from quintiles to quartiles. Expected: positive effect persists in eras A and B, top net4 quartile best.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": [
+    [
+     "bounce_low21",
+     "<=",
+     21.8
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.5
+    ]
+   ]
+  },
+  "condition": {
+   "type": "market",
+   "name": "net4",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 43587,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -968.0,
+    51.0
+   ],
+   "A": {
+    "n": 4860,
+    "avg_stop_r": -0.083,
+    "med_ret_o5": -1.08,
+    "win5_pct": 42.0,
+    "avg_stop_r_20": -0.062
+   },
+   "B": {
+    "n": 3768,
+    "avg_stop_r": -0.098,
+    "med_ret_o5": -0.99,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": -0.119
+   },
+   "COVID": {
+    "n": 2525,
+    "avg_stop_r": -0.034,
+    "med_ret_o5": -1.38,
+    "win5_pct": 41.2,
+    "avg_stop_r_20": 0.115
+   }
+  },
+  "1": {
+   "cond_range": [
+    52.0,
+    90.0
+   ],
+   "A": {
+    "n": 3482,
+    "avg_stop_r": 0.001,
+    "med_ret_o5": -0.65,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": 0.009
+   },
+   "B": {
+    "n": 4497,
+    "avg_stop_r": -0.068,
+    "med_ret_o5": -0.88,
+    "win5_pct": 43.4,
+    "avg_stop_r_20": 0.052
+   },
+   "COVID": {
+    "n": 2845,
+    "avg_stop_r": -0.072,
+    "med_ret_o5": -1.4,
+    "win5_pct": 41.0,
+    "avg_stop_r_20": 0.18
+   }
+  },
+  "2": {
+   "cond_range": [
+    91.0,
+    140.0
+   ],
+   "A": {
+    "n": 2029,
+    "avg_stop_r": -0.009,
+    "med_ret_o5": -0.65,
+    "win5_pct": 43.9,
+    "avg_stop_r_20": -0.125
+   },
+   "B": {
+    "n": 4887,
+    "avg_stop_r": -0.054,
+    "med_ret_o5": -0.79,
+    "win5_pct": 43.5,
+    "avg_stop_r_20": -0.114
+   },
+   "COVID": {
+    "n": 4065,
+    "avg_stop_r": 0.02,
+    "med_ret_o5": -0.7,
+    "win5_pct": 43.9,
+    "avg_stop_r_20": 0.175
+   }
+  },
+  "3": {
+   "cond_range": [
+    141.0,
+    888.0
+   ],
+   "A": {
+    "n": 1764,
+    "avg_stop_r": 0.254,
+    "med_ret_o5": 0.92,
+    "win5_pct": 57.1,
+    "avg_stop_r_20": 0.013
+   },
+   "B": {
+    "n": 5319,
+    "avg_stop_r": 0.295,
+    "med_ret_o5": 1.08,
+    "win5_pct": 57.7,
+    "avg_stop_r_20": 0.457
+   },
+   "COVID": {
+    "n": 3546,
+    "avg_stop_r": 0.144,
+    "med_ret_o5": 0.05,
+    "win5_pct": 50.2,
+    "avg_stop_r_20": 0.224
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.338,
+  "COVID": 0.178,
+  "B": 0.393
+ },
+ "extreme_bucket_n": {
+  "A": [
+   4860,
+   1764
+  ],
+  "B": [
+   3768,
+   5319
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.246,
+   "n": 4389,
+   "n_ext": [
+    803,
+    353
+   ]
+  },
+  "B24": {
+   "effect": 0.423,
+   "n": 14082,
+   "n_ext": [
+    2965,
+    4966
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "PASS",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.075,
+  "COVID": 0.109,
+  "B": 0.576
+ },
+ "null_beat_pct_20": 99.5,
+ "verdict_20": "WEAK",
+ "effect_R_trail": {
+  "A": 0.121,
+  "COVID": 0.198,
+  "B": 0.428
+ },
+ "effect_R_trail_w5": {
+  "A": 0.109,
+  "COVID": 0.174,
+  "B": 0.358
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "PASS",
+ "effect_R_trail_be": {
+  "A": 0.181,
+  "COVID": 0.155,
+  "B": 0.423
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.169,
+  "COVID": 0.14,
+  "B": 0.346
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": 0.292,
+  "COVID": 0.289,
+  "B": 0.415
+ },
+ "effect_R_close_w5": {
+  "A": 0.301,
+  "COVID": 0.287,
+  "B": 0.4
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "PASS"
+}

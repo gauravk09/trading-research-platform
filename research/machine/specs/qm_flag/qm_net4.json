@@ -1,0 +1,12 @@
+{
+ "id": "qm_net4",
+ "question": "Does strong market breadth (net4) still select the good faithful-Qullamaggie flag breakouts, the way it does on the generic burst (PASS +0.20R)? Expect positive.",
+ "cohort": {
+  "trigger": "qm_flag"
+ },
+ "condition": {
+  "type": "market",
+  "name": "net4",
+  "buckets": "quartiles"
+ }
+}

@@ -1,0 +1,130 @@
+{
+ "id": "b3bq_fourpct_consoldays",
+ "question": "On plain 4% up days (no burst filter), does a longer prior tight base (consol_days) grade the day? Expect longer consol_days = better stop-R (Minervini VCP / O'Neil flat-base logic: the longer the base, the bigger the eventual move).",
+ "plain": "Minervini/O'Neil idea: a stock that spent a long time building a tight base before a 4% up day should perform better than one with no base at all.",
+ "spec": {
+  "id": "b3bq_fourpct_consoldays",
+  "question": "On plain 4% up days (no burst filter), does a longer prior tight base (consol_days) grade the day? Expect longer consol_days = better stop-R (Minervini VCP / O'Neil flat-base logic: the longer the base, the bigger the eventual move).",
+  "plain": "Minervini/O'Neil idea: a stock that spent a long time building a tight base before a 4% up day should perform better than one with no base at all.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": []
+  },
+  "condition": {
+   "type": "feature",
+   "name": "consol_days",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 83452,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    264.0
+   ],
+   "A": {
+    "n": 19335,
+    "avg_stop_r": -0.043,
+    "med_ret_o5": -0.98,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": -0.12
+   },
+   "B": {
+    "n": 38472,
+    "avg_stop_r": -0.01,
+    "med_ret_o5": -0.71,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": 0.044
+   },
+   "COVID": {
+    "n": 25645,
+    "avg_stop_r": -0.044,
+    "med_ret_o5": -1.13,
+    "win5_pct": 42.5,
+    "avg_stop_r_20": 0.076
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "extreme_bucket_n": {
+  "A": [
+   19335,
+   19335
+  ],
+  "B": [
+   38472,
+   38472
+  ]
+ },
+ "null_beat_pct": 0.0,
+ "modern_split": {
+  "B23": {
+   "effect": NaN,
+   "n": 9099,
+   "n_ext": [
+    9099,
+    9099
+   ]
+  },
+  "B24": {
+   "effect": NaN,
+   "n": 29373,
+   "n_ext": [
+    29373,
+    29373
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_20": 0.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail": 0.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_trail_be_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_trail_be": 0.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "effect_R_close_w5": {
+  "A": NaN,
+  "COVID": NaN,
+  "B": NaN
+ },
+ "null_beat_pct_close": 0.0,
+ "verdict_close": "FAIL"
+}

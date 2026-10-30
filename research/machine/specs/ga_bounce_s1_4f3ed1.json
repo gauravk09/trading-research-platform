@@ -1,0 +1,19 @@
+{
+ "id": "ga_bounce_s1_4f3ed1",
+ "question": "GA-evolved (bounce): filters [adr20 >= 2.4226]; condition tightness (quintiles). Train halves +0.17/+0.50R \u2014 expect more of it = better. Era B untouched until this run.",
+ "cohort": {
+  "trigger": "bounce",
+  "filters": [
+   [
+    "adr20",
+    ">=",
+    2.4226
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "tightness",
+  "buckets": "quintiles"
+ }
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b4il_turn_4pct",
+  "question": "On any 4% up-day (four_pct), does lower turnover (illiquidity premium per Asian markets research) beat higher turnover, or does the burst-cohort result (illiquid=worse short-horizon) generalize?",
+  "plain": "Testing whether low-turnover stocks outperform after any 4% up day, per the illiquidity/size premium literature, or whether liquid stocks still do better as seen in the burst setup.",
+  "cohort": {"trigger": "four_pct"},
+  "condition": {"type": "feature", "name": "turn_decile", "buckets": "quartiles"}
+}

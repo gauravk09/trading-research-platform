@@ -1,0 +1,1 @@
+{"id": "rt_dv_risk05", "plain": "Darvas box breakout large caps, tighter tape gate (pct40ma>=60) plus trend structure (ti65>=1.0), to cut DD further", "source": "csv", "csv": "darvas_box_events.csv", "filters": [["market:pct40ma", ">=", 60], ["ti65", ">=", 1.0]], "horizon": 60, "risk": 0.005}

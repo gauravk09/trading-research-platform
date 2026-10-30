@@ -1,0 +1,181 @@
+{
+ "id": "caldeliv_deliv_fourpctdown_short",
+ "question": "Among top-150 large-cap four_pct_down shorts, does a delivery-% spike vs own 20d mean (deliv_x20) select winners for the short? Expect POSITIVE top-minus-bottom effect (real distribution/selling vs churn confirms the breakdown), but data starts 2020-10 so era A is expected INSUFFICIENT - report modern-era (era B) read regardless.",
+ "plain": "Shorting a large-cap 4%-down-day breakdown: does a spike in delivery volume (real selling, not intraday churn) mean the breakdown follows through better? Delivery data only exists from late 2020.",
+ "spec": {
+  "id": "caldeliv_deliv_fourpctdown_short",
+  "question": "Among top-150 large-cap four_pct_down shorts, does a delivery-% spike vs own 20d mean (deliv_x20) select winners for the short? Expect POSITIVE top-minus-bottom effect (real distribution/selling vs churn confirms the breakdown), but data starts 2020-10 so era A is expected INSUFFICIENT - report modern-era (era B) read regardless.",
+  "plain": "Shorting a large-cap 4%-down-day breakdown: does a spike in delivery volume (real selling, not intraday churn) mean the breakdown follows through better? Delivery data only exists from late 2020.",
+  "cohort": {
+   "trigger": "four_pct_down",
+   "side": "short",
+   "filters": [
+    [
+     "mcap_rank",
+     "<=",
+     150
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "deliv_x20",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "short",
+ "n": 2665,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.28235363960266113,
+    0.8898000121116638
+   ],
+   "B": {
+    "n": 429,
+    "avg_stop_r": -0.056,
+    "med_ret_o5": 0.21,
+    "win5_pct": 51.7,
+    "avg_stop_r_20": -0.218
+   },
+   "COVID": {
+    "n": 238,
+    "avg_stop_r": 0.229,
+    "med_ret_o5": 0.5,
+    "win5_pct": 52.9,
+    "avg_stop_r_20": 0.077
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.8903185725212097,
+    1.0213499069213867
+   ],
+   "B": {
+    "n": 417,
+    "avg_stop_r": -0.147,
+    "med_ret_o5": 0.62,
+    "win5_pct": 54.9,
+    "avg_stop_r_20": -0.237
+   },
+   "COVID": {
+    "n": 249,
+    "avg_stop_r": 0.035,
+    "med_ret_o5": -0.38,
+    "win5_pct": 46.6,
+    "avg_stop_r_20": -0.21
+   }
+  },
+  "2": {
+   "cond_range": [
+    1.0214478969573975,
+    1.157105565071106
+   ],
+   "B": {
+    "n": 361,
+    "avg_stop_r": -0.141,
+    "med_ret_o5": 0.92,
+    "win5_pct": 57.3,
+    "avg_stop_r_20": -0.266
+   },
+   "COVID": {
+    "n": 305,
+    "avg_stop_r": -0.08,
+    "med_ret_o5": -0.11,
+    "win5_pct": 47.9,
+    "avg_stop_r_20": -0.274
+   }
+  },
+  "3": {
+   "cond_range": [
+    1.1573917865753174,
+    2.5430119037628174
+   ],
+   "B": {
+    "n": 280,
+    "avg_stop_r": -0.261,
+    "med_ret_o5": 1.4,
+    "win5_pct": 59.6,
+    "avg_stop_r_20": -0.485
+   },
+   "COVID": {
+    "n": 386,
+    "avg_stop_r": -0.175,
+    "med_ret_o5": 0.7,
+    "win5_pct": 55.2,
+    "avg_stop_r_20": -0.398
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": -0.404,
+  "B": -0.205
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   429,
+   280
+  ]
+ },
+ "null_beat_pct": 99.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.238,
+   "n": 279,
+   "n_ext": [
+    100,
+    61
+   ]
+  },
+  "B24": {
+   "effect": -0.33,
+   "n": 1208,
+   "n_ext": [
+    329,
+    219
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "INSUFFICIENT (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": -0.475,
+  "B": -0.268
+ },
+ "null_beat_pct_20": 99.5,
+ "verdict_20": "INSUFFICIENT (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": -0.343,
+  "B": -0.233
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": -0.295,
+  "B": -0.234
+ },
+ "null_beat_pct_trail": 99.5,
+ "verdict_trail": "INSUFFICIENT (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": -0.34,
+  "B": -0.276
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": -0.29,
+  "B": -0.277
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "INSUFFICIENT (modern)",
+ "verdict_close": "N/A (look-ahead)",
+ "close_flaw": "deliv_x20 is published after the close"
+}

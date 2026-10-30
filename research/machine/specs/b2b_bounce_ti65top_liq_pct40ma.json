@@ -1,0 +1,13 @@
+{
+  "id": "b2b_bounce_ti65top_liq_pct40ma",
+  "question": "Double-stacked rescue: leader bounces (ti65 >= 1.11, c001 top-quintile edge) in the liquid half (turn_decile >= 0.5) conditioned on market pct40ma with pre-registered edges [0,20,40,60,100]; expect NEGATIVE top-minus-bottom effect (low-pct40ma washouts best) if the leader-washout pocket survives the liquidity screen.",
+  "cohort": {
+    "trigger": "bounce",
+    "filters": [["ti65", ">=", 1.11], ["turn_decile", ">=", 0.5]]
+  },
+  "condition": {
+    "type": "market",
+    "name": "pct40ma",
+    "buckets": [0, 20, 40, 60, 100]
+  }
+}

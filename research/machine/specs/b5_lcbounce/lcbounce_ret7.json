@@ -1,0 +1,11 @@
+{
+  "id": "lcbounce_ret7",
+  "question": "On large-cap bounce setups, does a more negative 7-day return (harder short-term drop) produce a better subsequent long stop-R than a milder ret7? Expect the most-negative ret7 bucket to have the best avg_stop_r.",
+  "plain": "Tests whether large caps that fell harder over the prior week bounce back better (short-term oversold reversal).",
+  "cohort": {
+    "trigger": "bounce",
+    "side": "long",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "ret7", "buckets": "quartiles"}
+}

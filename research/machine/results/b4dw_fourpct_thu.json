@@ -1,0 +1,188 @@
+{
+ "id": "b4dw_fourpct_thu",
+ "question": "Isolating Thursday (expiry day, historically) from the rest of the week on 4%-up-day triggers: some studies flag Thursday as the WORST day for Indian equity returns; expect Thursday to show the weakest stop-R vs Mon-Wed and Friday, though likely WEAK given decay/derivatives-calendar changes.",
+ "plain": "Tests whether Thursday (India's old weekly-expiry day) is uniquely bad for 4%-up-day triggers, per studies flagging Thursday as the worst day for Indian returns.",
+ "spec": {
+  "id": "b4dw_fourpct_thu",
+  "question": "Isolating Thursday (expiry day, historically) from the rest of the week on 4%-up-day triggers: some studies flag Thursday as the WORST day for Indian equity returns; expect Thursday to show the weakest stop-R vs Mon-Wed and Friday, though likely WEAK given decay/derivatives-calendar changes.",
+  "plain": "Tests whether Thursday (India's old weekly-expiry day) is uniquely bad for 4%-up-day triggers, per studies flagging Thursday as the worst day for Indian returns.",
+  "cohort": {
+   "trigger": "four_pct"
+  },
+  "condition": {
+   "type": "calendar",
+   "name": "dow",
+   "buckets": [
+    -1,
+    2,
+    3,
+    4
+   ]
+  }
+ },
+ "side": "long",
+ "n": 83251,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    2.0
+   ],
+   "A": {
+    "n": 11816,
+    "avg_stop_r": -0.036,
+    "med_ret_o5": -0.91,
+    "win5_pct": 43.4,
+    "avg_stop_r_20": -0.108
+   },
+   "B": {
+    "n": 24751,
+    "avg_stop_r": 0.025,
+    "med_ret_o5": -0.51,
+    "win5_pct": 46.5,
+    "avg_stop_r_20": 0.074
+   },
+   "COVID": {
+    "n": 15960,
+    "avg_stop_r": -0.045,
+    "med_ret_o5": -1.17,
+    "win5_pct": 42.3,
+    "avg_stop_r_20": 0.096
+   }
+  },
+  "1": {
+   "cond_range": [
+    3.0,
+    3.0
+   ],
+   "A": {
+    "n": 3691,
+    "avg_stop_r": -0.091,
+    "med_ret_o5": -1.1,
+    "win5_pct": 42.1,
+    "avg_stop_r_20": -0.16
+   },
+   "B": {
+    "n": 6670,
+    "avg_stop_r": -0.099,
+    "med_ret_o5": -1.35,
+    "win5_pct": 41.1,
+    "avg_stop_r_20": -0.021
+   },
+   "COVID": {
+    "n": 5129,
+    "avg_stop_r": -0.071,
+    "med_ret_o5": -1.06,
+    "win5_pct": 42.5,
+    "avg_stop_r_20": 0.008
+   }
+  },
+  "2": {
+   "cond_range": [
+    4.0,
+    4.0
+   ],
+   "A": {
+    "n": 3824,
+    "avg_stop_r": -0.019,
+    "med_ret_o5": -1.03,
+    "win5_pct": 42.3,
+    "avg_stop_r_20": -0.117
+   },
+   "B": {
+    "n": 6872,
+    "avg_stop_r": -0.04,
+    "med_ret_o5": -0.76,
+    "win5_pct": 44.5,
+    "avg_stop_r_20": 0.016
+   },
+   "COVID": {
+    "n": 4538,
+    "avg_stop_r": -0.012,
+    "med_ret_o5": -1.06,
+    "win5_pct": 43.2,
+    "avg_stop_r_20": 0.073
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.017,
+  "COVID": 0.033,
+  "B": -0.065
+ },
+ "extreme_bucket_n": {
+  "A": [
+   11816,
+   3824
+  ],
+  "B": [
+   24751,
+   6872
+  ]
+ },
+ "null_beat_pct": 23.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.035,
+   "n": 9086,
+   "n_ext": [
+    5557,
+    1827
+   ]
+  },
+  "B24": {
+   "effect": -0.099,
+   "n": 29207,
+   "n_ext": [
+    19194,
+    5045
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.01,
+  "COVID": -0.023,
+  "B": -0.058
+ },
+ "null_beat_pct_20": 35.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.043,
+  "COVID": -0.032,
+  "B": -0.019
+ },
+ "effect_R_trail_w5": {
+  "A": -0.026,
+  "COVID": -0.021,
+  "B": -0.012
+ },
+ "null_beat_pct_trail": 39.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.023,
+  "COVID": -0.005,
+  "B": -0.023
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.012,
+  "COVID": -0.002,
+  "B": -0.019
+ },
+ "null_beat_pct_trail_be": 29.5,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.043,
+  "COVID": 0.071,
+  "B": 0.014
+ },
+ "effect_R_close_w5": {
+  "A": 0.044,
+  "COVID": 0.055,
+  "B": 0.019
+ },
+ "null_beat_pct_close": 47.0,
+ "verdict_close": "FAIL"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "b7mb_burst_ratio10",
+  "question": "Muninn article washout warning: long breakouts taken at a bearish 10-day advance/decline extreme should do worse -- expect higher ratio10 = better",
+  "plain": "The article says don't buy breakouts into a washed-out market even though breadth mean-reverts; this checks whether the 10-day advance/decline ratio grades long breakouts (we already know it grades shorts).",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "market", "name": "ratio10", "buckets": "quintiles"}
+}

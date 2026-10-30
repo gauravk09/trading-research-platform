@@ -1,0 +1,209 @@
+{
+ "id": "h1_fourpct_burst_success",
+ "question": "On four_pct triggers, does prior burst_success track record predict follow-through? Expected: modest positive effect (high prior success = better stop-R), mirroring the weak positive seen on the burst cohort.",
+ "plain": null,
+ "spec": {
+  "id": "h1_fourpct_burst_success",
+  "question": "On four_pct triggers, does prior burst_success track record predict follow-through? Expected: modest positive effect (high prior success = better stop-R), mirroring the weak positive seen on the burst cohort.",
+  "cohort": {
+   "trigger": "four_pct"
+  },
+  "condition": {
+   "type": "feature",
+   "name": "burst_success",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 82395,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    0.4000000059604645
+   ],
+   "A": {
+    "n": 5985,
+    "avg_stop_r": -0.056,
+    "med_ret_o5": -1.12,
+    "win5_pct": 41.9,
+    "avg_stop_r_20": -0.15
+   },
+   "B": {
+    "n": 9862,
+    "avg_stop_r": -0.021,
+    "med_ret_o5": -0.87,
+    "win5_pct": 43.9,
+    "avg_stop_r_20": 0.044
+   },
+   "COVID": {
+    "n": 6709,
+    "avg_stop_r": -0.092,
+    "med_ret_o5": -1.37,
+    "win5_pct": 40.1,
+    "avg_stop_r_20": -0.016
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.40425533056259155,
+    0.5
+   ],
+   "A": {
+    "n": 5757,
+    "avg_stop_r": -0.055,
+    "med_ret_o5": -1.07,
+    "win5_pct": 42.5,
+    "avg_stop_r_20": -0.126
+   },
+   "B": {
+    "n": 11162,
+    "avg_stop_r": -0.019,
+    "med_ret_o5": -0.88,
+    "win5_pct": 44.1,
+    "avg_stop_r_20": -0.007
+   },
+   "COVID": {
+    "n": 7861,
+    "avg_stop_r": -0.038,
+    "med_ret_o5": -1.08,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": 0.09
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.5066666603088379,
+    0.5789473652839661
+   ],
+   "A": {
+    "n": 3042,
+    "avg_stop_r": -0.029,
+    "med_ret_o5": -0.92,
+    "win5_pct": 43.0,
+    "avg_stop_r_20": -0.099
+   },
+   "B": {
+    "n": 6762,
+    "avg_stop_r": -0.013,
+    "med_ret_o5": -0.76,
+    "win5_pct": 45.5,
+    "avg_stop_r_20": 0.054
+   },
+   "COVID": {
+    "n": 4991,
+    "avg_stop_r": -0.019,
+    "med_ret_o5": -1.13,
+    "win5_pct": 42.9,
+    "avg_stop_r_20": 0.133
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.5797101259231567,
+    1.0
+   ],
+   "A": {
+    "n": 4156,
+    "avg_stop_r": -0.015,
+    "med_ret_o5": -0.73,
+    "win5_pct": 44.9,
+    "avg_stop_r_20": -0.076
+   },
+   "B": {
+    "n": 10162,
+    "avg_stop_r": 0.01,
+    "med_ret_o5": -0.4,
+    "win5_pct": 47.3,
+    "avg_stop_r_20": 0.089
+   },
+   "COVID": {
+    "n": 5946,
+    "avg_stop_r": -0.016,
+    "med_ret_o5": -0.85,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": 0.125
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.041,
+  "COVID": 0.076,
+  "B": 0.031
+ },
+ "extreme_bucket_n": {
+  "A": [
+   5985,
+   4156
+  ],
+  "B": [
+   9862,
+   10162
+  ]
+ },
+ "null_beat_pct": 100.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.028,
+   "n": 8947,
+   "n_ext": [
+    2659,
+    2258
+   ]
+  },
+  "B24": {
+   "effect": 0.036,
+   "n": 29001,
+   "n_ext": [
+    7203,
+    7904
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.073,
+  "COVID": 0.141,
+  "B": 0.045
+ },
+ "null_beat_pct_20": 100.0,
+ "verdict_20": "WEAK",
+ "effect_R_trail": {
+  "A": 0.062,
+  "COVID": 0.136,
+  "B": 0.086
+ },
+ "effect_R_trail_w5": {
+  "A": 0.061,
+  "COVID": 0.096,
+  "B": 0.06
+ },
+ "null_beat_pct_trail": 100.0,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": 0.033,
+  "COVID": 0.112,
+  "B": 0.065
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.035,
+  "COVID": 0.083,
+  "B": 0.045
+ },
+ "null_beat_pct_trail_be": 100.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": 0.102,
+  "COVID": 0.185,
+  "B": 0.096
+ },
+ "effect_R_close_w5": {
+  "A": 0.096,
+  "COVID": 0.152,
+  "B": 0.092
+ },
+ "null_beat_pct_close": 100.0,
+ "verdict_close": "PASS"
+}

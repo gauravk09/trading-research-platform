@@ -1,0 +1,12 @@
+{
+ "id": "qm_ret63",
+ "question": "Does 3-month momentum select winners within the faithful flag cohort (all of which already have >=30%), where it FAILed on bursts? Expect positive.",
+ "cohort": {
+  "trigger": "qm_flag"
+ },
+ "condition": {
+  "type": "derived",
+  "name": "ret_63",
+  "buckets": "quartiles"
+ }
+}

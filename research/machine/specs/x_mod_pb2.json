@@ -1,0 +1,1 @@
+{"id":"x_mod_pb2","question":"SYSTEM CHECK (modern-era track): a second random per-symbol trait on a delivery-gated burst cohort must FAIL (modern)","plain":"Sanity check: a fake trait judged on the modern-era track should show nothing.","cohort":{"trigger":"burst","filters":[["deliv_x20",">=",0]]},"condition":{"type":"placebo","name":"modpb2","buckets":"quartiles"}}

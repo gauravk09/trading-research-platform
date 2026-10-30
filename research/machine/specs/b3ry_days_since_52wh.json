@@ -1,0 +1,7 @@
+{
+  "id": "b3ry_days_since_52wh",
+  "question": "David Ryan buys fresh 52-week-high breakouts, not stale ones -- expect LOWER days_since_52wh (fresher high) to show a BETTER (higher) stop-R than a stale one on burst events",
+  "plain": "David Ryan's rule: buy a stock making a brand-new 52-week high, not one that hit its high weeks ago and has since drifted. This checks if a fresher high beats a stale one.",
+  "cohort": {"trigger": "burst"},
+  "condition": {"type": "feature", "name": "days_since_52wh", "buckets": "quartiles"}
+}

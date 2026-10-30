@@ -1,0 +1,216 @@
+{
+ "id": "b2n_goodtape_turn",
+ "question": "Inside good tape (market:net4 >= 134, h4 top-quintile edge): does liquidity still matter for bursts? Expect POSITIVE turn_decile top-minus-bottom effect (liquid best, per h3/v_h4); era-A has only ~456 good-tape bursts so INSUFFICIENT is the likely honest verdict - era-B buckets are the payload.",
+ "plain": null,
+ "spec": {
+  "id": "b2n_goodtape_turn",
+  "question": "Inside good tape (market:net4 >= 134, h4 top-quintile edge): does liquidity still matter for bursts? Expect POSITIVE turn_decile top-minus-bottom effect (liquid best, per h3/v_h4); era-A has only ~456 good-tape bursts so INSUFFICIENT is the likely honest verdict - era-B buckets are the payload.",
+  "cohort": {
+   "trigger": "burst",
+   "filters": [
+    [
+     "market:net4",
+     ">=",
+     134
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "turn_decile",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 4690,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.18988829851150513,
+    0.5017064809799194
+   ],
+   "A": {
+    "n": 11,
+    "avg_stop_r": 1.058,
+    "med_ret_o5": -2.16,
+    "win5_pct": 36.4,
+    "avg_stop_r_20": 0.373
+   },
+   "B": {
+    "n": 717,
+    "avg_stop_r": 0.027,
+    "med_ret_o5": -0.61,
+    "win5_pct": 45.7,
+    "avg_stop_r_20": -0.03
+   },
+   "COVID": {
+    "n": 445,
+    "avg_stop_r": 0.137,
+    "med_ret_o5": -0.44,
+    "win5_pct": 46.3,
+    "avg_stop_r_20": 0.327
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.5017772316932678,
+    0.6801510453224182
+   ],
+   "A": {
+    "n": 117,
+    "avg_stop_r": 0.298,
+    "med_ret_o5": 0.51,
+    "win5_pct": 53.0,
+    "avg_stop_r_20": 0.09
+   },
+   "B": {
+    "n": 546,
+    "avg_stop_r": 0.043,
+    "med_ret_o5": -0.16,
+    "win5_pct": 48.9,
+    "avg_stop_r_20": -0.031
+   },
+   "COVID": {
+    "n": 509,
+    "avg_stop_r": 0.166,
+    "med_ret_o5": -0.32,
+    "win5_pct": 47.3,
+    "avg_stop_r_20": 0.303
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.6801552176475525,
+    0.8371546268463135
+   ],
+   "A": {
+    "n": 132,
+    "avg_stop_r": 0.342,
+    "med_ret_o5": 2.15,
+    "win5_pct": 61.4,
+    "avg_stop_r_20": 0.19
+   },
+   "B": {
+    "n": 580,
+    "avg_stop_r": 0.027,
+    "med_ret_o5": -0.02,
+    "win5_pct": 49.7,
+    "avg_stop_r_20": 0.206
+   },
+   "COVID": {
+    "n": 460,
+    "avg_stop_r": 0.197,
+    "med_ret_o5": -0.13,
+    "win5_pct": 49.6,
+    "avg_stop_r_20": 0.305
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.8371719121932983,
+    1.0
+   ],
+   "A": {
+    "n": 196,
+    "avg_stop_r": 0.043,
+    "med_ret_o5": 0.25,
+    "win5_pct": 52.0,
+    "avg_stop_r_20": 0.079
+   },
+   "B": {
+    "n": 545,
+    "avg_stop_r": 0.068,
+    "med_ret_o5": 0.06,
+    "win5_pct": 50.5,
+    "avg_stop_r_20": 0.204
+   },
+   "COVID": {
+    "n": 432,
+    "avg_stop_r": 0.154,
+    "med_ret_o5": 0.29,
+    "win5_pct": 53.2,
+    "avg_stop_r_20": 0.104
+   }
+  }
+ },
+ "effect_R": {
+  "A": -1.015,
+  "COVID": 0.018,
+  "B": 0.04
+ },
+ "extreme_bucket_n": {
+  "A": [
+   11,
+   196
+  ],
+  "B": [
+   717,
+   545
+  ]
+ },
+ "null_beat_pct": 25.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.06,
+   "n": 273,
+   "n_ext": [
+    87,
+    55
+   ]
+  },
+  "B24": {
+   "effect": 0.057,
+   "n": 2115,
+   "n_ext": [
+    630,
+    490
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.293,
+  "COVID": -0.223,
+  "B": 0.233
+ },
+ "null_beat_pct_20": 26.0,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": -0.076,
+  "COVID": -0.249,
+  "B": 0.216
+ },
+ "effect_R_trail_w5": {
+  "A": -0.076,
+  "COVID": -0.099,
+  "B": 0.189
+ },
+ "null_beat_pct_trail": 8.5,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 0.031,
+  "COVID": -0.113,
+  "B": 0.189
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.031,
+  "COVID": -0.029,
+  "B": 0.139
+ },
+ "null_beat_pct_trail_be": 64.5,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": -0.148,
+  "COVID": -0.082,
+  "B": -0.042
+ },
+ "effect_R_close_w5": {
+  "A": -0.148,
+  "COVID": -0.06,
+  "B": -0.021
+ },
+ "null_beat_pct_close": 72.5,
+ "verdict_close": "INSUFFICIENT"
+}

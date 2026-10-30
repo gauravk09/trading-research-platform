@@ -1,0 +1,7 @@
+{
+  "id": "b3zg_fourpc_volc5_50",
+  "question": "Zanger: does a short-term volume surge (5d vs 50d volume, volc5_50) on a 4% day predict follow-through better than the flat rvol50 result? Expect flat/negative given the house prior.",
+  "plain": "Same volume-explosion idea from Dan Zanger, but measured as a short 5-day volume surge instead of a single-day spike, on NSE 4%-up days.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "volc5_50", "buckets": "quartiles"}
+}

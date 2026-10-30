@@ -1,0 +1,221 @@
+{
+ "id": "v_b7mb_nearhigh_ret63_b",
+ "question": "Perturbation of b7mb_nearhigh_ret63: near-high filter loosened to within 12% of the 52wk high, liquid half only - expect the negative (more momentum = worse) effect to survive with same sign in both eras",
+ "plain": null,
+ "spec": {
+  "id": "v_b7mb_nearhigh_ret63_b",
+  "question": "Perturbation of b7mb_nearhigh_ret63: near-high filter loosened to within 12% of the 52wk high, liquid half only - expect the negative (more momentum = worse) effect to survive with same sign in both eras",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": [
+    [
+     "pct_52wh",
+     ">=",
+     -12
+    ],
+    [
+     "turn_decile",
+     ">=",
+     0.5
+    ]
+   ]
+  },
+  "condition": {
+   "type": "derived",
+   "name": "ret_63",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 22481,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    -11.901086807250977,
+    13.827300071716309
+   ],
+   "A": {
+    "n": 303,
+    "avg_stop_r": 0.023,
+    "med_ret_o5": -0.56,
+    "win5_pct": 44.2,
+    "avg_stop_r_20": 0.197
+   },
+   "B": {
+    "n": 3206,
+    "avg_stop_r": 0.034,
+    "med_ret_o5": -0.23,
+    "win5_pct": 47.9,
+    "avg_stop_r_20": 0.158
+   },
+   "COVID": {
+    "n": 2112,
+    "avg_stop_r": 0.013,
+    "med_ret_o5": -0.66,
+    "win5_pct": 45.2,
+    "avg_stop_r_20": 0.099
+   }
+  },
+  "1": {
+   "cond_range": [
+    13.829792022705078,
+    26.901172637939453
+   ],
+   "A": {
+    "n": 423,
+    "avg_stop_r": -0.12,
+    "med_ret_o5": -0.7,
+    "win5_pct": 42.6,
+    "avg_stop_r_20": 0.03
+   },
+   "B": {
+    "n": 3084,
+    "avg_stop_r": 0.082,
+    "med_ret_o5": -0.17,
+    "win5_pct": 48.8,
+    "avg_stop_r_20": 0.221
+   },
+   "COVID": {
+    "n": 2113,
+    "avg_stop_r": -0.044,
+    "med_ret_o5": -0.73,
+    "win5_pct": 44.6,
+    "avg_stop_r_20": 0.063
+   }
+  },
+  "2": {
+   "cond_range": [
+    26.901626586914062,
+    44.91178894042969
+   ],
+   "A": {
+    "n": 362,
+    "avg_stop_r": -0.02,
+    "med_ret_o5": -0.45,
+    "win5_pct": 44.2,
+    "avg_stop_r_20": -0.088
+   },
+   "B": {
+    "n": 3019,
+    "avg_stop_r": -0.048,
+    "med_ret_o5": -0.64,
+    "win5_pct": 45.5,
+    "avg_stop_r_20": 0.039
+   },
+   "COVID": {
+    "n": 2239,
+    "avg_stop_r": -0.013,
+    "med_ret_o5": -0.85,
+    "win5_pct": 43.9,
+    "avg_stop_r_20": 0.116
+   }
+  },
+  "3": {
+   "cond_range": [
+    44.91341018676758,
+    848.9795532226562
+   ],
+   "A": {
+    "n": 368,
+    "avg_stop_r": -0.017,
+    "med_ret_o5": -0.55,
+    "win5_pct": 46.2,
+    "avg_stop_r_20": 0.111
+   },
+   "B": {
+    "n": 2712,
+    "avg_stop_r": -0.041,
+    "med_ret_o5": -0.69,
+    "win5_pct": 46.1,
+    "avg_stop_r_20": 0.028
+   },
+   "COVID": {
+    "n": 2540,
+    "avg_stop_r": -0.005,
+    "med_ret_o5": -1.31,
+    "win5_pct": 43.7,
+    "avg_stop_r_20": 0.179
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.04,
+  "COVID": -0.017,
+  "B": -0.075
+ },
+ "extreme_bucket_n": {
+  "A": [
+   303,
+   368
+  ],
+  "B": [
+   3206,
+   2712
+  ]
+ },
+ "null_beat_pct": 96.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.042,
+   "n": 3937,
+   "n_ext": [
+    905,
+    915
+   ]
+  },
+  "B24": {
+   "effect": -0.098,
+   "n": 8084,
+   "n_ext": [
+    2301,
+    1797
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "WEAK",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.086,
+  "COVID": 0.08,
+  "B": -0.129
+ },
+ "null_beat_pct_20": 65.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.308,
+  "COVID": 0.069,
+  "B": -0.148
+ },
+ "effect_R_trail_w5": {
+  "A": -0.344,
+  "COVID": -0.021,
+  "B": -0.169
+ },
+ "null_beat_pct_trail": 90.0,
+ "verdict_trail": "WEAK",
+ "effect_R_trail_be": {
+  "A": -0.191,
+  "COVID": 0.055,
+  "B": -0.169
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.254,
+  "COVID": -0.003,
+  "B": -0.173
+ },
+ "null_beat_pct_trail_be": 95.5,
+ "verdict_trail_be": "PASS",
+ "effect_R_close": {
+  "A": 0.031,
+  "COVID": 0.102,
+  "B": -0.015
+ },
+ "effect_R_close_w5": {
+  "A": 0.002,
+  "COVID": 0.049,
+  "B": -0.015
+ },
+ "null_beat_pct_close": 89.5,
+ "verdict_close": "FAIL"
+}

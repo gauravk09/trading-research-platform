@@ -1,0 +1,7 @@
+{
+  "id": "b4lv_four_pct_adr20",
+  "question": "On the FOUR_PCT (any 4% up day) cohort, do LOWER adr20 stocks give a better stop-R than HIGH adr20 stocks, even though high-adr stocks showed bigger raw pops before? Expect NEGATIVE top-minus-bottom (low vol wins on stop-R).",
+  "plain": "Low-volatility anomaly (Pandey; MAS 2022): tests whether calmer stocks (lower adr20) hold up better on stop-based risk-adjusted return after any 4% breakout day, not just raw price pop.",
+  "cohort": {"trigger": "four_pct", "filters": []},
+  "condition": {"type": "feature", "name": "adr20", "buckets": "quartiles"}
+}

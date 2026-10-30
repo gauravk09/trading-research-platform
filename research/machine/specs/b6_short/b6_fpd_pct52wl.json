@@ -1,0 +1,11 @@
+{
+  "id": "b6_fpd_pct52wl",
+  "question": "Large-cap four_pct_down shorts bucketed by pct_52wl (percent above the 52-week low): expect NEGATIVE top-minus-bottom effect - breakdowns that happen close to the 52-week low (little room left, capitulation zone) fall LESS than breakdowns that still have a lot of room above the low (extended, more downside to give back).",
+  "plain": "Does a large-cap breakdown keep falling harder when the stock is still far above its 52-week low (more air below it), versus one that's already sitting near its low with little room left to fall?",
+  "cohort": {
+    "trigger": "four_pct_down",
+    "side": "short",
+    "filters": [["mcap_rank", "<=", 150]]
+  },
+  "condition": {"type": "feature", "name": "pct_52wl", "buckets": "quartiles"}
+}

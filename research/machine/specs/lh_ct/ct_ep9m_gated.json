@@ -1,0 +1,9 @@
+{
+  "id": "ct_ep9m_gated",
+  "plain": "EP9M-redefined (15M-share catalyst) large caps, gated to healthy net4 tape",
+  "source": "csv",
+  "csv": "ep9m_redefined_events.csv",
+  "filters": [["market:net4", ">=", 50]],
+  "horizon": 20,
+  "risk": 0.0075
+}

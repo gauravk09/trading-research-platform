@@ -1,0 +1,188 @@
+{
+ "id": "b4tm_dom_fourpct",
+ "question": "On four_pct triggers, does day-of-month bucket [first-3 vs mid vs last-days] show first-3-days-of-month strongest (turn-of-month effect), with end-of-month NOT elevated?",
+ "plain": "Testing the turn-of-month effect (RFB 2023, IJMEC): Indian stocks tend to rally in the first few trading days of the month, but NOT at month-end.",
+ "spec": {
+  "id": "b4tm_dom_fourpct",
+  "question": "On four_pct triggers, does day-of-month bucket [first-3 vs mid vs last-days] show first-3-days-of-month strongest (turn-of-month effect), with end-of-month NOT elevated?",
+  "plain": "Testing the turn-of-month effect (RFB 2023, IJMEC): Indian stocks tend to rally in the first few trading days of the month, but NOT at month-end.",
+  "cohort": {
+   "trigger": "four_pct"
+  },
+  "condition": {
+   "type": "calendar",
+   "name": "dom",
+   "buckets": [
+    0,
+    3,
+    24,
+    31
+   ]
+  }
+ },
+ "side": "long",
+ "n": 83452,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    1.0,
+    3.0
+   ],
+   "A": {
+    "n": 1930,
+    "avg_stop_r": 0.112,
+    "med_ret_o5": -0.09,
+    "win5_pct": 48.9,
+    "avg_stop_r_20": 0.102
+   },
+   "B": {
+    "n": 4635,
+    "avg_stop_r": -0.031,
+    "med_ret_o5": -0.38,
+    "win5_pct": 47.1,
+    "avg_stop_r_20": 0.007
+   },
+   "COVID": {
+    "n": 3279,
+    "avg_stop_r": 0.115,
+    "med_ret_o5": -0.2,
+    "win5_pct": 48.3,
+    "avg_stop_r_20": 0.154
+   }
+  },
+  "1": {
+   "cond_range": [
+    4.0,
+    24.0
+   ],
+   "A": {
+    "n": 13115,
+    "avg_stop_r": -0.062,
+    "med_ret_o5": -1.1,
+    "win5_pct": 42.1,
+    "avg_stop_r_20": -0.14
+   },
+   "B": {
+    "n": 26428,
+    "avg_stop_r": -0.016,
+    "med_ret_o5": -0.86,
+    "win5_pct": 44.3,
+    "avg_stop_r_20": 0.067
+   },
+   "COVID": {
+    "n": 16708,
+    "avg_stop_r": -0.126,
+    "med_ret_o5": -1.68,
+    "win5_pct": 39.0,
+    "avg_stop_r_20": 0.028
+   }
+  },
+  "2": {
+   "cond_range": [
+    25.0,
+    31.0
+   ],
+   "A": {
+    "n": 4290,
+    "avg_stop_r": -0.055,
+    "med_ret_o5": -0.96,
+    "win5_pct": 42.8,
+    "avg_stop_r_20": -0.156
+   },
+   "B": {
+    "n": 7409,
+    "avg_stop_r": 0.025,
+    "med_ret_o5": -0.39,
+    "win5_pct": 47.2,
+    "avg_stop_r_20": -0.015
+   },
+   "COVID": {
+    "n": 5658,
+    "avg_stop_r": 0.106,
+    "med_ret_o5": -0.06,
+    "win5_pct": 49.4,
+    "avg_stop_r_20": 0.173
+   }
+  }
+ },
+ "effect_R": {
+  "A": -0.168,
+  "COVID": -0.009,
+  "B": 0.056
+ },
+ "extreme_bucket_n": {
+  "A": [
+   1930,
+   4290
+  ],
+  "B": [
+   4635,
+   7409
+  ]
+ },
+ "null_beat_pct": 15.0,
+ "modern_split": {
+  "B23": {
+   "effect": 0.138,
+   "n": 9099,
+   "n_ext": [
+    933,
+    2069
+   ]
+  },
+  "B24": {
+   "effect": 0.009,
+   "n": 29373,
+   "n_ext": [
+    3702,
+    5340
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "FAIL",
+ "track": "full",
+ "effect_R_20": {
+  "A": -0.258,
+  "COVID": 0.019,
+  "B": -0.022
+ },
+ "null_beat_pct_20": 40.0,
+ "verdict_20": "FAIL",
+ "effect_R_trail": {
+  "A": -0.246,
+  "COVID": 0.031,
+  "B": 0.034
+ },
+ "effect_R_trail_w5": {
+  "A": -0.236,
+  "COVID": 0.043,
+  "B": 0.078
+ },
+ "null_beat_pct_trail": 28.499999999999996,
+ "verdict_trail": "FAIL",
+ "effect_R_trail_be": {
+  "A": -0.206,
+  "COVID": 0.007,
+  "B": 0.013
+ },
+ "effect_R_trail_be_w5": {
+  "A": -0.198,
+  "COVID": 0.026,
+  "B": 0.054
+ },
+ "null_beat_pct_trail_be": 38.0,
+ "verdict_trail_be": "FAIL",
+ "effect_R_close": {
+  "A": -0.186,
+  "COVID": -0.102,
+  "B": 0.116
+ },
+ "effect_R_close_w5": {
+  "A": -0.176,
+  "COVID": -0.089,
+  "B": 0.115
+ },
+ "null_beat_pct_close": 22.0,
+ "verdict_close": "FAIL"
+}

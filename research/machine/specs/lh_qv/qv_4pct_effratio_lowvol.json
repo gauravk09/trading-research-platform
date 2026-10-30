@@ -1,0 +1,9 @@
+{
+  "id": "qv_4pct_effratio_lowvol",
+  "plain": "Four-pct pop large caps, strong linear trend (eff_ratio>=0.2, top quartile) + no volume frenzy (volc5_50<=1.3), 10-bar hold",
+  "source": "trigger",
+  "trigger": "four_pct",
+  "filters": [["eff_ratio", ">=", 0.2], ["volc5_50", "<=", 1.3]],
+  "horizon": 10,
+  "risk": 0.0075
+}

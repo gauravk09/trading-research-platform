@@ -1,0 +1,6 @@
+{
+  "id": "v_h6_four_pct_blow21_a",
+  "question": "Perturbation of h6_four_pct_blow21 restricted to the liquid half (turn_decile >= 0.5): expect the same NEGATIVE effect (higher bounce_low21 = farther above 21d low = worse stop-R) in both era A and era B",
+  "cohort": {"trigger": "four_pct", "filters": [["turn_decile", ">=", 0.5]]},
+  "condition": {"type": "feature", "name": "bounce_low21", "buckets": "quintiles"}
+}

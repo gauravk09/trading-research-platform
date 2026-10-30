@@ -1,0 +1,171 @@
+{
+ "id": "b2e_net4_liq_base_intact",
+ "question": "Stack both confirmed filters (turn_decile >= 0.5 and market:net4 >= 134) on bursts and split consol_days at base-widened (=0) vs base-intact (>=2), edges [-0.5, 0.5, 10000] \u2014 chosen because consol_days was the only liquid-half retest that kept its era-B edge (+0.104, top cell +0.038): expect the intact-base bucket to be the more positive one; era-A cohort is only ~450 events so INSUFFICIENT is the likely verdict and the era-B cells are the deliverable.",
+ "plain": null,
+ "spec": {
+  "id": "b2e_net4_liq_base_intact",
+  "question": "Stack both confirmed filters (turn_decile >= 0.5 and market:net4 >= 134) on bursts and split consol_days at base-widened (=0) vs base-intact (>=2), edges [-0.5, 0.5, 10000] \u2014 chosen because consol_days was the only liquid-half retest that kept its era-B edge (+0.104, top cell +0.038): expect the intact-base bucket to be the more positive one; era-A cohort is only ~450 events so INSUFFICIENT is the likely verdict and the era-B cells are the deliverable.",
+  "cohort": {
+   "trigger": "burst",
+   "filters": [
+    [
+     "turn_decile",
+     ">=",
+     0.5
+    ],
+    [
+     "market:net4",
+     ">=",
+     134
+    ]
+   ]
+  },
+  "condition": {
+   "type": "feature",
+   "name": "consol_days",
+   "buckets": [
+    -0.5,
+    0.5,
+    10000
+   ]
+  }
+ },
+ "side": "long",
+ "n": 3532,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    0.0
+   ],
+   "A": {
+    "n": 322,
+    "avg_stop_r": 0.192,
+    "med_ret_o5": 0.7,
+    "win5_pct": 54.7,
+    "avg_stop_r_20": 0.027
+   },
+   "B": {
+    "n": 1095,
+    "avg_stop_r": 0.005,
+    "med_ret_o5": -0.31,
+    "win5_pct": 47.9,
+    "avg_stop_r_20": 0.087
+   },
+   "COVID": {
+    "n": 940,
+    "avg_stop_r": 0.151,
+    "med_ret_o5": -0.25,
+    "win5_pct": 48.3,
+    "avg_stop_r_20": 0.185
+   }
+  },
+  "1": {
+   "cond_range": [
+    2.0,
+    168.0
+   ],
+   "A": {
+    "n": 124,
+    "avg_stop_r": 0.218,
+    "med_ret_o5": 1.13,
+    "win5_pct": 56.5,
+    "avg_stop_r_20": 0.33
+   },
+   "B": {
+    "n": 587,
+    "avg_stop_r": 0.117,
+    "med_ret_o5": 0.21,
+    "win5_pct": 52.6,
+    "avg_stop_r_20": 0.201
+   },
+   "COVID": {
+    "n": 464,
+    "avg_stop_r": 0.21,
+    "med_ret_o5": 0.28,
+    "win5_pct": 53.0,
+    "avg_stop_r_20": 0.351
+   }
+  }
+ },
+ "effect_R": {
+  "A": 0.025,
+  "COVID": 0.059,
+  "B": 0.112
+ },
+ "extreme_bucket_n": {
+  "A": [
+   322,
+   124
+  ],
+  "B": [
+   1095,
+   587
+  ]
+ },
+ "null_beat_pct": 92.5,
+ "modern_split": {
+  "B23": {
+   "effect": 0.232,
+   "n": 188,
+   "n_ext": [
+    111,
+    77
+   ]
+  },
+  "B24": {
+   "effect": 0.087,
+   "n": 1494,
+   "n_ext": [
+    984,
+    510
+   ]
+  }
+ },
+ "modern_eligible": false,
+ "verdict": "INSUFFICIENT",
+ "track": "full",
+ "effect_R_20": {
+  "A": 0.303,
+  "COVID": 0.166,
+  "B": 0.115
+ },
+ "null_beat_pct_20": 98.0,
+ "verdict_20": "INSUFFICIENT",
+ "effect_R_trail": {
+  "A": 0.299,
+  "COVID": 0.068,
+  "B": 0.1
+ },
+ "effect_R_trail_w5": {
+  "A": 0.29,
+  "COVID": 0.104,
+  "B": 0.07
+ },
+ "null_beat_pct_trail": 89.0,
+ "verdict_trail": "INSUFFICIENT",
+ "effect_R_trail_be": {
+  "A": 0.343,
+  "COVID": 0.071,
+  "B": 0.142
+ },
+ "effect_R_trail_be_w5": {
+  "A": 0.334,
+  "COVID": 0.125,
+  "B": 0.103
+ },
+ "null_beat_pct_trail_be": 97.5,
+ "verdict_trail_be": "INSUFFICIENT",
+ "effect_R_close": {
+  "A": 0.027,
+  "COVID": 0.051,
+  "B": 0.159
+ },
+ "effect_R_close_w5": {
+  "A": 0.035,
+  "COVID": 0.057,
+  "B": 0.145
+ },
+ "null_beat_pct_close": 95.0,
+ "verdict_close": "INSUFFICIENT"
+}

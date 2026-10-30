@@ -1,0 +1,20 @@
+{
+ "id": "v_b6_fpd_effratio_reslice",
+ "question": "Red-team perturbation (2026-08-06 batch): eff_ratio quintiles instead of quartiles",
+ "cohort": {
+  "trigger": "four_pct_down",
+  "side": "short",
+  "filters": [
+   [
+    "mcap_rank",
+    "<=",
+    150
+   ]
+  ]
+ },
+ "condition": {
+  "type": "feature",
+  "name": "eff_ratio",
+  "buckets": "quintiles"
+ }
+}

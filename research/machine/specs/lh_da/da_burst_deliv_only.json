@@ -1,0 +1,9 @@
+{
+  "id": "da_burst_deliv_only",
+  "plain": "Burst setup, delivery spike only (no turnover requirement) as a plain baseline, 10d horizon",
+  "source": "trigger",
+  "trigger": "burst",
+  "filters": [["deliv_x20", ">=", 1.3]],
+  "horizon": 10,
+  "risk": 0.0075
+}

@@ -1,0 +1,190 @@
+{
+ "id": "x_mod_pb1",
+ "question": "SYSTEM CHECK (modern-era track): a random per-symbol trait, on a delivery-gated cohort that has NO pre-2020 data, must FAIL (modern)",
+ "plain": "Sanity check: a fake trait judged on the modern-era track should show nothing.",
+ "spec": {
+  "id": "x_mod_pb1",
+  "question": "SYSTEM CHECK (modern-era track): a random per-symbol trait, on a delivery-gated cohort that has NO pre-2020 data, must FAIL (modern)",
+  "plain": "Sanity check: a fake trait judged on the modern-era track should show nothing.",
+  "cohort": {
+   "trigger": "four_pct",
+   "filters": [
+    [
+     "deliv_x20",
+     ">=",
+     0
+    ]
+   ]
+  },
+  "condition": {
+   "type": "placebo",
+   "name": "modpb1",
+   "buckets": "quartiles"
+  }
+ },
+ "side": "long",
+ "n": 53537,
+ "buckets": {
+  "0": {
+   "cond_range": [
+    0.0,
+    0.26
+   ],
+   "B": {
+    "n": 9017,
+    "avg_stop_r": -0.005,
+    "med_ret_o5": -0.79,
+    "win5_pct": 44.5,
+    "avg_stop_r_20": 0.04
+   },
+   "COVID": {
+    "n": 4462,
+    "avg_stop_r": -0.029,
+    "med_ret_o5": -1.03,
+    "win5_pct": 42.7,
+    "avg_stop_r_20": 0.076
+   }
+  },
+  "1": {
+   "cond_range": [
+    0.261,
+    0.495
+   ],
+   "B": {
+    "n": 8817,
+    "avg_stop_r": -0.018,
+    "med_ret_o5": -0.61,
+    "win5_pct": 45.6,
+    "avg_stop_r_20": 0.021
+   },
+   "COVID": {
+    "n": 4520,
+    "avg_stop_r": -0.048,
+    "med_ret_o5": -1.07,
+    "win5_pct": 42.8,
+    "avg_stop_r_20": 0.058
+   }
+  },
+  "2": {
+   "cond_range": [
+    0.496,
+    0.748
+   ],
+   "B": {
+    "n": 9017,
+    "avg_stop_r": -0.007,
+    "med_ret_o5": -0.73,
+    "win5_pct": 45.1,
+    "avg_stop_r_20": 0.07
+   },
+   "COVID": {
+    "n": 4326,
+    "avg_stop_r": -0.09,
+    "med_ret_o5": -1.21,
+    "win5_pct": 41.5,
+    "avg_stop_r_20": 0.013
+   }
+  },
+  "3": {
+   "cond_range": [
+    0.749,
+    0.999
+   ],
+   "B": {
+    "n": 8820,
+    "avg_stop_r": 0.011,
+    "med_ret_o5": -0.61,
+    "win5_pct": 46.0,
+    "avg_stop_r_20": 0.059
+   },
+   "COVID": {
+    "n": 4558,
+    "avg_stop_r": -0.069,
+    "med_ret_o5": -0.99,
+    "win5_pct": 43.1,
+    "avg_stop_r_20": 0.036
+   }
+  }
+ },
+ "effect_R": {
+  "A": NaN,
+  "COVID": -0.04,
+  "B": 0.016
+ },
+ "extreme_bucket_n": {
+  "A": [
+   0,
+   0
+  ],
+  "B": [
+   9017,
+   8820
+  ]
+ },
+ "null_beat_pct": 13.5,
+ "modern_split": {
+  "B23": {
+   "effect": -0.014,
+   "n": 8401,
+   "n_ext": [
+    2068,
+    2089
+   ]
+  },
+  "B24": {
+   "effect": 0.025,
+   "n": 27270,
+   "n_ext": [
+    6949,
+    6731
+   ]
+  }
+ },
+ "modern_eligible": true,
+ "verdict": "FAIL (modern)",
+ "track": "modern",
+ "era_A": "N/A (no data)",
+ "effect_R_20": {
+  "A": NaN,
+  "COVID": -0.039,
+  "B": 0.02
+ },
+ "null_beat_pct_20": 2.0,
+ "verdict_20": "FAIL (modern)",
+ "effect_R_trail": {
+  "A": NaN,
+  "COVID": -0.101,
+  "B": 0.04
+ },
+ "effect_R_trail_w5": {
+  "A": null,
+  "COVID": -0.063,
+  "B": 0.033
+ },
+ "null_beat_pct_trail": 25.5,
+ "verdict_trail": "FAIL (modern)",
+ "effect_R_trail_be": {
+  "A": NaN,
+  "COVID": -0.086,
+  "B": 0.03
+ },
+ "effect_R_trail_be_w5": {
+  "A": null,
+  "COVID": -0.063,
+  "B": 0.027
+ },
+ "null_beat_pct_trail_be": 37.0,
+ "verdict_trail_be": "FAIL (modern)",
+ "effect_R_close": {
+  "A": NaN,
+  "COVID": -0.04,
+  "B": 0.023
+ },
+ "effect_R_close_w5": {
+  "A": null,
+  "COVID": -0.035,
+  "B": 0.018
+ },
+ "null_beat_pct_close": 9.5,
+ "verdict_close": "FAIL (modern)"
+}
