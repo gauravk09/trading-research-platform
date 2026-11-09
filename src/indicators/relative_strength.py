@@ -56,7 +56,7 @@ def composite_rs_rank(close_wide: pd.DataFrame) -> pd.Series:
     return composite.dropna().sort_values(ascending=False)
 
 
-def residual_rs_rank(close_wide: pd.DataFrame, sector_map: pd.DataFrame = None,
+def residual_rs_rank(close_wide: pd.DataFrame, sector_map: pd.DataFrame,
                      n: int = 63) -> pd.Series:
     """RS rank on IDIOSYNCRATIC return — momentum left after removing market + sector.
 
@@ -68,16 +68,14 @@ def residual_rs_rank(close_wide: pd.DataFrame, sector_map: pd.DataFrame = None,
 
     Args:
         close_wide: wide close DataFrame (symbols as columns, date index).
-        sector_map: symbol→industry frame; loaded from the processed map if None.
+        sector_map: symbol→industry frame (see preprocessing.build_sector_map.load_sector_map).
         n:          lookback in trading days (63 = one quarter).
 
     Returns:
         Series indexed by symbol, percentile rank 0–100 (100 = strongest residual),
         sorted descending. Empty if the window has too few fully-traded stocks.
     """
-    import factor_model
-    if sector_map is None:
-        sector_map = factor_model.load_sector_map()
+    import indicators.factor_model as factor_model
     resid = factor_model.residual_momentum(close_wide, sector_map, n=n)
     if resid.empty:
         return pd.Series(dtype=float)

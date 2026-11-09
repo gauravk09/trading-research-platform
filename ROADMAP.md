@@ -232,7 +232,7 @@ not getting bad trades.*
   offshore, adapt to India by hand (positional holds absorb the basis).
 
 - **Factor model — PCA crowding gauge + residual momentum + breakout gate (2026-08-14)**
-  — `DONE`. `src/factor_model.py` is the "500 stocks are really ~5 forces" engine
+  — `DONE`. `src/indicators/factor_model.py` is the "500 stocks are really ~5 forces" engine
   (correlation-matrix eigen-decomposition; standardized returns so a few high-vol
   names don't own PC1). Two features, one engine:
   **#1 Absorption ratio (PC1 crowding)** — `absorption_series()` on a fixed liquid

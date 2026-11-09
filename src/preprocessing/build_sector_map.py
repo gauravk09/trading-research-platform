@@ -22,6 +22,13 @@ from data_collection.nse.universe import download_index
 OUT_PATH = os.path.join(ROOT_DIR, "data", "processed", "sector_map.csv")
 
 
+def load_sector_map() -> pd.DataFrame:
+    """Load symbol → industry from the processed sector map (empty frame if absent)."""
+    if not os.path.exists(OUT_PATH):
+        return pd.DataFrame(columns=["symbol", "industry"])
+    return pd.read_csv(OUT_PATH)[["symbol", "industry"]]
+
+
 def from_index_lists() -> pd.DataFrame:
     frames = []
     for index_name in ["nifty_total_market", "nifty_microcap250"]:

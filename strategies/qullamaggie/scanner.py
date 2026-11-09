@@ -25,6 +25,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 from data_collection.storage import read_universe_close, list_stored_symbols
 from data_collection.nse.universe import get_all_nse_eq_symbols
 from indicators.relative_strength import composite_rs_rank, residual_rs_rank
+from preprocessing.build_sector_map import load_sector_map
 from filters.surveillance import reset_cache
 
 import breakout as breakout_scanner
@@ -44,7 +45,7 @@ def build_ranks(symbols: list):
     close_wide = read_universe_close(symbols, start_date="2025-01-01")
     if close_wide.empty:
         return pd.Series(dtype=float), pd.Series(dtype=float)
-    return composite_rs_rank(close_wide), residual_rs_rank(close_wide)
+    return composite_rs_rank(close_wide), residual_rs_rank(close_wide, load_sector_map())
 
 
 def save_output(df: pd.DataFrame, setup_name: str, today: str) -> str:

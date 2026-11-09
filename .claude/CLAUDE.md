@@ -41,7 +41,9 @@ Tading Setup/
 │   │   ├── moving_averages.py  ← sma(), ema(), is_above_ma(), is_surfing_ma()
 │   │   ├── volatility.py       ← adr(), atr(), max_stop_distance()
 │   │   ├── volume.py           ← avg_volume(), volume_ratio(), avg_turnover_cr()
-│   │   └── relative_strength.py ← rs_rank(), composite_rs_rank(), top_n_by_rs()
+│   │   ├── relative_strength.py ← rs_rank(), composite_rs_rank(), residual_rs_rank(), top_n_by_rs()
+│   │   ├── trend_stage.py      ← trend_age(), base_count(), base_pivots(), maturity_label()
+│   │   └── factor_model.py     ← PCA absorption ratio + residual momentum (math only)
 │   ├── filters/                ← standalone composable scan filters (True/False)
 │   │   ├── liquidity.py        ← min_turnover_filter()
 │   │   ├── trend.py            ← above_ma_filter(), surfing_ma_filter(), ma_stack_filter()
@@ -66,6 +68,7 @@ Tading Setup/
 │       ├── mm_history.py       ← 10-year Market Monitor breadth history
 │       ├── market_rhythm.py    ← frozen-basket leader spread, winner attribution
 │       ├── build_sector_map.py, build_vol_curve.py   ← one-off builders (sector map, intraday volume curve)
+│       ├── factor_report.py    ← prints the factor-model read-out (reads close_matrix)
 │       └── commodities/        ← basis (global → MCX price) and research series
 ├── strategies/                 ← one folder per strategy
 │   └── qullamaggie/

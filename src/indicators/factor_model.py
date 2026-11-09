@@ -19,21 +19,15 @@ Random matrix theory (Marchenko-Pastur) draws the line between eigenvalues that 
 real structure and the cloud that is pure sampling noise — marchenko_pastur_max() /
 n_significant_factors() report how many forces are actually real on a given day.
 
-Pure numpy/pandas, no IO except the optional sector-map loader. Math only; the zoning
+Pure numpy/pandas, no IO. Math only; the zoning
 and presentation of #1 live in market_signals.py, and #2 slots into
 indicators/relative_strength.py as residual_rs_rank().
 
-Run standalone for a plain-text read of both:
-    python src/factor_model.py
+Plain-text read of both: PYTHONPATH=src python -m preprocessing.factor_report
 """
-
-import os
 
 import numpy as np
 import pandas as pd
-
-_PROCESSED = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
-SECTOR_MAP = os.path.join(_PROCESSED, "sector_map.csv")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -198,43 +192,3 @@ def _liquid_basket(close_wide: pd.DataFrame, max_names: int, lookback: int) -> p
     rank = pd.DataFrame({"traded": traded, "px": tail.mean()})
     keep = rank.sort_values(["traded", "px"], ascending=False).head(max_names).index
     return tail[keep]
-
-
-def load_sector_map() -> pd.DataFrame:
-    """Load symbol → industry from the processed sector map (empty frame if absent)."""
-    if not os.path.exists(SECTOR_MAP):
-        return pd.DataFrame(columns=["symbol", "industry"])
-    return pd.read_csv(SECTOR_MAP)[["symbol", "industry"]]
-
-
-def _report() -> str:
-    cm = pd.read_parquet(os.path.join(_PROCESSED, "close_matrix.parquet"))
-    lines = ["Factor model — hidden forces in the universe"]
-
-    ser = absorption_series(cm)
-    if not ser.empty:
-        cur = ser.iloc[-1]
-        pct = float((ser <= cur).mean() * 100)
-        lines.append(f"\n#1  Absorption ratio (PC1 crowding): {cur * 100:.1f}% of variance "
-                     f"in one force — {pct:.0f}th percentile of the last {len(ser)} readings.")
-        lines.append("     High = crowded/fragile (breakouts fail together); "
-                     "low = healthy dispersion (stock-picking rewarded).")
-        # RMT count on the latest window of the liquid basket.
-        px = _liquid_basket(cm, 250, 63 + 260)
-        latest = px.pct_change(fill_method=None).iloc[-63:].dropna(axis=1)
-        nf = n_significant_factors(latest)
-        lines.append(f"     Marchenko-Pastur: {nf} eigenvalue(s) clear the noise band "
-                     f"today — {latest.shape[1]} names, {latest.shape[0]}-day window.")
-
-    rm = residual_momentum(cm, load_sector_map())
-    if not rm.empty:
-        top = rm.sort_values(ascending=False).head(10)
-        lines.append("\n#2  Residual (idiosyncratic) momentum — strongest AFTER removing "
-                     "market + sector, last 63 sessions:")
-        for sym, val in top.items():
-            lines.append(f"     {sym:<14} {val * 100:+6.1f}% residual")
-    return "\n".join(lines)
-
-
-if __name__ == "__main__":
-    print(_report())

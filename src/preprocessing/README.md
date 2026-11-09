@@ -10,6 +10,7 @@ Nothing here fetches from outside; it only reads `data/` and writes `data/proces
 | `market_rhythm.py` | Leader-spread and winner-attribution series | `data/processed/market_rhythm.parquet` |
 | `build_sector_map.py` | Symbol to industry map (run when the universe changes) | `data/processed/sector_map.csv` |
 | `build_vol_curve.py` | Intraday cumulative-volume curve (needs Kite) | `data/processed/intraday_vol_curve.json` |
+| `factor_report.py` | Plain-text read-out of the factor model (crowding gauge, residual momentum) | stdout |
 | `commodities/basis.py` | Converts a global USD price into an MCX-equivalent series | in memory |
 | `commodities/research.py` | The commodity series to build strategies on | in memory |
 
