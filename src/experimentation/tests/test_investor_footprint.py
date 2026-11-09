@@ -3,7 +3,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from investor_footprint import (
+from experimentation.studies.investor_footprint import (
     _complete_fund_panel,
     _event_window,
     accumulation_summary,

@@ -88,24 +88,24 @@ market values exist) concentrated or diversified. It never compares raw share
 counts across different companies.
 
 Ashish Kacholia and Vijay Kedia have conservative canonical-name aliases in
-`src/investor_footprint.py`. Kedia Securities Private Limited remains a separate
+`src/experimentation/studies/investor_footprint.py`. Kedia Securities Private Limited remains a separate
 entity so its holdings are not silently attributed to Vijay Kedia.
 
 ## Run it
 
 ```bash
 # Named shareholder filings from the latest filing season.
-python src/investor_footprint.py collect-named 40
+PYTHONPATH=src python -m experimentation.studies.investor_footprint collect-named 40
 
 # Scheme-level collection is now part of the existing MF collector.
 PYTHONPATH=src python -m data_collection.other.mf_holdings
 
 # Inspect an investor-company accumulation table.
-python src/investor_footprint.py report "Ashish Kacholia"
-python src/investor_footprint.py report "Vijay Kedia"
+PYTHONPATH=src python -m experimentation.studies.investor_footprint report "Ashish Kacholia"
+PYTHONPATH=src python -m experimentation.studies.investor_footprint report "Vijay Kedia"
 
 # Tests
-python -m unittest src/test_investor_footprint.py
+cd src && python -m pytest experimentation/tests/test_investor_footprint.py
 ```
 
 For a historical study, backfill one quarter/month at a time and record failed

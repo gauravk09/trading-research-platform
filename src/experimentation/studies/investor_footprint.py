@@ -13,9 +13,9 @@ The analytics accept either source after normalization to the schema documented 
 
 CLI examples::
 
-    python src/investor_footprint.py collect-named 40
-    python src/investor_footprint.py report "Ashish Kacholia"
-    python src/investor_footprint.py report "Vijay Kedia"
+    PYTHONPATH=src python -m experimentation.studies.investor_footprint collect-named 40
+    PYTHONPATH=src python -m experimentation.studies.investor_footprint report "Ashish Kacholia"
+    PYTHONPATH=src python -m experimentation.studies.investor_footprint report "Vijay Kedia"
 
 The output is research data, not a reconstruction of exact trades.  Regulation 31
 filings can omit a holder below the applicable reporting threshold, so first/last
@@ -26,6 +26,8 @@ from __future__ import annotations
 
 import math
 import os
+
+from data_collection.paths import ROOT_DIR
 import re
 import sys
 import time
@@ -42,7 +44,7 @@ from data_collection.nse.shareholding import HEADERS, download_master, _session
 from data_collection.storage import read_daily
 
 
-PROCESSED = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
+PROCESSED = os.path.join(ROOT_DIR, "data", "processed")
 NAMED_HOLDINGS_STORE = os.path.join(PROCESSED, "named_investor_holdings.parquet")
 NAMED_FILINGS_STORE = os.path.join(PROCESSED, "named_holdings_filings.parquet")
 MF_SCHEME_STORE = os.path.join(PROCESSED, "mf_scheme_holdings.parquet")
@@ -605,7 +607,7 @@ def fund_sample_report(n: int = 20) -> pd.DataFrame:
                      new_positions=("change_kind", lambda x: int((x == "entry").sum())),
                      exited_positions=("change_kind", lambda x: int((x == "exit").sum())))
                 .reset_index())
-    benchmark_path = os.path.join(os.path.dirname(__file__), "..", "data", "parquet",
+    benchmark_path = os.path.join(ROOT_DIR, "data", "parquet",
                                   "indices", "nifty500.parquet")
     benchmark = pd.read_parquet(benchmark_path) if os.path.exists(benchmark_path) else None
     events = disclosure_events(selected, horizons=(1, 5), benchmark=benchmark)

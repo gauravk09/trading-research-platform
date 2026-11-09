@@ -8,11 +8,11 @@ Examples
 --------
 Import a fresh Screener export and build today's board::
 
-    python src/magic_formula.py --input ~/Downloads/screener.csv
+    PYTHONPATH=src python -m scanners.magic_formula --input ~/Downloads/screener.csv
 
 Refresh technicals from the most recent saved fundamental snapshot::
 
-    python src/magic_formula.py --refresh
+    PYTHONPATH=src python -m scanners.magic_formula --refresh
 """
 
 from __future__ import annotations
@@ -28,13 +28,15 @@ from datetime import date, datetime
 from pathlib import Path
 from typing import Callable
 
+from data_collection.paths import ROOT_DIR
+
 import numpy as np
 import pandas as pd
 
 from data_collection.storage import read_daily
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(ROOT_DIR)
 RAW_DIR = ROOT / "data" / "raw" / "magic_formula"
 PROCESSED_DIR = ROOT / "data" / "processed" / "magic_formula"
 LATEST_META = PROCESSED_DIR / "latest.json"

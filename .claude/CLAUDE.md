@@ -68,6 +68,8 @@ Tading Setup/
 │   │   ├── run_daily.py        ← the nightly 9-step update (cron runs this)
 │   │   ├── collect_all.py      ← full history for new IPOs / missing stocks
 │   │   └── daily_state.py      ← writes the machine-readable daily state file
+│   ├── experimentation/        ← one-off studies; nothing in production imports from here (see its README.md)
+│   │   └── studies/            ← fund_behavior (SBI Contra), investor_footprint
 │   ├── filters/                ← standalone composable scan filters (True/False)
 │   │   ├── liquidity.py        ← min_turnover_filter()
 │   │   ├── trend.py            ← above_ma_filter(), surfing_ma_filter(), ma_stack_filter()

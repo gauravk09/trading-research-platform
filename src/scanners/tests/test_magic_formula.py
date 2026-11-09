@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
-import magic_formula as mf
+import scanners.magic_formula as mf
 
-from magic_formula import (
+from scanners.magic_formula import (
     MagicFormulaConfig,
     build_snapshot,
     discover_latest_export,

@@ -4,7 +4,9 @@ import unittest
 
 import pandas as pd
 
-ROOT = os.path.join(os.path.dirname(__file__), "..")
+from data_collection.paths import ROOT_DIR
+
+ROOT = ROOT_DIR
 sys.path.insert(0, os.path.join(ROOT, "strategies"))
 from stockbee.breakout_setup import breakout_from_consolidation
 

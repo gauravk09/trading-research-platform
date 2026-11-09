@@ -2,7 +2,7 @@ import unittest
 
 import pandas as pd
 
-from fund_behavior_study import _current_tenure
+from experimentation.studies.fund_behavior import _current_tenure
 from webapp.server.fund_study import _safe
 
 

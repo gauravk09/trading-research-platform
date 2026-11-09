@@ -60,7 +60,7 @@ results remain exploratory and can be inspected by clicking a row.
 Double-click `run_fund_study.command`, or run:
 
 ```bash
-PYTHONPATH=src python src/fund_behavior_study.py collect 5
+PYTHONPATH=src PYTHONPATH=src python -m experimentation.studies.fund_behavior collect 5
 ./run_fund_study.command
 ```
 

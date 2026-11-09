@@ -7,7 +7,7 @@ the conservative disclosure-availability date.
 
 Run a five-year backfill::
 
-    python src/fund_behavior_study.py collect 5
+    PYTHONPATH=src python -m experimentation.studies.fund_behavior collect 5
 """
 
 from __future__ import annotations
@@ -15,6 +15,8 @@ from __future__ import annotations
 import calendar
 import io
 import os
+
+from data_collection.paths import ROOT_DIR
 import sys
 import zipfile
 from datetime import date, timedelta
@@ -28,7 +30,7 @@ from data_collection.other.mf_holdings import HEADERS, _isin_symbol_map, _parse_
 from data_collection.storage import read_daily
 
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+ROOT = os.path.abspath(ROOT_DIR)
 STORE = os.path.join(ROOT, "data", "processed", "fund_study_sbi_contra.parquet")
 BENCHMARK = os.path.join(ROOT, "data", "parquet", "indices", "nifty500.parquet")
 FUND_ID = "mf:sbi:sbi-contra-fund"

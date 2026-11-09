@@ -34,7 +34,7 @@ import glob  # noqa: E402
 
 import preprocessing.market_rhythm as market_rhythm  # noqa: E402
 import risk.regime as risk_regime  # noqa: E402
-import magic_formula as magic  # noqa: E402
+import scanners.magic_formula as magic  # noqa: E402
 import scanners.order_pad as op  # noqa: E402
 import scanners.strategy_registry as reg  # noqa: E402
 from data_collection.storage import read_daily  # noqa: E402
@@ -250,7 +250,7 @@ def magic_formula_endpoint():
         return {
             "ready": False,
             "message": str(exc),
-            "setup_command": "python src/magic_formula.py --auto-import",
+            "setup_command": "PYTHONPATH=src python -m scanners.magic_formula --auto-import",
             "rows": [],
         }
 

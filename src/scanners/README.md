@@ -12,6 +12,7 @@ It never places an order: tickets are for you to punch in by hand.
 | `conviction.py` | Ranks a scan hit-list into a research queue. |
 | `trade_metrics.py` | Empirical chance of profit and expectancy for a live candidate. |
 | `overnight_news.py` | Ranks material after-close filings for next-day trades. |
+| `magic_formula.py` | Magic Formula fundamental import (Screener export) and technical ranking; the nightly job and the dashboard both call it. |
 | `tracker.py` | "Started watching here" stamps for the live dashboard. |
 
 Start the live scanner from the repo root:

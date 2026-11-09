@@ -31,26 +31,26 @@ AND Return on capital employed > 0
 ## Run
 
 ```bash
-python src/magic_formula.py --input /path/to/screener-export.csv
+PYTHONPATH=src python -m scanners.magic_formula --input /path/to/screener-export.csv
 ```
 
 Refresh the technical overlay later without changing the saved fundamentals:
 
 ```bash
-python src/magic_formula.py --refresh
+PYTHONPATH=src python -m scanners.magic_formula --refresh
 ```
 
 Or let the importer locate the newest matching export automatically:
 
 ```bash
-python src/magic_formula.py --auto-import
+PYTHONPATH=src python -m scanners.magic_formula --auto-import
 ```
 
 By default it scans `~/Downloads`. To use a dedicated folder:
 
 ```bash
 SCREENER_EXPORT_DIR="$HOME/Finance/Screener Exports" \
-  python src/magic_formula.py --auto-import
+  PYTHONPATH=src python -m scanners.magic_formula --auto-import
 ```
 
 The importer identifies the file from its column headers rather than its file
@@ -64,7 +64,7 @@ technical overlay advances.
 Optional controls:
 
 ```bash
-python src/magic_formula.py --refresh --as-of 2026-10-23 \
+PYTHONPATH=src python -m scanners.magic_formula --refresh --as-of 2026-10-23 \
   --min-market-cap 1000 --min-turnover 1
 ```
 

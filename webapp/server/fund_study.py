@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 from fastapi import APIRouter, HTTPException
 
-from fund_behavior_study import STORE, build_study, company_study
+from experimentation.studies.fund_behavior import STORE, build_study, company_study
 
 
 router = APIRouter(prefix="/api/fund-study", tags=["fund-study"])

@@ -47,7 +47,7 @@ from backtest.integrity import repair_recent_breaks
 from data_collection.nse.update_financials import run as run_financials
 from evaluation.grade_decisions import run as run_grader
 from evaluation.s7_verdict import run as run_s7_verdict
-from magic_formula import auto_import as auto_import_magic_formula
+from scanners.magic_formula import auto_import as auto_import_magic_formula
 
 
 def run():

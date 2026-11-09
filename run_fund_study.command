@@ -10,7 +10,7 @@ lsof -ti:$API_PORT | xargs kill 2>/dev/null
 lsof -ti:$WEB_PORT | xargs kill 2>/dev/null
 
 echo "Refreshing SBI Contra Fund disclosures..."
-PYTHONPATH=src $HOME/anaconda3/bin/python3 src/fund_behavior_study.py collect 5
+PYTHONPATH=src $HOME/anaconda3/bin/python3 -m experimentation.studies.fund_behavior collect 5
 
 $HOME/anaconda3/bin/python3 -m uvicorn webapp.server.main:app --port $API_PORT &
 API_PID=$!
