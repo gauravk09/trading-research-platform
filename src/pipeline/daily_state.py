@@ -9,23 +9,25 @@ without touching Streamlit.
 
 Written to output/state/<data-date>.json plus a latest.json copy.
 Runs at the end of run_daily.py, or manually:
-    python src/daily_state.py
+    PYTHONPATH=src python -m pipeline.daily_state
 """
 
 import glob
 import json
 import math
 import os
+
+from data_collection.paths import ROOT_DIR
 import sys
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
 import pandas as pd
 
-sys.path.insert(0, os.path.dirname(__file__))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "strategies"))
+sys.path.insert(0, os.path.join(ROOT_DIR, "strategies"))
 
 import data_collection.nse.announcements_store as announcements_store
+from data_collection.nse.surveillance import load_cached_excluded
 from data_collection.nse.earnings_calendar import results_due_days
 from preprocessing.breadth import compute_market_monitor
 import risk.regime as risk_regime
@@ -39,7 +41,7 @@ from stockbee.episodic_pivot import episodic_pivot, attach_catalysts
 from stockbee.ep_family import ep9m_today, dep_watchlist, ep_checklist
 from stockbee.trade_tracker import evaluate_trades
 
-ROOT = os.path.join(os.path.dirname(__file__), "..")
+ROOT = ROOT_DIR
 PROCESSED = os.path.join(ROOT, "data", "processed")
 RAW = os.path.join(ROOT, "data", "raw")
 STATE_DIR = os.path.join(ROOT, "output", "state")
@@ -67,23 +69,6 @@ FEATURE_COLS = [
     # a next-day signal, legitimate here because candidates are picked EOD.
     "deliv_pct", "deliv_x_avg",
 ]
-
-
-def _load_excluded() -> set:
-    """ASM/GSM symbols from the newest cached surveillance CSVs (disk only)."""
-    excluded = set()
-    for prefix in ("asm", "gsm"):
-        files = sorted(glob.glob(os.path.join(RAW, "surveillance", f"{prefix}_*.csv")))
-        if not files:
-            continue
-        try:
-            df = pd.read_csv(files[-1])
-        except (OSError, pd.errors.EmptyDataError):
-            continue
-        col = next((c for c in df.columns if "symbol" in c.lower()), None)
-        if col:
-            excluded.update(df[col].dropna().astype(str).str.strip().str.upper())
-    return excluded
 
 
 def _load_fii_dii() -> dict:
@@ -263,7 +248,7 @@ def build_state() -> dict:
         idx_close = pd.read_parquet(risk_regime.LIVE_PARQUET).set_index("date")["close"].sort_index()
     regime = risk_regime.evaluate()
 
-    excluded = _load_excluded()
+    excluded = load_cached_excluded()
     base = {"min_turnover_cr": 1.0, "excluded": excluded}
 
     scan_blocks = {}

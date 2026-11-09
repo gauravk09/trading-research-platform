@@ -1,7 +1,7 @@
 # data_collection
 
 Everything that fetches data from outside the repo lives here, grouped by **source**.
-Computing on the fetched data (`precompute.py`, `regime.py`, `daily_state.py`, …) stays in `src/`.
+Nothing in here imports from any other `src/` layer. The nightly job that calls collection, then compute, lives in `pipeline/`.
 
 | Folder | Source | Needs a login? |
 |---|---|---|
@@ -9,7 +9,7 @@ Computing on the fetched data (`precompute.py`, `regime.py`, `daily_state.py`, �
 | `nse/` | NSE archives and APIs | No |
 | `other/` | BSE, AMC websites, GDELT, Yahoo, LBMA/EIA, Zerodha Pulse | No |
 
-Top level: `commodity_store.py` / `commodity_map.py` (commodity series storage and symbol map), `run_daily.py` (the nightly job), `collect_all.py` (full history for new IPOs),
+Top level: `commodity_store.py` / `commodity_map.py` (commodity series storage and symbol map),
 `storage.py` (parquet price files — the only place that knows their paths), `paths.py` (`ROOT_DIR`).
 
 ## How to run anything
@@ -17,20 +17,10 @@ Top level: `commodity_store.py` / `commodity_map.py` (commodity series storage a
 From the repo root, as a module (so imports resolve):
 
 ```bash
-PYTHONPATH=src python -m data_collection.run_daily          # nightly update
+PYTHONPATH=src python -m pipeline.run_daily          # nightly update
 PYTHONPATH=src python -m data_collection.kite.auth          # morning token refresh
 PYTHONPATH=src python -m data_collection.nse.bulk_deals     # one collector alone
 ```
-
-## What `run_daily.py` does, in order
-
-1. `kite/updater` — new daily candles from Kite, then check against NSE `bhavcopy`
-2. NSE side feeds (`fii_dii`, `bulk_deals`, `delivery`, `stock_oi`, `insider_trading`, `shareholding`, `earnings_calendar`, `bonus`) and `other/mf_holdings`
-3. `nse/announcements`
-4. `nse/update_financials`
-5. `other/company_master`, `kite/index_history`, then **`precompute`** (in `preprocessing/`)
-6. split/bonus repair (re-fetches a broken stock's full history from Kite)
-7. daily state, 8. decision grader, 9. S7 verdict (all compute, in `src/`)
 
 ## Data map
 

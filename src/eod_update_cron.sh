@@ -11,7 +11,7 @@ LOG="$PROJECT/logs/eod_cron_$(date +%Y%m%d).log"
 echo "=== EOD Update started at $(date) ===" >> "$LOG"
 
 # Run the full EOD update
-cd "$PROJECT" && PYTHONPATH=src "$PYTHON" -m data_collection.run_daily >> "$LOG" 2>&1
+cd "$PROJECT" && PYTHONPATH=src "$PYTHON" -m pipeline.run_daily >> "$LOG" 2>&1
 
 EXIT_CODE=$?
 echo "=== Finished at $(date) — exit code $EXIT_CODE ===" >> "$LOG"

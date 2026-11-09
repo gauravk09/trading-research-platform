@@ -64,6 +64,10 @@ Tading Setup/
 │   │   ├── grade_decisions.py  ← +1/+3/+5/+20d forward returns for every recorded decision
 │   │   ├── incubation.py       ← S7 paper-signal generator for factory strategies
 │   │   └── s7_verdict.py       ← nightly read-out of the S7 forward record
+│   ├── pipeline/               ← the nightly job and daily state; calls every other layer (see its README.md)
+│   │   ├── run_daily.py        ← the nightly 9-step update (cron runs this)
+│   │   ├── collect_all.py      ← full history for new IPOs / missing stocks
+│   │   └── daily_state.py      ← writes the machine-readable daily state file
 │   ├── filters/                ← standalone composable scan filters (True/False)
 │   │   ├── liquidity.py        ← min_turnover_filter()
 │   │   ├── trend.py            ← above_ma_filter(), surfing_ma_filter(), ma_stack_filter()
@@ -74,8 +78,6 @@ Tading Setup/
 │   └── data_collection/        ← ALL data collection lives here (see its README.md for the full table)
 │       ├── storage.py          ← parquet read/write (single source of truth for file paths)
 │       ├── paths.py            ← ROOT_DIR shared by every collector
-│       ├── run_daily.py        ← the nightly 9-step update (cron runs this)
-│       ├── collect_all.py      ← full history for new IPOs / missing stocks
 │       ├── kite/               ← needs a Kite login: auth, instruments, historical, updater,
 │       │                         intraday, backfill_intraday, mcx, index_history, fno_iv
 │       ├── nse/                ← free NSE data: universe, bhavcopy, fo, fo_bhavcopy, fii_dii,
@@ -151,7 +153,7 @@ decide *what to build next*; use the rule files to verify *what exists today*.
 ## Daily Operations
 
 ### Automated (cron at 8 PM IST, weekdays)
-`src/data_collection/run_daily.py` runs automatically and handles:
+`src/pipeline/run_daily.py` runs automatically and handles:
 - Incremental OHLCV fetch from Kite (only new days, not full history)
 - NSE Bhavcopy download + Kite vs bhavcopy price reconciliation
 - FII/DII, bulk/block deals, corporate announcements, F&O list
@@ -174,7 +176,7 @@ Login URL: `https://kite.zerodha.com/connect/login?api_key=<KITE_API_KEY from .e
 When a new stock lists on NSE it won't have a parquet file yet.
 Run once to fetch its full history and add it to the dataset:
 ```bash
-PYTHONPATH=src python -m data_collection.collect_all
+PYTHONPATH=src python -m pipeline.collect_all
 ```
 This re-downloads the NSE master list, finds any new symbols not yet stored,
 and fetches their full history from Kite back to 2015.
@@ -189,10 +191,10 @@ PYTHONPATH=src python -m data_collection.other.company_master <SYMBOL>
 
 | Script | Purpose | When to run |
 |--------|---------|-------------|
-| `src/data_collection/run_daily.py` | Full daily update (prices + NSE data + dashboard) | Automated via cron |
+| `src/pipeline/run_daily.py` | Full daily update (prices + NSE data + dashboard) | Automated via cron |
 | `src/data_collection/kite/updater.py` | Incremental OHLCV only + reconciliation | Called by run_daily.py |
 | `src/preprocessing/precompute.py` | Rebuild dashboard summary files | Called by run_daily.py |
-| `src/data_collection/collect_all.py` | Full history fetch for new/missing stocks | After new IPO listing |
+| `src/pipeline/collect_all.py` | Full history fetch for new/missing stocks | After new IPO listing |
 | `src/data_collection/kite/auth.py` | Regenerate Kite access token | Every morning |
 
 ## Environment Variables (.env)

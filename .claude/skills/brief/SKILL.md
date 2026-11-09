@@ -15,7 +15,7 @@ cancel orders — the brief prepares decisions, the human executes.
 1. `output/state/latest.json` — regime + knobs, breadth trend, scans, OHLCV
    windows, open tracked trades. If its `meta.data_date` is older than the last
    trading day, warn prominently and offer to run
-   `PYTHONPATH=src python -m data_collection.run_daily` (anaconda3 python) first.
+   `PYTHONPATH=src python -m pipeline.run_daily` (anaconda3 python) first.
    The file also carries `news` — the latest archived Pulse headlines
    (published, source, headline, url). These are raw aggregated headlines, NOT
    a signal: use them only for context/color, never to justify a trade the

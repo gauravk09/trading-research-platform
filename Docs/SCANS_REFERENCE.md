@@ -17,10 +17,10 @@ explains why some scans react instantly to filter changes and others only update
 | | **Live scan engine** | **Nightly state engine** |
 |---|---|---|
 | Used by | Screener, Scans pages | Setups, Daily Brief pages |
-| Reads | `data/processed/universe_summary.parquet` (one row per stock), served by `/api/universe` and `/api/scans/{name}` | the nightly state JSON written by [`src/daily_state.py`](../src/daily_state.py), served as-is by `/api/state` |
+| Reads | `data/processed/universe_summary.parquet` (one row per stock), served by `/api/universe` and `/api/scans/{name}` | the nightly state JSON written by [`src/pipeline/daily_state.py`](../src/pipeline/daily_state.py), served as-is by `/api/state` |
 | Conditions are | simple threshold comparisons on **precomputed columns** | the same predicates, plus entry/stop/flags, frozen at EOD |
 | Recomputed | on every request — the Scans page re-runs the scan when you change a filter | once nightly, by the EOD update |
-| Code | [`webapp/server/main.py:185`](../webapp/server/main.py) → [`strategies/stockbee/scans.py`](../strategies/stockbee/scans.py) | [`src/daily_state.py:255`](../src/daily_state.py) → `strategies/stockbee/` |
+| Code | [`webapp/server/main.py:185`](../webapp/server/main.py) → [`strategies/stockbee/scans.py`](../strategies/stockbee/scans.py) | [`src/pipeline/daily_state.py:255`](../src/pipeline/daily_state.py) → `strategies/stockbee/` |
 
 So the Setups page is a **viewer** for whatever last night's `daily_state.py` run wrote;
 its "conditions" were evaluated at EOD, not anything the webapp computes.
@@ -202,7 +202,7 @@ broken names via `ti65 < 1.0`. **Ranked by** `chg_pct` asc.
 
 ## Setups page — 🎯 Tonight's candidates
 
-A viewer for the nightly state file: [`src/daily_state.py:255`](../src/daily_state.py)
+A viewer for the nightly state file: [`src/pipeline/daily_state.py:255`](../src/pipeline/daily_state.py)
 re-runs the scan functions at EOD with its own (sometimes stricter) parameters, attaches
 entry/stop/flags, and the page renders the result verbatim
 ([`webapp/frontend/src/pages/Setups.jsx`](../webapp/frontend/src/pages/Setups.jsx)).

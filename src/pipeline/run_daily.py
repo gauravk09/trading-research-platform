@@ -2,7 +2,7 @@
 run_daily.py — Full daily EOD update: prices + all NSE data + dashboard rebuild
 
 Run manually:
-    PYTHONPATH=src python -m data_collection.run_daily
+    PYTHONPATH=src python -m pipeline.run_daily
 
 Or triggered via the /eod-update skill every day at 10 PM IST.
 
@@ -42,7 +42,7 @@ from preprocessing.precompute import run as run_precompute
 from data_collection.other.company_master import refresh as refresh_company_master
 from data_collection.nse.bonus import build_bonus_events
 from backtest.shares_history import refresh as refresh_pit_mcap
-from daily_state import run as run_daily_state
+from pipeline.daily_state import run as run_daily_state
 from backtest.integrity import repair_recent_breaks
 from data_collection.nse.update_financials import run as run_financials
 from evaluation.grade_decisions import run as run_grader

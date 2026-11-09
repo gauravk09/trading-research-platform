@@ -10,7 +10,7 @@ What it does (in order):
   6. Fetch daily OHLCV from Kite for the full universe
 
 Run:
-  PYTHONPATH=src python -m data_collection.collect_all
+  PYTHONPATH=src python -m pipeline.collect_all
 """
 
 import os

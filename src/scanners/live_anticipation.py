@@ -55,7 +55,7 @@ import scanners.order_pad as order_pad
 import scanners.strategy_registry as strategy_registry
 import scanners.tracker as tracker
 from data_collection.kite.auth import get_kite_client
-from daily_state import _load_excluded
+from data_collection.nse.surveillance import load_cached_excluded
 from data_collection.kite.instruments import download_instruments
 from stockbee import scans
 
@@ -152,7 +152,7 @@ def build_watchlist(csv_path=None):
     else:
         hits = scans.anticipation(summary, **SCAN_PARAMS,
                                   min_turnover_cr=1.0,
-                                  excluded=_load_excluded()).head(WATCHLIST_SIZE)
+                                  excluded=load_cached_excluded()).head(WATCHLIST_SIZE)
         dep = set(load_dep_symbols(data_date))
         extra = dep - set(hits["symbol"])
         if extra:
@@ -563,7 +563,7 @@ def main():
         if len(top) == 150:
             market["mcap150_cr"] = float(top.iloc[-1])
     print(f"Tape snapshot: {market or 'unavailable (mm_history missing)'}")
-    qbook = QuoteBook(hist, _load_excluded(), full_hist=full_hist,
+    qbook = QuoteBook(hist, load_cached_excluded(), full_hist=full_hist,
                       picks_path=PICKS_PATH, market=market)
     print(f"Intraday scan universe: {len(stream_syms)} liquid names "
           f"(turnover >= {MIN_TURNOVER_CR} Cr) · {len(picks)} user picks")

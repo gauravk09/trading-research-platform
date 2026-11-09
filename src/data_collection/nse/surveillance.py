@@ -16,6 +16,7 @@ Use this at SCAN time, not at data collection time — we still want history
 for these stocks (they may exit surveillance and become tradeable again).
 """
 
+import glob
 import os
 
 from data_collection.paths import ROOT_DIR
@@ -126,3 +127,20 @@ def get_excluded_symbols() -> set:
 if __name__ == "__main__":
     excluded = get_excluded_symbols()
     print(f"\nSample excluded: {list(excluded)[:10]}")
+
+
+def load_cached_excluded() -> set:
+    """ASM/GSM symbols from the newest cached surveillance CSVs (disk only, no download)."""
+    excluded = set()
+    for prefix in ("asm", "gsm"):
+        files = sorted(glob.glob(os.path.join(RAW_DIR, f"{prefix}_*.csv")))
+        if not files:
+            continue
+        try:
+            df = pd.read_csv(files[-1])
+        except (OSError, pd.errors.EmptyDataError):
+            continue
+        col = next((c for c in df.columns if "symbol" in c.lower()), None)
+        if col:
+            excluded.update(df[col].dropna().astype(str).str.strip().str.upper())
+    return excluded

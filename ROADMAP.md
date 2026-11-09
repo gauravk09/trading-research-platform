@@ -25,7 +25,7 @@ not getting bad trades.*
 ## The five overhauls (agreed 2026-07-10)
 
 1. **Daily state file** — machine-readable snapshot per trading day.
-   `DONE (2026-07-10)`: `src/daily_state.py` → `output/state/<date>.json` +
+   `DONE (2026-07-10)`: `src/pipeline/daily_state.py` → `output/state/<date>.json` +
    `latest.json`; regime, monitor tail, FII/DII, 6 Stockbee scans with feature
    vectors, 40-bar OHLCV windows, open trades. Step 5/5 of `eod_update.py`.
 2. **Situational awareness → deterministic exposure model.**
