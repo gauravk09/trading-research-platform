@@ -26,7 +26,7 @@ Families map the dashboard setups onto rule-sets:
 
 import pandas as pd
 
-import trade_metrics
+import scanners.trade_metrics as trade_metrics
 
 PCT40_GATE = 55        # Qullamaggie breadth gate
 PCT40_WASHOUT = 40     # below this, dip-buy pockets graded negative

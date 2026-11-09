@@ -14,7 +14,7 @@ lsof -ti:8700 | xargs kill 2>/dev/null
 lsof -ti:5173 | xargs kill 2>/dev/null
 lsof -ti:8602 | xargs kill 2>/dev/null
 pkill -f "uvicorn webapp.server.main" 2>/dev/null
-pkill -f "src/live_anticipation.py" 2>/dev/null
+pkill -f "scanners.live_anticipation" 2>/dev/null
 sleep 1
 
 $HOME/anaconda3/bin/python3 -m uvicorn webapp.server.main:app --port 8700 &
@@ -25,7 +25,7 @@ WEB_PID=$!
 # live intraday scanner — needs today's Kite token (run `PYTHONPATH=src python -m data_collection.kite.auth`
 # first each morning). Harmless if it exits: the Live page shows "offline".
 mkdir -p logs
-$HOME/anaconda3/bin/python3 src/live_anticipation.py >> logs/live_scanner.log 2>&1 &
+PYTHONPATH=src $HOME/anaconda3/bin/python3 -m scanners.live_anticipation >> logs/live_scanner.log 2>&1 &
 LIVE_PID=$!
 
 # Independent NFO implied-volatility feed. If today's Kite token is unavailable

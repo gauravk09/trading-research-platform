@@ -48,6 +48,14 @@ Tading Setup/
 │   │   ├── regime.py           ← HMM crash-risk dial (CALM/ELEVATED) that sets sizing knobs
 │   │   ├── sizing.py           ← side-aware position sizing and portfolio risk
 │   │   └── plan_contract.py    ← typed daily plan + deterministic gates
+│   ├── scanners/               ← live and EOD candidate finding, ranking, order tickets (see its README.md)
+│   │   ├── live_anticipation.py ← live intraday scanner server (port 8602) + live_anticipation.html
+│   │   ├── live_scanner.py     ← live quotes + EOD history → scan tables
+│   │   ├── order_pad.py        ← ranked candidates → order tickets and manual punch-in cards
+│   │   ├── strategy_registry.py ← the validated strategies, their gates and playbook links
+│   │   ├── conviction.py, trade_metrics.py ← ranking queue and P(profit)/expectancy per candidate
+│   │   ├── overnight_news.py   ← after-close filings ranked for next-day trades
+│   │   └── tracker.py          ← "started watching here" stamps for the live dashboard
 │   ├── filters/                ← standalone composable scan filters (True/False)
 │   │   ├── liquidity.py        ← min_turnover_filter()
 │   │   ├── trend.py            ← above_ma_filter(), surfing_ma_filter(), ma_stack_filter()

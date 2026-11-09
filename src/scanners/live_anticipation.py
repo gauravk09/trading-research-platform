@@ -12,8 +12,8 @@ anticipation list plus last night's DEP watchlist, or a CSV) currently moving
 beyond MOVE_THRESHOLD_PCT, biggest move first, change measured off the previous
 close exactly as Zerodha shows it. Click any row for its daily/5-minute chart.
 
-    python src/live_anticipation.py                     # anticipation watchlist
-    python src/live_anticipation.py output/watch.csv    # custom movers watchlist
+    PYTHONPATH=src python -m scanners.live_anticipation                     # anticipation watchlist
+    PYTHONPATH=src python -m scanners.live_anticipation output/watch.csv    # custom movers watchlist
     # then open http://localhost:8602
 
 Tabs: Live Movers (/data) · User Picks · 4% Breakout · 4% Breakdown ·
@@ -35,6 +35,8 @@ what you pick actually goes anywhere afterwards. ⊕ again to untrack.
 
 import json
 import os
+
+from data_collection.paths import ROOT_DIR
 import sys
 import threading
 import time
@@ -46,19 +48,18 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 from kiteconnect import KiteTicker
 
-sys.path.insert(0, os.path.dirname(__file__))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "strategies"))
+sys.path.insert(0, os.path.join(ROOT_DIR, "strategies"))
 
-import live_scanner as ls
-import order_pad
-import strategy_registry
-import tracker
+import scanners.live_scanner as ls
+import scanners.order_pad as order_pad
+import scanners.strategy_registry as strategy_registry
+import scanners.tracker as tracker
 from data_collection.kite.auth import get_kite_client
 from daily_state import _load_excluded
 from data_collection.kite.instruments import download_instruments
 from stockbee import scans
 
-ROOT = os.path.join(os.path.dirname(__file__), "..")
+ROOT = ROOT_DIR
 SUMMARY_PATH = os.path.join(ROOT, "data", "processed", "universe_summary.parquet")
 STATE_LATEST = os.path.join(ROOT, "output", "state", "latest.json")
 PICKS_PATH = os.path.join(ROOT, "output", "user_picks.csv")

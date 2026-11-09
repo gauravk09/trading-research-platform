@@ -12,13 +12,15 @@ you were watching and when, so the stamps are reviewable after the fact.
 """
 
 import os
+
+from data_collection.paths import ROOT_DIR
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
 import pandas as pd
 
 IST = ZoneInfo("Asia/Kolkata")
-PATH = os.path.join(os.path.dirname(__file__), "..", "output", "tracked.csv")
+PATH = os.path.join(ROOT_DIR, "output", "tracked.csv")
 COLUMNS = ["symbol", "date", "time", "price"]
 
 

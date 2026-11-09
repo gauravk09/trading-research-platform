@@ -35,8 +35,8 @@ import glob  # noqa: E402
 import preprocessing.market_rhythm as market_rhythm  # noqa: E402
 import risk.regime as risk_regime  # noqa: E402
 import magic_formula as magic  # noqa: E402
-import order_pad as op  # noqa: E402
-import strategy_registry as reg  # noqa: E402
+import scanners.order_pad as op  # noqa: E402
+import scanners.strategy_registry as reg  # noqa: E402
 from data_collection.storage import read_daily  # noqa: E402
 from data_collection.nse.fo import download_fo_list  # noqa: E402
 from indicators.moving_averages import sma_series  # noqa: E402
@@ -825,7 +825,7 @@ def docs():
 
 
 # ── Live scanner proxy ─────────────────────────────────────────────────────────
-# The intraday scanner (src/live_anticipation.py, port 8602) keeps the Kite
+# The intraday scanner (src/scanners/live_anticipation.py, port 8602) keeps the Kite
 # websocket + QuoteBook; this app is just its UI. When it isn't running the
 # frontend gets {"offline": true} and shows a friendly banner instead of errors.
 

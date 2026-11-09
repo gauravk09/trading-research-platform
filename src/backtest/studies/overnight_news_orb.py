@@ -1,7 +1,7 @@
 """
 overnight_news_orb.py — Does after-close material news predict the next day?
 
-Replays src/overnight_news.py's deterministic scorer over the backfilled
+Replays src/scanners/overnight_news.py's deterministic scorer over the backfilled
 announcement history (2015+, financials 2017+) and measures, per trade day:
 
   gap%      open vs prior close — does score direction predict the gap?
@@ -31,7 +31,7 @@ import pandas as pd
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
-from overnight_news import CLOSE_TIME, OPEN_TIME, load_financials, score_filings, window_filings
+from scanners.overnight_news import CLOSE_TIME, OPEN_TIME, load_financials, score_filings, window_filings
 from data_collection.storage import read_daily
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "output", "studies")

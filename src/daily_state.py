@@ -32,7 +32,7 @@ import risk.regime as risk_regime
 from incubation import build_incubation
 from data_collection.other.news import load_recent_news
 from data_collection.storage import read_daily
-import trade_metrics
+import scanners.trade_metrics as trade_metrics
 from stockbee import scans
 from stockbee.breakout_setup import breakout_from_consolidation
 from stockbee.episodic_pivot import episodic_pivot, attach_catalysts

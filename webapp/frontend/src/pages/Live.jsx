@@ -59,7 +59,7 @@ export default function Live({ onOpenChart }) {
           <div className="panel-sub" style={{ marginTop: 8, lineHeight: 1.7 }}>
             Start it in a terminal (needs a fresh Kite token, market hours for ticks):
             <pre style={{ background: 'var(--bg-raise)', padding: '10px 14px', borderRadius: 10 }}>
-              python src/live_anticipation.py
+              PYTHONPATH=src python -m scanners.live_anticipation
             </pre>
             This page picks it up automatically once it's running.
           </div>

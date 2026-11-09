@@ -15,19 +15,21 @@ scores each one deterministically (no LLM):
 Positive score = expected up-move catalyst, negative = down. abs(score) is
 the materiality rank. Run in the evening to get tomorrow's ORB watchlist:
 
-    python src/overnight_news.py                # tonight → next trade day
-    python src/overnight_news.py --date 2026-07-15   # historical morning
+    PYTHONPATH=src python -m scanners.overnight_news                # tonight → next trade day
+    PYTHONPATH=src python -m scanners.overnight_news --date 2026-07-15   # historical morning
 """
 
 import argparse
 import os
+
+from data_collection.paths import ROOT_DIR
 import re
 
 import pandas as pd
 
 import data_collection.nse.announcements_store as announcements_store
 
-BASE = os.path.join(os.path.dirname(__file__), "..")
+BASE = ROOT_DIR
 FIN_PATH = os.path.join(BASE, "data", "processed", "financials.parquet")
 SUMMARY_PATH = os.path.join(BASE, "data", "processed", "universe_summary.parquet")
 OUT_DIR = os.path.join(BASE, "output", "overnight_news")

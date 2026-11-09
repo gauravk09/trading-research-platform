@@ -289,7 +289,7 @@ not getting bad trades.*
   regime.py tier knobs.
 
 - **Strategy book surfaced in both dashboards (2026-08-03)** — `DONE`.
-  `src/strategy_registry.py` is the single source of truth for the validated
+  `src/scanners/strategy_registry.py` is the single source of truth for the validated
   strategies (lone-loser short, tape-gated Qullamaggie, gated Darvas
   incubate, Ryan/Minervini small/mid) — status, gates, stats, caveats, and a
   Google-Doc playbook link each. Trading desk: new ⚔️ Strategies tab
@@ -301,13 +301,13 @@ not getting bad trades.*
   (net4/pct40ma/ti65). Gate thresholds mirror the backtests
   (net4≥18 & ti65<1.04 short; pct40ma≥55 Qullamaggie; ≥60 Darvas;
   washout<40 blocks dip-buys; net4≥130 strong-tape cell for 4% longs).
-  Follow-up same day: `src/conviction.py` ranks every Setups-tab and
+  Follow-up same day: `src/scanners/conviction.py` ranks every Setups-tab and
   brief-watchlist hit into a research queue — Pri 0-100 from validated
   factors only, plus Signal (TAKE/CAUTION/SKIP; closed playbook gate always
   caps at CAUTION), Playbook fit, and a "why ranked here" per row. Daily
   workflow doc: "Daily Research Routine" (Google Doc, linked from Setups +
   Strategies tabs). Third piece: 🧾 Order Pad tab
-  (`dashboard/tabs/order_pad.py` + `src/order_pad.py`) turns tonight's
+  (`dashboard/tabs/order_pad.py` + `src/scanners/order_pad.py`) turns tonight's
   candidates into sized punch-in cards for the Kite app — read-only, never
   places anything (manual-execution mode still applies). Its point of care
   is ENTRY TIMING per playbook: D+1-open books (lone-loser short,
@@ -593,7 +593,7 @@ not getting bad trades.*
   pre-2016 history (API reaches 2005, one-line SINCE_YEAR change + rerun).
 
 - **Overnight-news scanner + ORB backtest (2026-07-16)** — `DONE`.
-  `src/overnight_news.py`: deterministic (no-LLM) ranking of every filing
+  `src/scanners/overnight_news.py`: deterministic (no-LLM) ranking of every filing
   broadcast between prior close 15:30 and next open 09:15 — results signed by
   actual YoY PAT from financials.parquet (turnaround +3 / loss-swing −3,
   ±75% YoY caps), order wins sized by ₹-cr regex vs annualized revenue,
@@ -1046,7 +1046,7 @@ not getting bad trades.*
   ported (Brief, Setups, Screener, Scans, Monitor+Rhythm, Sectors, Strategies,
   Order Pad, docs) plus the live scanner merged in via an `/api/live/*` proxy
   to the 8602 engine. `dashboard/` Streamlit code deleted (only `assets/`
-  remains, used by `src/live_anticipation.py`); cron no longer restarts
+  remains, used by `src/scanners/live_anticipation.py`); cron no longer restarts
   Streamlit. Machine consumers still read `output/state/*.json` — the webapp
   renders the same files.
 - **LLM-defined market regime** — rejected 2026-07-10. The regime tier and

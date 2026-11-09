@@ -1,6 +1,6 @@
 import unittest
 
-from order_pad import ticket
+from scanners.order_pad import ticket
 from risk.sizing import size_position
 
 

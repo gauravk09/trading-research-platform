@@ -22,6 +22,8 @@ sees on screen.
 
 import json
 import os
+
+from data_collection.paths import ROOT_DIR
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -40,8 +42,7 @@ MIN_FRACTION = 0.10              # floor so the first few minutes can't blow up 
 # open, quiet midday, heavy close — so dividing by elapsed *time* overstates
 # projected volume ~2-3x in the first hour. Dividing by this curve is fair at
 # any time of day.
-_CURVE_PATH = os.path.join(os.path.dirname(__file__), "..",
-                           "data", "processed", "intraday_vol_curve.json")
+_CURVE_PATH = os.path.join(ROOT_DIR, "data", "processed", "intraday_vol_curve.json")
 
 
 def _load_curve():
@@ -507,7 +508,7 @@ PAD_SCANS = {"four_pct": "breakout", "reversal": "reversal",
 def order_tickets(quotes, hist, excluded=None, market=None, equity=1_000_000,
                   risk_pct=0.5, now=None):
     """Live TAKE rows -> sized order tickets, best move first."""
-    import order_pad
+    import scanners.order_pad as order_pad
 
     frame = live_frame(quotes, hist, now=now)
     if frame.empty:

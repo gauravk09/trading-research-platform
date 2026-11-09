@@ -4,7 +4,7 @@ Every strategy that survived the research machine + red-team lives here with
 its status, entry rules, regime gates, headline stats, caveats and the link
 to its Google-Doc playbook. Consumed by:
   dashboard/tabs/strategy_book.py  (Strategies tab: cards + gate lights)
-  src/live_scanner.py              (per-row TAKE/SKIP signal in the live scanner)
+  src/scanners/live_scanner.py              (per-row TAKE/SKIP signal in the live scanner)
 
 Gate thresholds mirror the backtests exactly (see each doc's provenance).
 The exact numbers are soft (±10-20% tested in red-team); the directions are not.
@@ -13,13 +13,13 @@ The exact numbers are soft (±10-20% tested in red-team); the directions are not
 import json
 import os
 
+from data_collection.paths import ROOT_DIR
+
 import pandas as pd
 
-_MM_HISTORY = os.path.join(os.path.dirname(__file__), "..",
-                           "data", "processed", "mm_history.parquet")
+_MM_HISTORY = os.path.join(ROOT_DIR, "data", "processed", "mm_history.parquet")
 
-_DOC_LINKS_PATH = os.path.join(os.path.dirname(__file__), "..",
-                               "data", "doc_links.json")
+_DOC_LINKS_PATH = os.path.join(ROOT_DIR, "data", "doc_links.json")
 _DOC_LINKS = (json.load(open(_DOC_LINKS_PATH))
               if os.path.exists(_DOC_LINKS_PATH) else {})
 

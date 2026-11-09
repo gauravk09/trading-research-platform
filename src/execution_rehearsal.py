@@ -16,9 +16,9 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-import order_pad
+import scanners.order_pad as order_pad
 from paper_broker import replay
-from strategy_registry import STRATEGIES
+from scanners.strategy_registry import STRATEGIES
 from webapp.server.freshness import freshness
 
 STATE_DIR = os.path.join(ROOT, "output", "state")

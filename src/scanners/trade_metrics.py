@@ -38,17 +38,19 @@ alongside so a cohort whose sign flips across eras is flagged, not hidden.
 
 Build / refresh (also happens lazily when events.parquet is newer than the
 table):
-    python src/trade_metrics.py
+    PYTHONPATH=src python -m scanners.trade_metrics
 """
 
 import functools
 import json
 import os
 
+from data_collection.paths import ROOT_DIR
+
 import numpy as np
 import pandas as pd
 
-_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+_ROOT = ROOT_DIR
 EVENTS = os.path.join(_ROOT, "data", "processed", "events.parquet")
 FEAT_DIR = os.path.join(_ROOT, "data", "processed", "features")
 MM_HIST = os.path.join(_ROOT, "data", "processed", "mm_history.parquet")
