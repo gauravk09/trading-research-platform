@@ -6,22 +6,21 @@ market hours and ratchets the stop trigger of each registered GTT upward
 (never downward) to trail_pct below the latest price. State lives in the
 GTT itself — restarting the engine just resumes from the current trigger.
 
-Run: python src/orders/cli.py trail-run [--interval 60] [--once]
+Run: PYTHONPATH=src python -m execution.orders.cli trail-run [--interval 60] [--once]
 """
 
 import math
 import os
-import sys
 import time
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from data_collection.kite.auth import get_kite_client
-from orders.execute import (load_trailing, log_action, save_trailing,
+from data_collection.paths import ROOT_DIR
+from execution.orders.execute import (load_trailing, log_action, save_trailing,
                             stop_leg_price)
-from orders.plans import get_ltp, now_ist
+from execution.orders.plans import get_ltp, now_ist
 
-LOG = os.path.join(os.path.dirname(__file__), "..", "..", "logs", "trailing.log")
+LOG = os.path.join(ROOT_DIR, "logs", "trailing.log")
 
 
 def say(msg):

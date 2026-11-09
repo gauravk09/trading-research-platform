@@ -172,7 +172,7 @@ def punch_card(t):
 def plan_command(t):
     """Read-only CLI command that builds+validates a plan file. Placing it is
     a separate command the user runs themselves."""
-    return (f"python src/orders/cli.py plan {t['symbol']} {t['side']} "
+    return (f"PYTHONPATH=src python -m execution.orders.cli plan {t['symbol']} {t['side']} "
             f"--stop {t['stop']} --qty {t['qty']} --product "
             f"{t['product'].split('/')[0].split(' ')[0]} "
             f"--notes \"{t['playbook']} · {t['exit_rule']}\"")

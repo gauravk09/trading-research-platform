@@ -5,7 +5,7 @@ description: Translate a natural-language trade instruction ("buy 10 RELIANCE wi
 
 # Trade — natural language → validated Kite order plan
 
-The order module lives in `src/orders/` (see module docstrings). Your job:
+The order module lives in `src/execution/orders/` (see module docstrings). Your job:
 parse the user's instruction, build and validate a plan, show the preview,
 and give the user the one command that executes it.
 
@@ -51,19 +51,19 @@ static-IP add-on by phone; one whitelist change allowed per week).
    gives neither, read `output/state/latest.json` regime knobs
    (`risk_per_trade_pct` × live equity from Kite margins) and propose that
    as risk — say so explicitly.
-3. Build: `python src/orders/cli.py plan SYMBOL BUY --stop … [--qty|--risk-inr] [--limit] [--target] [--trail] [--notes "…"]`
+3. Build: `PYTHONPATH=src python -m execution.orders.cli plan SYMBOL BUY --stop … [--qty|--risk-inr] [--limit] [--target] [--trail] [--notes "…"]`
    (use the anaconda3 python). This is read-only — it fetches LTP/margins
    and writes a JSON under `output/orders/plans/`.
 4. Show the user the preview block verbatim (it includes value, risk, %
    distance, ASM/GSM and funds warnings), then the ready-to-paste command:
-   `python src/orders/cli.py place '<plan path>'` — it re-validates and
+   `PYTHONPATH=src python -m execution.orders.cli place '<plan path>'` — it re-validates and
    asks them to type PLACE.
 5. If the plan has `--trail`, remind them the engine must be running during
-   market hours: `python src/orders/cli.py trail-run`.
+   market hours: `PYTHONPATH=src python -m execution.orders.cli trail-run`.
 
 ## Other requests
 
-- "What's open / show my orders / positions" → `python src/orders/cli.py status` (you may run this).
+- "What's open / show my orders / positions" → `PYTHONPATH=src python -m execution.orders.cli status` (you may run this).
 - "Cancel X / remove that GTT" → find the id via `status`, hand them the
   `cancel <order_id>` or `delete-gtt <trigger_id>` command.
 - "Trail my existing position" → the engine only manages GTTs created by

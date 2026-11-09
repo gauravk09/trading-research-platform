@@ -30,7 +30,7 @@ cancel orders — the brief prepares decisions, the human executes.
    prints last close + day change for Nifty/Bank Nifty, S&P 500, Nasdaq, Dow,
    Nikkei, Hang Seng, USD/INR, Brent, Gold. Context only — never a regime
    input. If the fetch fails (offline), say so and move on.
-4. Live account: run `python src/kite_account.py` (anaconda3 python) — prints
+4. Live account: run `PYTHONPATH=src python -m execution.kite_account` (anaconda3 python) — prints
    a JSON snapshot of available balance, open positions, and holdings via the
    KiteConnect API (same `.env` token as `auth.py`). Use this instead of the
    Kite MCP — the MCP has proven unreliable ("please log in first" even with

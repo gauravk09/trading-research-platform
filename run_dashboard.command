@@ -30,7 +30,7 @@ LIVE_PID=$!
 
 # Independent NFO implied-volatility feed. If today's Kite token is unavailable
 # it exits harmlessly; the F&O board remains usable and shows IV as offline.
-$HOME/anaconda3/bin/python3 src/fno_iv.py >> logs/fno_iv.log 2>&1 &
+PYTHONPATH=src $HOME/anaconda3/bin/python3 -m data_collection.kite.fno_iv >> logs/fno_iv.log 2>&1 &
 IV_PID=$!
 
 trap "kill $API_PID $WEB_PID $LIVE_PID $IV_PID 2>/dev/null" EXIT

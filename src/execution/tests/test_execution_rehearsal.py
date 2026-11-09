@@ -6,7 +6,7 @@ from datetime import date
 
 import pandas as pd
 
-from execution_rehearsal import run_rehearsal, write_rehearsal
+from execution.rehearsal import run_rehearsal, write_rehearsal
 
 
 def state(data_date="2025-01-02"):
@@ -74,7 +74,7 @@ class ExecutionRehearsalTests(unittest.TestCase):
         self.assertEqual(len(os.listdir(out)), 1)
 
     def test_module_never_imports_execution_code(self):
-        path = os.path.join(os.path.dirname(__file__), "execution_rehearsal.py")
+        path = os.path.join(os.path.dirname(__file__), "..", "rehearsal.py")
         with open(path, encoding="utf-8") as handle:
             source = handle.read()
         self.assertNotIn("orders.execute", source)

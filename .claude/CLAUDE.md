@@ -56,6 +56,10 @@ Tading Setup/
 │   │   ├── conviction.py, trade_metrics.py ← ranking queue and P(profit)/expectancy per candidate
 │   │   ├── overnight_news.py   ← after-close filings ranked for next-day trades
 │   │   └── tracker.py          ← "started watching here" stamps for the live dashboard
+│   ├── execution/              ← account, paper trading and order handling (see its README.md)
+│   │   ├── kite_account.py     ← live margins, positions, holdings snapshot
+│   │   ├── paper_broker.py, rehearsal.py ← paper-trade replay and zero-money execution rehearsal
+│   │   └── orders/             ← plan → preview → place → trail (cli.py is the entry point)
 │   ├── filters/                ← standalone composable scan filters (True/False)
 │   │   ├── liquidity.py        ← min_turnover_filter()
 │   │   ├── trend.py            ← above_ma_filter(), surfing_ma_filter(), ma_stack_filter()
@@ -69,7 +73,7 @@ Tading Setup/
 │       ├── run_daily.py        ← the nightly 9-step update (cron runs this)
 │       ├── collect_all.py      ← full history for new IPOs / missing stocks
 │       ├── kite/               ← needs a Kite login: auth, instruments, historical, updater,
-│       │                         intraday, backfill_intraday, mcx, index_history
+│       │                         intraday, backfill_intraday, mcx, index_history, fno_iv
 │       ├── nse/                ← free NSE data: universe, bhavcopy, fo, fo_bhavcopy, fii_dii,
 │       │                         bulk_deals, delivery, stock_oi, insider_trading, shareholding,
 │       │                         surveillance, announcements, financial_results, earnings_calendar, bonus

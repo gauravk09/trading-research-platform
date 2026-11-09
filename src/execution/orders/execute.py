@@ -9,12 +9,10 @@ trail.py. Every broker action is appended to output/orders/orders_log.jsonl.
 
 import json
 import os
-import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from data_collection.kite.auth import get_kite_client
-from orders.plans import (ORDERS_DIR, STOP_LIMIT_BUFFER_PCT, format_preview,
+from execution.orders.plans import (ORDERS_DIR, STOP_LIMIT_BUFFER_PCT, format_preview,
                           get_ltp, load_plan, now_ist, round_to_tick,
                           validate_plan)
 
@@ -152,5 +150,5 @@ def execute_plan(path):
     if plan["trail_pct"]:
         register_trailing(plan, trigger_id)
         print(f"Trailing registered at {plan['trail_pct']}% — start the engine with: "
-              f"python src/orders/cli.py trail-run")
+              f"PYTHONPATH=src python -m execution.orders.cli trail-run")
     return True

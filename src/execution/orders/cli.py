@@ -11,22 +11,21 @@ cli.py — single command-line entry point for the order module.
   trail-list show registered trailing configs
 
 Examples:
-  python src/orders/cli.py plan RELIANCE BUY --qty 10 --stop 1450 --target 1580 --trail 2
-  python src/orders/cli.py plan TATAPOWER BUY --risk-inr 5000 --stop 405 --limit 416.5
-  python src/orders/cli.py place output/orders/plans/2026-07-14_101500_BUY_RELIANCE.json
+  PYTHONPATH=src python -m execution.orders.cli plan RELIANCE BUY --qty 10 --stop 1450 --target 1580 --trail 2
+  PYTHONPATH=src python -m execution.orders.cli plan TATAPOWER BUY --risk-inr 5000 --stop 405 --limit 416.5
+  PYTHONPATH=src python -m execution.orders.cli place output/orders/plans/2026-07-14_101500_BUY_RELIANCE.json
 """
 
 import argparse
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from data_collection.kite.auth import get_kite_client
 
 
 def cmd_plan(args):
-    from orders.plans import build_plan, format_preview, validate_plan
+    from execution.orders.plans import build_plan, format_preview, validate_plan
     path, plan = build_plan(
         symbol=args.symbol.upper(), side=args.side.upper(), stop=args.stop,
         qty=args.qty, risk_inr=args.risk_inr, limit_price=args.limit,
@@ -36,18 +35,18 @@ def cmd_plan(args):
     print(format_preview(plan, errors, warnings))
     print(f"\nPlan saved: {os.path.relpath(path)}")
     if not errors:
-        print(f"To execute:  python src/orders/cli.py place '{os.path.relpath(path)}'")
+        print(f"To execute:  PYTHONPATH=src python -m execution.orders.cli place '{os.path.relpath(path)}'")
 
 
 def cmd_preview(args):
-    from orders.plans import format_preview, load_plan, validate_plan
+    from execution.orders.plans import format_preview, load_plan, validate_plan
     plan = load_plan(args.plan)
     errors, warnings = validate_plan(plan)
     print(format_preview(plan, errors, warnings))
 
 
 def cmd_place(args):
-    from orders.execute import execute_plan
+    from execution.orders.execute import execute_plan
     ok = execute_plan(args.plan)
     sys.exit(0 if ok else 1)
 
@@ -91,7 +90,7 @@ def confirm_or_abort(prompt):
 
 
 def cmd_cancel(args):
-    from orders.execute import log_action
+    from execution.orders.execute import log_action
     kite = get_kite_client()
     confirm_or_abort(f"cancel order {args.order_id}")
     kite.cancel_order(variety=kite.VARIETY_REGULAR, order_id=args.order_id)
@@ -100,7 +99,7 @@ def cmd_cancel(args):
 
 
 def cmd_delete_gtt(args):
-    from orders.execute import load_trailing, log_action, save_trailing
+    from execution.orders.execute import load_trailing, log_action, save_trailing
     kite = get_kite_client()
     confirm_or_abort(f"delete GTT {args.trigger_id}")
     kite.delete_gtt(args.trigger_id)
@@ -110,12 +109,12 @@ def cmd_delete_gtt(args):
 
 
 def cmd_trail_run(args):
-    from orders.trail import run
+    from execution.orders.trail import run
     run(interval=args.interval, once=args.once)
 
 
 def cmd_trail_list(args):
-    from orders.execute import load_trailing
+    from execution.orders.execute import load_trailing
     configs = load_trailing()
     if not configs:
         print("No trailing configs registered.")

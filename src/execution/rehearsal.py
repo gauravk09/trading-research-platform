@@ -8,16 +8,18 @@ import argparse
 import hashlib
 import json
 import os
+
+from data_collection.paths import ROOT_DIR
 import sys
 
 import pandas as pd
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+ROOT = os.path.abspath(ROOT_DIR)
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 import scanners.order_pad as order_pad
-from paper_broker import replay
+from execution.paper_broker import replay
 from scanners.strategy_registry import STRATEGIES
 from webapp.server.freshness import freshness
 

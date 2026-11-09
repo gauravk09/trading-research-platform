@@ -8,7 +8,7 @@ snapshot for the API to read.
 
 Run from the project root::
 
-    python src/fno_iv.py
+    PYTHONPATH=src python -m data_collection.kite.fno_iv
 """
 
 from __future__ import annotations
@@ -16,7 +16,8 @@ from __future__ import annotations
 import json
 import math
 import os
-import sys
+
+from data_collection.paths import ROOT_DIR
 import tempfile
 import threading
 import time
@@ -28,13 +29,12 @@ import pandas as pd
 from dotenv import load_dotenv
 from kiteconnect import KiteTicker
 
-sys.path.insert(0, os.path.dirname(__file__))
 
 from data_collection.kite.auth import ENV_FILE, get_kite_client  # noqa: E402
 from data_collection.kite.instruments import download_instruments  # noqa: E402
 from data_collection.nse.fo import get_fo_symbols  # noqa: E402
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+ROOT = os.path.abspath(ROOT_DIR)
 SNAPSHOT = os.path.join(ROOT, "output", "live", "fno_iv_latest.json")
 IST = ZoneInfo("Asia/Kolkata")
 RISK_FREE_RATE = 0.10

@@ -9,18 +9,17 @@ is read-only against the Kite API (LTP, margins, instrument master).
 
 import json
 import os
-import sys
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from data_collection.kite.auth import get_kite_client
+from data_collection.paths import ROOT_DIR
 from data_collection.kite.instruments import download_instruments
 from risk.sizing import size_position
 
 IST = ZoneInfo("Asia/Kolkata")
-ORDERS_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "output", "orders")
+ORDERS_DIR = os.path.join(ROOT_DIR, "output", "orders")
 PLANS_DIR = os.path.join(ORDERS_DIR, "plans")
 JOURNAL_PATH = os.path.join(ORDERS_DIR, "..", "brief", "journal.jsonl")
 

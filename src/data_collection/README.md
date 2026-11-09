@@ -42,6 +42,7 @@ PYTHONPATH=src python -m data_collection.nse.bulk_deals     # one collector alon
 | Index closes | `kite/index_history` | `data/parquet/indices/` | Yes | Yes |
 | 5-minute bars | `kite/backfill_intraday` | `data/parquet/intraday_5m/` | Yes | Yes |
 | Intraday candles (on demand) | `kite/intraday` | `data/raw/intraday/` | Yes | Yes |
+| F&O implied volatility (live snapshot) | `kite/fno_iv` | `output/live/fno_iv_latest.json` | Yes | **No — live snapshot** |
 | MCX futures | `kite/mcx` | `data/parquet/commodities/mcx/` | Yes | Only live contracts |
 | Instrument master | `kite/instruments` | `data/raw/instruments_*.csv` | Yes | Yes |
 | Stock universe, index lists | `nse/universe` | `data/raw/all_nse_eq_*.csv` | No | Yes |

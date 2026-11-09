@@ -4,12 +4,14 @@ import csv
 import hashlib
 import json
 import os
+
+from data_collection.paths import ROOT_DIR
 from collections import Counter
 from glob import glob
 
 import pandas as pd
 
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+ROOT = os.path.abspath(ROOT_DIR)
 STRATEGY = "lone_loser_short"
 SOURCE_BLOCK = "b5_short_green_tape"
 EVENTS_FILE = "events.jsonl"

@@ -1,6 +1,6 @@
 import unittest
 
-from src.fno_iv import _quote_mid, black76_price, implied_moves, implied_volatility
+from data_collection.kite.fno_iv import _quote_mid, black76_price, implied_moves, implied_volatility
 
 
 class FnoIvMathTests(unittest.TestCase):
