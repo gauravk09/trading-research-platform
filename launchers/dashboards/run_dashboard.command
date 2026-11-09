@@ -1,7 +1,7 @@
 #!/bin/bash
 # Double-click to run the web dashboard (API + frontend), opens the browser.
 # Close this terminal window to stop both servers.
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/../.."
 
 # stop any previous instances so a re-run always works. The live scanner MUST
 # be killed too, not reused: the Kite access token expires daily at 6 AM IST,

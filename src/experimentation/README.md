@@ -6,7 +6,7 @@ can never change the nightly run, the scans or an order. A test (`tests/test_iso
 
 | Module | What it studies |
 |---|---|
-| `studies/fund_behavior.py` | Longitudinal study of the SBI Contra Fund (run with `run_fund_study.command`; the dashboard has a page for it). |
+| `studies/fund_behavior.py` | Longitudinal study of the SBI Contra Fund (run with `launchers/dashboards/run_fund_study.command`; the dashboard has a page for it). |
 | `studies/investor_footprint.py` | Point-in-time investor holdings, accumulation and what a disclosure did to the price. |
 
 Older experiments live in `backtest/studies/` (36 files) and the top-level `research/` folder (research machine,

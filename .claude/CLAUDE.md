@@ -105,10 +105,13 @@ Tading Setup/
 ├── data/
 │   ├── raw/                    ← downloaded files as-is
 │   └── processed/              ← cleaned/merged data
+├── launchers/                  ← double-click scripts (see its README.md)
+│   ├── data/                   ← refresh_kite_token, update_data
+│   └── dashboards/             ← run_dashboard, run_fno_dashboard, run_fund_study
 ├── logs/
 ├── output/                     ← scanner results per strategy
 ├── webapp/                     ← THE dashboard: FastAPI (server/) + React (frontend/)
-│                                  run via run_dashboard.command · Streamlit desk removed 2026-08-06
+│                                  run via launchers/dashboards/run_dashboard.command · Streamlit desk removed 2026-08-06
 └── docs/                       ← plain-English strategy references (user-facing)
     ├── SCANS_REFERENCE.md      ← what every scan computes (served by the webapp)
     └── stockbee_pradeep_bonde_trading_setup.md

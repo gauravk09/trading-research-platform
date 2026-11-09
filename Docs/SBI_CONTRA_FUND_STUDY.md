@@ -57,11 +57,11 @@ results remain exploratory and can be inspected by clicking a row.
 
 ## Run
 
-Double-click `run_fund_study.command`, or run:
+Double-click `launchers/dashboards/run_fund_study.command`, or run:
 
 ```bash
-PYTHONPATH=src PYTHONPATH=src python -m experimentation.studies.fund_behavior collect 5
-./run_fund_study.command
+PYTHONPATH=src python -m experimentation.studies.fund_behavior collect 5
+./launchers/dashboards/run_fund_study.command
 ```
 
 The independent dashboard opens at `http://localhost:5180/fund-study` and uses

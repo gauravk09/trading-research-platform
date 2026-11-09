@@ -1,7 +1,7 @@
 #!/bin/bash
 # Standalone SBI Contra Fund research dashboard.
 # Uses separate ports so the trading dashboard can keep running.
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/../.."
 
 API_PORT=8710
 WEB_PORT=5180
