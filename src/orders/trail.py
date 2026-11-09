@@ -16,7 +16,7 @@ import time
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from auth import get_kite_client
+from data_collection.kite.auth import get_kite_client
 from orders.execute import (load_trailing, log_action, save_trailing,
                             stop_leg_price)
 from orders.plans import get_ltp, now_ist

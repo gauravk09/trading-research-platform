@@ -15,7 +15,7 @@ cancel orders — the brief prepares decisions, the human executes.
 1. `output/state/latest.json` — regime + knobs, breadth trend, scans, OHLCV
    windows, open tracked trades. If its `meta.data_date` is older than the last
    trading day, warn prominently and offer to run
-   `python src/eod_update.py` (anaconda3 python) first.
+   `PYTHONPATH=src python -m data_collection.run_daily` (anaconda3 python) first.
    The file also carries `news` — the latest archived Pulse headlines
    (published, source, headline, url). These are raw aggregated headlines, NOT
    a signal: use them only for context/color, never to justify a trade the
@@ -26,7 +26,7 @@ cancel orders — the brief prepares decisions, the human executes.
    breadth trend, and `participation.ratio_20d` — today's market turnover vs
    its 20-day average) and yesterday's line in `output/brief/journal.jsonl`
    (its `situational_awareness` field, for the review).
-3. Other markets: run `python src/global_markets.py` (anaconda3 python) —
+3. Other markets: run `PYTHONPATH=src python -m data_collection.other.global_markets` (anaconda3 python) —
    prints last close + day change for Nifty/Bank Nifty, S&P 500, Nasdaq, Dow,
    Nikkei, Hang Seng, USD/INR, Brent, Gold. Context only — never a regime
    input. If the fetch fails (offline), say so and move on.
@@ -36,7 +36,7 @@ cancel orders — the brief prepares decisions, the human executes.
    Kite MCP — the MCP has proven unreliable ("please log in first" even with
    a valid token) while this script reads the token directly. If it exits
    with an `error` field (token actually expired), say so (fix:
-   `python src/auth.py`) and fall back to the last known equity figure from
+   `PYTHONPATH=src python -m data_collection.kite.auth`) and fall back to the last known equity figure from
    the journal, clearly labelled as stale.
 
 ## Position sizing (mechanical — show the arithmetic)

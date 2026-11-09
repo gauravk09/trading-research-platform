@@ -11,7 +11,7 @@ import json
 import sys
 from datetime import datetime
 
-from auth import get_kite_client
+from data_collection.kite.auth import get_kite_client
 
 
 def get_account_snapshot():

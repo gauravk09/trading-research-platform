@@ -30,9 +30,9 @@ from kiteconnect import KiteTicker
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from auth import ENV_FILE, get_kite_client  # noqa: E402
-from instruments import download_instruments  # noqa: E402
-from nse_fo import get_fo_symbols  # noqa: E402
+from data_collection.kite.auth import ENV_FILE, get_kite_client  # noqa: E402
+from data_collection.kite.instruments import download_instruments  # noqa: E402
+from data_collection.nse.fo import get_fo_symbols  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SNAPSHOT = os.path.join(ROOT, "output", "live", "fno_iv_latest.json")

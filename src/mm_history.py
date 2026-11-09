@@ -25,9 +25,9 @@ import os
 import numpy as np
 import pandas as pd
 
-import index_history
+import data_collection.kite.index_history as index_history
 import regime
-from storage import list_stored_symbols, read_daily
+from data_collection.storage import list_stored_symbols, read_daily
 
 _PROCESSED = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
 HISTORY_PATH = os.path.join(_PROCESSED, "mm_history.parquet")
@@ -91,7 +91,7 @@ def _index_columns(dates: pd.DatetimeIndex) -> pd.DataFrame:
     no index data is stored, so a fresh checkout still builds."""
     closes = index_history.load_closes()
     if closes.empty:
-        print("  WARNING: no index data (run `python src/index_history.py`) — "
+        print("  WARNING: no index data (run `PYTHONPATH=src python -m data_collection.kite.index_history`) — "
               "skipping TI65 features and index forward returns")
         return pd.DataFrame(index=dates)
     closes = closes.reindex(dates)

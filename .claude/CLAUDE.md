@@ -49,20 +49,18 @@ Tading Setup/
 │   │   ├── volatility.py       ← min_adr_filter(), stop_within_adr()
 │   │   ├── consolidation.py    ← tightening_range_filter(), higher_lows_filter()
 │   │   └── surveillance.py     ← surveillance_filter() (ASM/GSM exclusion)
-│   ├── storage.py              ← parquet read/write (single source of truth for file paths)
-│   ├── updater.py              ← daily incremental update + Kite/bhavcopy reconciliation
-│                               ← shared data collection modules
-│   ├── auth.py                 ← Kite login & token management
-│   ├── instruments.py          ← Kite instrument master list
-│   ├── historical.py           ← Daily OHLCV from Kite (chunked, full universe)
-│   ├── intraday.py             ← Intraday candles from Kite (on-demand, small lists)
-│   ├── nse_bhavcopy.py         ← NSE EOD bhavcopy (free)
-│   ├── nse_bulk_deals.py       ← NSE bulk/block deals (free)
-│   ├── nse_fii_dii.py          ← FII/DII data (free)
-│   ├── nse_announcements.py    ← NSE corporate filings, categorized (free)
-│   ├── nse_surveillance.py     ← NSE ASM/GSM lists (scan-time exclusion)
-│   ├── nse_universe.py         ← All NSE EQ stocks + index helpers
-│   └── collect_data.py         ← Master EOD data collection script
+│   └── data_collection/        ← ALL data collection lives here (see its README.md for the full table)
+│       ├── storage.py          ← parquet read/write (single source of truth for file paths)
+│       ├── paths.py            ← ROOT_DIR shared by every collector
+│       ├── run_daily.py        ← the nightly 9-step update (cron runs this)
+│       ├── collect_all.py      ← full history for new IPOs / missing stocks
+│       ├── kite/               ← needs a Kite login: auth, instruments, historical, updater,
+│       │                         intraday, backfill_intraday, mcx, index_history
+│       ├── nse/                ← free NSE data: universe, bhavcopy, fo, fo_bhavcopy, fii_dii,
+│       │                         bulk_deals, delivery, stock_oi, insider_trading, shareholding,
+│       │                         surveillance, announcements, financial_results, earnings_calendar, bonus
+│       └── other/              ← BSE/AMC/GDELT/Yahoo/LBMA: company_master, mf_holdings,
+│                                 gdelt_sentiment, news, global_markets, global_commodities, spot_commodities
 ├── strategies/                 ← one folder per strategy
 │   └── qullamaggie/
 │       ├── SETUP_RULES.md      ← source of truth for all entry/exit/sizing rules
@@ -124,21 +122,21 @@ decide *what to build next*; use the rule files to verify *what exists today*.
 ## Daily Operations
 
 ### Automated (cron at 8 PM IST, weekdays)
-`src/eod_update.py` runs automatically and handles:
+`src/data_collection/run_daily.py` runs automatically and handles:
 - Incremental OHLCV fetch from Kite (only new days, not full history)
 - NSE Bhavcopy download + Kite vs bhavcopy price reconciliation
 - FII/DII, bulk/block deals, corporate announcements, F&O list
 - Rebuilds dashboard summary (`data/processed/universe_summary.parquet` + `close_matrix.parquet`)
 
 At 8:25 PM a Claude desktop scheduled task ("daily-trading-brief") auto-generates
-the /brief output — it re-runs `eod_update.py` itself first if the state file is
+the /brief output — it re-runs `run_daily.py` itself first if the state file is
 stale, and warns in the brief if data could not be refreshed. Runs only while
 the Claude app is open (queued to next launch otherwise).
 
 ### Manual — Kite token refresh (every morning)
 Kite access tokens expire daily at 6 AM IST. Regenerate before market open:
 ```bash
-python src/auth.py
+PYTHONPATH=src python -m data_collection.kite.auth
 ```
 Or paste the request_token from the Kite login URL and Claude will exchange it.
 Login URL: `https://kite.zerodha.com/connect/login?api_key=<KITE_API_KEY from .env>&v=3`
@@ -147,7 +145,7 @@ Login URL: `https://kite.zerodha.com/connect/login?api_key=<KITE_API_KEY from .e
 When a new stock lists on NSE it won't have a parquet file yet.
 Run once to fetch its full history and add it to the dataset:
 ```bash
-python src/collect_data.py
+PYTHONPATH=src python -m data_collection.collect_all
 ```
 This re-downloads the NSE master list, finds any new symbols not yet stored,
 and fetches their full history from Kite back to 2015.
@@ -155,22 +153,22 @@ and fetches their full history from Kite back to 2015.
 Then add the new stock's metadata (industry, shares outstanding, description)
 to the company master — also the fix after a split/bonus changes share count:
 ```bash
-python src/company_master.py <SYMBOL>
+PYTHONPATH=src python -m data_collection.other.company_master <SYMBOL>
 ```
 
 ## Script Reference
 
 | Script | Purpose | When to run |
 |--------|---------|-------------|
-| `src/eod_update.py` | Full daily update (prices + NSE data + dashboard) | Automated via cron |
-| `src/updater.py` | Incremental OHLCV only + reconciliation | Called by eod_update.py |
-| `src/precompute.py` | Rebuild dashboard summary files | Called by eod_update.py |
-| `src/collect_data.py` | Full history fetch for new/missing stocks | After new IPO listing |
-| `src/auth.py` | Regenerate Kite access token | Every morning |
+| `src/data_collection/run_daily.py` | Full daily update (prices + NSE data + dashboard) | Automated via cron |
+| `src/data_collection/kite/updater.py` | Incremental OHLCV only + reconciliation | Called by run_daily.py |
+| `src/precompute.py` | Rebuild dashboard summary files | Called by run_daily.py |
+| `src/data_collection/collect_all.py` | Full history fetch for new/missing stocks | After new IPO listing |
+| `src/data_collection/kite/auth.py` | Regenerate Kite access token | Every morning |
 
 ## Environment Variables (.env)
 ```
 KITE_API_KEY=...
 KITE_API_SECRET=...
-KITE_ACCESS_TOKEN=...   ← regenerate daily via: python src/auth.py
+KITE_ACCESS_TOKEN=...   ← regenerate daily via: PYTHONPATH=src python -m data_collection.kite.auth
 ```

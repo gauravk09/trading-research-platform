@@ -53,9 +53,9 @@ import live_scanner as ls
 import order_pad
 import strategy_registry
 import tracker
-from auth import get_kite_client
+from data_collection.kite.auth import get_kite_client
 from daily_state import _load_excluded
-from instruments import download_instruments
+from data_collection.kite.instruments import download_instruments
 from stockbee import scans
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")

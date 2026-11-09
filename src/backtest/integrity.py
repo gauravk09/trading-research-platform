@@ -52,7 +52,7 @@ Usage:
     python src/backtest/integrity.py --scan-stubs
     python src/backtest/integrity.py --scrub-stubs --symbols PRIVISCL TIL
 
-Nightly automation: eod_update.py calls repair_recent_breaks() after the
+Nightly automation: run_daily.py calls repair_recent_breaks() after the
 dashboard precompute — a vectorized 22% scan over the last 60 sessions of the
 (just-rebuilt) close matrix, auto re-fetch of flagged symbols, and a second
 precompute when anything was repaired. Breaks that survive a re-fetch are
@@ -69,7 +69,7 @@ from datetime import date
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from storage import read_daily, write_daily, list_stored_symbols
+from data_collection.storage import read_daily, write_daily, list_stored_symbols
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "output")
 _PROCESSED = os.path.join(os.path.dirname(__file__), "..", "..", "data", "processed")
@@ -209,8 +209,8 @@ def refetch_full_history(symbols: list) -> dict:
     Re-download full history (2015 → today) from Kite for the given symbols
     and overwrite their parquet files with consistently adjusted data.
     """
-    from auth import get_kite_client
-    from updater import _build_token_map, fetch_new_candles, last_completed_session
+    from data_collection.kite.auth import get_kite_client
+    from data_collection.kite.updater import _build_token_map, fetch_new_candles, last_completed_session
 
     kite = get_kite_client()
     kite.profile()  # fail fast if token expired
@@ -281,7 +281,7 @@ def _load_listing_dates() -> dict:
     try:
         import io
         import requests
-        from nse_announcements import HEADERS
+        from data_collection.nse.announcements import HEADERS
         resp = requests.get(EQUITY_L_URL, headers=HEADERS, timeout=30)
         resp.raise_for_status()
         df = pd.read_csv(io.StringIO(resp.text))

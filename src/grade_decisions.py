@@ -32,7 +32,7 @@ import numpy as np
 import pandas as pd
 
 import mm_history
-from storage import read_daily
+from data_collection.storage import read_daily
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATE_DIR = os.path.join(ROOT, "output", "state")

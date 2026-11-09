@@ -328,7 +328,7 @@ def _bounce_low21(symbol, _mtime):
     """% above the 21-day low — the live twin of the `bounce_low21` feature.
     `_mtime` is the summary's timestamp: it exists purely to drop the cache
     when the nightly update lands under a long-running dashboard process."""
-    from storage import read_daily
+    from data_collection.storage import read_daily
     df = read_daily(symbol)
     if len(df) < 21:
         return None

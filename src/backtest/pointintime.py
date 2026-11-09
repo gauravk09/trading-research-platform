@@ -25,7 +25,7 @@ import pandas as pd
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "strategies", "qullamaggie"))
 
-from storage import read_daily, list_stored_symbols
+from data_collection.storage import read_daily, list_stored_symbols
 from filters.momentum import rs_rank_filter
 from breakout import score_breakout_candidate, REQUIRED_FILTERS, CONVICTION_FILTERS
 

@@ -24,8 +24,8 @@ import numpy as np
 import pandas as pd
 import requests
 
-from mf_holdings import HEADERS, _isin_symbol_map, _parse_sheet, _sbi_url, _scheme_name
-from storage import read_daily
+from data_collection.other.mf_holdings import HEADERS, _isin_symbol_map, _parse_sheet, _sbi_url, _scheme_name
+from data_collection.storage import read_daily
 
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))

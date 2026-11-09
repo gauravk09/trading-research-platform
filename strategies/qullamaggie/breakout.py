@@ -19,7 +19,7 @@ import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
 import pandas as pd
-from storage import read_daily
+from data_collection.storage import read_daily
 from indicators.returns import month_return, n_day_return
 from indicators.volatility import adr
 from indicators.volume import avg_turnover_cr

@@ -8,7 +8,7 @@ Exclude them at scan time.
 
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from nse_surveillance import get_excluded_symbols
+from data_collection.nse.surveillance import get_excluded_symbols
 
 
 _cached_excluded = None  # cache so we only hit the API once per scan run

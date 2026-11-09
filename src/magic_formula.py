@@ -31,7 +31,7 @@ from typing import Callable
 import numpy as np
 import pandas as pd
 
-from storage import read_daily
+from data_collection.storage import read_daily
 
 
 ROOT = Path(__file__).resolve().parents[1]

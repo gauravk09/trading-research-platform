@@ -22,14 +22,14 @@ import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
 import pandas as pd
-from storage import read_daily
+from data_collection.storage import read_daily
 from indicators.volatility import adr
 from indicators.volume import avg_volume, volume_ratio, avg_turnover_cr
 from indicators.returns import n_day_return
 from filters.volatility import min_adr_filter
 from filters.surveillance import surveillance_filter
-from nse_bhavcopy import download_bhavcopy
-from nse_announcements import get_announcements_for_universe
+from data_collection.nse.bhavcopy import download_bhavcopy
+from data_collection.nse.announcements import get_announcements_for_universe
 
 # Catalysts that qualify an EP — in order of strength
 EP_CATALYST_CATEGORIES = [

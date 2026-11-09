@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
 import pandas as pd
 import numpy as np
-from storage import read_daily
+from data_collection.storage import read_daily
 from indicators.returns import n_day_return
 from indicators.volatility import adr
 from indicators.volume import avg_volume, volume_ratio

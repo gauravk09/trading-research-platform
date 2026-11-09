@@ -22,7 +22,7 @@ Trade rules:
     Day 1+: daily-bar walk, gap through stop exits at the open, else exit at
     the D+60 close. Unstopped D+20 return recorded for comparison with Phase 1.
 
-Usage (needs a fresh Kite token — python src/auth.py):
+Usage (needs a fresh Kite token — PYTHONPATH=src python -m data_collection.kite.auth):
     python src/backtest/studies/ep_intraday_orh.py \
         --events output/studies/ep_events_with_catalyst.csv --since 2024-01-01
     Add --limit 50 for a quick test run.
@@ -37,7 +37,7 @@ import pandas as pd
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
-from storage import read_daily
+from data_collection.storage import read_daily
 
 CACHE_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "raw", "intraday", "minute_day0")
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "output", "studies")
@@ -131,8 +131,8 @@ def walk_forward(daily: pd.DataFrame, day0_pos: int, entry: float, stop: float) 
 
 
 def run(events: pd.DataFrame, limit: int) -> pd.DataFrame:
-    from auth import get_kite_client
-    from updater import _build_token_map
+    from data_collection.kite.auth import get_kite_client
+    from data_collection.kite.updater import _build_token_map
 
     kite = get_kite_client()
     kite.profile()  # fail fast on expired token

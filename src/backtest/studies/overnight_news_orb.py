@@ -32,7 +32,7 @@ import pandas as pd
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
 from overnight_news import CLOSE_TIME, OPEN_TIME, load_financials, score_filings, window_filings
-from storage import read_daily
+from data_collection.storage import read_daily
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "output", "studies")
 

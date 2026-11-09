@@ -18,8 +18,8 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 sys.path.insert(0, os.path.dirname(__file__))
-from auth import get_kite_client
-from instruments import download_instruments
+from data_collection.kite.auth import get_kite_client
+from data_collection.kite.instruments import download_instruments
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 SUMMARY_PATH = os.path.join(ROOT, "data", "processed", "universe_summary.parquet")

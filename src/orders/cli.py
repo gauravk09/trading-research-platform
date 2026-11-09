@@ -22,7 +22,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from auth import get_kite_client
+from data_collection.kite.auth import get_kite_client
 
 
 def cmd_plan(args):

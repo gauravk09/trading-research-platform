@@ -2,7 +2,7 @@ import unittest
 from datetime import date, datetime
 from zoneinfo import ZoneInfo
 
-from updater import last_completed_session
+from data_collection.kite.updater import last_completed_session
 
 IST = ZoneInfo("Asia/Kolkata")
 

@@ -13,7 +13,7 @@ from investor_footprint import (
     investor_style_summary,
     parse_named_holdings_xbrl,
 )
-from mf_holdings import _scheme_name
+from data_collection.other.mf_holdings import _scheme_name
 
 
 XBRL = """<?xml version="1.0" encoding="UTF-8"?>

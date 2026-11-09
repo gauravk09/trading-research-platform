@@ -38,8 +38,8 @@ import numpy as np
 import pandas as pd
 import requests
 
-from nse_shareholding import HEADERS, download_master, _session
-from storage import read_daily
+from data_collection.nse.shareholding import HEADERS, download_master, _session
+from data_collection.storage import read_daily
 
 
 PROCESSED = os.path.join(os.path.dirname(__file__), "..", "data", "processed")

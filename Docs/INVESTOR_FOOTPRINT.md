@@ -98,7 +98,7 @@ entity so its holdings are not silently attributed to Vijay Kedia.
 python src/investor_footprint.py collect-named 40
 
 # Scheme-level collection is now part of the existing MF collector.
-python src/mf_holdings.py
+PYTHONPATH=src python -m data_collection.other.mf_holdings
 
 # Inspect an investor-company accumulation table.
 python src/investor_footprint.py report "Ashish Kacholia"

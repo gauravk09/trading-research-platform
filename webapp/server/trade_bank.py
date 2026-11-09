@@ -17,7 +17,7 @@ from fastapi import APIRouter, HTTPException
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "src", "backtest", "studies"))
 
-from storage import read_daily  # noqa: E402
+from data_collection.storage import read_daily  # noqa: E402
 from indicators.moving_averages import sma_series  # noqa: E402
 from ep9m_trade_bank import FILING_MARKS, load_filings, load_intraday  # noqa: E402
 

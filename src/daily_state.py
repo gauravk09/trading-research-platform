@@ -8,7 +8,7 @@ numbers for humans; the /brief agent (or any script) reasons over this file
 without touching Streamlit.
 
 Written to output/state/<data-date>.json plus a latest.json copy.
-Runs at the end of eod_update.py, or manually:
+Runs at the end of run_daily.py, or manually:
     python src/daily_state.py
 """
 
@@ -25,13 +25,13 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(__file__))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "strategies"))
 
-import announcements_store
-from earnings_calendar import results_due_days
+import data_collection.nse.announcements_store as announcements_store
+from data_collection.nse.earnings_calendar import results_due_days
 from regime import compute_market_monitor
 import risk_regime
 from incubation import build_incubation
-from nse_news import load_recent_news
-from storage import read_daily
+from data_collection.other.news import load_recent_news
+from data_collection.storage import read_daily
 import trade_metrics
 from stockbee import scans
 from stockbee.breakout_setup import breakout_from_consolidation

@@ -213,8 +213,8 @@ not getting bad trades.*
   `src/commodity_map.py` whitelists the 5 MCX contracts with a genuine offshore
   twin (GOLD, SILVER, CRUDEOIL, NATURALGAS, COPPER); ZINC/ALUMINIUM/LEAD/NICKEL
   excluded (LME-referenced, no free feed), agri excluded (domestic discovery).
-  `src/global_commodities.py` -> 26yr daily OHLCV for GC/SI/CL/NG/HG + USDINR.
-  `src/spot_commodities.py` -> LBMA gold/silver (1968), EIA WTI/Brent/HenryHub
+  `src/data_collection/other/global_commodities.py` -> 26yr daily OHLCV for GC/SI/CL/NG/HG + USDINR.
+  `src/data_collection/other/spot_commodities.py` -> LBMA gold/silver (1968), EIA WTI/Brent/HenryHub
   (1986). `src/commodity_basis.py` converts USD reference -> MCX-equivalent INR
   and measures tracking. `src/commodity_research.py` picks the substrate.
   Findings: (a) MCX-vs-offshore alignment is same-day, lag 0, lags +/-1 ~zero;
@@ -485,7 +485,7 @@ not getting bad trades.*
   (A/D-style: index new-high on falling breadth), `distribution_days` + `follow_through`
   (O'Neil/Minervini, using aggregate rupee turnover as the index's volume proxy →
   2020+ only). Wired into `daily_state.py` → `state["market_signals"]` and rendered
-  under the regime banner. Stock-level institutional intent via `src/nse_delivery.py`
+  under the regime banner. Stock-level institutional intent via `src/data_collection/nse/delivery.py`
   — delivery % from NSE `sec_bhavdata_full` into `delivery_matrix.parquet`, nightly in
   `eod_update.py`, 65-day backfill (delivery is EOD-settled → next-day signal only).
   Next: surface delivery on candidate cards / scan flag; up-down-volume breadth
@@ -560,7 +560,7 @@ not getting bad trades.*
   labels are TODAY's NSE classification applied to history (no historical
   sector feed exists) — fine live, mildly anachronistic pre-2020.
 - **Earnings-date proximity (results_due_days) (2026-07-20)** — `DONE`.
-  `src/earnings_calendar.py` fetches NSE's event-calendar API (forward-looking
+  `src/data_collection/nse/earnings_calendar.py` fetches NSE's event-calendar API (forward-looking
   board meetings, ~2-3 weeks out, results-purpose rows only) in eod_update
   step 2 and UPSERTS into `data/processed/earnings_calendar.parquet` (one-day
   API hiccups can't blank it; past dates accumulate as a free last-results
@@ -574,7 +574,7 @@ not getting bad trades.*
   the same "close AND MA both present" denominator as pct20ma (live value
   moved 52.3 → 52.9, no zone/tier flip; mm_history rebuilt).
 - **Quarterly financials from official NSE filings (2026-07-16)** — `DONE`.
-  `src/nse_financial_results.py` + `src/backfill_financials.py` →
+  `src/data_collection/nse/financial_results.py` + `src/data_collection/nse/backfill_financials.py` →
   `data/processed/financials.parquet`: Nifty 500, 2016→now, one row per
   (symbol, quarter, consolidated/standalone) with revenue/other-income/PBT/PAT
   (₹ cr) + basic/diluted EPS and `filing_date` (join on filing_date in
@@ -585,7 +585,7 @@ not getting bad trades.*
   Banks (InterestEarned) and insurers (IRDAI taxonomy, `index=insurance`)
   mapped. XBRL trap: context definitions are unreliable — quarter facts are
   always `contextRef="OneD"` (period-matching returns YTD silently).
-  Daily upkeep: `src/update_financials.py` = step 4/7 of `eod_update.py`
+  Daily upkeep: `src/data_collection/nse/update_financials.py` = step 4/7 of `eod_update.py`
   (today's IF feed + rotating 1/5-universe weekly reconciliation backstop;
   no new cron). Known gaps: ~4 MNCs absent from NSE's API (ABBOTINDIA,
   BAYERCROP, MCX — would need BSE fallback), 2025 IPOs self-heal as they file.
@@ -641,7 +641,7 @@ not getting bad trades.*
   `src/backtest/studies/ep_volume_spike.py` (16,242 events 2015–2026: RVOL≥3×50d,
   turnover≥₹10cr, gain≥5%, ADR≥4, 20-bar cooldown) + `ep_catalyst_overlay.py`
   (catalyst/sector tagging). Data unlocked along the way: NSE announcements API
-  serves history to 2015 via date-range queries — `src/backfill_announcements.py`
+  serves history to 2015 via date-range queries — `src/data_collection/nse/backfill_announcements.py`
   backfilled 4,046 daily files; `src/build_sector_map.py` maps 1,845 symbols
   (niftyindices lists + filings' smIndustry; niftyindices blocks the microcap CSV).
   Findings: raw signal negative median (D+20 −1.9%, win 44.6%) with a fat right
@@ -812,7 +812,7 @@ not getting bad trades.*
     ≤±1% tight variant (needs intraday); listings-count bubble indicator
     (needs historical listings series).
   - `LATER` data: ~~shares-outstanding/market-cap feed~~ — `DONE` 2026-07-20:
-    `src/company_master.py` refreshes shares_out nightly (BSE whole-exchange
+    `src/data_collection/other/company_master.py` refreshes shares_out nightly (BSE whole-exchange
     mcap API joined to NSE EQUITY_L on ISIN — NSE's own quote API is
     bot-blocked; ~95% coverage, NSE-only listings keep the 2026-07-15 values);
     precompute writes `mcap_cr` into the universe summary, shown across both
@@ -921,7 +921,7 @@ not getting bad trades.*
   row-clickable → full annotated chart panel below it. (3) Daily Brief adds a
   deterministic TL;DR line, a global-markets chip strip, and a Pulse headlines
   expander (`state["news"]` was written nightly but never rendered until now).
-  (4) `src/global_markets.py` — Nifty/Bank Nifty, S&P 500, Nasdaq, Dow,
+  (4) `src/data_collection/other/global_markets.py` — Nifty/Bank Nifty, S&P 500, Nasdaq, Dow,
   Nikkei, Hang Seng, USD/INR, Brent, Gold from Yahoo's public chart endpoint
   via plain requests (Stooq now sits behind an anti-bot wall); fetched live
   by the dashboard (15-min cache) because the 10 PM state snapshot predates
@@ -972,7 +972,7 @@ not getting bad trades.*
   daily CSV lands (~20ms reads after).
   Rule of thumb encoded here: big frames = cache_resource + treat as
   read-only; small derived results = cache_data keyed on source-file mtime.
-- **Intraday EP alerts** — `LATER`. `src/intraday.py` exists; wire into the EP
+- **Intraday EP alerts** — `LATER`. `src/data_collection/kite/intraday.py` exists; wire into the EP
   scanner for opening-range breakout detection on gap days (Indian EPs pin at
   upper circuits — intraday confirmation matters more here than in the US).
 - **More strategies** — `LATER`. Scaffold under `strategies/<name>/` from the
@@ -999,7 +999,7 @@ not getting bad trades.*
 - **Broker-upgrades filter** — `DEFERRED`: no reliable free data source;
   StockEdge (~₹2K/yr) is the cleanest option, not subscribed.
 - **PR to ai-hedge-fund-india (Zerodha integration / Indian backtesting)** —
-  `LATER`, side quest: `src/historical.py`/`updater.py` map closely onto their
+  `LATER`, side quest: `src/data_collection/kite/historical.py`/`updater.py` map closely onto their
   open ask. Independent of this platform's roadmap.
 
 ## Removed from the UI (code retained)
@@ -1124,7 +1124,7 @@ not getting bad trades.*
      also near vega-neutral, so "sell premium when IV is high" does almost nothing.
 
   **Data added, reusable:** `data/processed/nifty_futures.parquet` (5,622 near/far
-  NIFTY futures contract-days, 2019-01 to 2026-07) via `src/nse_fo_bhavcopy.py`
+  NIFTY futures contract-days, 2019-01 to 2026-07) via `src/data_collection/nse/fo_bhavcopy.py`
   (NSE F&O bhavcopy fetcher, handles both the legacy and post-2024-07 UDiFF
   formats). Kite only exposes the 3 *live* contracts, so this archive is the only
   free route to expired-contract history.

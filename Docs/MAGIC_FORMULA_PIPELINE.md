@@ -56,7 +56,7 @@ SCREENER_EXPORT_DIR="$HOME/Finance/Screener Exports" \
 The importer identifies the file from its column headers rather than its file
 name. It stores a SHA-256 fingerprint and imports only changed content.
 
-The normal `src/eod_update.py` workflow runs auto-import after rebuilding the
+The normal `src/data_collection/run_daily.py` workflow runs auto-import after rebuilding the
 local EOD price summary. A newly downloaded Screener CSV is archived and
 imported; if nothing changed, the saved fundamentals are reused and only the
 technical overlay advances.

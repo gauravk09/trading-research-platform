@@ -22,8 +22,8 @@ from datetime import date
 # Allow imports from src/
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
-from storage import read_universe_close, list_stored_symbols
-from nse_universe import get_all_nse_eq_symbols
+from data_collection.storage import read_universe_close, list_stored_symbols
+from data_collection.nse.universe import get_all_nse_eq_symbols
 from indicators.relative_strength import composite_rs_rank, residual_rs_rank
 from filters.surveillance import reset_cache
 

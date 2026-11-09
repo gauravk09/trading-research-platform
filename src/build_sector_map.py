@@ -16,8 +16,8 @@ import sys
 import pandas as pd
 
 sys.path.insert(0, os.path.dirname(__file__))
-import announcements_store
-from nse_universe import download_index
+import data_collection.nse.announcements_store as announcements_store
+from data_collection.nse.universe import download_index
 
 OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "processed", "sector_map.csv")
 

@@ -37,8 +37,8 @@ import risk_regime  # noqa: E402
 import magic_formula as magic  # noqa: E402
 import order_pad as op  # noqa: E402
 import strategy_registry as reg  # noqa: E402
-from storage import read_daily  # noqa: E402
-from nse_fo import download_fo_list  # noqa: E402
+from data_collection.storage import read_daily  # noqa: E402
+from data_collection.nse.fo import download_fo_list  # noqa: E402
 from indicators.moving_averages import sma_series  # noqa: E402
 from stockbee import scans as sb  # noqa: E402
 from .freshness import freshness  # noqa: E402

@@ -11,14 +11,14 @@ LOG="$PROJECT/logs/eod_cron_$(date +%Y%m%d).log"
 echo "=== EOD Update started at $(date) ===" >> "$LOG"
 
 # Run the full EOD update
-cd "$PROJECT" && "$PYTHON" src/eod_update.py >> "$LOG" 2>&1
+cd "$PROJECT" && PYTHONPATH=src "$PYTHON" -m data_collection.run_daily >> "$LOG" 2>&1
 
 EXIT_CODE=$?
 echo "=== Finished at $(date) — exit code $EXIT_CODE ===" >> "$LOG"
 
 if [ $EXIT_CODE -ne 0 ]; then
     echo "ERROR: EOD update failed — check log at $LOG" >> "$LOG"
-    osascript -e "display notification \"EOD update failed — Kite token likely expired. Run: python src/auth.py\" with title \"Trading Setup\" sound name \"Basso\""
+    osascript -e "display notification \"EOD update failed — Kite token likely expired. Run: PYTHONPATH=src python -m data_collection.kite.auth\" with title \"Trading Setup\" sound name \"Basso\""
     exit $EXIT_CODE
 fi
 

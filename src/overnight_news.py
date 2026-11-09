@@ -25,7 +25,7 @@ import re
 
 import pandas as pd
 
-import announcements_store
+import data_collection.nse.announcements_store as announcements_store
 
 BASE = os.path.join(os.path.dirname(__file__), "..")
 FIN_PATH = os.path.join(BASE, "data", "processed", "financials.parquet")

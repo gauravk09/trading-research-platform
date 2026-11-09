@@ -22,7 +22,7 @@ API_PID=$!
 npm --prefix webapp/frontend run dev &
 WEB_PID=$!
 
-# live intraday scanner — needs today's Kite token (run `python src/auth.py`
+# live intraday scanner — needs today's Kite token (run `PYTHONPATH=src python -m data_collection.kite.auth`
 # first each morning). Harmless if it exits: the Live page shows "offline".
 mkdir -p logs
 $HOME/anaconda3/bin/python3 src/live_anticipation.py >> logs/live_scanner.log 2>&1 &

@@ -53,7 +53,7 @@ def _check(name, passed, detail):
 def _broker_readonly(symbol):
     """Optional inspection only. Credential failures remain report data, not crashes."""
     try:
-        from auth import get_kite_client
+        from data_collection.kite.auth import get_kite_client
         kite = get_kite_client()
         orders = kite.orders()
         positions = kite.positions().get("net", [])

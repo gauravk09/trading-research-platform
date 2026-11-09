@@ -36,7 +36,7 @@ import sys
 import pandas as pd
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
-import announcements_store
+import data_collection.nse.announcements_store as announcements_store
 
 EP9M_SHARES = 15_000_000  # top ~2% of all NSE stock-days — India's "9M" (ep9m_redefined study)
 EP9M_VOL_MULT = 3.0      # ...AND 3x the stock's own prior-20d peak volume, so

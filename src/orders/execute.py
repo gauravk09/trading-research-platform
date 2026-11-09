@@ -13,7 +13,7 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from auth import get_kite_client
+from data_collection.kite.auth import get_kite_client
 from orders.plans import (ORDERS_DIR, STOP_LIMIT_BUFFER_PCT, format_preview,
                           get_ltp, load_plan, now_ist, round_to_tick,
                           validate_plan)

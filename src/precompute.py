@@ -22,7 +22,7 @@ import numpy as np
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
-from storage import read_daily, list_stored_symbols
+from data_collection.storage import read_daily, list_stored_symbols
 from indicators.returns import month_return, n_day_return
 from indicators.volatility import adr
 from indicators.volume import avg_turnover_cr, volume_ratio
@@ -30,7 +30,7 @@ from indicators.relative_strength import composite_rs_rank
 from indicators.trend_stage import (base_count, trend_age, ADR_WINDOW,
                                     BURST_ADR_MULT, BURST_FLOOR_PCT,
                                     BURST_CAP_PCT, LEGACY_PCT)
-from nse_fo import get_fo_symbols, get_fo_with_lotsize
+from data_collection.nse.fo import get_fo_symbols, get_fo_with_lotsize
 import market_rhythm
 import mm_history
 

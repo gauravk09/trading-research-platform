@@ -15,8 +15,8 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from auth import get_kite_client
-from instruments import download_instruments
+from data_collection.kite.auth import get_kite_client
+from data_collection.kite.instruments import download_instruments
 from risk_sizing import size_position
 
 IST = ZoneInfo("Asia/Kolkata")
@@ -151,7 +151,7 @@ def validate_plan(plan, kite=None):
             warnings.append(f"could not check funds: {e}")
 
     try:
-        from nse_surveillance import get_excluded_symbols
+        from data_collection.nse.surveillance import get_excluded_symbols
         if plan["symbol"] in get_excluded_symbols():
             warnings.append(f"{plan['symbol']} is on the ASM/GSM surveillance list")
     except Exception as e:
