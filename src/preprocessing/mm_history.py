@@ -28,7 +28,7 @@ import numpy as np
 import pandas as pd
 
 import data_collection.kite.index_history as index_history
-import regime
+import preprocessing.breadth as regime
 from data_collection.storage import list_stored_symbols, read_daily
 
 _PROCESSED = os.path.join(ROOT_DIR, "data", "processed")

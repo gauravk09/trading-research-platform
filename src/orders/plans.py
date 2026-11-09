@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from data_collection.kite.auth import get_kite_client
 from data_collection.kite.instruments import download_instruments
-from risk_sizing import size_position
+from risk.sizing import size_position
 
 IST = ZoneInfo("Asia/Kolkata")
 ORDERS_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "output", "orders")
@@ -172,7 +172,7 @@ def validate_plan(plan, kite=None):
 
 
 def plan_contract_check(symbol, journal_path=JOURNAL_PATH):
-    """The gate layer (src/plan_contract.py) decides in the brief; /trade only
+    """The gate layer (src/risk/plan_contract.py) decides in the brief; /trade only
     honours it. A symbol the latest journal entry REJECTED is an error — the
     reason travels with it. A symbol not in the plan at all is a warning
     (discretionary trades are allowed, but say so)."""

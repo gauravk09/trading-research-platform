@@ -1,7 +1,7 @@
 import unittest
 
 from order_pad import ticket
-from risk_sizing import size_position
+from risk.sizing import size_position
 
 
 BASE = dict(equity=100_000, risk_pct=1, entry=100, stop=95, side="BUY",

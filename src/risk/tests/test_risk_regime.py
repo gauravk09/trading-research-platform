@@ -5,7 +5,7 @@ import unittest
 import pandas as pd
 
 sys.path.insert(0, os.path.dirname(__file__))
-import risk_regime
+import risk.regime as risk_regime
 
 LOCKBOX_PREDS = os.path.join(risk_regime.ROOT, "research", "output", "regime", "LOCKBOX_H1", "preds.parquet")
 

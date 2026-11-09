@@ -199,7 +199,7 @@ For each candidate with an `entry_price` and `stop_price`:
    "sa_review": "<the review of yesterday's read>"}`
    then run the plan contract (the gates live in code, not here):
    ```bash
-   python src/plan_contract.py output/brief/plan_draft.json
+   PYTHONPATH=src python -m risk.plan_contract output/brief/plan_draft.json
    ```
    It prints PASS/BLOCK per symbol with the measured value behind each gate
    and writes `output/brief/plan_gated.json` with `gates` attached to every
@@ -212,7 +212,7 @@ For each candidate with an `entry_price` and `stop_price`:
 
 ## Validation gates (Ragi-style — refuse to emit a broken brief)
 
-The gates are computed by `src/plan_contract.py` (step 2 above), never by
+The gates are computed by `src/risk/plan_contract.py` (step 2 above), never by
 hand. Print its PASS/BLOCK table verbatim in the brief. The hard gates it
 enforces, each with the measured number:
 - **circuit-breaker**: 3+ trades in `open_trades` with status "stopped"

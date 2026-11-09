@@ -2,7 +2,7 @@
 
 Fetches last close + day change from Yahoo's public chart endpoint with plain
 requests (no API key, no yfinance dependency). Context/color only — never a
-regime input; the regime stays deterministic from NSE breadth (src/regime.py).
+regime input; the regime stays deterministic from NSE breadth (src/preprocessing/breadth.py).
 
 Used live by the dashboard's Daily Brief tab (cached there) and by the /brief
 skill. CLI:

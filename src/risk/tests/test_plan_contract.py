@@ -1,6 +1,6 @@
 import unittest
 
-from plan_contract import gate_entry
+from risk.plan_contract import gate_entry
 
 
 def _state(**over):

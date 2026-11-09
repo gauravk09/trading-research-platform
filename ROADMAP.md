@@ -29,7 +29,7 @@ not getting bad trades.*
    `latest.json`; regime, monitor tail, FII/DII, 6 Stockbee scans with feature
    vectors, 40-bar OHLCV windows, open trades. Step 5/5 of `eod_update.py`.
 2. **Situational awareness → deterministic exposure model.**
-   `DONE (2026-07-10)`: `src/regime.py` — 5 breadth signals → tier
+   `DONE (2026-07-10)`: `src/preprocessing/breadth.py` — 5 breadth signals → tier
    (AGGRESSIVE/NORMAL/CAUTIOUS/DEFENSIVE) → knobs (risk/trade, max positions,
    exposure cap, leverage, allowed entry types). `dashboard/breadth.py`
    delegates its Market Monitor math here (single code path).
@@ -108,7 +108,7 @@ not getting bad trades.*
 
 - **Risk regime = validated HMM crash-risk dial; breadth tiers retired (2026-09-28)**
   — `DONE`.
-  - **What it is:** `src/risk_regime.py` runs H1, a 3-state Gaussian HMM on Nifty 500 ret_20 and rvol_20. It is refit yearly, uses filtered (real-time) probabilities, and outputs P(≥5% drop in 20d).
+  - **What it is:** `src/risk/regime.py` runs H1, a 3-state Gaussian HMM on Nifty 500 ret_20 and rvol_20. It is refit yearly, uses filtered (real-time) probabilities, and outputs P(≥5% drop in 20d).
   - **Sizing:** ELEVATED = half the CALM knobs, when the dial is above its historical average. CALM = the old NORMAL knobs. This 2-level mapping is **untested**.
   - **Evidence:** selected from 9 pre-declared candidates in `research/regime/` (harness, walk-forward 2000–2024, experiment log, CHANGELOG).
     - Direction skill: none, for any model.
@@ -162,7 +162,7 @@ not getting bad trades.*
   veto only (c ≥ 0.5 and μ < 0), one-year half-life, never written by placebo
   runs (AlphaMemo arXiv:2606.20625). `--no-archive --no-ledger` restore the old
   GA for an A/B. `LATER`: that A/B on a full-size run — smoke runs only so far.
-  **(4) Plan contract** `src/plan_contract.py` (AgenticAITA arXiv:2605.12532,
+  **(4) Plan contract** `src/risk/plan_contract.py` (AgenticAITA arXiv:2605.12532,
   Orchestration arXiv:2512.02227): the brief writes a draft, the contract
   computes every hard gate in code with its measured value, moves failures to
   `rejected` with a `reject_reason`, and only the gated JSON enters the
@@ -1050,7 +1050,7 @@ not getting bad trades.*
   Streamlit. Machine consumers still read `output/state/*.json` — the webapp
   renders the same files.
 - **LLM-defined market regime** — rejected 2026-07-10. The regime tier and
-  exposure knobs are deterministic (`src/regime.py`); LLMs may narrate them,
+  exposure knobs are deterministic (`src/preprocessing/breadth.py`); LLMs may narrate them,
   never override them.
 - **Automatic order placement from the brief** — rejected 2026-07-10. The
   brief prepares decisions; the human executes. Revisit only after the journal

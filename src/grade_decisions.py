@@ -101,7 +101,7 @@ def _collect_journal_rows():
             rows.append({"date": date, "source": "brief_passed",
                          "symbol": passed.get("symbol"),
                          "note": passed.get("reason"), "regime_tier": tier})
-        # names the plan contract's hard gates rejected (src/plan_contract.py);
+        # names the plan contract's hard gates rejected (src/risk/plan_contract.py);
         # graded so the FalseBlock rate below can catch an over-tight gate
         for rej in entry.get("rejected", []):
             rows.append({"date": date, "source": "brief_rejected",

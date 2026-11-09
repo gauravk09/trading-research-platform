@@ -6,7 +6,7 @@ prose is a gate a model can talk itself past (AgenticAITA, arXiv:2605.12532:
 run the hard gates BEFORE any narrative so no reasoning can override them).
 This module owns the gates:
 
-    python src/plan_contract.py output/brief/plan_draft.json
+    PYTHONPATH=src python -m risk.plan_contract output/brief/plan_draft.json
 
 reads a draft journal entry, evaluates every recommendation against the
 state file the plan claims to be built from, attaches `gates` to each
@@ -26,7 +26,9 @@ import json
 import os
 import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from data_collection.paths import ROOT_DIR
+
+ROOT = ROOT_DIR
 STATE_DIR = os.path.join(ROOT, "output", "state")
 GATED_PATH = os.path.join(ROOT, "output", "brief", "plan_gated.json")
 

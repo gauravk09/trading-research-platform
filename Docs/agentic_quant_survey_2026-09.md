@@ -28,7 +28,7 @@ Marginal value from MORE gates is plausibly negative. The transferable value is 
 
 ## Do NOT adopt (Rejected list or evidence)
 - Multi-agent debate / personality agents (ROADMAP Rejected; survey: aggregation ≠ edge).
-- LLM-defined regime (Rejected; deterministic src/regime.py stays).
+- LLM-defined regime (Rejected; deterministic src/preprocessing/breadth.py stays).
 - Autonomous order placement (Rejected; every live benchmark says risk control, not analysis, decided outcomes).
 - More return-seeking gates: every paper's gates only cut DD by trading smaller; SAE's cooldown component made it slightly worse.
 

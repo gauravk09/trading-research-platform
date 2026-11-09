@@ -16,7 +16,7 @@ from the one that was backtested.
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-from risk_sizing import size_position
+from risk.sizing import size_position
 
 IST = ZoneInfo("Asia/Kolkata")
 

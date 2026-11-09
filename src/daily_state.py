@@ -27,8 +27,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "strategies"))
 
 import data_collection.nse.announcements_store as announcements_store
 from data_collection.nse.earnings_calendar import results_due_days
-from regime import compute_market_monitor
-import risk_regime
+from preprocessing.breadth import compute_market_monitor
+import risk.regime as risk_regime
 from incubation import build_incubation
 from data_collection.other.news import load_recent_news
 from data_collection.storage import read_daily

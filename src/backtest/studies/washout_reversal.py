@@ -33,7 +33,7 @@ import pandas as pd
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
 from data_collection.storage import read_daily, list_stored_symbols
-from regime import compute_market_monitor
+from preprocessing.breadth import compute_market_monitor
 from backtest.pointintime import composite_rs_matrix
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "output", "studies")

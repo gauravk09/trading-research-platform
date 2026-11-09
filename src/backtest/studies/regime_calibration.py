@@ -2,7 +2,7 @@
 regime_calibration.py — Which regime signals actually predict whether
 breakouts work, and what should their weights be? (ROADMAP item 5, stage 1.)
 
-The live regime tier (src/regime.py) sums 5 equal-weighted breadth signals.
+The live regime tier (src/preprocessing/breadth.py) sums 5 equal-weighted breadth signals.
 src/market_signals.py added 4 orthogonal display-only candidates (index trend,
 divergence, distribution days, follow-through). This study audits all 9 against
 the outcome that matters: forward returns of the actual 4% momentum-burst

@@ -19,7 +19,9 @@ import sys
 
 import pandas as pd
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+from data_collection.paths import ROOT_DIR
+
+ROOT = ROOT_DIR
 sys.path.insert(0, ROOT)
 from research.regime import features, targets  # noqa: E402
 from research.regime.models.base import Climatology  # noqa: E402

@@ -33,7 +33,7 @@ import json  # noqa: E402
 import glob  # noqa: E402
 
 import preprocessing.market_rhythm as market_rhythm  # noqa: E402
-import risk_regime  # noqa: E402
+import risk.regime as risk_regime  # noqa: E402
 import magic_formula as magic  # noqa: E402
 import order_pad as op  # noqa: E402
 import strategy_registry as reg  # noqa: E402

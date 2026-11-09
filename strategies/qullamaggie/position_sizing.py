@@ -13,7 +13,7 @@ Rules:
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 from indicators.volatility import adr
-from risk_sizing import size_position
+from risk.sizing import size_position
 
 
 def calculate_position(

@@ -7,6 +7,7 @@ Nothing here fetches from outside; it only reads `data/` and writes `data/proces
 |---|---|---|
 | `precompute.py` | Per-stock summary table and the close/high/low/volume matrices | `data/processed/universe_summary.parquet`, `*_matrix.parquet` |
 | `mm_history.py` | Full-history Market Monitor (breadth counts, ratios, index features) | `data/processed/mm_history.parquet` |
+| `breadth.py` | Market Monitor breadth counts over the close/volume matrices (display only, never feeds sizing) | in memory; used by `mm_history` and the dashboard |
 | `market_rhythm.py` | Leader-spread and winner-attribution series | `data/processed/market_rhythm.parquet` |
 | `build_sector_map.py` | Symbol to industry map (run when the universe changes) | `data/processed/sector_map.csv` |
 | `build_vol_curve.py` | Intraday cumulative-volume curve (needs Kite) | `data/processed/intraday_vol_curve.json` |

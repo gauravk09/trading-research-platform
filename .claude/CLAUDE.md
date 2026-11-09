@@ -44,6 +44,10 @@ Tading Setup/
 │   │   ├── relative_strength.py ← rs_rank(), composite_rs_rank(), residual_rs_rank(), top_n_by_rs()
 │   │   ├── trend_stage.py      ← trend_age(), base_count(), base_pivots(), maturity_label()
 │   │   └── factor_model.py     ← PCA absorption ratio + residual momentum (math only)
+│   ├── risk/                   ← market risk state, sizing and the daily plan gates (see its README.md)
+│   │   ├── regime.py           ← HMM crash-risk dial (CALM/ELEVATED) that sets sizing knobs
+│   │   ├── sizing.py           ← side-aware position sizing and portfolio risk
+│   │   └── plan_contract.py    ← typed daily plan + deterministic gates
 │   ├── filters/                ← standalone composable scan filters (True/False)
 │   │   ├── liquidity.py        ← min_turnover_filter()
 │   │   ├── trend.py            ← above_ma_filter(), surfing_ma_filter(), ma_stack_filter()

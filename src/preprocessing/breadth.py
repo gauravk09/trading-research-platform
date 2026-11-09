@@ -1,15 +1,17 @@
-"""regime.py — market breadth (the Stockbee Market Monitor), display data only.
+"""breadth.py — market breadth (the Stockbee Market Monitor), display data only.
 
-The market RISK regime that sets position sizing lives in risk_regime.py (the
+The market RISK regime that sets position sizing lives in risk/regime.py (the
 validated HMM crash-risk dial). This module only computes the breadth counts
 behind the Market Monitor tab; nothing here feeds sizing.
 """
 
 import os
 
+from data_collection.paths import ROOT_DIR
+
 import pandas as pd
 
-_PROCESSED = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
+_PROCESSED = os.path.join(ROOT_DIR, "data", "processed")
 CLOSE_MATRIX = os.path.join(_PROCESSED, "close_matrix.parquet")
 VOLUME_MATRIX = os.path.join(_PROCESSED, "volume_matrix.parquet")
 

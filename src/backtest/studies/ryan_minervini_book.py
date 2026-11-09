@@ -25,7 +25,7 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common
 
-# Frozen copy of the retired breadth-tier sizing (removed from src/regime.py
+# Frozen copy of the retired breadth-tier sizing (removed from src/preprocessing/breadth.py
 # 2026-09-28) so this S5 backtest still reproduces what it measured.
 TIER_KNOBS = {
     "AGGRESSIVE": {"risk_per_trade_pct": 0.50, "max_open_positions": 6,
