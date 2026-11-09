@@ -38,7 +38,7 @@ from data_collection.nse.announcements import get_announcements_for_universe
 from data_collection.nse.fo import download_fo_list
 from data_collection.nse.universe import get_all_nse_eq_symbols
 from data_collection.kite.index_history import update as update_indices
-from precompute import run as run_precompute
+from preprocessing.precompute import run as run_precompute
 from data_collection.other.company_master import refresh as refresh_company_master
 from data_collection.nse.bonus import build_bonus_events
 from backtest.shares_history import refresh as refresh_pit_mcap

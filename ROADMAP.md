@@ -210,13 +210,13 @@ not getting bad trades.*
   at plan level; Thompson-sampling direction scheduler for `llm_evolve.py`.
 
 - **Commodity data layer, offshore-research / MCX-execution (2026-08-20)** — `DONE (data)`.
-  `src/commodity_map.py` whitelists the 5 MCX contracts with a genuine offshore
+  `src/data_collection/commodity_map.py` whitelists the 5 MCX contracts with a genuine offshore
   twin (GOLD, SILVER, CRUDEOIL, NATURALGAS, COPPER); ZINC/ALUMINIUM/LEAD/NICKEL
   excluded (LME-referenced, no free feed), agri excluded (domestic discovery).
   `src/data_collection/other/global_commodities.py` -> 26yr daily OHLCV for GC/SI/CL/NG/HG + USDINR.
   `src/data_collection/other/spot_commodities.py` -> LBMA gold/silver (1968), EIA WTI/Brent/HenryHub
-  (1986). `src/commodity_basis.py` converts USD reference -> MCX-equivalent INR
-  and measures tracking. `src/commodity_research.py` picks the substrate.
+  (1986). `src/preprocessing/commodities/basis.py` converts USD reference -> MCX-equivalent INR
+  and measures tracking. `src/preprocessing/commodities/research.py` picks the substrate.
   Findings: (a) MCX-vs-offshore alignment is same-day, lag 0, lags +/-1 ~zero;
   (b) roll gaps on the continuous series are negligible for GOLD/SILVER
   (sd 0.15%/0.21%) but term structure dominates CRUDE/NATGAS (sd 2.48%/3.95%),
@@ -530,7 +530,7 @@ not getting bad trades.*
   cations rare); Liquid filter is today's turnover, not point-in-time — use
   the Top-N options (PIT by construction) when reading 6M/1Y critically.
 - **Market Rhythm: leader follow-through + winner attribution (2026-07-20)** — `DONE`.
-  `src/market_rhythm.py` (rebuilt nightly by precompute alongside mm_history,
+  `src/preprocessing/market_rhythm.py` (rebuilt nightly by precompute alongside mm_history,
   sharing one matrix load) → `data/processed/market_rhythm.parquet`; rendered
   as the Market Monitor tab's third view (`dashboard/tabs/market_rhythm.py`).
   Two point-in-time series: (1) leader spread — RS>90 basket **frozen at T−5**
@@ -642,7 +642,7 @@ not getting bad trades.*
   turnover≥₹10cr, gain≥5%, ADR≥4, 20-bar cooldown) + `ep_catalyst_overlay.py`
   (catalyst/sector tagging). Data unlocked along the way: NSE announcements API
   serves history to 2015 via date-range queries — `src/data_collection/nse/backfill_announcements.py`
-  backfilled 4,046 daily files; `src/build_sector_map.py` maps 1,845 symbols
+  backfilled 4,046 daily files; `src/preprocessing/build_sector_map.py` maps 1,845 symbols
   (niftyindices lists + filings' smIndustry; niftyindices blocks the microcap CSV).
   Findings: raw signal negative median (D+20 −1.9%, win 44.6%) with a fat right
   tail (10.4% events ≥+20% by D+20); daily-bar LOD stop does NOT flip expectancy

@@ -31,7 +31,7 @@ import os
 import numpy as np
 import pandas as pd
 
-import mm_history
+import preprocessing.mm_history as mm_history
 from data_collection.storage import read_daily
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

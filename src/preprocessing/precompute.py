@@ -11,12 +11,12 @@ The dashboard reads these two files instead of looping over 2132 parquet files.
 Startup time: ~30s → under 1s.
 
 Run automatically at the end of collect_data.py, or manually:
-    python src/precompute.py
+    PYTHONPATH=src python -m preprocessing.precompute
 """
 
 import os
-import sys
-sys.path.insert(0, os.path.dirname(__file__))
+
+from data_collection.paths import ROOT_DIR
 
 import numpy as np
 import pandas as pd
@@ -31,10 +31,10 @@ from indicators.trend_stage import (base_count, trend_age, ADR_WINDOW,
                                     BURST_ADR_MULT, BURST_FLOOR_PCT,
                                     BURST_CAP_PCT, LEGACY_PCT)
 from data_collection.nse.fo import get_fo_symbols, get_fo_with_lotsize
-import market_rhythm
-import mm_history
+import preprocessing.market_rhythm as market_rhythm
+import preprocessing.mm_history as mm_history
 
-PROCESSED_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
+PROCESSED_DIR = os.path.join(ROOT_DIR, "data", "processed")
 SUMMARY_PATH  = os.path.join(PROCESSED_DIR, "universe_summary.parquet")
 CLOSE_MATRIX_PATH = os.path.join(PROCESSED_DIR, "close_matrix.parquet")
 VOLUME_MATRIX_PATH = os.path.join(PROCESSED_DIR, "volume_matrix.parquet")

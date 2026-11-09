@@ -38,8 +38,8 @@ Ranked by how safe it is to research here:
 
 import pandas as pd
 
-import commodity_store
-from commodity_map import PAIRS
+import data_collection.commodity_store as commodity_store
+from data_collection.commodity_map import PAIRS
 
 QUALITY = {
     "GOLD":       "green",

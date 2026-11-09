@@ -7,21 +7,21 @@ to project today's cumulative volume to a full day — NSE volume is U-shaped,
 so dividing by elapsed time instead overstates RVOL ~2-3x in the first hour.
 
 Run occasionally (the shape is stable; a refresh every few months is plenty):
-    python src/build_vol_curve.py
+    PYTHONPATH=src python -m preprocessing.build_vol_curve
 """
 
 import os
-import sys
+
+from data_collection.paths import ROOT_DIR
 import time
 from datetime import datetime, timedelta
 
 import pandas as pd
 
-sys.path.insert(0, os.path.dirname(__file__))
 from data_collection.kite.auth import get_kite_client
 from data_collection.kite.instruments import download_instruments
 
-ROOT = os.path.join(os.path.dirname(__file__), "..")
+ROOT = ROOT_DIR
 SUMMARY_PATH = os.path.join(ROOT, "data", "processed", "universe_summary.parquet")
 OUT_PATH = os.path.join(ROOT, "data", "processed", "intraday_vol_curve.json")
 

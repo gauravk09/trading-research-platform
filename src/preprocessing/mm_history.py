@@ -17,10 +17,12 @@ Two caveats baked into every number here:
     of 2015 are unreliable — WARMUP_ROWS trims them from percentiles/analogs.
 
 Rebuild the artifact standalone:
-    python src/mm_history.py
+    PYTHONPATH=src python -m preprocessing.mm_history
 """
 
 import os
+
+from data_collection.paths import ROOT_DIR
 
 import numpy as np
 import pandas as pd
@@ -29,7 +31,7 @@ import data_collection.kite.index_history as index_history
 import regime
 from data_collection.storage import list_stored_symbols, read_daily
 
-_PROCESSED = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
+_PROCESSED = os.path.join(ROOT_DIR, "data", "processed")
 HISTORY_PATH = os.path.join(_PROCESSED, "mm_history.parquet")
 
 WARMUP_ROWS = 72            # index TI65 needs 65+7 bars; covers the 40-DMA too

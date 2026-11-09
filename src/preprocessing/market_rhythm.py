@@ -21,14 +21,14 @@ Same caveats as mm_history: survivorship (today's symbols only) and warm-up
 (252-day high + 126-day RS need ~1 year, so 2015 is unreliable).
 
 Rebuild standalone (also prints a validation report vs mm_history):
-    python src/market_rhythm.py
+    PYTHONPATH=src python -m preprocessing.market_rhythm
 """
 
 import os
 
 import pandas as pd
 
-import mm_history
+import preprocessing.mm_history as mm_history
 from backtest.pointintime import composite_rs_matrix
 
 RHYTHM_PATH = os.path.join(mm_history._PROCESSED, "market_rhythm.parquet")
@@ -108,7 +108,7 @@ def rolling_shares(hist: pd.DataFrame, window: int = 21) -> pd.DataFrame:
 
 def _validate(hist: pd.DataFrame) -> None:
     """Does the rhythm carry information? Checked against mm_history's forward
-    returns (run `python src/mm_history.py` first)."""
+    returns (run `PYTHONPATH=src python -m preprocessing.mm_history` first)."""
     mm = pd.read_parquet(mm_history.HISTORY_PATH)
     df = rolling_shares(hist).join(hist[["leader_spread"]]) \
         .join(mm[["fwd_20d"]]).iloc[WARMUP_ROWS:].dropna()

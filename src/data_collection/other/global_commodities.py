@@ -22,8 +22,8 @@ import time
 import pandas as pd
 import requests
 
-import commodity_store
-from commodity_map import global_symbols
+import data_collection.commodity_store as commodity_store
+from data_collection.commodity_map import global_symbols
 
 _CHART_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{}"
 _HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"}

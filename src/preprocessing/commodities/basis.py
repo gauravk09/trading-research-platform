@@ -24,8 +24,8 @@ break there is a policy change, not a trading signal.
 
 import pandas as pd
 
-import commodity_store
-from commodity_map import PAIRS, FX_SYMBOL
+import data_collection.commodity_store as commodity_store
+from data_collection.commodity_map import PAIRS, FX_SYMBOL
 
 # MCX quote unit per one unit of the offshore contract's quote.
 UNIT_CONVERSION = {

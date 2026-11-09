@@ -49,7 +49,7 @@ Their conditions are documented at the end of this file.
 
 ## Shared building blocks
 
-Every live scan compares against columns built once by [`src/precompute.py`](../src/precompute.py)
+Every live scan compares against columns built once by [`src/preprocessing/precompute.py`](../src/preprocessing/precompute.py)
 (from each stock's last 252 daily bars). Definitions:
 
 | Column | Meaning / formula | Code |

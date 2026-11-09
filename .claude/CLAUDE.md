@@ -61,6 +61,12 @@ Tading Setup/
 │       │                         surveillance, announcements, financial_results, earnings_calendar, bonus
 │       └── other/              ← BSE/AMC/GDELT/Yahoo/LBMA: company_master, mf_holdings,
 │                                 gdelt_sentiment, news, global_markets, global_commodities, spot_commodities
+│   └── preprocessing/          ← builds derived datasets from collected data (see its README.md)
+│       ├── precompute.py       ← universe_summary + close/high/low/volume matrices (dashboard base)
+│       ├── mm_history.py       ← 10-year Market Monitor breadth history
+│       ├── market_rhythm.py    ← frozen-basket leader spread, winner attribution
+│       ├── build_sector_map.py, build_vol_curve.py   ← one-off builders (sector map, intraday volume curve)
+│       └── commodities/        ← basis (global → MCX price) and research series
 ├── strategies/                 ← one folder per strategy
 │   └── qullamaggie/
 │       ├── SETUP_RULES.md      ← source of truth for all entry/exit/sizing rules
@@ -162,7 +168,7 @@ PYTHONPATH=src python -m data_collection.other.company_master <SYMBOL>
 |--------|---------|-------------|
 | `src/data_collection/run_daily.py` | Full daily update (prices + NSE data + dashboard) | Automated via cron |
 | `src/data_collection/kite/updater.py` | Incremental OHLCV only + reconciliation | Called by run_daily.py |
-| `src/precompute.py` | Rebuild dashboard summary files | Called by run_daily.py |
+| `src/preprocessing/precompute.py` | Rebuild dashboard summary files | Called by run_daily.py |
 | `src/data_collection/collect_all.py` | Full history fetch for new/missing stocks | After new IPO listing |
 | `src/data_collection/kite/auth.py` | Regenerate Kite access token | Every morning |
 

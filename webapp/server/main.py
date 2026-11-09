@@ -32,7 +32,7 @@ sys.path.insert(0, os.path.join(ROOT, "strategies"))
 import json  # noqa: E402
 import glob  # noqa: E402
 
-import market_rhythm  # noqa: E402
+import preprocessing.market_rhythm as market_rhythm  # noqa: E402
 import risk_regime  # noqa: E402
 import magic_formula as magic  # noqa: E402
 import order_pad as op  # noqa: E402

@@ -24,7 +24,7 @@ from data_collection.nse.bulk_deals import download_bulk_deals
 from data_collection.nse.announcements import get_announcements_for_universe
 from data_collection.nse.fo import download_fo_list
 from data_collection.kite.updater import run as update_prices
-from precompute import run as precompute
+from preprocessing.precompute import run as precompute
 
 
 def run():

@@ -36,7 +36,7 @@ SESSION_MIN = (15 * 60 + 30) - OPEN_MIN   # 375-minute regular session
 MIN_FRACTION = 0.10              # floor so the first few minutes can't blow up RVOL
 
 # Typical cumulative volume fraction per minute-of-session, measured from ~400
-# liquid symbol-days (src/build_vol_curve.py). NSE volume is U-shaped — heavy
+# liquid symbol-days (src/preprocessing/build_vol_curve.py). NSE volume is U-shaped — heavy
 # open, quiet midday, heavy close — so dividing by elapsed *time* overstates
 # projected volume ~2-3x in the first hour. Dividing by this curve is fair at
 # any time of day.

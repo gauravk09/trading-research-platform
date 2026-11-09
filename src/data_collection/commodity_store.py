@@ -21,9 +21,11 @@ join time, not smuggled into the storage layer.
 """
 
 import os
+
+from data_collection.paths import ROOT_DIR
 import pandas as pd
 
-COMMODITY_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "parquet", "commodities")
+COMMODITY_DIR = os.path.join(ROOT_DIR, "data", "parquet", "commodities")
 
 REQUIRED = ["date", "close", "symbol"]
 PREFERRED_ORDER = ["date", "open", "high", "low", "close", "volume", "symbol"]

@@ -12,14 +12,14 @@ Re-run any time; it rebuilds from scratch.
 """
 
 import os
-import sys
+
+from data_collection.paths import ROOT_DIR
 import pandas as pd
 
-sys.path.insert(0, os.path.dirname(__file__))
 import data_collection.nse.announcements_store as announcements_store
 from data_collection.nse.universe import download_index
 
-OUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "processed", "sector_map.csv")
+OUT_PATH = os.path.join(ROOT_DIR, "data", "processed", "sector_map.csv")
 
 
 def from_index_lists() -> pd.DataFrame:

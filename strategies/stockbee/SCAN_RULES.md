@@ -2,7 +2,7 @@
 
 Source of truth for the Stockbee (Pradeep Bonde) scans in this repo. Scans run
 on `data/processed/universe_summary.parquet` (one row per NSE EQ stock), so the
-dashboard stays instant. Columns used here are produced by `src/precompute.py`.
+dashboard stays instant. Columns used here are produced by `src/preprocessing/precompute.py`.
 
 ## Universe & global filters (applied to every scan)
 - **Liquidity:** `avg_turnover_cr` ≥ slider (default ₹1 Cr) — replaces Bonde's

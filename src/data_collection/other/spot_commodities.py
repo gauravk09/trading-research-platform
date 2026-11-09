@@ -32,7 +32,7 @@ import io
 import pandas as pd
 import requests
 
-import commodity_store
+import data_collection.commodity_store as commodity_store
 
 _HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"}
 

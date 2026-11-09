@@ -9,7 +9,7 @@ Computing on the fetched data (`precompute.py`, `regime.py`, `daily_state.py`, â
 | `nse/` | NSE archives and APIs | No |
 | `other/` | BSE, AMC websites, GDELT, Yahoo, LBMA/EIA, Zerodha Pulse | No |
 
-Top level: `run_daily.py` (the nightly job), `collect_all.py` (full history for new IPOs),
+Top level: `commodity_store.py` / `commodity_map.py` (commodity series storage and symbol map), `run_daily.py` (the nightly job), `collect_all.py` (full history for new IPOs),
 `storage.py` (parquet price files â€” the only place that knows their paths), `paths.py` (`ROOT_DIR`).
 
 ## How to run anything
@@ -28,7 +28,7 @@ PYTHONPATH=src python -m data_collection.nse.bulk_deals     # one collector alon
 2. NSE side feeds (`fii_dii`, `bulk_deals`, `delivery`, `stock_oi`, `insider_trading`, `shareholding`, `earnings_calendar`, `bonus`) and `other/mf_holdings`
 3. `nse/announcements`
 4. `nse/update_financials`
-5. `other/company_master`, `kite/index_history`, then **`precompute`** (compute, in `src/`)
+5. `other/company_master`, `kite/index_history`, then **`precompute`** (in `preprocessing/`)
 6. split/bonus repair (re-fetches a broken stock's full history from Kite)
 7. daily state, 8. decision grader, 9. S7 verdict (all compute, in `src/`)
 
