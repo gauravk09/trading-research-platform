@@ -7,7 +7,7 @@ When a decision changes, edit it here in the same session — don't leave the ol
 ---
 
 ### D1 — Standalone, isolated package · LOCKED
-`alpha_forge/` at repo root imports **nothing** from `src/` or `research/`.
+`alpha_forge/` (now `research/alpha_forge/`) imports **nothing** from `src/` or `research/`.
 - **Chosen:** a parallel project that adopts only the *idea* of AlphaAgent (LLM-driven alpha mining with regularized exploration to resist decay), applied to Indian NSE stocks.
 - **Rejected:** extending the existing `evolve.py` GA machine. Kept separate on purpose — this project must not inherit or contaminate what that machine has learned.
 - **Shared:** only the raw OHLCV parquet on disk, read-only. Data, not logic.

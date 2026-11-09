@@ -24,5 +24,5 @@ above their 20 DMA" is astrology.
 This directory is descriptive hypothesis discovery, not a promotion path. New
 S4+ promotion-grade work uses `src/backtest/canonical_runner.py` plus
 `src/backtest/bookrunner.py`; its explicit spec, result checks, and MLflow index
-do not replace the append-only factory ledger. `alpha_forge/` is frozen archived
+do not replace the append-only factory ledger. `research/alpha_forge/` is frozen archived
 exploration and cannot make new promotion claims. See `PROMOTION_POLICY.json`.

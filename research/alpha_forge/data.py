@@ -18,7 +18,7 @@ import pandas as pd
 # Overridable via ALPHA_FORGE_DAILY_DIR so parallel scoring can run from any cwd
 # (e.g. a subagent whose working directory isn't the repo root).
 _DEFAULT_DAILY = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "data", "parquet", "daily"))
+    os.path.join(os.path.dirname(__file__), "..", "..", "data", "parquet", "daily"))
 DAILY_DIR = os.environ.get("ALPHA_FORGE_DAILY_DIR", _DEFAULT_DAILY)
 
 # Read-only pointer into the parent repo's PRE-COMPUTED feature matrices
@@ -27,7 +27,7 @@ DAILY_DIR = os.environ.get("ALPHA_FORGE_DAILY_DIR", _DEFAULT_DAILY)
 # contract as DAILY_DIR. These carry information OHLCV alone cannot express
 # (delivery %, point-in-time market cap, relative strength, ...).
 _DEFAULT_PROCESSED = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "data", "processed"))
+    os.path.join(os.path.dirname(__file__), "..", "..", "data", "processed"))
 PROCESSED_DIR = os.environ.get("ALPHA_FORGE_PROCESSED_DIR", _DEFAULT_PROCESSED)
 
 

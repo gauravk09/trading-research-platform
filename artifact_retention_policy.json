@@ -17,7 +17,7 @@
     {"path": "data/raw/_pre_migration_trash", "category": "review_required", "action": "review_move", "min_age_days": 0, "reason": "Pre-migration material requires manual provenance review."},
     {"path": "logs", "glob": "**/*.log", "category": "generated_reports", "action": "compress_candidate", "min_age_days": 30, "reason": "Old logs may be compressed after review."},
     {"path": "webapp/frontend/node_modules", "category": "rebuildable_cache", "action": "review_move", "min_age_days": 0, "reason": "Reinstallable frontend dependency tree."},
-    {"path": "alpha_forge/backtest_reports", "category": "archived_exploration", "action": "review_move", "min_age_days": 30, "reason": "Archived exploration reports; review before moving."},
+    {"path": "research/alpha_forge/backtest_reports", "category": "archived_exploration", "action": "review_move", "min_age_days": 30, "reason": "Archived exploration reports; review before moving."},
     {"path": "data/raw/financials", "category": "review_required", "action": "keep", "reason": "Large raw financial archive: keep until a separate dedupe audit."}
   ]
 }
