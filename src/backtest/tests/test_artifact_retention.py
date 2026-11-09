@@ -56,7 +56,7 @@ class ArtifactRetentionTests(unittest.TestCase):
         self.assertEqual(before, after)
 
     def test_git_failure_refuses_to_build_candidates(self):
-        with patch("artifact_retention.subprocess.check_output", side_effect=OSError("git unavailable")):
+        with patch("backtest.artifact_retention.subprocess.check_output", side_effect=OSError("git unavailable")):
             with self.assertRaisesRegex(RuntimeError, "refusing"):
                 git_tracked_paths(self.temp.name)
 

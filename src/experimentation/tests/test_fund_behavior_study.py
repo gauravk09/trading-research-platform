@@ -1,9 +1,13 @@
+import sys
 import unittest
 
 import pandas as pd
 
+from data_collection.paths import ROOT_DIR
 from experimentation.studies.fund_behavior import _current_tenure
-from webapp.server.fund_study import _safe
+
+sys.path.insert(0, ROOT_DIR)
+from webapp.server.fund_study import _safe  # noqa: E402
 
 
 class FundBehaviorStudyTests(unittest.TestCase):
