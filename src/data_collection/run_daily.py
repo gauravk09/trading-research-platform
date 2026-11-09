@@ -45,8 +45,8 @@ from backtest.shares_history import refresh as refresh_pit_mcap
 from daily_state import run as run_daily_state
 from backtest.integrity import repair_recent_breaks
 from data_collection.nse.update_financials import run as run_financials
-from grade_decisions import run as run_grader
-from s7_verdict import run as run_s7_verdict
+from evaluation.grade_decisions import run as run_grader
+from evaluation.s7_verdict import run as run_s7_verdict
 from magic_formula import auto_import as auto_import_magic_formula
 
 

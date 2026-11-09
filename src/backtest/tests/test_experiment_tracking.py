@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from experiment_tracking import fingerprint, log_run, main, normalize_manifest
+from backtest.experiment_tracking import fingerprint, log_run, main, normalize_manifest
 
 
 class ExperimentTrackingTests(unittest.TestCase):

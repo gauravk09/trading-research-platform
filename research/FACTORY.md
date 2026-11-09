@@ -33,12 +33,12 @@ section with the stage and reason.
 
 ### Local experiment index (optional)
 
-`src/experiment_tracking.py` can index a completed run in local SQLite MLflow
+`src/backtest/experiment_tracking.py` can index a completed run in local SQLite MLflow
 with its spec/data fingerprints and path-only artifact manifest. It is a search
 and reproducibility aid, not a promotion workflow: `research/factory/LEDGER.md`
 remains append-only and is the authority for factory stage and verdict. Start
 from `research/experiment_manifest.template.json`; validate without writes via
-`python src/experiment_tracking.py manifest.json --dry-run`.
+`PYTHONPATH=src python -m backtest.experiment_tracking manifest.json --dry-run`.
 
 ## S1 — the spec template (pre-registration)
 

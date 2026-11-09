@@ -18,7 +18,7 @@ for import_path in (str(ROOT), str(ROOT / "src")):
     if import_path not in sys.path:
         sys.path.insert(0, import_path)
 
-from experiment_tracking import log_run
+from backtest.experiment_tracking import log_run
 
 DEFAULT_OUTPUT = ROOT / "output" / "experiments"
 REQUIRED = {"id", "stage", "strategy", "family", "module", "spec_path", "dataset_paths",

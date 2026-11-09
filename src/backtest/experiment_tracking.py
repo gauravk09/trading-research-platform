@@ -10,8 +10,10 @@ import os
 import subprocess
 from pathlib import Path
 
+from data_collection.paths import ROOT_DIR
 
-ROOT = Path(__file__).resolve().parent.parent
+
+ROOT = Path(ROOT_DIR)
 DEFAULT_DIR = ROOT / "output" / "mlflow"
 REQUIRED_PARAMETERS = {"costs", "entry_clock", "eras", "control_type"}
 REQUIRED_FIELDS = {"run_name", "stage", "strategy", "code_entrypoint", "spec_path",

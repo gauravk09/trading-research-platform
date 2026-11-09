@@ -3,7 +3,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from incubation import build_incubation
+from evaluation.incubation import build_incubation
 
 
 def _panel(T=320, N=6, seed=0):

@@ -40,7 +40,7 @@ not getting bad trades.*
    - `DONE (2026-07-10)`: passive capture — `output/brief/journal.jsonl`
      (recommendations + gates), `triage_verdicts.json`, `stockbee_trades.json`,
      daily state files.
-   - `DONE (2026-07-18)`: forward-return grader — `src/grade_decisions.py`
+   - `DONE (2026-07-18)`: forward-return grader — `src/evaluation/grade_decisions.py`
      (step 8/8 of `eod_update.py`) rebuilds
      `output/grader/forward_returns.parquet` nightly: +1/+3/+5/+20d returns for
      every scan candidate in the state files, every /brief journal line
@@ -195,7 +195,7 @@ not getting bad trades.*
   never worse; placebo floor 0 for burst/four_pct fitted-pocket at pop 24 /
   gens 15, so noise-fitting is unmeasured there; ledger vetoes 55-180/run.
   New engine stays default. `DONE`.
-  **Ryan/Minervini → S7 incubation (2026-09-03)** `DONE`: `src/incubation.py`
+  **Ryan/Minervini → S7 incubation (2026-09-03)** `DONE`: `src/evaluation/incubation.py`
   adds a `ryan_minervini` paper block to the state file using the SAME signal
   functions the backtest used (`ryan_52wk_high.build_signal` + dedup,
   `minervini_trend_template.signal_mask`) on the nightly matrices;
@@ -431,7 +431,7 @@ not getting bad trades.*
   net R +0.10-0.13; top-150-mcap variant weaker (5-16%, DD −21..−26%).
   39% trade overlap with batch5's green-tape short → 61% incremental.
   Open: true F&O-list membership (turn_decile is a proxy), 20d-horizon
-  variant.** **S7 incubation wired (2026-07-31)**: `src/incubation.py`
+  variant.** **S7 incubation wired (2026-07-31)**: `src/evaluation/incubation.py`
   generates nightly PAPER short signals for both short strategies
   (batch5-refined w/ Nifty-extension stand-down + GA pocket) into
   `state["incubation"]` — clearly fenced "PAPER — do not trade", never in

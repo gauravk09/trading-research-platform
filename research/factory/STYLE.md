@@ -16,7 +16,7 @@ This file is the single source the S6 gate reads.
   factory strategies are long cash for now.
 - **One risk bucket**: F&O notional counts against the same gross-exposure
   cap (decision 2026-07-18). A factory strategy must live inside the regime
-  knobs (`src/regime.py` TIER_KNOBS), not beside them.
+  knobs (`src/risk/regime.py` TIER_KNOBS), not beside them.
 - **Liquidity floor**: ₹5cr/day turnover minimum, ₹10cr for EP/gap types
   (house convention in `candidate_flags` and the EP studies).
 

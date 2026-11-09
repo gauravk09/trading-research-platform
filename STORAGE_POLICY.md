@@ -1,6 +1,6 @@
 # Storage policy
 
-`src/artifact_retention.py` is an evidence-only inventory. Its default dry run
+`src/backtest/artifact_retention.py` is an evidence-only inventory. Its default dry run
 measures configured storage areas and identifies untracked, policy-eligible
 files for human review; it cannot delete, move, or compress anything.
 

@@ -24,10 +24,12 @@ every era):
 import os
 import sys
 
+from data_collection.paths import ROOT_DIR
+
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "backtest", "studies"))
+sys.path.insert(0, os.path.join(ROOT_DIR, "src", "backtest", "studies"))
 
 from backtest.pointintime import composite_rs_matrix
 import minervini_trend_template as miner

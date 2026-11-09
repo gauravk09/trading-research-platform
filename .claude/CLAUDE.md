@@ -60,6 +60,10 @@ Tading Setup/
 │   │   ├── kite_account.py     ← live margins, positions, holdings snapshot
 │   │   ├── paper_broker.py, rehearsal.py ← paper-trade replay and zero-money execution rehearsal
 │   │   └── orders/             ← plan → preview → place → trail (cli.py is the entry point)
+│   ├── evaluation/             ← grades decisions and forward-tests strategies (see its README.md)
+│   │   ├── grade_decisions.py  ← +1/+3/+5/+20d forward returns for every recorded decision
+│   │   ├── incubation.py       ← S7 paper-signal generator for factory strategies
+│   │   └── s7_verdict.py       ← nightly read-out of the S7 forward record
 │   ├── filters/                ← standalone composable scan filters (True/False)
 │   │   ├── liquidity.py        ← min_turnover_filter()
 │   │   ├── trend.py            ← above_ma_filter(), surfing_ma_filter(), ma_stack_filter()

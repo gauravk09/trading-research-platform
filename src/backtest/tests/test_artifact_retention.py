@@ -4,8 +4,8 @@ import unittest
 from unittest.mock import patch
 from pathlib import Path
 
-from artifact_retention import scan
-from artifact_retention import git_tracked_paths
+from backtest.artifact_retention import scan
+from backtest.artifact_retention import git_tracked_paths
 
 
 NOW = 1_800_000_000

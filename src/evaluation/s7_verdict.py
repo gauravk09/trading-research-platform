@@ -32,7 +32,7 @@ chance. Flags here are WATCH state for the human judgment layer, never kills —
 a kill stays a factory decision (LEDGER), not a nightly report's.
 
 Run standalone:
-    python src/s7_verdict.py
+    PYTHONPATH=src python -m evaluation.s7_verdict
 Outputs:
     output/grader/s7_verdict.md    (human)
     output/grader/s7_verdict.json  (machine — the brief agent reads this)
@@ -40,14 +40,14 @@ Outputs:
 
 import json
 import os
-import sys
+
+from data_collection.paths import ROOT_DIR
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, os.path.dirname(__file__))
 
-ROOT = os.path.join(os.path.dirname(__file__), "..")
+ROOT = ROOT_DIR
 OUT_DIR = os.path.join(ROOT, "output", "grader")
 IN_PATH = os.path.join(OUT_DIR, "forward_returns.parquet")
 MD_PATH = os.path.join(OUT_DIR, "s7_verdict.md")

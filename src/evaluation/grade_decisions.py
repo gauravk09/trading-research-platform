@@ -21,12 +21,14 @@ The output is rebuilt from scratch every run (idempotent, a few hundred rows):
   output/grader/forward_returns.parquet
 
 Run standalone for a summary table:
-    python src/grade_decisions.py
+    PYTHONPATH=src python -m evaluation.grade_decisions
 """
 
 import glob
 import json
 import os
+
+from data_collection.paths import ROOT_DIR
 
 import numpy as np
 import pandas as pd
@@ -34,7 +36,7 @@ import pandas as pd
 import preprocessing.mm_history as mm_history
 from data_collection.storage import read_daily
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = ROOT_DIR
 STATE_DIR = os.path.join(ROOT, "output", "state")
 JOURNAL_PATH = os.path.join(ROOT, "output", "brief", "journal.jsonl")
 TRIAGE_PATH = os.path.join(ROOT, "data", "processed", "triage_verdicts.json")

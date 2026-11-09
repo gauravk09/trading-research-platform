@@ -6,8 +6,10 @@ import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
+from data_collection.paths import ROOT_DIR
 
-ROOT = Path(__file__).resolve().parent.parent
+
+ROOT = Path(ROOT_DIR)
 DEFAULT_POLICY = ROOT / "artifact_retention_policy.json"
 DEFAULT_REPORT_DIR = ROOT / "output" / "retention"
 
