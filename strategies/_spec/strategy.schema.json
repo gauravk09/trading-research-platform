@@ -1,0 +1,1140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "strategies/_spec/strategy.schema.json",
+  "title": "Strategy spec v1.0",
+  "description": "One JSON file per strategy setup. must_have.from_source is what a research agent MUST find in public sources (missing = cannot form the strategy). must_have.from_house is filled from repo defaults and checks, never scraped. good_to_have is filled from sources when available. extras is free context. See strategies/_spec/README.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "must_have",
+    "good_to_have",
+    "extras"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "must_have": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from_source",
+        "from_house"
+      ],
+      "properties": {
+        "from_source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "author",
+            "sources",
+            "claimed_edge",
+            "direction",
+            "bar_timeframe",
+            "setup_family",
+            "entry",
+            "stop_loss",
+            "exits"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 3,
+              "description": "Human name of ONE setup (traders bundle many; one file per setup)."
+            },
+            "author": {
+              "type": "string",
+              "minLength": 2,
+              "description": "Trader / author who claims the edge."
+            },
+            "sources": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/source"
+              }
+            },
+            "claimed_edge": {
+              "type": "string",
+              "minLength": 20,
+              "description": "What the edge is AND why it should exist: who is on the other side of the trade."
+            },
+            "direction": {
+              "enum": [
+                "long",
+                "short"
+              ]
+            },
+            "bar_timeframe": {
+              "enum": [
+                "daily",
+                "weekly",
+                "intraday_5m"
+              ]
+            },
+            "setup_family": {
+              "enum": [
+                "breakout",
+                "pullback",
+                "episodic_pivot_gap",
+                "momentum_burst",
+                "mean_reversion_bounce",
+                "trend_following",
+                "breakdown_short",
+                "rotation",
+                "other"
+              ],
+              "description": "Maps to research-machine triggers: breakout->qm_flag, momentum_burst->burst/four_pct, episodic_pivot_gap->ep, mean_reversion_bounce->bounce, pullback->pullback, breakdown_short->four_pct_down."
+            },
+            "entry": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "setup_conditions",
+                "trigger",
+                "timing"
+              ],
+              "properties": {
+                "levels": {
+                  "type": "object",
+                  "description": "Named price levels reused by conditions/stops, e.g. {\"pivot\": \"max(close,20)[1]\"}.",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                },
+                "setup_conditions": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "$ref": "#/$defs/condition"
+                  },
+                  "description": "Pre-conditions that must all be true on the signal bar (trend, base, tightness...)."
+                },
+                "trigger": {
+                  "$ref": "#/$defs/condition",
+                  "description": "The event that fires the signal on the signal bar."
+                },
+                "timing": {
+                  "$ref": "#/$defs/entry_timing",
+                  "description": "Entry timing AS THE SOURCE DESCRIBES IT."
+                }
+              }
+            },
+            "stop_loss": {
+              "$ref": "#/$defs/stop"
+            },
+            "exits": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/exit"
+              }
+            }
+          }
+        },
+        "from_house": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "stage",
+            "created_at",
+            "created_by",
+            "instrument",
+            "universe",
+            "costs_pct_per_side",
+            "entry_clocks_tested",
+            "eras",
+            "control_type",
+            "survivorship",
+            "success_bars",
+            "dedup_bars",
+            "data_requirements",
+            "prior_work_check"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z0-9_]{3,60}$",
+              "description": "Slug; folder name under strategies/ and research/factory/."
+            },
+            "stage": {
+              "enum": [
+                "S0",
+                "S1",
+                "S2",
+                "S3",
+                "S4",
+                "S5",
+                "S6",
+                "S7",
+                "S8",
+                "REJECTED"
+              ],
+              "description": "research/FACTORY.md stage. A new scraped spec starts at S1."
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date"
+            },
+            "created_by": {
+              "type": "string",
+              "description": "Person or agent + model that filled the file."
+            },
+            "instrument": {
+              "enum": [
+                "nse_cash",
+                "nse_stock_futures",
+                "nse_index_futures"
+              ],
+              "description": "STYLE.md: longs in cash; shorts only via F&O (cash shorting is intraday-only)."
+            },
+            "universe": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "base",
+                "min_turnover_cr",
+                "min_price"
+              ],
+              "properties": {
+                "base": {
+                  "enum": [
+                    "nse_eq_all",
+                    "nifty500",
+                    "fo_stocks",
+                    "top150_mcap"
+                  ]
+                },
+                "min_turnover_cr": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "House floor: 5 (10 for EP/gap types)."
+                },
+                "min_price": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "exclude_surveillance": {
+                  "type": "boolean",
+                  "default": true,
+                  "description": "Live scans only: there is no historical ASM/GSM data for backtests."
+                }
+              }
+            },
+            "costs_pct_per_side": {
+              "type": "number",
+              "minimum": 0,
+              "description": "House default 0.2 (0.4% round trip)."
+            },
+            "entry_clocks_tested": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/entry_timing"
+              },
+              "description": "FACTORY lever 1: always include next_open as the control plus signal_close_strong (range_pos >= 0.75)."
+            },
+            "eras": {
+              "type": "object",
+              "required": [
+                "A",
+                "COVID",
+                "B"
+              ],
+              "additionalProperties": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}/\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "description": "Date ranges start/end. House: A 2015-19, COVID 2020-22 (reported separately), B 2023-26, plus 2024-26 sub-era."
+            },
+            "control_type": {
+              "type": "string",
+              "minLength": 5,
+              "description": "canonical_runner requires one, e.g. 'same-date matched random'."
+            },
+            "survivorship": {
+              "type": "string",
+              "minLength": 10,
+              "description": "canonical_runner requires a statement of how delisted names are handled."
+            },
+            "success_bars": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Written BEFORE any backtest; numbers, not adjectives."
+            },
+            "dedup_bars": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Ignore repeat signals on the same symbol within N bars."
+            },
+            "data_requirements": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "dataset",
+                  "path",
+                  "available_from",
+                  "known_at"
+                ],
+                "properties": {
+                  "dataset": {
+                    "type": "string"
+                  },
+                  "path": {
+                    "type": "string"
+                  },
+                  "available_from": {
+                    "type": "string",
+                    "description": "First date with usable history, e.g. delivery 2020-10."
+                  },
+                  "known_at": {
+                    "$ref": "#/$defs/known_at"
+                  }
+                }
+              }
+            },
+            "prior_work_check": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "roadmap_rejected",
+                "ledger_matches",
+                "overlapping_studies",
+                "registry_matches"
+              ],
+              "description": "Searched BEFORE writing the spec. A ROADMAP Rejected match blocks the spec unless new_evidence is given.",
+              "properties": {
+                "roadmap_rejected": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ledger_matches": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "overlapping_studies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "registry_matches": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "new_evidence": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "good_to_have": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stock_selection": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/condition"
+          },
+          "description": "Source's own screen beyond the house universe (RS, growth, price...)."
+        },
+        "market_filter": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/condition"
+          },
+          "description": "Regime / breadth gates, using market.* identifiers."
+        },
+        "chase_limit_pct": {
+          "$ref": "#/$defs/param"
+        },
+        "partial_exits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "at_expr",
+              "fraction",
+              "origin"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "at_expr": {
+                "type": "string"
+              },
+              "fraction": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1
+              },
+              "then": {
+                "type": "string",
+                "description": "e.g. 'move stop to breakeven'"
+              },
+              "origin": {
+                "$ref": "#/$defs/origin"
+              },
+              "quote": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "max_hold_bars": {
+          "$ref": "#/$defs/param"
+        },
+        "pyramiding": {
+          "type": "string"
+        },
+        "position_sizing_in_source": {
+          "type": "object",
+          "description": "Recorded for context only; the house sizes from src/risk/regime.py TIER_KNOBS.",
+          "properties": {
+            "risk_per_trade_pct": {
+              "type": "number"
+            },
+            "max_positions": {
+              "type": "integer"
+            },
+            "notes": {
+              "type": "string"
+            }
+          }
+        },
+        "variants": {
+          "type": "array",
+          "maxItems": 3,
+          "description": "Pre-registered variants (max 3, named now; nothing added after results).",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "changes",
+              "rationale"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "changes": {
+                "type": "string",
+                "description": "What differs from the core spec, in plain words."
+              },
+              "rationale": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "claimed_performance": {
+          "type": "object",
+          "properties": {
+            "win_rate_pct": {
+              "type": "number"
+            },
+            "avg_win_pct": {
+              "type": "number"
+            },
+            "avg_loss_pct": {
+              "type": "number"
+            },
+            "avg_r": {
+              "type": "number"
+            },
+            "profit_factor": {
+              "type": "number"
+            },
+            "cagr_pct": {
+              "type": "number"
+            },
+            "max_drawdown_pct": {
+              "type": "number"
+            },
+            "period": {
+              "type": "string"
+            },
+            "market": {
+              "type": "string"
+            },
+            "sample_size": {
+              "type": "integer"
+            },
+            "independently_verified": {
+              "type": "boolean"
+            },
+            "quote": {
+              "type": "string"
+            }
+          },
+          "description": "What the SOURCE itself claims. Independent tests by other people go in external_evaluations."
+        },
+        "expected_style": {
+          "type": "object",
+          "description": "Estimates checked against research/factory/STYLE.md at S6.",
+          "properties": {
+            "win_rate_pct": {
+              "type": "number"
+            },
+            "hold_days": {
+              "type": "string"
+            },
+            "signals_per_year": {
+              "type": "number"
+            },
+            "needs_midday_screen": {
+              "type": "boolean"
+            },
+            "needs_order_api_speed": {
+              "type": "boolean"
+            }
+          }
+        },
+        "avoid_when": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "original_market": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "type": "string"
+            },
+            "era": {
+              "type": "string"
+            },
+            "adaptation_notes": {
+              "type": "string",
+              "description": "USD stops, US-only patterns, circuit limits, T+1, etc."
+            }
+          }
+        },
+        "uncodable_elements": {
+          "type": "array",
+          "description": "Honesty list: rules that cannot be coded exactly, and the proxy used instead.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "why",
+              "proxy_used"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "why": {
+                "type": "string"
+              },
+              "proxy_used": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "new_features_needed": {
+          "type": "array",
+          "description": "Any identifier used in an expr that is not in the README vocabulary, with an exact causal definition.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "definition",
+              "known_at"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "definition": {
+                "type": "string"
+              },
+              "known_at": {
+                "$ref": "#/$defs/known_at"
+              }
+            }
+          }
+        },
+        "external_evaluations": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Filled by a SECOND agent: has anyone already tested this strategy, and what did they find? 'Searched and found nothing' is a valid, useful answer.",
+          "required": [
+            "search_log",
+            "found_any",
+            "results",
+            "summary"
+          ],
+          "properties": {
+            "search_log": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "agent",
+                "searched_at",
+                "queries",
+                "places_checked"
+              ],
+              "properties": {
+                "agent": {
+                  "type": "string",
+                  "description": "Agent name + model."
+                },
+                "searched_at": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "queries": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "places_checked": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "e.g. web search, Reddit, TradingView, SSRN/arXiv, GitHub, YouTube, X, Zerodha TradingQnA, QuantConnect forums"
+                }
+              }
+            },
+            "found_any": {
+              "type": "boolean"
+            },
+            "results": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/external_result"
+              }
+            },
+            "summary": {
+              "type": "string",
+              "minLength": 10,
+              "description": "The agent's synthesis: consensus, conflicts, and how close the tests were to this spec."
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "found_any": {
+                    "const": true
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "results": {
+                    "minItems": 1
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "found_any": {
+                    "const": false
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "results": {
+                    "maxItems": 0
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "extras": {
+      "type": "object",
+      "properties": {
+        "chart_examples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "symbol": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "related_strategies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "agent_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "origin": {
+      "enum": [
+        "source",
+        "proxy",
+        "house_default"
+      ],
+      "description": "source = stated by the source (give a quote); proxy = our number because the source gives none; house_default = repo convention."
+    },
+    "known_at": {
+      "enum": [
+        "close",
+        "next_open",
+        "intraday"
+      ],
+      "description": "Earliest moment the value is knowable. Delivery % is next_open (published in the evening)."
+    },
+    "entry_timing": {
+      "enum": [
+        "next_open",
+        "signal_close",
+        "signal_close_strong",
+        "intraday_stop_above_level",
+        "opening_range_high"
+      ],
+      "description": "signal_close_strong = signal-day close only if range_pos >= 0.75 (house lever 1)."
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "title",
+        "retrieved_at"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "minLength": 4
+        },
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "published": {
+          "type": "string"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "kind": {
+          "enum": [
+            "book",
+            "video",
+            "interview",
+            "blog",
+            "forum",
+            "paper",
+            "course",
+            "repo_doc",
+            "other"
+          ]
+        }
+      }
+    },
+    "param": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "origin"
+      ],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "quote": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "const": "source"
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "required": [
+              "quote"
+            ]
+          }
+        }
+      ]
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "expr",
+        "origin",
+        "known_at"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "text": {
+          "type": "string",
+          "description": "Plain-English rule."
+        },
+        "expr": {
+          "type": "string",
+          "description": "Codable expression in the README vocabulary; true/false on the signal bar."
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "quote": {
+          "type": "string",
+          "description": "Verbatim source sentence. Required when origin = source."
+        },
+        "known_at": {
+          "$ref": "#/$defs/known_at"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "const": "source"
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "required": [
+              "quote"
+            ]
+          }
+        }
+      ]
+    },
+    "stop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "text",
+        "expr",
+        "origin"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "pct_below_entry",
+            "price_level",
+            "atr_multiple",
+            "signal_bar_extreme",
+            "none"
+          ],
+          "description": "Short side: 'below' becomes 'above'. 'none' only if the source truly uses no stop - flag it."
+        },
+        "text": {
+          "type": "string"
+        },
+        "expr": {
+          "type": "string",
+          "description": "Stop price, e.g. 'pivot * 0.95' or 'entry * 0.92'."
+        },
+        "max_pct": {
+          "type": "number",
+          "description": "Cap on stop distance from entry, %."
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "quote": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "const": "source"
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "required": [
+              "quote"
+            ]
+          }
+        }
+      ]
+    },
+    "exit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "text",
+        "origin"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "close_below_level",
+            "trail_ma",
+            "trail_pct",
+            "target_pct",
+            "target_r",
+            "time",
+            "signal"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "expr": {
+          "type": "string",
+          "description": "Exit condition or level, e.g. 'close < sma(close,20)'."
+        },
+        "value": {
+          "type": "number",
+          "description": "For target/trail/time types: %, R, or bars."
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "quote": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "origin": {
+                "const": "source"
+              }
+            },
+            "required": [
+              "origin"
+            ]
+          },
+          "then": {
+            "required": [
+              "quote"
+            ]
+          }
+        }
+      ]
+    },
+    "external_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "title",
+        "retrieved_at",
+        "evidence_type",
+        "rules_match",
+        "reported_verdict",
+        "credibility",
+        "quote"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "minLength": 4
+        },
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "published": {
+          "type": "string"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "evidence_type": {
+          "enum": [
+            "backtest",
+            "live_track_record",
+            "paper_trading",
+            "academic_paper",
+            "forum_anecdote",
+            "vendor_claim"
+          ]
+        },
+        "rules_match": {
+          "enum": [
+            "exact",
+            "close",
+            "loose"
+          ],
+          "description": "How closely the tested rules match THIS spec."
+        },
+        "differences": {
+          "type": "string",
+          "description": "What they tested differently (stop, exit, universe, timeframe...)."
+        },
+        "market": {
+          "type": "string",
+          "description": "e.g. NSE India, US equities, crypto"
+        },
+        "instrument": {
+          "type": "string"
+        },
+        "period": {
+          "type": "string",
+          "description": "Test window, e.g. 2010-2023"
+        },
+        "universe": {
+          "type": "string"
+        },
+        "costs_included": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "out_of_sample": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Tested on data not used to design the rules?"
+        },
+        "sample_size_trades": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "metrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "win_rate_pct": {
+              "type": "number"
+            },
+            "avg_trade_pct": {
+              "type": "number"
+            },
+            "avg_r": {
+              "type": "number"
+            },
+            "profit_factor": {
+              "type": "number"
+            },
+            "cagr_pct": {
+              "type": "number"
+            },
+            "max_drawdown_pct": {
+              "type": "number"
+            },
+            "sharpe": {
+              "type": "number"
+            }
+          }
+        },
+        "reported_verdict": {
+          "enum": [
+            "worked",
+            "failed",
+            "mixed",
+            "unclear"
+          ]
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Verbatim sentence carrying their result."
+        },
+        "credibility": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "credibility_reason": {
+          "type": "string",
+          "description": "e.g. 'code + costs published' or 'screenshot, no rules'"
+        }
+      }
+    }
+  }
+}
