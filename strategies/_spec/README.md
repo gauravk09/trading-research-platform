@@ -119,6 +119,46 @@ These follow the house previous-close rule: a signal on day t sees day t-1's val
 deals, stock OI, the live news feed. A rule that needs one of these is
 uncodable for backtest purposes.
 
+## From spec to Excel report
+
+```
+spec JSON ──spec_compiler──▶ strategies/<id>/strategy.py ──spec_backtest──▶ output/spec_backtests/<id>/<time>/report.xlsx
+```
+
+```bash
+# 1. compile: validates the JSON, writes strategies/<id>/spec.json + strategy.py
+PYTHONPATH=src python -m backtest.spec_compiler strategies/_spec/examples/dan_zanger_breakout.json
+
+# 2. backtest every stock in data/parquet/daily/ (or pass the .json and it compiles first)
+PYTHONPATH=src python -m backtest.spec_backtest strategies/dan_zanger_breakout/strategy.py
+PYTHONPATH=src python -m backtest.spec_backtest strategies/dan_zanger_breakout/strategy.py --limit 50   # quick run
+```
+
+| Step | Module | What it does |
+|---|---|---|
+| Compile | `src/backtest/spec_compiler.py` | Schema check, then each `expr` → pandas code. Stops on unknown names, negative lags, `deliv_x20` at the close. |
+| Vocabulary | `src/backtest/spec_functions.py` | The functions the generated file calls; all causal, NaN during warm-up. |
+| Backtest | `src/backtest/spec_backtest.py` | Loads stocks in batches with DuckDB (IST-pinned), runs each entry clock, **stops if signals change when future bars are removed**. |
+| Trades | `src/backtest/spec_simulator.py` | One position per stock; stop and touch levels fill intraday (at the open on a gap); close conditions fill at the next open; partial exits; costs both sides. |
+| Report | `src/backtest/spec_report.py` | `report.xlsx`: Summary, Eras, Trades, Per_stock, Conditions, Run, Spec. The first eight Trades columns match `research/alpha_forge/export_excel.py`. |
+
+**Generated `strategy.py` contract:** `levels(d)`, `entry_conditions(d)` (dict of
+True/False frames, ANDed into the signal), `stop_price(d, entry)`,
+`exit_rules(d, entry)`, plus constants `SPEC_ID`, `DIRECTION`, `ENTRY_CLOCKS`,
+`COSTS_PCT_PER_SIDE`, `DEDUP_BARS`, `ERAS`, `NOT_APPLIED`. Do not edit it by
+hand; change the JSON and recompile.
+
+**In stops and exits, levels freeze at entry.** Any side of a comparison that
+mentions `entry` or a named level is evaluated once, on the signal bar.
+`close < pivot` means "below the breakout pivot", not below a pivot that keeps
+rising. Such an exit must be one comparison.
+
+**What this is not.** It is an S2-style replication run, not the promotion-grade
+`canonical_runner.py`: the market leg is an equal-weight universe index, not a
+same-date matched random control; the universe is survivors only; there is no
+ASM/GSM history; variants, pyramiding and the chase limit are not run. Every
+such gap is listed on the report's Run sheet.
+
 ## Validate a file
 
 ```bash
