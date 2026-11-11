@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0",
+
+  "must_have": {
+    "from_source": {
+      "name": "Zanger breakout from a well-formed base",
+      "author": "Dan Zanger",
+      "sources": [
+        {
+          "url": "https://www.chartpattern.com",
+          "title": "10 Golden Rules & 11 Chart Patterns (Zanger's own site)",
+          "author": "Dan Zanger",
+          "retrieved_at": "2026-07-29",
+          "kind": "blog"
+        },
+        {
+          "url": "Docs/dan_zanger_trading_setup.md",
+          "title": "Dan Zanger - Trading Setup Reference (S0 compilation)",
+          "retrieved_at": "2026-07-29",
+          "kind": "repo_doc"
+        }
+      ],
+      "claimed_edge": "Low-float, high-earnings-growth leaders make explosive trend moves once institutions start accumulating; buying the volume-confirmed breakout of a well-formed base catches the start of that accumulation. The other side: holders selling at the old resistance level, and institutions that buy later at higher prices.",
+      "direction": "long",
+      "bar_timeframe": "daily",
+      "setup_family": "breakout",
+      "entry": {
+        "levels": {
+          "pivot": "max(close,20)[1]"
+        },
+        "setup_conditions": [
+          {
+            "id": "near_52w_high",
+            "text": "High-priced leader near its 52-week high",
+            "expr": "close >= 0.85 * max(close,252)",
+            "origin": "proxy",
+            "quote": "High-priced quality leader near 52-week highs",
+            "known_at": "close"
+          },
+          {
+            "id": "well_formed_base",
+            "text": "At least 20 bars since the last 20-day closing-high cross, base no deeper than 20%",
+            "expr": "bars_since(close > max(close,20)[1])[1] >= 20 and min(low,20)[1] >= 0.80 * pivot",
+            "origin": "proxy",
+            "quote": "Has a well-formed base or pattern with a definable trendline / breakout point",
+            "known_at": "close"
+          },
+          {
+            "id": "volume_explosion",
+            "text": "Breakout-day volume at least 2x the 30-day average",
+            "expr": "volume >= 2.0 * avg(volume,30)[1]",
+            "origin": "proxy",
+            "quote": "Breakout volume must be above the recent trend - know the stock's 30-day average volume",
+            "known_at": "close"
+          }
+        ],
+        "trigger": {
+          "id": "close_above_pivot",
+          "text": "Close above the breakout point",
+          "expr": "close > pivot",
+          "origin": "source",
+          "quote": "Buy as the stock crosses above the trendline / breakout point of the base",
+          "known_at": "close"
+        },
+        "timing": "intraday_stop_above_level"
+      },
+      "stop_loss": {
+        "type": "price_level",
+        "text": "5% below the breakout point",
+        "expr": "pivot * 0.95",
+        "origin": "source",
+        "quote": "Alternative he acknowledges: a 5% stop"
+      },
+      "exits": [
+        {
+          "type": "close_below_level",
+          "text": "Sell on any close back below the breakout point",
+          "expr": "close < pivot",
+          "origin": "source",
+          "quote": "When the break occurs, I am a seller. No questions asked."
+        },
+        {
+          "type": "trail_ma",
+          "text": "Exit the remainder on a close below the 20-day average (stands in for his hand-drawn trendline)",
+          "expr": "close < sma(close,20)",
+          "origin": "proxy",
+          "quote": "Primary sell signal: a break of the support trendline."
+        },
+        {
+          "type": "time",
+          "text": "Time stop at 50 bars (his 10-week maximum)",
+          "value": 50,
+          "origin": "proxy",
+          "quote": "Typical holding period 20 minutes to 10 weeks"
+        }
+      ]
+    },
+
+    "from_house": {
+      "id": "dan_zanger_breakout",
+      "stage": "S1",
+      "created_at": "2026-07-29",
+      "created_by": "research/factory/dan_zanger/SPEC.md, converted to JSON",
+      "instrument": "nse_cash",
+      "universe": {
+        "base": "nse_eq_all",
+        "min_turnover_cr": 5,
+        "min_price": 100,
+        "exclude_surveillance": true
+      },
+      "costs_pct_per_side": 0.2,
+      "entry_clocks_tested": ["signal_close_strong", "next_open"],
+      "eras": {
+        "A": "2015-01-01/2019-12-31",
+        "COVID": "2020-01-01/2022-12-31",
+        "B": "2023-01-01/2026-12-31",
+        "sub_2024_26": "2024-01-01/2026-12-31"
+      },
+      "control_type": "same-date matched random",
+      "survivorship": "Survivors-only price cache: the stored universe is today's listed NSE stocks, delisted names are absent, so small-cap results read optimistic.",
+      "success_bars": {
+        "S2": "any variant with close-entry PF >= 1.2 in BOTH eras A and B, n >= 150",
+        "S5": "must beat ryan_minervini_book as incumbent or add uncorrelated trades; >= +3%/yr on trading capital after costs"
+      },
+      "dedup_bars": 10,
+      "data_requirements": [
+        {"dataset": "daily prices", "path": "data/parquet/daily/", "available_from": "2015-01-01", "known_at": "close"},
+        {"dataset": "feature store: rs", "path": "data/processed/features/", "available_from": "2015-01-01", "known_at": "close"}
+      ],
+      "prior_work_check": {
+        "roadmap_rejected": [],
+        "ledger_matches": ["2026-07-29 dan_zanger_breakout S1 - spec written"],
+        "overlapping_studies": ["src/backtest/studies/ryan_52wk_high.py"],
+        "registry_matches": ["ryan_minervini (overlaps the codable core)"]
+      }
+    }
+  },
+
+  "good_to_have": {
+    "stock_selection": [
+      {
+        "id": "leader_rs",
+        "text": "Leader: composite RS rank at least 70",
+        "expr": "rs >= 70",
+        "origin": "proxy",
+        "quote": "Leading group / hot theme - in a strong sector tied to a new technology or trend",
+        "known_at": "close"
+      }
+    ],
+    "market_filter": [],
+    "chase_limit_pct": {"value": 5, "origin": "source", "quote": "Never pay more than 5% above the trendline / breakout point"},
+    "partial_exits": [
+      {
+        "text": "Sell 25% at +17.5% above the pivot (midpoint of his 20-30% at +15-20%)",
+        "at_expr": "high >= pivot * 1.175",
+        "fraction": 0.25,
+        "origin": "proxy",
+        "quote": "Sell 20-30% of the position as the stock moves 15-20% above the breakout point"
+      }
+    ],
+    "max_hold_bars": {"value": 50, "origin": "proxy", "quote": "20 minutes to 10 weeks; most trades 6-12 days"},
+    "pyramiding": "Starter position on the breakout; adds heavily only if it 'really blasts off'. Not modelled at S1.",
+    "position_sizing_in_source": {
+      "notes": "Record-era sizing was pyramiding + concentration + margin; the '1% risk' rule is a secondhand recap, not his statement."
+    },
+    "variants": [
+      {"name": "V1_core", "changes": "All rules above", "rationale": "Codable proxy of the published setup"},
+      {"name": "V2_no_volume_leg", "changes": "V1 minus the 2x volume condition", "rationale": "House prior: volume-confirmation legs measure neutral-to-harmful on NSE"},
+      {"name": "V3_growth", "changes": "V1 + PAT or revenue YoY >= +100% from financials.parquet joined on filing_date (Nifty-500, 2016+ only)", "rationale": "Tests his extreme-growth screen, the genuinely new element"}
+    ],
+    "claimed_performance": {
+      "period": "1998-2000",
+      "market": "US equities, dot-com bubble, heavy margin",
+      "independently_verified": false,
+      "quote": "turned ~$10,775 into ~$42 million in 23 months"
+    },
+    "expected_style": {
+      "hold_days": "6-12 typical, up to 50",
+      "needs_midday_screen": false,
+      "needs_order_api_speed": false
+    },
+    "avoid_when": [
+      "Stock already more than 5% past the breakout point",
+      "Market environment weak (he confirms with the overall market before buying)"
+    ],
+    "original_market": {
+      "country": "US",
+      "era": "1998-2000 dot-com",
+      "adaptation_notes": "Dollar stops ($1-2) do not translate to INR; replaced with his acknowledged 5% stop."
+    },
+    "uncodable_elements": [
+      {"text": "20-minute rule: sell same day if it does not accelerate", "why": "Needs intraday bars and a subjective 'sharply'", "proxy_used": "None at S1; daily bars only"},
+      {"text": "Hand-drawn trendlines and the 11 named chart patterns", "why": "No geometry given in the sources", "proxy_used": "20-day closing high as pivot; close < 20-DMA as trendline break"},
+      {"text": "Earnings surprise vs Wall Street expectations", "why": "No consensus-estimate data in the repo", "proxy_used": "V3 raw YoY growth screen"},
+      {"text": "Low float / low institutional sponsorship", "why": "No float history; shareholding is quarterly", "proxy_used": "None"}
+    ],
+    "new_features_needed": [],
+    "external_evaluations": {
+      "search_log": {
+        "agent": "Claude Code (claude-opus-5-5), example run",
+        "searched_at": "2026-11-11",
+        "queries": [
+          "Dan Zanger breakout strategy backtest results",
+          "volume breakout from base 20-day high backtest win rate profit factor NSE India"
+        ],
+        "places_checked": ["web search", "base.report", "TradingView (scripts in results, not opened)"]
+      },
+      "found_any": true,
+      "results": [
+        {
+          "url": "https://base.report/studies/systematic-backtesting-analysis-breakout-setups",
+          "title": "Systematic Backtesting & Analysis of Breakout Setups",
+          "author": "e0 (github.com/e0)",
+          "published": "2023-04-02",
+          "retrieved_at": "2026-11-11",
+          "evidence_type": "backtest",
+          "rules_match": "loose",
+          "differences": "Not Zanger: prior 50% move in 50 days, ADR >= 3%, 5-40 day consolidation, Theil-Sen trendline breakout; entry at signal-day close; stop at entry-day low; exit on close < SMA10; no volume-explosion leg. Directly relevant to Zanger's scale-out: compares a partial sell against a full exit.",
+          "market": "US equities (NASDAQ, NYSE, AMEX)",
+          "instrument": "cash equities",
+          "period": "each ticker's first day to 2023-03-21",
+          "universe": "tickers listed on base.report (survivorship bias acknowledged by the author)",
+          "costs_included": false,
+          "out_of_sample": false,
+          "sample_size_trades": 27500,
+          "metrics": {"avg_trade_pct": 1.76},
+          "reported_verdict": "unclear",
+          "quote": "The backtesting results reveal that making full sells at the exit provides significantly better performance compared to selling 50% of the position during the partial sell window.",
+          "credibility": "medium",
+          "credibility_reason": "Rules fully published and 27,500 trades, but no costs, no out-of-sample split, survivorship bias, and 52.69% of trades lost money; +1.76% average is before costs."
+        }
+      ],
+      "summary": "No independent test of Zanger's own rules was found; his record is anecdotal (1998-2000, margin). The closest public evidence is a loose US breakout study: positive pre-cost average trade, and full exits beat 50% partial sells - a reason to also test V1 without the 25% scale-out. Nothing NSE-specific with real data was found."
+    }
+  },
+
+  "extras": {
+    "related_strategies": ["ryan_52wk_high", "minervini_trend_template", "qullamaggie_gated"],
+    "tags": ["momentum", "breakout", "base", "us_origin"],
+    "agent_confidence": 0.6,
+    "notes": "Results speak about the codable proxy, not the man. The S2 question is whether Zanger's distinctive elements add anything beyond Ryan's already-measured shape."
+  }
+}

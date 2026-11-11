@@ -8,3 +8,4 @@ pyxlsb>=1.0.10,<2
 fastapi
 uvicorn[standard]
 mlflow>=3.15,<3.16
+jsonschema>=4.18
