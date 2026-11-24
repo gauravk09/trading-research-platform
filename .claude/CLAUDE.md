@@ -19,6 +19,9 @@ Each strategy lives in its own folder under `strategies/`.
 - Trade results are never shared or committed: each person rebuilds them locally from the specs into
   `output/trades.duckdb`. To run a strategy or compare results, follow
   `.claude/skills/rebuild-trades/SKILL.md`
+- The trades DB layout and its write rules (append-only, one transaction per run, IST timezone,
+  delete and rebuild instead of migrating) live in `.claude/skills/trades-db/SKILL.md`. Follow it
+  whenever code creates, writes, changes or queries `output/trades.duckdb`
 
 ## Comprehension Mode — Trading-Specific Additions
 On top of the global comprehension-mode rule, flag these failure modes explicitly

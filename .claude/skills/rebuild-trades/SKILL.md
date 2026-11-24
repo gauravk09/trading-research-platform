@@ -26,7 +26,8 @@ The same spec, code version and data snapshot always give the same trades.
 4. **Compile** `spec.json` into `strategy.py`. Never edit `strategy.py` by hand. If the generated code looks
    wrong, the fix goes in the spec or the compiler.
 5. **Run** the shared engine. It writes the `runs` and `trades` tables in `output/trades.duckdb`, plus the
-   `<name>__control` run (random entries on the same dates).
+   `<name>__control` run (random entries on the same dates). The table layout and the rules for writing
+   to it are in `.claude/skills/trades-db/SKILL.md`.
 6. **Report** from DuckDB, with the identifying fields from the `runs` table first:
    `strategy, spec_hash, schema_version, git_sha, data_snapshot`, then the trade count and summary.
    Compare the strategy against its `__control` run, not against zero.
