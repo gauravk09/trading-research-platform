@@ -7,7 +7,7 @@ import pandas as pd
 from data_collection.paths import ROOT_DIR
 
 ROOT = ROOT_DIR
-sys.path.insert(0, os.path.join(ROOT, "strategies"))
+sys.path.insert(0, os.path.join(ROOT, "strategies", "_archive"))
 from stockbee.breakout_setup import breakout_from_consolidation
 
 SUMMARY = os.path.join(ROOT, "data", "processed", "universe_summary.parquet")

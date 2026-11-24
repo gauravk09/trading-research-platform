@@ -4,7 +4,7 @@
   "strategy": "commodity_tsmom_baseline",
   "family": "positional_commodity_trend",
   "module": "src.backtest.studies.commodity_tsmom",
-  "spec_path": "research/factory/commodity_tsmom/SPEC.md",
+  "spec_path": "strategies/_archive/commodity_tsmom/SPEC.md",
   "dataset_paths": [
     "data/parquet/commodities/global/GC_F.parquet",
     "data/parquet/commodities/global/SI_F.parquet",

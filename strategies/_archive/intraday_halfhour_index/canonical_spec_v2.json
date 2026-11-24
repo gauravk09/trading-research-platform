@@ -1,10 +1,10 @@
 {
-  "id": "intraday_halfhour_index_v1",
+  "id": "intraday_halfhour_index_v2_daily_equal_weight",
   "stage": "S4",
   "strategy": "intraday_halfhour_index_momentum",
   "family": "index_intraday_morning_to_late_day",
   "module": "src.backtest.studies.intraday_halfhour_index",
-  "spec_path": "research/factory/intraday_halfhour_index/SPEC.md",
+  "spec_path": "strategies/_archive/intraday_halfhour_index/SPEC.md",
   "dataset_paths": [
     "data/parquet/intraday_5m/_indices/NIFTY_50.parquet",
     "data/parquet/intraday_5m/_indices/NIFTY_BANK.parquet"
@@ -21,7 +21,8 @@
     "cost_per_side_bps": 5,
     "random_seed": 20260902,
     "control_paths": 500,
-    "day_block_size": 5
+    "day_block_size": 5,
+    "portfolio_correction": "v2 aggregates active NIFTY50 and BANKNIFTY legs to one equal-weight daily portfolio before all means, Sharpes, years, and controls"
   },
   "success_bars": {
     "positive_oos_net_mean": "primary momentum 2025-26 net mean return > 0",

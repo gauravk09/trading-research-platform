@@ -177,7 +177,7 @@ not getting bad trades.*
   diffs every metric (R2 reproducibility). Git SHA + dataset fingerprints were
   already in the mlflow index. Tests: 56 pass (`src/test_attribution.py`,
   `src/test_plan_contract.py`, `src/test_canonical_runner.py` extended).
-  **Mining round 1 (same day), three results, all in `research/factory/LEDGER.md`:**
+  **Mining round 1 (same day), three results, all in `strategies/_archive/LEDGER.md`:**
   (a) board re-graded by selection alpha (`output/studies/attribution_regrade_2026-09-03.csv`):
   84/131 real experiments beat their same-date control on selection, 24 with
   t ≥ 2, 9 significantly below; cheat canaries rank 1-3 (t 16-25). Keeps
@@ -459,11 +459,11 @@ not getting bad trades.*
   adaptation levers (entry clock, exit-shape-matches-tail, universe floors,
   delete NSE-inverted confirmations) → S4 robustness bars (ex-COVID era
   splits, 2024-26 sub-era, neighborhood, random-recipe null) → S5 economics
-  (≥3%/yr bar; PF is not payable) → S6 style fit (`research/factory/STYLE.md`
+  (≥3%/yr bar; PF is not payable) → S6 style fit (`strategies/_archive/STYLE.md`
   — hard/soft constraints, has [FILL]s awaiting user) → S7 incubation via
   daily state + grader → S8 live with per-strategy rolling-R edge-death
   monitor (EP9M 2024-26 lesson). Run accounting in
-  `research/factory/LEDGER.md`. Trader ingestion via the
+  `strategies/_archive/LEDGER.md`. Trader ingestion via the
   trader-setup-researcher skill → `docs/<trader>_trading_setup.md`.
   **S5 DONE 2026-07-29 — ryan_minervini_book** (first factory run,
   `src/backtest/studies/ryan_minervini_book.py`, report
@@ -475,7 +475,7 @@ not getting bad trades.*
   per-trade (avg R 0.91 gated vs 1.33 ungated — matches regime_calibration).
   Caveats: pre-2020 survivorship, no ASM/GSM (ATGL +60R best trade), top-5
   trades ≈ half of net. Next: S7 incubation wiring; MC drawdown pass;
-  dan_zanger spec'd (S1, `research/factory/dan_zanger/SPEC.md` — codable
+  dan_zanger spec'd (S1, `strategies/_archive/dan_zanger/SPEC.md` — codable
   proxy, Ryan-overlap flagged) awaiting S2.
 - **Non-breadth regime axes + delivery % pipeline (2026-07-25)** — `DONE` (candidate
   stage). The regime tier was 100% breadth; added the orthogonal axes established
@@ -767,7 +767,7 @@ not getting bad trades.*
 - **EP family + two-conveyor dashboard (2026-07-12, from Bonde's TraderLion
   2026 talk — transcript in ~/Downloads/stockbee_2026_traderlion_transcript.md)**
   — `DONE` (phase 1 of the talk's setups).
-  - `strategies/stockbee/ep_family.py`: **EP9M** (top 2% of NSE by share
+  - `strategies/_archive/stockbee/ep_family.py`: **EP9M** (top 2% of NSE by share
     volume today + novelty gate [not usually top decile] + ₹30 price floor +
     ₹10cr event turnover; direction-agnostic; ~5/day; user chose share-volume
     + qualifiers over turnover), **DEP** (F&O or ₹25cr+ names, EP9M event 2-25
@@ -1006,7 +1006,7 @@ not getting bad trades.*
 
 - **Qullamaggie Setups + Zanger tabs** — removed 2026-07-12 in the
   two-conveyor reorg ("drop for now" — user). Scanner code retained under
-  `strategies/qullamaggie/` and `strategies/zanger/`;
+  `strategies/_archive/qullamaggie/` and `strategies/_archive/zanger/`;
   `dashboard/tabs/zanger_scans.py` deleted 2026-07-20 (with the side-panel
   helpers it depended on, replaced by the chart popup); `stockbee_scans.py`
   deleted (replaced by `tabs/scans.py` + `tabs/setups.py`). **Triage mode lost its UI
@@ -1071,7 +1071,7 @@ not getting bad trades.*
   2015-19 artifact** (+0.12/+0.05/+0.31R edge in 2017-19, ≈0 or negative every
   year 2020-26) — do not add an all-time-high gate to a live strategy expecting
   it to pay. Full verdict + red-team:
-  `research/factory/lifetime_high_pullback/VERDICT.md`.
+  `strategies/_archive/lifetime_high_pullback/VERDICT.md`.
 
 - **Turn-of-month timing** (buy the close of the 5th-last trading day, sell the
   close of the 3rd trading day of the new month; 7 trading days, 12x/yr) —

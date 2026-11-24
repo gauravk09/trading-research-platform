@@ -12,7 +12,7 @@ Prerequisites (all must pass):
 Entry trigger (not checked here — this is a PRE-SCAN):
   - Break above opening range high with volume ≥ 1.5× average
 
-Reference: strategies/qullamaggie/SETUP_RULES.md — Setup 1
+Reference: strategies/_archive/qullamaggie/SETUP_RULES.md — Setup 1
 """
 
 import sys, os

@@ -15,7 +15,7 @@ Prerequisites (all must pass):
 Entry trigger (intraday — use intraday.py on the day):
   - Break above first 5-min or 15-min candle high
 
-Reference: strategies/qullamaggie/SETUP_RULES.md — Setup 2
+Reference: strategies/_archive/qullamaggie/SETUP_RULES.md — Setup 2
 """
 
 import sys, os

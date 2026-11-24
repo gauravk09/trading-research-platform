@@ -48,7 +48,7 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 from kiteconnect import KiteTicker
 
-sys.path.insert(0, os.path.join(ROOT_DIR, "strategies"))
+sys.path.insert(0, os.path.join(ROOT_DIR, "strategies", "_archive"))
 
 import scanners.live_scanner as ls
 import scanners.order_pad as order_pad

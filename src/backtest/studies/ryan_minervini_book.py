@@ -1,6 +1,6 @@
 """ryan_minervini_book.py — factory S5: the Ryan + Minervini book on a ₹10L account.
 
-Spec: research/factory/ryan_minervini/SPEC.md (pre-registered — do not add
+Spec: strategies/_archive/ryan_minervini/SPEC.md (pre-registered — do not add
 variants here without a new spec).
 
 Entry = signal-day close, only if range_pos >= 0.75. Exits exactly as the two

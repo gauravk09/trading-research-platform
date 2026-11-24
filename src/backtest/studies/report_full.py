@@ -130,7 +130,7 @@ STUDIES = {
             "PROVENANCE: the producing script (ep_volume_spike.py) is no longer in\n"
             "the repo; the events were written by an earlier study. Rules here are\n"
             "reconstructed from the CSV column semantics plus the EP9M description\n"
-            "in strategies/stockbee/ep_family.py (top-2%-of-market volume for a stock\n"
+            "in strategies/_archive/stockbee/ep_family.py (top-2%-of-market volume for a stock\n"
             "not usually there, price/turnover floors, catalyst joined as research).\n"
             "\n"
             "Recorded columns: entry (price), stop_pct (stop distance, % of entry),\n"

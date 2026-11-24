@@ -4,7 +4,7 @@ scanner.py — Qullamaggie master scanner
 Runs all three setup scans and saves output to output/qullamaggie_YYYY-MM-DD.csv
 
 Usage:
-    python strategies/qullamaggie/scanner.py
+    python strategies/_archive/qullamaggie/scanner.py
 
 Optional args:
     --setup breakout          run only the breakout scan

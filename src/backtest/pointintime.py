@@ -23,7 +23,7 @@ import sys
 import pandas as pd
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "strategies", "qullamaggie"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "strategies", "_archive", "qullamaggie"))
 
 from data_collection.storage import read_daily, list_stored_symbols
 from filters.momentum import rs_rank_filter
@@ -118,7 +118,7 @@ def scan_asof(
 
     Truncates each symbol's history to `as_of` and applies the SAME scoring,
     required-filter, liquidity, RS and conviction logic as the live scanner
-    (strategies/qullamaggie/breakout.py + scanner.py), minus the
+    (strategies/_archive/qullamaggie/breakout.py + scanner.py), minus the
     surveillance filter (no historical ASM/GSM data).
     """
     rs_ranks = None
