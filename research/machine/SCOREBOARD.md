@@ -4,7 +4,7 @@
 `eff A/B` = how much better the top group did vs the bottom, in R
 (profit per rupee risked), old era / recent era. Bars: engine.py.
 
-Note: `verdict` is the *judge's* grade (passed its own bar). Whether a PASS also survived the red-team attack is tracked in `research/factory/LEDGER.md`, not here.
+Note: `verdict` is the *judge's* grade (passed its own bar). Whether a PASS also survived the red-team attack is tracked in `strategies/_archive/LEDGER.md`, not here.
 `5d B` = recent-era effect at the 5-day hold (the primary grade). `20d` = verdict + recent-era effect at a 20-day hold, where it has been run (blank = not yet graded at 20d).
 `close` = the same 5-day grade with entry at the SIGNAL-DAY CLOSE instead of the next open (the Order Pad's real entry window). The D+1-open convention hands back the overnight gap. That gap is NOT uniform across buckets — many experiments change grade, and the extension / volume-spike anti-signal family collapses toward zero, because much of what it measured was the bigger gap you pay on an extended stock, not a post-entry edge. Where `5d B` and `close` disagree, `close` is the column that matches how the Order Pad actually enters. Close-ruler R uses a 1%-of-entry minimum-risk floor (a stop a hair under a close entry is not a real risk unit); `w5` is the same effect winsorized at +/-5R, a tail diagnostic — a `close` figure far from its `w5` twin is carried by a handful of events.
 `close` = **N/A look-ahead** means the experiment conditions on a feature NSE publishes after the close (delivery %), so it cannot be graded at a 15:20 entry at all. Its D+1-open grade stands.

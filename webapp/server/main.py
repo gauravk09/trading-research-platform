@@ -27,7 +27,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(ROOT, "src"))
-sys.path.insert(0, os.path.join(ROOT, "strategies"))
+sys.path.insert(0, os.path.join(ROOT, "strategies", "_archive"))
 
 import json  # noqa: E402
 import glob  # noqa: E402

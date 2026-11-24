@@ -24,7 +24,7 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
-sys.path.insert(0, os.path.join(ROOT_DIR, "strategies"))
+sys.path.insert(0, os.path.join(ROOT_DIR, "strategies", "_archive"))
 
 import data_collection.nse.announcements_store as announcements_store
 from data_collection.nse.surveillance import load_cached_excluded

@@ -18,16 +18,16 @@ below exists because some study died at that stage.
 | stage | question | tooling | artifact |
 |---|---|---|---|
 | S0 Source | what is the claimed edge? | `/trader-setup-researcher` skill → `docs/<trader>_trading_setup.md`; or own hypothesis / article claim | rules doc |
-| S1 Spec | exact, point-in-time testable rules — written BEFORE any backtest | copy the template below | `research/factory/<slug>/SPEC.md` |
+| S1 Spec | exact, point-in-time testable rules — written BEFORE any backtest | copy the template below | `strategies/_archive/<slug>/SPEC.md` |
 | S2 Replicate | does it work as published? | `src/backtest/studies/` + `common.py` cache + `report_full.py` | study md/pdf, verdict |
 | S3 Adapt | do the four proven levers flip or improve it? | same harness; ≤3 pre-registered variants per knob | variant table |
 | S4 Robustness | is it real? | era splits, nulls, neighborhoods (bars below) | pass/fail per bar |
 | S5 Economics | does it pay as a book, not per trade? | portfolio sim (`ep9m_portfolio.py` pattern), Monte Carlo DD | ₹/year estimate |
-| S6 Style fit | can THIS user actually trade it? | `research/factory/STYLE.md` | fit line in VERDICT |
+| S6 Style fit | can THIS user actually trade it? | `strategies/_archive/STYLE.md` | fit line in VERDICT |
 | S7 Incubate | does live match backtest? | wire into `daily_state.py` scans + `/brief` (paper tag); `grade_decisions.py` watches | grader rows |
 | S8 Live + monitor | is the edge still alive? | small size at regime knobs; edge-death monitor | rolling-R chart |
 
-Every stage appends one line to `research/factory/LEDGER.md`. A strategy may
+Every stage appends one line to `strategies/_archive/LEDGER.md`. A strategy may
 die at any stage; record the death in the ledger AND in ROADMAP's Rejected
 section with the stage and reason.
 
@@ -35,7 +35,7 @@ section with the stage and reason.
 
 `src/backtest/experiment_tracking.py` can index a completed run in local SQLite MLflow
 with its spec/data fingerprints and path-only artifact manifest. It is a search
-and reproducibility aid, not a promotion workflow: `research/factory/LEDGER.md`
+and reproducibility aid, not a promotion workflow: `strategies/_archive/LEDGER.md`
 remains append-only and is the authority for factory stage and verdict. Start
 from `research/experiment_manifest.template.json`; validate without writes via
 `PYTHONPATH=src python -m backtest.experiment_tracking manifest.json --dry-run`.
@@ -101,7 +101,7 @@ signals/yr, 0.2% CAGR. PF is not payable; frequency × size × exposure is.
 
 ## S6 — style fit
 
-Check against `research/factory/STYLE.md`. Hard-constraint fail (execution
+Check against `strategies/_archive/STYLE.md`. Hard-constraint fail (execution
 infeasible: needs API speed, mid-day screen, cash shorting) = REJECT for
 style regardless of edge. Soft mismatches (win-rate discomfort, hold horizon)
 = size one tier down per mismatch, or pass. The fit line is mandatory in

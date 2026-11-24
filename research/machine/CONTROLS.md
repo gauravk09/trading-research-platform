@@ -126,7 +126,7 @@ moved was previously INSUFFICIENT-by-era-A; no full-track verdict changed.
 
 ## Battery of 2026-08-06b — the three red-team fixes (23 controls)
 
-The red-team of the board above (`research/factory/LEDGER.md`, 2026-08-06)
+The red-team of the board above (`strategies/_archive/LEDGER.md`, 2026-08-06)
 found three defects in the two engine changes it had just validated. All three
 are close-ruler / modern-track only; **the D+1-open path was not touched.**
 
@@ -231,7 +231,7 @@ appears as a PASS anywhere.
   gap is the visible tell that a handful of events carries them. The engine's
   bars cannot make the effective-N and concentration judgements that killed
   these in the red-team (807 date clusters, cluster t = 2.35 for dom_bounce);
-  `research/factory/LEDGER.md` remains the record of what actually survived
+  `strategies/_archive/LEDGER.md` remains the record of what actually survived
   attack, and no bounce-cohort close PASS should be read as a finding without
   one.
 - The 20-day horizon still shows the irreducible WEAK leak on both tracks

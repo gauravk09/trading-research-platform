@@ -4,7 +4,7 @@
   "strategy": "lone_loser_short",
   "family": "breakdown_short",
   "code_entrypoint": "src/backtest/studies/example.py",
-  "spec_path": "research/factory/example/SPEC.md",
+  "spec_path": "strategies/_archive/example/SPEC.md",
   "dataset_paths": ["data/processed/close_matrix.parquet"],
   "parameters": {
     "costs": "0.15%/side",
@@ -16,5 +16,5 @@
   "metrics": {"gross_return": 0.0, "max_drawdown": 0.0},
   "status": "completed",
   "verdict": "UNDECIDED",
-  "artifact_paths": ["research/factory/example/report.md"]
+  "artifact_paths": ["strategies/_archive/example/report.md"]
 }

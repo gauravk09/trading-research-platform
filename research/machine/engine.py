@@ -777,7 +777,7 @@ def scoreboard():
              "",
              "Note: `verdict` is the *judge's* grade (passed its own bar). "
              "Whether a PASS also survived the red-team attack is tracked in "
-             "`research/factory/LEDGER.md`, not here.",
+             "`strategies/_archive/LEDGER.md`, not here.",
              "`5d B` = recent-era effect at the 5-day hold (the primary grade). "
              "`20d` = verdict + recent-era effect at a 20-day hold, where it has "
              "been run (blank = not yet graded at 20d).",

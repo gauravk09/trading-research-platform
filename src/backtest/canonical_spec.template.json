@@ -4,7 +4,7 @@
   "strategy": "example_strategy",
   "family": "example_family",
   "module": "src.backtest.studies.example",
-  "spec_path": "research/factory/example/SPEC.md",
+  "spec_path": "strategies/_archive/example/SPEC.md",
   "dataset_paths": ["data/processed/close_matrix.parquet"],
   "parameters": {
     "costs": "0.15%/side",

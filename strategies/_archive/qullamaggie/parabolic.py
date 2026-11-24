@@ -14,7 +14,7 @@ LONG BOUNCE prerequisites (parabolic that has crashed):
   - Stock dropped 50–60%+ from its recent peak in a few days
   - Now showing a potential reversal (first green candle or ORB setup)
 
-Reference: strategies/qullamaggie/SETUP_RULES.md — Setup 3
+Reference: strategies/_archive/qullamaggie/SETUP_RULES.md — Setup 3
 """
 
 import sys, os

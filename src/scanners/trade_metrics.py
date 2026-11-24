@@ -22,7 +22,7 @@ board was graded on.
 
 Conditioning features are NOT chosen freely. Only features that reached PASS
 on research/machine/SCOREBOARD.md *and* survived the red-team in
-research/factory/LEDGER.md are used:
+strategies/_archive/LEDGER.md are used:
 
   burst / anticipation   net4 (h4_burst_net4) x turn_decile (h3_burst_turn_decile)
   four_pct               net4 x bounce_low21 (b2t_fp_nearlow_net4)

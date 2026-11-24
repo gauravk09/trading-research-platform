@@ -8,7 +8,7 @@ Mechanically encodes SETUP_RULES.md on daily bars:
   - Initial stop: low of entry day; trade skipped if wider than 1× ADR
   - Partial: sell 1/3 at 2.5R, move stop on the rest to breakeven
   - Trail: exit remaining shares on first close below the 10-day MA
-  - Sizing: strategies/qullamaggie/position_sizing.calculate_position()
+  - Sizing: strategies/_archive/qullamaggie/position_sizing.calculate_position()
 
 Fill assumptions (deliberately conservative / honest about daily bars):
   - Gap through stop fills at the OPEN, not the stop price
@@ -24,7 +24,7 @@ import sys
 import pandas as pd
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "strategies", "qullamaggie"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "strategies", "_archive", "qullamaggie"))
 
 from position_sizing import calculate_position
 from backtest.pointintime import scan_asof
