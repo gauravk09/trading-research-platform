@@ -9,6 +9,16 @@ Each strategy lives in its own folder under `strategies/`.
 - Keep everything modular: one file = one responsibility
 - Do not change adjacent features — only touch what is asked for
 - No over-engineering: prefer 10 clear lines over 5 clever ones
+- Build the minimal solution on one central, modular core: features are computed once in the
+  central feature store and reused by every strategy; never add a parallel copy of an
+  indicator, exit rule or simulator inside a strategy or a new pipeline
+- A new strategy starts in a fresh `strategies/<name>/` with `spec.json`; `strategy.py` is generated
+  from it by the compiler and never edited by hand. `strategies/_archive/` is read-only
+- After any change to layers, folders or the pipeline, update the "System architecture" section
+  of `README.md` in the same PR
+- Trade results are never shared or committed: each person rebuilds them locally from the specs into
+  `output/trades.duckdb`. To run a strategy or compare results, follow
+  `.claude/skills/rebuild-trades/SKILL.md`
 
 ## Comprehension Mode — Trading-Specific Additions
 On top of the global comprehension-mode rule, flag these failure modes explicitly

@@ -29,11 +29,53 @@ function from it, and the one-off studies in `backtest/studies/` import from sev
 
 Each layer folder has its own `README.md` listing its modules.
 
+## System architecture
+
+Keep this section current. Any change to layers, folders or the pipeline updates it in the same PR.
+
+```mermaid
+flowchart LR
+    subgraph DATA["Data (nightly)"]
+        DC["data_collection/<br/>Kite, NSE, other"] --> PQ[("data/parquet/<br/>daily OHLCV")]
+        PQ --> PP["preprocessing/<br/>matrices, breadth"]
+    end
+
+    subgraph FS["Central feature store (one copy)"]
+        F["backtest/features.py<br/>date × symbol matrices<br/>causal: day t uses data ≤ t close"]
+    end
+
+    subgraph STRAT["Strategies (one folder each)"]
+        R["research notes"] -- "agent writes" --> SJ["strategies/&lt;name&gt;/spec.json<br/>checked by strategies/_spec/schema.json"]
+        SJ -- "compiler (deterministic)" --> SP["strategies/&lt;name&gt;/strategy.py<br/>generated, never hand-edited"]
+    end
+
+    subgraph RUN["Shared engine (one copy)"]
+        EX["exits: fixed menu of<br/>stop / exit rules"] --> SIM["simulator<br/>entries + exit rule → trades"]
+    end
+
+    PP --> F
+    F --> SP
+    SP --> SIM
+    SIM --> DB[("trades database<br/>runs + trades, tagged by strategy,<br/>spec_hash, schema_version")]
+    DB --> EV["evaluation + reports<br/>(revamp planned)"]
+```
+
+How it works:
+
+1. **Features are computed once.** Every feature lives in the central feature store and every strategy reuses it. A strategy never computes its own indicator. If a spec needs a new feature, the feature is added to the store first.
+2. **A strategy is a JSON spec.** It lives at `strategies/<name>/spec.json` and must pass the versioned schema in `strategies/_spec/`. A schema change bumps `schema_version` and adds a line to the schema's CHANGELOG.
+3. **The Python file is generated.** A deterministic compiler turns each spec into `strategy.py`, so the same spec always produces the same code. An agent writes specs, not code.
+4. **One engine runs every strategy.** It writes entries and exits into one trades database. Each run stores the full spec it used, so every trade traces back to the exact rules that produced it.
+5. **Results are rebuilt, not shared.** `output/trades.duckdb` is a local cache that is never committed. Each person rebuilds it from the specs in git and their copy of the data snapshot. When two people's results differ, compare `spec_hash`, `git_sha` and `data_snapshot` first. The steps are in `.claude/skills/rebuild-trades/SKILL.md`.
+6. **Old work is archived.** `strategies/_archive/` holds every earlier strategy and research folder. It is read-only, and the live scanners still import from it until replacements exist.
+
+Status: the data layers and the feature store exist today. The schema, compiler, engine and trades database are being built (PRs 1, 2 and 4).
+
 Other top-level folders:
 
 | Folder | What it holds |
 |---|---|
-| `strategies/` | The scan and setup rules, one folder per method (`stockbee`, `qullamaggie`, `zanger`), with the rule files that define what the code computes. |
+| `strategies/` | One folder per strategy (`spec.json` + generated `strategy.py`), the spec schema in `_spec/`, and every older strategy and research folder in the read-only `_archive/`. |
 | `research/` | The research machine: genetic search, the regime lab, and the experiment factory. Read `research/README.md` first. |
 | `webapp/` | The dashboard: FastAPI server (`server/`) and React front end (`frontend/`). |
 | `launchers/` | Double-click macOS scripts for the token refresh, manual update and dashboards. |
