@@ -12,6 +12,10 @@ Each strategy lives in its own folder under `strategies/`.
 - Build the minimal solution on one central, modular core: features are computed once in the
   central feature store and reused by every strategy; never add a parallel copy of an
   indicator, exit rule or simulator inside a strategy or a new pipeline
+- A new strategy starts in a fresh `strategies/<name>/` with `spec.json`; `strategy.py` is generated
+  from it by the compiler and never edited by hand. `strategies/_archive/` is read-only
+- After any change to layers, folders or the pipeline, update the "System architecture" section
+  of `README.md` in the same PR
 
 ## Comprehension Mode — Trading-Specific Additions
 On top of the global comprehension-mode rule, flag these failure modes explicitly
