@@ -66,7 +66,7 @@ How it works:
 2. **A strategy is a JSON spec.** It lives at `strategies/<name>/spec.json` and must pass the versioned schema in `strategies/_spec/`. A schema change bumps `schema_version` and adds a line to the schema's CHANGELOG.
 3. **The Python file is generated.** A deterministic compiler turns each spec into `strategy.py`, so the same spec always produces the same code. An agent writes specs, not code.
 4. **One engine runs every strategy.** It writes entries and exits into one trades database. Each run stores the full spec it used, so every trade traces back to the exact rules that produced it.
-5. **Results are rebuilt, not shared.** `output/trades.duckdb` is a local cache that is never committed. Each person rebuilds it from the specs in git and their copy of the data snapshot. When two people's results differ, compare `spec_hash`, `git_sha` and `data_snapshot` first. The steps are in `.claude/skills/rebuild-trades/SKILL.md`.
+5. **Results are rebuilt, not shared.** `output/trades.duckdb` is a local cache that is never committed. Each person rebuilds it from the specs in git and their copy of the data snapshot. When two people's results differ, compare `spec_hash`, `git_sha` and `data_snapshot` first. The steps are in `.claude/skills/rebuild-trades/SKILL.md`; the table layout and write rules are in `.claude/skills/trades-db/SKILL.md`.
 6. **Old work is archived.** `strategies/_archive/` holds every earlier strategy and research folder. It is read-only, and the live scanners still import from it until replacements exist.
 
 Status: the data layers and the feature store exist today. The schema, compiler, engine and trades database are being built (PRs 1, 2 and 4).
