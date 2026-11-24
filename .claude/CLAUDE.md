@@ -16,6 +16,9 @@ Each strategy lives in its own folder under `strategies/`.
   from it by the compiler and never edited by hand. `strategies/_archive/` is read-only
 - After any change to layers, folders or the pipeline, update the "System architecture" section
   of `README.md` in the same PR
+- Trade results are never shared or committed: each person rebuilds them locally from the specs into
+  `output/trades.duckdb`. To run a strategy or compare results, follow
+  `.claude/skills/rebuild-trades/SKILL.md`
 
 ## Comprehension Mode — Trading-Specific Additions
 On top of the global comprehension-mode rule, flag these failure modes explicitly
