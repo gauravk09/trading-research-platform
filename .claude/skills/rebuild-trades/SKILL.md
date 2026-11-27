@@ -22,9 +22,15 @@ The same spec, code version and data snapshot always give the same trades.
 2. **Check the data snapshot.** Report the latest date in the daily price data under `data/parquet/daily/`.
    If it's older than the last trading day, say so before running. Don't refresh it yourself unless the user asks.
 3. **Validate the spec** against `strategies/_spec/schema.json`. If it fails, report the exact field and stop.
-   Don't change the spec to make it pass.
-4. **Compile** `spec.json` into `strategy.py`. Never edit `strategy.py` by hand. If the generated code looks
-   wrong, the fix goes in the spec or the compiler.
+   Don't change the spec to make it pass. Steps 3 and 4 are one command; it validates first and stops on
+   the first problem:
+   ```bash
+   PYTHONPATH=src python -m backtest.spec_compiler strategies/<name>
+   ```
+4. **Compile** `spec.json` into `strategy.py` (the command above writes `strategies/<name>/strategy.py`).
+   Never edit `strategy.py` by hand. If the generated code looks wrong, the fix goes in the spec or the
+   compiler. A spec that needs a feature the store doesn't have fails here: add the feature to
+   `src/backtest/features.py` (and `FEATURE_NAMES`) first, never inside the strategy.
 5. **Run** the shared engine. It writes the `runs` and `trades` tables in `output/trades.duckdb`, plus the
    `<name>__control` run (random entries on the same dates).
 6. **Report** from DuckDB, with the identifying fields from the `runs` table first:
