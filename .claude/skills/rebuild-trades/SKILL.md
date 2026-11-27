@@ -43,7 +43,13 @@ The same spec, code version and data snapshot always give the same trades.
    It also stops if the price cache is older than `data/parquet/daily`.
 6. **Report** from DuckDB, with the identifying fields from the `runs` table first:
    `strategy, spec_hash, schema_version, git_sha, data_snapshot`, then the trade count and summary.
-   Compare the strategy against its `__control` run, not against zero.
+   Compare the strategy against its `__control` run, not against zero. `run_spec` prints this table at the
+   end of a run; to read it again later:
+   ```bash
+   PYTHONPATH=src python -c "from backtest import trades_db as T; c=T.connect(); \
+     ids=[r[0] for r in c.execute('SELECT run_id FROM runs WHERE strategy LIKE ? ORDER BY run_at DESC LIMIT 2', ['<name>%']).fetchall()]; \
+     print(T.summary(c, ids).to_string(index=False))"
+   ```
 
 ## When two people's results differ
 
@@ -60,6 +66,6 @@ Compare `spec_hash`, `git_sha` and `data_snapshot` from both `runs` tables befor
 
 ## Status
 
-The compiler and engine are being built (PRs #1 and #2). Until they're merged, the steps above have no
-commands to run. Tell the user that, and don't improvise a backtest instead. Once they're merged, add
-the exact commands to steps 3 to 5 of this file.
+The schema, compiler, shared exits, engine, trades database and control run exist; steps 3 to 6 have
+their commands above. Evaluation and reports beyond the summary table are the next revamp: don't
+improvise them here.

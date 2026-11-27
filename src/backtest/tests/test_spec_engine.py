@@ -183,6 +183,16 @@ class EngineEndToEndTests(unittest.TestCase):
         self.assertTrue(row.git_sha)
         self.assertEqual(pd.Timestamp(row.data_snapshot).date(), datetime.date(2021, 9, 30))
 
+    def test_the_strategy_run_has_a_same_date_control_run(self):
+        self.assertEqual(sorted(self.runs.strategy), ["zanger", "zanger__control"])
+        self.assertEqual(self.runs.spec_hash.nunique(), 1)
+        ids = self.runs.set_index("strategy").run_id
+        real = self.trades[self.trades.run_id == ids["zanger"]]
+        ctrl = self.trades[self.trades.run_id == ids["zanger__control"]]
+        self.assertGreater(len(ctrl), 0)
+        self.assertLessEqual(len(ctrl), len(real))
+        self.assertTrue(set(ctrl.entry_date) <= set(real.entry_date))
+
     def test_trades_follow_the_contract(self):
         mine = self.trades[self.trades.strategy == "zanger"]
         self.assertGreater(len(mine), 0)

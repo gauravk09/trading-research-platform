@@ -6,7 +6,8 @@ Steps: compile strategies/<name>/spec.json (validates first), load the study
 price cache (backtest/studies/common.py) and the feature store columns the
 strategy names, simulate the spec's entry clock with the shared exit rules,
 and write one `runs` row plus its `trades` (contract:
-.claude/skills/trades-db/SKILL.md).
+.claude/skills/trades-db/SKILL.md), followed by the same-date random-entry
+control run "<name>__control" (backtest/control.py) with the same spec_hash.
 
 One run = one entry clock: the FIRST of the spec's entry_clocks_tested
 (next_open when a condition is only known at the next open). The runs table
@@ -29,7 +30,7 @@ import subprocess
 import duckdb
 import pandas as pd
 
-from backtest import simulator, spec_compiler, trades_db
+from backtest import control, simulator, spec_compiler, trades_db
 from backtest.features import FEATURES_DIR
 from data_collection.paths import ROOT_DIR
 
@@ -113,7 +114,10 @@ def run(strategy_dir, db_path=trades_db.DEFAULT_PATH, cache=None, features_dir=F
 
     trades = simulator.simulate(module, col, clock)
     con = trades_db.connect(db_path)
-    run_ids = [trades_db.write_run(con, module.SPEC_ID, spec, git_sha(), snapshot, trades)]
+    sha = git_sha()
+    random_entries = control.control_trades(module, col, clock, trades, control.seed_from(trades_db.spec_hash(spec)))
+    run_ids = [trades_db.write_run(con, module.SPEC_ID, spec, sha, snapshot, trades),
+               trades_db.write_run(con, f"{module.SPEC_ID}__control", spec, sha, snapshot, random_entries)]
     print(f"entry clock: {clock}")
     print(trades_db.summary(con, run_ids).to_string(index=False))
     for note in module.NOT_APPLIED:
