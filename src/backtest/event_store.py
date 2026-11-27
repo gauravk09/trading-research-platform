@@ -96,6 +96,8 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(__file__))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "studies"))
 
+import exits  # noqa: E402  (the shared stop / exit rules)
+
 EVENTS_PATH = os.path.join(os.path.dirname(__file__), "..", "..",
                            "data", "processed", "events.parquet")
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "..",
@@ -121,18 +123,13 @@ def _stop_r(entry, signal_low, d, s, O, L, C, n_dates, horizon):
         d0, si = d[i], s[i]
         if d0 + 1 >= n_dates or np.isnan(entry[i]):
             continue
-        stop = max(signal_low[i], entry[i] * 0.94)
+        stop = exits.capped_stop("long", entry[i], signal_low[i], 0.94)
         risk = entry[i] - stop
         if risk <= 0 or np.isnan(risk):
             continue
-        for k in range(1, horizon + 1):
-            if d0 + k >= n_dates or np.isnan(C[d0 + k, si]):
-                break
-            if L[d0 + k, si] <= stop:
-                out[i] = (min(O[d0 + k, si], stop) - entry[i]) / risk
-                break
-            if k == horizon:
-                out[i] = (C[d0 + k, si] - entry[i]) / risk
+        plan = exits.ExitPlan(side="long", stop=stop, time_cap=horizon)
+        trade = exits.walk(O[:, si], None, L[:, si], C[:, si], d0, entry[i], plan)
+        out[i] = trade.r_multiple(entry[i], risk, "long")
     return out
 
 
@@ -145,18 +142,13 @@ def _stop_r_short(entry, signal_high, d, s, O, H, C, n_dates, horizon):
         d0, si = d[i], s[i]
         if d0 + 1 >= n_dates or np.isnan(entry[i]):
             continue
-        stop = min(signal_high[i], entry[i] * 1.06)
+        stop = exits.capped_stop("short", entry[i], signal_high[i], 1.06)
         risk = stop - entry[i]
         if risk <= 0 or np.isnan(risk):
             continue
-        for k in range(1, horizon + 1):
-            if d0 + k >= n_dates or np.isnan(C[d0 + k, si]):
-                break
-            if H[d0 + k, si] >= stop:
-                out[i] = (entry[i] - max(O[d0 + k, si], stop)) / risk
-                break
-            if k == horizon:
-                out[i] = (entry[i] - C[d0 + k, si]) / risk
+        plan = exits.ExitPlan(side="short", stop=stop, time_cap=horizon)
+        trade = exits.walk(O[:, si], H[:, si], None, C[:, si], d0, entry[i], plan)
+        out[i] = trade.r_multiple(entry[i], risk, "short")
     return out
 
 
@@ -215,37 +207,18 @@ def _stop_r_trail(entry, signal_low, d, s, O, H, L, C, RL, n_dates, be_at=None):
         if d0 + 1 >= n_dates or np.isnan(entry[i]):
             continue
         e = entry[i]
-        stop = max(signal_low[i], e * 0.94)
+        stop = exits.capped_stop("long", e, signal_low[i], 0.94)
         risk = e - stop
         if risk <= 0 or np.isnan(risk):
             continue
-        target = e + TRAIL_TARGET_R * risk
-        be_level = e + be_at * risk if be_at is not None else None
-        half_r, half_done, trail = 0.0, False, -np.inf
-        for k in range(1, TRAIL_CAP + 1):
-            day = d0 + k
-            if day >= n_dates or np.isnan(C[day, si]):
-                break                                   # unresolved -> NaN
-            if L[day, si] <= stop:
-                fill = min(O[day, si], stop)
-                out[i] = half_r + (0.5 if half_done else 1.0) * (fill - e) / risk
-                break
-            if not half_done and H[day, si] >= target:
-                half_r = 0.5 * (max(O[day, si], target) - e) / risk
-                half_done = True
-            if be_level is not None and stop < e and H[day, si] >= be_level:
-                stop = e
-            lvl = RL[day, si]
-            if lvl > trail:                              # NaN never passes
-                trail = lvl
-            if C[day, si] < trail:
-                nxt = day + 1
-                px = O[nxt, si] if nxt < n_dates and not np.isnan(O[nxt, si]) \
-                    else C[day, si]
-                out[i] = half_r + (0.5 if half_done else 1.0) * (px - e) / risk
-                break
-            if k == TRAIL_CAP:
-                out[i] = half_r + (0.5 if half_done else 1.0) * (C[day, si] - e) / risk
+        plan = exits.ExitPlan(
+            side="long", stop=stop,
+            touches=(exits.Touch("half_at_2r", e + TRAIL_TARGET_R * risk, 0.5),),
+            breakeven_at=e + be_at * risk if be_at is not None else np.nan,
+            close_exits=(exits.CloseExit("trail", "<", RL[:, si], ratchet=True),),
+            time_cap=TRAIL_CAP)
+        trade = exits.walk(O[:, si], H[:, si], L[:, si], C[:, si], d0, e, plan)
+        out[i] = trade.r_multiple(e, risk, "long")
     return out
 
 
@@ -264,37 +237,18 @@ def _stop_r_trail_short(entry, signal_high, d, s, O, H, L, C, RH, n_dates,
         if d0 + 1 >= n_dates or np.isnan(entry[i]):
             continue
         e = entry[i]
-        stop = min(signal_high[i], e * 1.06)
+        stop = exits.capped_stop("short", e, signal_high[i], 1.06)
         risk = stop - e
         if risk <= 0 or np.isnan(risk):
             continue
-        target = e - TRAIL_TARGET_R * risk
-        be_level = e - be_at * risk if be_at is not None else None
-        half_r, half_done, trail = 0.0, False, np.inf
-        for k in range(1, TRAIL_CAP + 1):
-            day = d0 + k
-            if day >= n_dates or np.isnan(C[day, si]):
-                break
-            if H[day, si] >= stop:
-                fill = max(O[day, si], stop)
-                out[i] = half_r + (0.5 if half_done else 1.0) * (e - fill) / risk
-                break
-            if not half_done and L[day, si] <= target:
-                half_r = 0.5 * (e - min(O[day, si], target)) / risk
-                half_done = True
-            if be_level is not None and stop > e and L[day, si] <= be_level:
-                stop = e
-            lvl = RH[day, si]
-            if lvl < trail:
-                trail = lvl
-            if C[day, si] > trail:
-                nxt = day + 1
-                px = O[nxt, si] if nxt < n_dates and not np.isnan(O[nxt, si]) \
-                    else C[day, si]
-                out[i] = half_r + (0.5 if half_done else 1.0) * (e - px) / risk
-                break
-            if k == TRAIL_CAP:
-                out[i] = half_r + (0.5 if half_done else 1.0) * (e - C[day, si]) / risk
+        plan = exits.ExitPlan(
+            side="short", stop=stop,
+            touches=(exits.Touch("half_at_2r", e - TRAIL_TARGET_R * risk, 0.5),),
+            breakeven_at=e - be_at * risk if be_at is not None else np.nan,
+            close_exits=(exits.CloseExit("trail", ">", RH[:, si], ratchet=True),),
+            time_cap=TRAIL_CAP)
+        trade = exits.walk(O[:, si], H[:, si], L[:, si], C[:, si], d0, e, plan)
+        out[i] = trade.r_multiple(e, risk, "short")
     return out
 
 
