@@ -4,27 +4,36 @@
 
 Steps: compile strategies/<name>/spec.json (validates first), load the study
 price cache (backtest/studies/common.py) and the feature store columns the
-strategy names, simulate each entry clock with the shared exit rules, and
-write one `runs` row plus its `trades` per clock.
+strategy names, simulate the spec's entry clock with the shared exit rules,
+and write one `runs` row plus its `trades` (contract:
+.claude/skills/trades-db/SKILL.md).
+
+One run = one entry clock: the FIRST of the spec's entry_clocks_tested
+(next_open when a condition is only known at the next open). The runs table
+has no clock column, so a run's clock is always recoverable from its spec_json.
 
 Inputs, built locally from the data snapshot:
   price cache    PYTHONPATH=src python src/backtest/studies/common.py
   feature store  PYTHONPATH=src python src/backtest/features.py
-The run stops if a feature the strategy needs is missing or older than the cache.
+The run stops if the cache is older than data/parquet/daily, or if a feature
+the strategy needs is missing or older than the cache. data_snapshot is then
+the latest bar date the run used.
 """
 
 import argparse
-import hashlib
+import glob
 import importlib.util
 import os
 import subprocess
 
-import numpy as np
+import duckdb
 import pandas as pd
 
 from backtest import simulator, spec_compiler, trades_db
 from backtest.features import FEATURES_DIR
 from data_collection.paths import ROOT_DIR
+
+DAILY_GLOB = os.path.join(ROOT_DIR, "data", "parquet", "daily", "*.parquet")
 
 
 class Columns:
@@ -55,21 +64,23 @@ class Columns:
                              f"{close.index.max().date()}: rebuild the feature store")
         return frame.reindex(index=close.index, columns=close.columns).astype(float)
 
-    def fingerprint(self):
-        """sha256 over every frame this run read, so two runs can tell if their inputs matched."""
-        digest = hashlib.sha256()
-        for name in sorted(self.frames):
-            frame = self.frames[name]
-            digest.update(name.encode())
-            digest.update("|".join(map(str, frame.columns)).encode())
-            digest.update(np.ascontiguousarray(frame.to_numpy(dtype=float)).tobytes())
-        return digest.hexdigest()[:16]
+
+def entry_clock(module):
+    return "next_open" if module.NEXT_OPEN_ONLY else module.ENTRY_CLOCKS[0]
 
 
-def data_snapshot(col):
-    close = col("close")
-    first, last = (simulator._calendar_dates(close.index[[0, -1]]))
-    return f"cache {first}..{last}, {close.shape[1]} symbols, inputs sha256:{col.fingerprint()}"
+def data_snapshot(cache, daily_glob=DAILY_GLOB):
+    """The cache's last bar date; stops if data/parquet/daily already has newer bars."""
+    last = simulator.calendar_dates(cache["close"].index[-1:])[0]
+    if glob.glob(daily_glob):
+        con = duckdb.connect()
+        con.execute("SET TimeZone='Asia/Kolkata'")      # stored dates are midnight IST
+        newest = con.execute(f"SELECT max(CAST(date AS DATE)) FROM read_parquet('{daily_glob}')").fetchone()[0]
+        con.close()
+        if newest is not None and newest > last:
+            raise SystemExit(f"the price cache ends {last} but data/parquet/daily has bars to {newest}: "
+                             f"rebuild the cache (PYTHONPATH=src python src/backtest/studies/common.py)")
+    return last
 
 
 def git_sha():
@@ -87,25 +98,23 @@ def load_strategy(py_path):
     return module
 
 
-def run(strategy_dir, db_path=trades_db.DEFAULT_PATH, cache=None, features_dir=FEATURES_DIR, clocks=None):
+def run(strategy_dir, db_path=trades_db.DEFAULT_PATH, cache=None, features_dir=FEATURES_DIR,
+        daily_glob=DAILY_GLOB):
     """Compile, simulate and store one strategy. Returns the new run_ids."""
     py_path = spec_compiler.write_strategy(strategy_dir)
     spec, _ = spec_compiler.load_spec(strategy_dir)
     module = load_strategy(py_path)
-    clocks = clocks or list(module.ENTRY_CLOCKS)
-    if module.NEXT_OPEN_ONLY:
-        clocks = [c for c in clocks if c == "next_open"]
     if cache is None:
         from backtest.studies import common
         cache = common.load_cache()
+    snapshot = data_snapshot(cache, daily_glob)
     col = Columns(cache, features_dir, set(module.COLUMNS) | {"open", "high", "low", "close"})
-    snapshot, sha = data_snapshot(col), git_sha()
+    clock = entry_clock(module)
 
+    trades = simulator.simulate(module, col, clock)
     con = trades_db.connect(db_path)
-    run_ids = []
-    for clock in clocks:
-        trades = simulator.simulate(module, col, clock)
-        run_ids.append(trades_db.write_run(con, module.SPEC_ID, clock, spec, sha, snapshot, trades))
+    run_ids = [trades_db.write_run(con, module.SPEC_ID, spec, git_sha(), snapshot, trades)]
+    print(f"entry clock: {clock}")
     print(trades_db.summary(con, run_ids).to_string(index=False))
     for note in module.NOT_APPLIED:
         print("  not applied:", note)
@@ -117,10 +126,9 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="Run strategies/<name> through the shared engine")
     ap.add_argument("strategy", help="strategies/<name>")
     ap.add_argument("--db", default=trades_db.DEFAULT_PATH)
-    ap.add_argument("--clock", action="append", help="run only this entry clock (repeatable)")
     a = ap.parse_args(argv)
     try:
-        run(a.strategy, db_path=a.db, clocks=a.clock)
+        run(a.strategy, db_path=a.db)
     except spec_compiler.SpecError as exc:
         raise SystemExit(f"cannot compile: {exc}")
 

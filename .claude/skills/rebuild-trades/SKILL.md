@@ -39,6 +39,8 @@ The same spec, code version and data snapshot always give the same trades.
    PYTHONPATH=src python src/backtest/features.py         # feature store, after the cache
    PYTHONPATH=src python -m backtest.run_spec strategies/<name>
    ```
+   A run uses the spec's first `entry_clocks_tested` clock (the `runs` table has no clock column).
+   It also stops if the price cache is older than `data/parquet/daily`.
 6. **Report** from DuckDB, with the identifying fields from the `runs` table first:
    `strategy, spec_hash, schema_version, git_sha, data_snapshot`, then the trade count and summary.
    Compare the strategy against its `__control` run, not against zero.

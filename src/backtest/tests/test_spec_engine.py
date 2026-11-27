@@ -1,5 +1,6 @@
 """simulator + trades_db + run_spec: spec -> shared engine -> output/trades.duckdb."""
 
+import datetime
 import json
 import os
 import shutil
@@ -10,11 +11,24 @@ from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
 
-from backtest import features, run_spec, simulator, spec_compiler, trades_db
+from backtest import features, run_spec, simulator, trades_db
 from data_collection.paths import ROOT_DIR
 
 ZANGER_SPEC = os.path.join(ROOT_DIR, "strategies", "zanger", "spec.json")
+NO_DAILY = "/nonexistent/*.parquet"
+
+# The contract in .claude/skills/trades-db/SKILL.md, column by column.
+CONTRACT = {
+    "runs": [("run_id", "VARCHAR"), ("strategy", "VARCHAR"), ("schema_version", "VARCHAR"),
+             ("spec_hash", "VARCHAR"), ("spec_json", "JSON"), ("git_sha", "VARCHAR"), ("data_snapshot", "DATE"),
+             ("db_version", "INTEGER"), ("run_at", "TIMESTAMP WITH TIME ZONE")],
+    "trades": [("run_id", "VARCHAR"), ("strategy", "VARCHAR"), ("symbol", "VARCHAR"), ("side", "VARCHAR"),
+               ("entry_date", "DATE"), ("entry_px", "DOUBLE"), ("exit_date", "DATE"), ("exit_px", "DOUBLE"),
+               ("exit_reason", "VARCHAR"), ("r", "DOUBLE")],
+}
 
 
 def synthetic_cache(n_dates=1500, n_stocks=30, seed=1):
@@ -69,7 +83,7 @@ class SimulatorTests(unittest.TestCase):
         trades = simulator.simulate(module, col, "next_open", signal=signal)
         self.assertEqual(len(trades), 1)                       # bar-1 signal arrives while bar-0 trade is open
         t = trades.iloc[0]
-        self.assertEqual((t.entry_px, t.exit_px, t.exit_reason), (100.0, 103.0, "time"))
+        self.assertEqual((t.side, t.entry_px, t.exit_px, t.exit_reason), ("long", 100.0, 103.0, "time"))
         self.assertAlmostEqual(t.r, (103 - 100) / 10)          # stop 90 -> risk 10
 
     def test_costs_are_charged_in_r(self):
@@ -84,10 +98,50 @@ class SimulatorTests(unittest.TestCase):
         self.assertIsNone(t.exit_date)
         self.assertTrue(pd.isna(t.r))
 
+    def test_stock_that_stops_trading_exits_as_delist_at_its_last_close(self):
+        rows = self.rows[:3] + [(np.nan,) * 4] * 3
+        module, col, signal = tiny(rows, [0], time_bars=10)
+        t = simulator.simulate(module, col, "next_open", signal=signal).iloc[0]
+        self.assertEqual((t.exit_reason, t.exit_px), ("delist", 102.0))
+        self.assertAlmostEqual(t.r, (102 - 100) / 10)
+
     def test_signal_close_enters_at_the_signal_close(self):
         module, col, signal = tiny(self.rows, [1], time_bars=1)
         t = simulator.simulate(module, col, "signal_close", signal=signal).iloc[0]
         self.assertEqual((t.entry_px, t.exit_px, t.entry_date), (101.0, 102.0, t.signal_date))
+
+
+# ── the trades-db contract ───────────────────────────────────────────────────
+
+class TradesDbTests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.db = os.path.join(self.tmp, "trades.duckdb")
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def test_tables_match_the_contract(self):
+        con = trades_db.connect(self.db)
+        for table, columns in CONTRACT.items():
+            got = [(r[0], r[1]) for r in con.execute(f"DESCRIBE {table}").fetchall()]
+            self.assertEqual(got, columns, table)
+
+    def test_a_failed_write_leaves_nothing(self):
+        con = trades_db.connect(self.db)
+        spec = {"schema_version": "1.0"}
+        bad = pd.DataFrame([{"symbol": "X", "side": "long", "entry_date": datetime.date(2020, 1, 1),
+                             "entry_px": None, "exit_date": None, "exit_px": None, "exit_reason": "open", "r": None}])
+        with self.assertRaises(Exception):                       # entry_px NOT NULL
+            trades_db.write_run(con, "x", spec, "sha", datetime.date(2020, 1, 1), bad)
+        self.assertEqual(con.execute("SELECT count(*) FROM runs").fetchone()[0], 0)
+
+    def test_unknown_exit_reason_is_rejected(self):
+        con = trades_db.connect(self.db)
+        bad = pd.DataFrame([{"symbol": "X", "side": "long", "entry_date": datetime.date(2020, 1, 1),
+                             "entry_px": 1.0, "exit_date": None, "exit_px": None, "exit_reason": "magic", "r": None}])
+        with self.assertRaisesRegex(ValueError, "exit_reason"):
+            trades_db.write_run(con, "x", {"schema_version": "1.0"}, "sha", datetime.date(2020, 1, 1), bad)
 
 
 # ── the real Zanger spec end to end ──────────────────────────────────────────
@@ -101,55 +155,66 @@ class EngineEndToEndTests(unittest.TestCase):
         build_features(cls.cache, cls.features_dir)
         cls.strategy = copy_zanger(cls.tmp)
         cls.db = os.path.join(cls.tmp, "trades.duckdb")
-        cls.run_ids = run_spec.run(cls.strategy, db_path=cls.db, cache=cls.cache, features_dir=cls.features_dir)
-        con = trades_db.connect(cls.db)
+        cls.run_ids = cls.run_once(cls.db)
+        con = trades_db.connect(cls.db, read_only=True)
         cls.runs = con.execute("SELECT * FROM runs").df()
         cls.trades = con.execute("SELECT * FROM trades").df()
         con.close()
 
     @classmethod
+    def run_once(cls, db, cache=None, daily_glob=NO_DAILY):
+        return run_spec.run(cls.strategy, db_path=db, cache=cache if cache is not None else cls.cache,
+                            features_dir=cls.features_dir, daily_glob=daily_glob)
+
+    @classmethod
     def tearDownClass(cls):
         shutil.rmtree(cls.tmp)
 
-    def test_one_run_per_entry_clock_with_identity_fields(self):
-        self.assertEqual(sorted(self.runs.entry_clock), ["next_open", "signal_close_strong"])
+    def test_run_row_carries_the_identity_fields(self):
         with open(ZANGER_SPEC) as f:
             spec = json.load(f)
-        row = self.runs.iloc[0]
-        self.assertEqual(row.strategy, "zanger")
+        strategy_runs = self.runs[self.runs.strategy == "zanger"]
+        self.assertEqual(len(strategy_runs), 1)
+        row = strategy_runs.iloc[0]
         self.assertEqual(row.schema_version, "1.0")
         self.assertEqual(row.spec_hash, trades_db.spec_hash(spec))
         self.assertEqual(json.loads(row.spec_json), spec)
+        self.assertEqual(row.db_version, trades_db.DB_VERSION)
         self.assertTrue(row.git_sha)
-        self.assertIn("symbols, inputs sha256:", row.data_snapshot)
+        self.assertEqual(pd.Timestamp(row.data_snapshot).date(), datetime.date(2021, 9, 30))
 
-    def test_trades_are_written_and_dated_in_order(self):
-        self.assertGreater(len(self.trades), 20)
-        self.assertTrue((self.trades.entry_date >= self.trades.signal_date).all())
-        closed = self.trades.dropna(subset=["exit_date"])
+    def test_trades_follow_the_contract(self):
+        mine = self.trades[self.trades.strategy == "zanger"]
+        self.assertGreater(len(mine), 0)
+        self.assertTrue((mine.side == "long").all())
+        self.assertTrue(set(mine.exit_reason) <= set(trades_db.EXIT_REASONS))
+        closed = mine.dropna(subset=["exit_date"])
         self.assertTrue((closed.exit_date >= closed.entry_date).all())
-        reasons = set("+".join(self.trades.exit_reason).split("+"))
-        self.assertTrue(reasons <= {"exit_1:close_below_level", "exit_2:trail_ma", "partial_1", "time", "stop", "open"},
-                        reasons)
 
     def test_rerun_gives_identical_trades(self):
         db2 = os.path.join(self.tmp, "again.duckdb")
-        run_spec.run(self.strategy, db_path=db2, cache=self.cache, features_dir=self.features_dir)
-        con = trades_db.connect(db2)
+        self.run_once(db2)
+        con = trades_db.connect(db2, read_only=True)
         again = con.execute("SELECT * FROM trades").df()
-        snapshot = con.execute("SELECT data_snapshot FROM runs").fetchone()[0]
         con.close()
-        key = ["strategy", "symbol", "signal_date", "entry_date"]
+        key = ["strategy", "symbol", "entry_date"]
         pd.testing.assert_frame_equal(self.trades.drop(columns="run_id").sort_values(key).reset_index(drop=True),
                                       again.drop(columns="run_id").sort_values(key).reset_index(drop=True))
-        self.assertEqual(snapshot, self.runs.data_snapshot.iloc[0])
 
     def test_stale_feature_store_stops_the_run(self):
         longer = {k: pd.concat([v, v.iloc[-1:].set_axis([v.index[-1] + pd.offsets.BDay()])])
                   for k, v in self.cache.items()}
         with self.assertRaisesRegex(SystemExit, "rebuild the feature store"):
-            run_spec.run(self.strategy, db_path=os.path.join(self.tmp, "stale.duckdb"),
-                         cache=longer, features_dir=self.features_dir)
+            self.run_once(os.path.join(self.tmp, "stale.duckdb"), cache=longer)
+
+    def test_cache_older_than_daily_parquet_stops_the_run(self):
+        daily = os.path.join(self.tmp, "daily")
+        os.makedirs(daily)
+        newer = pd.DataFrame({"date": pd.to_datetime(["2021-10-04"]).tz_localize("Asia/Kolkata"),
+                              "close": [1.0], "symbol": ["STK00"]})
+        pq.write_table(pa.Table.from_pandas(newer, preserve_index=False), os.path.join(daily, "STK00.parquet"))
+        with self.assertRaisesRegex(SystemExit, "rebuild the cache"):
+            self.run_once(os.path.join(self.tmp, "old_cache.duckdb"), daily_glob=os.path.join(daily, "*.parquet"))
 
 
 if __name__ == "__main__":
