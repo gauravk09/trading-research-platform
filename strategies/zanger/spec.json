@@ -26,13 +26,13 @@
       "setup_family": "breakout",
       "entry": {
         "levels": {
-          "pivot": "max(close,20)[1]"
+          "pivot": "close_max20[1]"
         },
         "setup_conditions": [
           {
             "id": "near_52w_high",
-            "text": "High-priced leader near its 52-week high",
-            "expr": "close >= 0.85 * max(close,252)",
+            "text": "High-priced leader within 15% of its 52-week closing high",
+            "expr": "pct_52wh >= -15",
             "origin": "proxy",
             "quote": "High-priced quality leader near 52-week highs",
             "known_at": "close"
@@ -40,7 +40,7 @@
           {
             "id": "well_formed_base",
             "text": "At least 20 bars since the last 20-day closing-high cross, base no deeper than 20%",
-            "expr": "bars_since(close > max(close,20)[1])[1] >= 20 and min(low,20)[1] >= 0.80 * pivot",
+            "expr": "days_since_20dh[1] >= 20 and low_min20[1] >= 0.80 * pivot",
             "origin": "proxy",
             "quote": "Has a well-formed base or pattern with a definable trendline / breakout point",
             "known_at": "close"
@@ -48,7 +48,7 @@
           {
             "id": "volume_explosion",
             "text": "Breakout-day volume at least 2x the 30-day average",
-            "expr": "volume >= 2.0 * avg(volume,30)[1]",
+            "expr": "volume >= 2.0 * vol_avg30[1]",
             "origin": "proxy",
             "quote": "Breakout volume must be above the recent trend - know the stock's 30-day average volume",
             "known_at": "close"
@@ -82,7 +82,7 @@
         {
           "type": "trail_ma",
           "text": "Exit the remainder on a close below the 20-day average (stands in for his hand-drawn trendline)",
-          "expr": "close < sma(close,20)",
+          "expr": "close < sma20",
           "origin": "proxy",
           "quote": "Primary sell signal: a break of the support trendline."
         },
@@ -97,10 +97,10 @@
     },
 
     "from_house": {
-      "id": "dan_zanger_breakout",
+      "id": "zanger",
       "stage": "S1",
       "created_at": "2026-07-29",
-      "created_by": "research/factory/dan_zanger/SPEC.md, converted to JSON",
+      "created_by": "strategies/_archive/dan_zanger/SPEC.md, converted to JSON",
       "instrument": "nse_cash",
       "universe": {
         "base": "nse_eq_all",
@@ -125,11 +125,11 @@
       "dedup_bars": 10,
       "data_requirements": [
         {"dataset": "daily prices", "path": "data/parquet/daily/", "available_from": "2015-01-01", "known_at": "close"},
-        {"dataset": "feature store: rs", "path": "data/processed/features/", "available_from": "2015-01-01", "known_at": "close"}
+        {"dataset": "feature store: rs, pct_52wh, close_max20, low_min20, days_since_20dh, vol_avg30, sma20", "path": "data/processed/features/", "available_from": "2015-01-01", "known_at": "close"}
       ],
       "prior_work_check": {
         "roadmap_rejected": [],
-        "ledger_matches": ["2026-07-29 dan_zanger_breakout S1 - spec written"],
+        "ledger_matches": ["strategies/_archive/LEDGER.md: 2026-07-29 dan_zanger_breakout S1 - spec written"],
         "overlapping_studies": ["src/backtest/studies/ryan_52wk_high.py"],
         "registry_matches": ["ryan_minervini (overlaps the codable core)"]
       }

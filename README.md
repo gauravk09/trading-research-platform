@@ -69,7 +69,7 @@ How it works:
 5. **Results are rebuilt, not shared.** `output/trades.duckdb` is a local cache that is never committed. Each person rebuilds it from the specs in git and their copy of the data snapshot. When two people's results differ, compare `spec_hash`, `git_sha` and `data_snapshot` first. The steps are in `.claude/skills/rebuild-trades/SKILL.md`.
 6. **Old work is archived.** `strategies/_archive/` holds every earlier strategy and research folder. It is read-only, and the live scanners still import from it until replacements exist.
 
-Status: the data layers and the feature store exist today. The schema, compiler, engine and trades database are being built (PRs 1, 2 and 4).
+Status: the data layers, the feature store (with `FEATURE_NAMES`, the one list of feature names) and the versioned spec schema in `strategies/_spec/` exist. The compiler, shared exits, engine and trades database are being built.
 
 Other top-level folders:
 

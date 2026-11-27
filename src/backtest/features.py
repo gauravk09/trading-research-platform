@@ -50,6 +50,22 @@ Feature list (v2, 2026-07-31 — trader-playbook genes for the GA):
   rsline_pct52wh    IBD RS-line (close / equal-weight universe index) as
                     % below its own 252d high (0 = RS line at new high)
 
+Feature list (v3, 2026-11-27 — building blocks for strategies/<name>/spec.json):
+  close_max20       highest close of the last 20 sessions, incl. today
+                    (a breakout pivot is close_max20[1] in a spec)
+  low_min20         lowest low of the last 20 sessions, incl. today
+  sma20             20-day simple moving average of the close
+  vol_avg30         30-day mean volume, incl. today
+  turnover20_cr     20-day mean traded value (close x volume), Rs crore
+  days_since_20dh   sessions since the close last broke above the PRIOR 20-day
+                    closing high (0 = it did today)
+  range_pos         where the close sits in the day's range, 0 = low, 1 = high;
+                    NaN when high == low
+
+FEATURE_NAMES below is the single list of what this store computes. The spec
+compiler accepts exactly these names (plus open/high/low/close/volume), so a
+strategy can never reference a feature the store does not build.
+
 Build/refresh:  ~/anaconda3/bin/python src/backtest/features.py
 Load:           from backtest.features import load_features
 """
@@ -68,6 +84,19 @@ FEATURES_DIR = os.path.join(_ROOT, "data", "processed", "features")
 DELIVERY = os.path.join(_ROOT, "data", "processed", "delivery_matrix.parquet")
 SECTOR_MAP = os.path.join(_ROOT, "data", "processed", "sector_map.csv")
 
+FEATURE_NAMES = (
+    "rs", "ti65", "ret7", "ret21", "ret30", "bounce_low21", "pct_52wh", "pct_52wl",
+    "days_since_52wh", "eff_ratio", "adr20", "tightness", "rvol50", "volc5_50",
+    "turn_decile", "dist_50dma", "trend_age", "consol_days", "days_since_burst",
+    "burst_success", "trend_template", "updown_vol50", "pocket_pivot", "rsline_pct52wh",
+    "close_max20", "low_min20", "sma20", "vol_avg30", "turnover20_cr", "days_since_20dh",
+    "range_pos", "deliv_x20", "sector_rs",
+)
+# Built only when their input file exists (delivery matrix, sector map).
+OPTIONAL_FEATURES = frozenset({"deliv_x20", "sector_rs"})
+# Published after the close: knowable before the next open, not at a same-day close entry.
+NEXT_OPEN_FEATURES = frozenset({"deliv_x20"})
+
 
 def _days_since(mask: pd.DataFrame) -> pd.DataFrame:
     """Sessions since `mask` was last True, per column. NaN before first True."""
@@ -76,7 +105,8 @@ def _days_since(mask: pd.DataFrame) -> pd.DataFrame:
     return pos - pos.where(mask).ffill()
 
 
-def build_all(m: dict) -> None:
+def compute_all(m: dict) -> dict:
+    """Every feature as a date x symbol frame, keyed by name (no file writes)."""
     close, high, low, volume = m["close"], m["high"], m["low"], m["volume"]
     out = {}
 
@@ -136,6 +166,15 @@ def build_all(m: dict) -> None:
     rs_line = close.div(ew_index, axis=0)
     out["rsline_pct52wh"] = (rs_line / rs_line.rolling(252).max() - 1) * 100
 
+    close_max20 = close.rolling(20).max()
+    out["close_max20"] = close_max20
+    out["low_min20"] = low.rolling(20).min()
+    out["sma20"] = close.rolling(20).mean()
+    out["vol_avg30"] = volume.rolling(30).mean()
+    out["turnover20_cr"] = turn20 / 1e7
+    out["days_since_20dh"] = _days_since(close > close_max20.shift(1))
+    out["range_pos"] = ((close - low) / (high - low)).where(high > low)
+
     if os.path.exists(DELIVERY):
         dm = pd.read_parquet(DELIVERY).reindex(index=close.index,
                                                columns=close.columns)
@@ -159,10 +198,19 @@ def build_all(m: dict) -> None:
                                         (len(srs), len(cols)))
         out["sector_rs"] = srs
 
-    os.makedirs(FEATURES_DIR, exist_ok=True)
-    for name, df in out.items():
+    unlisted = set(out) - set(FEATURE_NAMES)
+    missing = set(FEATURE_NAMES) - OPTIONAL_FEATURES - set(out)
+    if unlisted or missing:
+        raise RuntimeError(f"FEATURE_NAMES out of date: not listed {sorted(unlisted)}, "
+                           f"not built {sorted(missing)}")
+    return out
+
+
+def build_all(m: dict, out_dir: str = FEATURES_DIR) -> None:
+    os.makedirs(out_dir, exist_ok=True)
+    for name, df in compute_all(m).items():
         df.astype("float32").to_parquet(
-            os.path.join(FEATURES_DIR, f"{name}.parquet"), compression="snappy")
+            os.path.join(out_dir, f"{name}.parquet"), compression="snappy")
         print(f"  {name:<18} {df.shape}  non-null {df.notna().mean().mean() * 100:4.1f}%")
 
 
