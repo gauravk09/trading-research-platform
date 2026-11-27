@@ -32,7 +32,15 @@ The same spec, code version and data snapshot always give the same trades.
    compiler. A spec that needs a feature the store doesn't have fails here: add the feature to
    `src/backtest/features.py` (and `FEATURE_NAMES`) first, never inside the strategy.
 5. **Run** the shared engine. It writes the `runs` and `trades` tables in `output/trades.duckdb`, plus the
-   `<name>__control` run (random entries on the same dates).
+   `<name>__control` run (random entries on the same dates). It needs the study price cache and the feature
+   store built from the same data snapshot, and stops if a feature is missing or older than the cache:
+   ```bash
+   PYTHONPATH=src python src/backtest/studies/common.py   # price cache, after a data refresh
+   PYTHONPATH=src python src/backtest/features.py         # feature store, after the cache
+   PYTHONPATH=src python -m backtest.run_spec strategies/<name>
+   ```
+   A run uses the spec's first `entry_clocks_tested` clock (the `runs` table has no clock column).
+   It also stops if the price cache is older than `data/parquet/daily`.
 6. **Report** from DuckDB, with the identifying fields from the `runs` table first:
    `strategy, spec_hash, schema_version, git_sha, data_snapshot`, then the trade count and summary.
    Compare the strategy against its `__control` run, not against zero.

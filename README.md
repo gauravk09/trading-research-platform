@@ -69,7 +69,7 @@ How it works:
 5. **Results are rebuilt, not shared.** `output/trades.duckdb` is a local cache that is never committed. Each person rebuilds it from the specs in git and their copy of the data snapshot. When two people's results differ, compare `spec_hash`, `git_sha` and `data_snapshot` first. The steps are in `.claude/skills/rebuild-trades/SKILL.md`.
 6. **Old work is archived.** `strategies/_archive/` holds every earlier strategy and research folder. It is read-only, and the live scanners still import from it until replacements exist.
 
-Status: the data layers, the feature store (with `FEATURE_NAMES`, the one list of feature names) and the versioned spec schema in `strategies/_spec/` exist, as do the shared stop/exit rules in `src/backtest/exits.py` (the event store already runs on them) and the spec compiler (`src/backtest/spec_compiler.py`, which accepts only feature-store names). The engine and trades database are being built.
+Status: the data layers, the feature store (with `FEATURE_NAMES`, the one list of feature names) and the versioned spec schema in `strategies/_spec/` exist, as do the shared stop/exit rules in `src/backtest/exits.py` (the event store already runs on them) and the spec compiler (`src/backtest/spec_compiler.py`, which accepts only feature-store names), the simulator (`src/backtest/simulator.py`) and the trades database (`src/backtest/trades_db.py`, run with `python -m backtest.run_spec strategies/<name>`). The same-date control run is being built.
 
 Other top-level folders:
 
